@@ -24,6 +24,22 @@ jobs:
       - name: Cardmarket-prijzen bijwerken
         run: python scripts/update_prices.py --force
 
+      - name: Toon resultaat
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('prices.json')
+          if not p.exists():
+              raise SystemExit('prices.json bestaat niet na update')
+          data = json.loads(p.read_text(encoding='utf-8'))
+          print('updatedAt:', data.get('updatedAt'))
+          print('totalCards:', data.get('totalCards'))
+          print('matchedCards:', data.get('matchedCards'))
+          print('pricedCards:', data.get('pricedCards'))
+          print('prices length:', len(data.get('prices', [])))
+          PY
+
       - name: Gewijzigde prijsbestanden bewaren
         run: |
           if [[ -n "$(git status --porcelain prices.json price_history.json cardmarket_match_report.csv cardmarket_setcodes.csv)" ]]; then
