@@ -44,6 +44,8 @@ jobs:
               print('priceRows:', debug.get('priceRows'))
               print('priceMapIds:', debug.get('priceMapIds'))
               print('samplePriceKeys:', debug.get('samplePriceKeys'))
+              print('priceObjectShape:', debug.get('priceObjectShape'))
+              print('priceCacheSizeChars:', debug.get('priceCacheSizeChars'))
           PY
 
       - name: Gewijzigde prijsbestanden bewaren
