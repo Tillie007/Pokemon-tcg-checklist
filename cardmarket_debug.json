@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2026-07-02T13:59:30.297668+00:00",
+  "productRows": 70816,
+  "priceRows": 0,
+  "usableProducts": 70816,
+  "priceMapIds": 0,
+  "matchedCards": 277,
+  "pricedCards": 0,
+  "samplePriceKeys": [],
+  "matchTypes": {
+    "unmatched": 20019,
+    "mapped-expansion+unique-name": 277,
+    "ambiguous-name-in-expansion": 28
+  }
+}
