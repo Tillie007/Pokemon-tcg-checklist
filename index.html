@@ -419,6 +419,25 @@ body.pwa-modal-open { overflow: hidden; }
           <option value="missing">Alleen nog nodig</option>
         </select>
       </div>
+      <div>
+        <label for="priceFilter">Prijs</label>
+        <select id="priceFilter">
+          <option value="all">Alle prijzen</option>
+          <option value="priced">Alleen met prijs</option>
+          <option value="unpriced">Alleen zonder prijs</option>
+        </select>
+      </div>
+      <div>
+        <label for="sortSelect">Sorteren</label>
+        <select id="sortSelect">
+          <option value="default">Standaard volgorde</option>
+          <option value="priceDesc">Hoogste prijs eerst</option>
+          <option value="priceAsc">Laagste prijs eerst</option>
+          <option value="nameAsc">Kaartnaam A-Z</option>
+          <option value="setAsc">Set A-Z</option>
+          <option value="numberAsc">Kaartnummer oplopend</option>
+        </select>
+      </div>
     </div>
 
     <div class="statusline">
@@ -507,6 +526,8 @@ const searchInput = el('searchInput');
 const seriesFilter = el('seriesFilter');
 const setFilter = el('setFilter');
 const statusFilter = el('statusFilter');
+const priceFilter = el('priceFilter');
+const sortSelect = el('sortSelect');
 const pageSizeSelect = el('pageSizeSelect');
 
 function loadOwned() {
@@ -609,7 +630,7 @@ function priceFor(card) {
 }
 function choosePrice(p) {
   if (!p) return null;
-  const candidates = [p.price, p.trendPrice, p.avg30, p.lowPrice, p.foilTrend, p.foilLow];
+  const candidates = [p.price, p.trendPrice, p.avg30, p.lowPrice, p.foilTrendPrice, p.foilAvg30, p.foilLowPrice, p.foilTrend, p.foilLow];
   for (const v of candidates) {
     const n = parsePrice(v);
     if (Number.isFinite(n)) return n;
@@ -643,6 +664,10 @@ function cardmarketCodeFor(card) {
 function cardmarketNameFor(card) {
   const p = priceFor(card) || {};
   return p.cmSetName || p.cardmarketSetName || card.cmSetName || '';
+}
+function cardmarketCardNameFor(card) {
+  const p = priceFor(card) || {};
+  return p.cmName || p.cardmarketName || p.cardmarketCardName || p.cmRawName || '';
 }
 function cardmarketProductIdFor(card) {
   const p = priceFor(card) || {};
@@ -827,10 +852,10 @@ function importPricesJson(file) {
 }
 
 function exportPrices() {
-  const rows = [['Key','Serie','Set','Afkorting','Cardmarket Setcode','Cardmarket Setnaam','Kaartnr.','Kaartnaam','Prijs','Low Price','Trend Price','AVG30','Currency','Bron','Laatst bijgewerkt','Cardmarket Product ID','Cardmarket URL']];
+  const rows = [['Key','Serie','Set','Afkorting','Cardmarket Setcode','Cardmarket Setnaam','Cardmarket Kaartnaam','Kaartnr.','Kaartnaam','Prijs','Low Price','Trend Price','AVG30','Currency','Bron','Laatst bijgewerkt','Cardmarket Product ID','Cardmarket URL']];
   cards.forEach(c => {
     const p = priceFor(c) || {};
-    rows.push([c.key, c.series, c.set, c.abbr, cardmarketCodeFor(c), cardmarketNameFor(c), c.num, c.name, p.price || '', p.lowPrice || '', p.trendPrice || '', p.avg30 || '', p.currency || 'EUR', p.source || '', p.updatedAt || '', cardmarketProductIdFor(c), cardmarketUrlFor(c)]);
+    rows.push([c.key, c.series, c.set, c.abbr, cardmarketCodeFor(c), cardmarketNameFor(c), cardmarketCardNameFor(c), c.num, c.name, p.price || '', p.lowPrice || '', p.trendPrice || '', p.avg30 || '', p.currency || 'EUR', p.source || '', p.updatedAt || '', cardmarketProductIdFor(c), cardmarketUrlFor(c)]);
   });
   const csv = rows.map(row => row.map(csvEscape).join(';')).join('\n');
   download('pokemon_tcg_prijzen_template.csv', '\ufeff' + csv, 'text/csv;charset=utf-8');
@@ -853,6 +878,14 @@ function importPricesPayload(payload, sourceName = 'API/proxy') {
       lowPrice: lowPrice ?? '',
       trendPrice: trendPrice ?? '',
       avg30: avg30 ?? '',
+      foilLowPrice: item.foilLowPrice ?? item.foil_low ?? item.foilLow ?? '',
+      foilTrendPrice: item.foilTrendPrice ?? item.foil_trend ?? item.foilTrend ?? '',
+      foilAvg30: item.foilAvg30 ?? item.foil_avg30 ?? item.foilAVG30 ?? '',
+      cmName: item.cmName || item.cardmarketName || item.cardmarketCardName || item.cmRawName || '',
+      cmRawName: item.cmRawName || item.rawName || '',
+      imageUrl: item.imageUrl || item.image || item.imageURL || '',
+      rarity: item.rarity || item.cardRarity || item.rarityName || '',
+      matchType: item.matchType || '',
       url: item.url || item.cardmarketUrl || item.cardmarket_url || '',
       cmSetCode: item.cmSetCode || item.cardmarketSetCode || item.cmCode || item.cardmarket_code || '',
       cmSetName: item.cmSetName || item.cardmarketSetName || item.expansionName || item.cardmarket_expansion || '',
@@ -964,6 +997,7 @@ function openCardModal(card) {
           <b>Set</b><span>${escapeHtml(card.set)}</span>
           <b>Afkorting</b><span>${escapeHtml(card.abbr)}</span>
           <b>Cardmarket-code</b><span>${escapeHtml(cardmarketCodeFor(card) || 'Nog niet gekoppeld')}</span>
+          <b>Cardmarket-naam</b><span>${escapeHtml(cardmarketCardNameFor(card) || 'Nog niet gekoppeld')}</span>
           <b>Kaartnummer</b><span>${escapeHtml(card.num)}</span>
           <b>Rarity/type</b><span>${escapeHtml(rarityFor(card))}</span>
           <b>Waarde</b><span>${priceDisplay(card)}</span>
@@ -1058,20 +1092,61 @@ function applyFilters(resetPage = true) {
   const chosenSeries = seriesFilter.value;
   const chosenSet = setFilter.value;
   const status = statusFilter.value;
+  const priceStatus = priceFilter ? priceFilter.value : 'all';
+  const sortMode = sortSelect ? sortSelect.value : 'default';
   filtered = cards.filter(card => {
     if (chosenSeries && card.series !== chosenSeries) return false;
     if (!cardMatchesSet(card, chosenSet)) return false;
     const have = isOwned(card);
     if (status === 'owned' && !have) return false;
     if (status === 'missing' && have) return false;
+    const hasPrice = Number.isFinite(choosePrice(priceFor(card)));
+    if (priceStatus === 'priced' && !hasPrice) return false;
+    if (priceStatus === 'unpriced' && hasPrice) return false;
     if (q) {
-      const hay = `${card.series} ${card.set} ${card.abbr} ${cardmarketCodeFor(card)} ${cardmarketNameFor(card)} ${card.num} ${card.name}`.toLowerCase();
+      const hay = `${card.series} ${card.set} ${card.abbr} ${cardmarketCodeFor(card)} ${cardmarketNameFor(card)} ${cardmarketCardNameFor(card)} ${card.num} ${card.name}`.toLowerCase();
       if (!hay.includes(q)) return false;
     }
     return true;
   });
+  sortFiltered(sortMode);
   if (resetPage) currentPage = 1;
   render();
+}
+
+function priceSortValue(card) {
+  const n = choosePrice(priceFor(card));
+  return Number.isFinite(n) ? n : null;
+}
+function naturalCardNumber(card) {
+  const raw = String(card.num || '').toUpperCase();
+  const m = raw.match(/^([A-Z]*)(\d+)/);
+  return m ? [m[1], Number(m[2]), raw] : ['', 999999, raw];
+}
+function sortFiltered(mode) {
+  const originalIndex = new Map(cards.map((c, i) => [c.key, i]));
+  const byOriginal = (a,b) => (originalIndex.get(a.key) || 0) - (originalIndex.get(b.key) || 0);
+  if (!mode || mode === 'default') {
+    filtered.sort(byOriginal);
+    return;
+  }
+  filtered.sort((a,b) => {
+    if (mode === 'priceDesc' || mode === 'priceAsc') {
+      const pa = priceSortValue(a);
+      const pb = priceSortValue(b);
+      if (pa === null && pb === null) return byOriginal(a,b);
+      if (pa === null) return 1;
+      if (pb === null) return -1;
+      return mode === 'priceDesc' ? pb - pa : pa - pb;
+    }
+    if (mode === 'nameAsc') return a.name.localeCompare(b.name, 'nl') || byOriginal(a,b);
+    if (mode === 'setAsc') return (a.set + a.num).localeCompare(b.set + b.num, 'nl', {numeric:true}) || byOriginal(a,b);
+    if (mode === 'numberAsc') {
+      const na = naturalCardNumber(a), nb = naturalCardNumber(b);
+      return na[0].localeCompare(nb[0]) || na[1] - nb[1] || String(na[2]).localeCompare(String(nb[2])) || byOriginal(a,b);
+    }
+    return byOriginal(a,b);
+  });
 }
 
 function render() {
@@ -1253,6 +1328,8 @@ searchInput.addEventListener('input', () => applyFilters(true));
 seriesFilter.addEventListener('change', () => { updateSetFilter(); applyFilters(true); });
 setFilter.addEventListener('change', () => applyFilters(true));
 statusFilter.addEventListener('change', () => applyFilters(true));
+if (priceFilter) priceFilter.addEventListener('change', () => applyFilters(true));
+if (sortSelect) sortSelect.addEventListener('change', () => applyFilters(true));
 pageSizeSelect.addEventListener('change', () => applyFilters(true));
 el('prevPageBtn').addEventListener('click', () => { currentPage--; renderTable(); });
 el('nextPageBtn').addEventListener('click', () => { currentPage++; renderTable(); });
