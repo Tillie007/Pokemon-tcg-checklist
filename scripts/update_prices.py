@@ -2,7 +2,7 @@
 """
 Dagelijkse Cardmarket prijsupdate voor de Pokémon TCG Checklist PWA.
 
-Versie: 2026-07-02 FIX 2 — prijsmap + Cardmarket-naam
+Versie: 2026-07-02 FIX 3 — prijsbestand robuust uitlezen + debug
 
 Waarom deze versie?
 - De publieke Cardmarket productlijst bevat vaak wel idProduct + idExpansion + naam,
@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import io
 import datetime as dt
 import gzip
 import json
@@ -41,6 +42,8 @@ OUT_PRICES = ROOT_DIR / "prices.json"
 OUT_HISTORY = ROOT_DIR / "price_history.json"
 OUT_REPORT = ROOT_DIR / "cardmarket_match_report.csv"
 OUT_SETCODES = ROOT_DIR / "cardmarket_setcodes.csv"
+OUT_DEBUG = ROOT_DIR / "cardmarket_debug.json"
+OUT_UNMATCHED_BY_SET = ROOT_DIR / "cardmarket_unmatched_by_set.csv"
 CACHE_DIR = ROOT_DIR / ".cache" / "cardmarket"
 
 # Game id 6 = Pokémon in de publieke Cardmarket-downloadlinks.
@@ -49,19 +52,33 @@ PRICE_GUIDE_URL = "https://downloads.s3.cardmarket.com/productCatalog/priceGuide
 
 # De publieke bestanden kunnen oude API-veldbenamingen of nieuwe JSON-velden gebruiken.
 PRICE_FIELDS = [
-    "Trend Price", "trendPrice", "trend", "TREND",
-    "Avg. Sell Price", "avg", "average", "AVG",
-    "AVG30", "avg30", "average30", "avg30Days",
+    "Trend Price", "trendPrice", "trend", "TREND", "priceTrend", "trend_price",
+    "Avg. Sell Price", "avgSellPrice", "avgSell", "averageSellPrice", "avg", "average", "AVG",
+    "AVG7", "avg7", "average7", "avg7Days",
+    "AVG30", "avg30", "average30", "avg30Days", "avg30day",
     "Low Price", "lowPrice", "low", "LOW", "fromPrice", "min", "minPrice",
 ]
-LOW_FIELDS = ["Low Price", "lowPrice", "low", "LOW", "fromPrice", "min", "minPrice"]
-TREND_FIELDS = ["Trend Price", "trendPrice", "trend", "TREND"]
-AVG30_FIELDS = ["AVG30", "avg30", "average30", "avg30Days", "avg30day"]
-FOIL_LOW_FIELDS = ["Foil Low", "low-foil", "lowFoil", "LOWFOIL"]
-FOIL_TREND_FIELDS = ["Foil Trend", "trend-foil", "trendFoil", "TRENDFOIL"]
-FOIL_AVG30_FIELDS = ["Foil AVG30", "avg30-foil", "avg30Foil"]
+LOW_FIELDS = ["Low Price", "lowPrice", "low", "LOW", "fromPrice", "min", "minPrice", "lowestPrice", "lowest"]
+TREND_FIELDS = ["Trend Price", "trendPrice", "trend", "TREND", "priceTrend", "trend_price"]
+AVG30_FIELDS = ["AVG30", "avg30", "average30", "avg30Days", "avg30day", "thirtyDayAverage"]
+AVG7_FIELDS = ["AVG7", "avg7", "average7", "avg7Days", "sevenDayAverage"]
+AVG1_FIELDS = ["AVG1", "avg1", "average1", "avg1Days", "oneDayAverage"]
+FOIL_LOW_FIELDS = ["Foil Low", "low-foil", "lowFoil", "LOWFOIL", "foilLowPrice"]
+FOIL_TREND_FIELDS = ["Foil Trend", "trend-foil", "trendFoil", "TRENDFOIL", "foilTrendPrice"]
+FOIL_AVG30_FIELDS = ["Foil AVG30", "avg30-foil", "avg30Foil", "foilAvg30"]
+FOIL_AVG7_FIELDS = ["Foil AVG7", "avg7-foil", "avg7Foil", "foilAvg7"]
+FOIL_AVG1_FIELDS = ["Foil AVG1", "avg1-foil", "avg1Foil", "foilAvg1"]
+FOIL_SELL_FIELDS = ["Foil Sell", "foilSell", "foilSellPrice", "avgFoilSell"]
 
 HISTORY_DAYS_TO_KEEP = 180
+
+PRICE_GUIDE_COLUMNS = [
+    "idProduct", "Avg. Sell Price", "Low Price", "Trend Price", "German Pro Low",
+    "Suggested Price", "Foil Sell", "Foil Low", "Foil Trend", "Low Price Ex+",
+    "AVG1", "AVG7", "AVG30", "Foil AVG1", "Foil AVG7", "Foil AVG30",
+]
+PRODUCT_LIST_COLUMNS = ["idProduct", "Name", "Category ID", "Category", "Expansion ID", "Date Added"]
+
 
 
 def log(msg: str) -> None:
@@ -137,25 +154,64 @@ def get_text(row: Dict[str, Any], names: Iterable[str]) -> str:
     return coerce_text(get_any(row, names))
 
 
-def download_json(url: str, cache_name: str, max_age_hours: float = 20.0, force: bool = False) -> Any:
+def decode_downloaded_bytes(raw: bytes) -> str:
+    """Decodeer downloads: gzip indien nodig, daarna UTF-8."""
+    if raw[:2] == b"\x1f\x8b":
+        raw = gzip.decompress(raw)
+    return raw.decode("utf-8-sig", errors="replace")
+
+
+def parse_json_or_csv_text(text: str) -> Any:
+    """Publieke Cardmarket-bestanden kunnen JSON of CSV-achtig zijn.
+
+    De website toont .json-links, maar de oude documentatie spreekt over CSV.
+    Deze functie accepteert daarom beide vormen.
+    """
+    stripped = text.lstrip()
+    if not stripped:
+        return []
+    if stripped[0] in "[{":
+        return json.loads(stripped)
+
+    # CSV fallback. Cardmarket gebruikt doorgaans komma's met quote-velden,
+    # maar we detecteren ook puntkomma's.
+    sample = text[:4096]
+    try:
+        dialect = csv.Sniffer().sniff(sample, delimiters=",;\t")
+    except Exception:
+        dialect = csv.excel
+    reader = csv.DictReader(io.StringIO(text), dialect=dialect)
+    if reader.fieldnames:
+        return [dict(r) for r in reader]
+    return []
+
+
+def download_data(url: str, cache_name: str, max_age_hours: float = 20.0, force: bool = False) -> Any:
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     cache_path = CACHE_DIR / cache_name
     if cache_path.exists() and not force:
         age_hours = (time.time() - cache_path.stat().st_mtime) / 3600
         if age_hours <= max_age_hours:
             log(f"Gebruik cache: {cache_path.name} ({age_hours:.1f} uur oud)")
-            return json.loads(cache_path.read_text(encoding="utf-8"))
+            return parse_json_or_csv_text(cache_path.read_text(encoding="utf-8"))
 
     log(f"Download: {url}")
-    req = urllib.request.Request(url, headers={"User-Agent": "PokemonTCGChecklistGitHub/1.1"})
+    req = urllib.request.Request(url, headers={"User-Agent": "PokemonTCGChecklistGitHub/1.2"})
     with urllib.request.urlopen(req, timeout=180) as response:
         raw = response.read()
         enc = response.headers.get("Content-Encoding", "").lower()
-        if enc == "gzip" or raw[:2] == b"\x1f\x8b":
+        if enc == "gzip":
             raw = gzip.decompress(raw)
-        text = raw.decode("utf-8-sig")
+        text = decode_downloaded_bytes(raw)
         cache_path.write_text(text, encoding="utf-8")
-        return json.loads(text)
+        return parse_json_or_csv_text(text)
+
+
+# backwards compatible naam voor oudere code
+下载_json_alias = download_data
+
+def download_json(url: str, cache_name: str, max_age_hours: float = 20.0, force: bool = False) -> Any:
+    return download_data(url, cache_name, max_age_hours=max_age_hours, force=force)
 
 
 def load_cards() -> Dict[str, Any]:
@@ -164,14 +220,39 @@ def load_cards() -> Dict[str, Any]:
     return json.loads(CARDS_FILE.read_text(encoding="utf-8"))
 
 
-def as_records(obj: Any) -> List[Dict[str, Any]]:
+def rows_from_table_like(obj: Any, default_columns: List[str]) -> List[Dict[str, Any]]:
+    """Zet zowel dict-lijsten als list-of-lists om naar records."""
     if isinstance(obj, list):
-        return [x for x in obj if isinstance(x, dict)]
+        if not obj:
+            return []
+        if all(isinstance(x, dict) for x in obj):
+            return [x for x in obj if isinstance(x, dict)]
+        if all(isinstance(x, (list, tuple)) for x in obj):
+            first = list(obj[0])
+            # Header aanwezig?
+            first_norm = [norm_key(x) for x in first]
+            has_header = any(x in {"idproduct", "name", "avgsellprice", "lowprice", "trendprice"} for x in first_norm)
+            if has_header:
+                headers = [coerce_text(x) or f"col{i}" for i, x in enumerate(first)]
+                rows = obj[1:]
+            else:
+                headers = default_columns[:]
+                rows = obj
+            out = []
+            for row in rows:
+                d = {}
+                for i, val in enumerate(row):
+                    key = headers[i] if i < len(headers) else f"col{i}"
+                    d[key] = val
+                out.append(d)
+            return out
     if isinstance(obj, dict):
-        for key in ["products", "product", "data", "items", "prices", "priceGuide", "priceguide"]:
+        for key in ["products", "product", "data", "items", "records", "rows", "prices", "priceGuide", "priceguide"]:
             val = obj.get(key)
-            if isinstance(val, list):
-                return [x for x in val if isinstance(x, dict)]
+            if val is not None:
+                rows = rows_from_table_like(val, default_columns)
+                if rows:
+                    return rows
         if obj and all(isinstance(v, dict) for v in obj.values()):
             rows = []
             for k, v in obj.items():
@@ -180,7 +261,24 @@ def as_records(obj: Any) -> List[Dict[str, Any]]:
                     row["idProduct"] = str(k)
                 rows.append(row)
             return rows
+        if obj and all(isinstance(v, (list, tuple)) for v in obj.values()):
+            # Soms als kolom-georiënteerd object: {idProduct:[...], AVG30:[...]}
+            keys = list(obj.keys())
+            max_len = max((len(v) for v in obj.values() if isinstance(v, (list, tuple))), default=0)
+            rows = []
+            for i in range(max_len):
+                row = {}
+                for k in keys:
+                    v = obj[k]
+                    if isinstance(v, (list, tuple)) and i < len(v):
+                        row[k] = v[i]
+                rows.append(row)
+            return rows
     return []
+
+
+def as_records(obj: Any) -> List[Dict[str, Any]]:
+    return rows_from_table_like(obj, PRODUCT_LIST_COLUMNS)
 
 
 def norm_text(value: Any) -> str:
@@ -265,28 +363,29 @@ def cardmarket_name_variants(value: Any) -> List[str]:
 def price_records(obj: Any) -> List[Dict[str, Any]]:
     """Lees Cardmarket price guide robuust.
 
-    De publieke price guide kan als lijst terugkomen, maar ook als object waarbij
-    de sleutel zelf het idProduct is. In dat laatste geval moeten we die sleutel
-    expliciet als idProduct bewaren; anders krijg je wel matches, maar 0 prijzen.
+    Ondersteunt:
+    - lijst van dicts
+    - object per idProduct
+    - lijst van lijsten met header
+    - lijst van lijsten zonder header in de officiële kolomvolgorde
+    - CSV fallback via download_data
     """
-    if isinstance(obj, list):
-        return [x for x in obj if isinstance(x, dict)]
-    if isinstance(obj, dict):
-        for key in ["products", "product", "data", "items", "prices", "priceGuide", "priceguide"]:
-            val = obj.get(key)
-            if isinstance(val, list):
-                return [x for x in val if isinstance(x, dict)]
-            if isinstance(val, dict):
-                return price_records(val)
-        if obj and all(isinstance(v, dict) for v in obj.values()):
-            rows = []
-            for k, v in obj.items():
-                row = dict(v)
-                if not get_text(row, ["idProduct", "id_product", "productId", "id"]):
-                    row["idProduct"] = str(k)
-                rows.append(row)
-            return rows
-    return []
+    rows = rows_from_table_like(obj, PRICE_GUIDE_COLUMNS)
+    # Zorg dat idProduct ook bestaat wanneer de eerste kolom zo binnenkwam.
+    normalized = []
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        r = dict(row)
+        if not get_text(r, ["idProduct", "id_product", "productId", "id"]):
+            for possible in ["0", "col0", "ID Product", "Product ID", "product"]:
+                val = get_text(r, [possible])
+                if val:
+                    r["idProduct"] = val
+                    break
+        normalized.append(r)
+    return normalized
+
 
 def parse_float(value: Any) -> Optional[float]:
     if value in (None, ""):
@@ -518,9 +617,11 @@ def infer_expansion_map(cards: List[Dict[str, Any]], sets: List[Dict[str, Any]],
 
 def build_price_map(price_rows: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
     by_id: Dict[str, Dict[str, Any]] = {}
+    id_fields = ["idProduct", "id_product", "productId", "id", "Product ID", "ID Product", "id_product"]
     for row in price_rows:
-        product_id = get_text(row, ["idProduct", "id_product", "productId", "id"])
+        product_id = get_text(row, id_fields)
         if product_id:
+            product_id = re.sub(r"\.0$", "", str(product_id).strip())
             by_id[product_id] = row
     return by_id
 
@@ -640,6 +741,11 @@ def build(force: bool = False) -> None:
     indexes = make_product_indexes(products)
     price_map = build_price_map(price_rows)
     log(f"Prijzen gekoppeld op idProduct: {len(price_map):,}".replace(",", "."))
+    sample_price_keys = []
+    for row in price_rows[:5]:
+        if isinstance(row, dict):
+            sample_price_keys.append(list(row.keys())[:20])
+
 
     app_set_name_counts: Dict[str, Counter[str]] = defaultdict(Counter)
     for card in cards:
@@ -678,13 +784,18 @@ def build(force: bool = False) -> None:
         price_row = price_map.get(prod["idProduct"], {})
         low = pick_price(price_row, LOW_FIELDS)
         trend = pick_price(price_row, TREND_FIELDS)
+        avg1 = pick_price(price_row, AVG1_FIELDS)
+        avg7 = pick_price(price_row, AVG7_FIELDS)
         avg30 = pick_price(price_row, AVG30_FIELDS)
+        foil_sell = pick_price(price_row, FOIL_SELL_FIELDS)
         foil_low = pick_price(price_row, FOIL_LOW_FIELDS)
         foil_trend = pick_price(price_row, FOIL_TREND_FIELDS)
+        foil_avg1 = pick_price(price_row, FOIL_AVG1_FIELDS)
+        foil_avg7 = pick_price(price_row, FOIL_AVG7_FIELDS)
         foil_avg30 = pick_price(price_row, FOIL_AVG30_FIELDS)
-        price = pick_price(price_row, PRICE_FIELDS) or trend or avg30 or low
+        price = pick_price(price_row, PRICE_FIELDS) or trend or avg30 or avg7 or low
 
-        if price or low or trend or avg30 or foil_low or foil_trend or foil_avg30:
+        if price or low or trend or avg1 or avg7 or avg30 or foil_sell or foil_low or foil_trend or foil_avg1 or foil_avg7 or foil_avg30:
             priced += 1
 
         item = {
@@ -703,9 +814,14 @@ def build(force: bool = False) -> None:
             "price": price,
             "lowPrice": low,
             "trendPrice": trend,
+            "avg1": avg1,
+            "avg7": avg7,
             "avg30": avg30,
+            "foilSellPrice": foil_sell,
             "foilLowPrice": foil_low,
             "foilTrendPrice": foil_trend,
+            "foilAvg1": foil_avg1,
+            "foilAvg7": foil_avg7,
             "foilAvg30": foil_avg30,
             "currency": "EUR",
             "url": prod["url"],
@@ -761,11 +877,35 @@ def build(force: bool = False) -> None:
         writer = csv.writer(f, delimiter=";")
         writer.writerows(set_rows)
 
+    # Compacte diagnose zodat we zonder gokken kunnen zien waarom iets niet koppelt.
+    unmatched_by_set = Counter()
+    for row in report_rows[1:]:
+        if row[0] != "gekoppeld":
+            unmatched_by_set[f"{row[4]} | {row[5]} | {row[6]}"] += 1
+    with OUT_UNMATCHED_BY_SET.open("w", encoding="utf-8-sig", newline="") as f:
+        writer = csv.writer(f, delimiter=";")
+        writer.writerow(["serie_set_afkorting", "aantalNietGekoppeld"])
+        for key, count in unmatched_by_set.most_common():
+            writer.writerow([key, count])
+
+    debug_payload = {
+        "updatedAt": now,
+        "productRows": len(product_rows),
+        "priceRows": len(price_rows),
+        "usableProducts": len(products),
+        "priceMapIds": len(price_map),
+        "matchedCards": matched,
+        "pricedCards": priced,
+        "samplePriceKeys": sample_price_keys,
+        "matchTypes": dict(match_type_counts),
+    }
+    OUT_DEBUG.write_text(json.dumps(debug_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
     log("Match-types:")
     for k, v in match_type_counts.most_common():
         log(f"  {k}: {v}")
     log(f"Klaar: {matched:,}/{len(cards):,} kaarten gekoppeld, {priced:,} met prijs.".replace(",", "."))
-    log(f"Bestanden gemaakt: {OUT_PRICES.name}, {OUT_HISTORY.name}, {OUT_REPORT.name}, {OUT_SETCODES.name}")
+    log(f"Bestanden gemaakt: {OUT_PRICES.name}, {OUT_HISTORY.name}, {OUT_REPORT.name}, {OUT_SETCODES.name}, {OUT_DEBUG.name}")
 
 
 def main() -> None:
