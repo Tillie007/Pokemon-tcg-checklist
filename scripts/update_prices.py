@@ -1,4 +1,22 @@
 #!/usr/bin/env python3
+"""
+Dagelijkse Cardmarket prijsupdate voor de Pokémon TCG Checklist PWA.
+
+Versie: 2026-07-02 FIX 4 — geneste price guide uitlezen + debug
+
+Waarom deze versie?
+- De publieke Cardmarket productlijst bevat vaak wel idProduct + idExpansion + naam,
+  maar niet altijd kaartnummer/setcode als apart veld.
+- De vorige versie eiste kaartnummer + setcode en koppelde daardoor 0 kaarten.
+- Deze versie probeert eerst exact te koppelen op setcode + kaartnummer + naam.
+- Als dat niet kan, zoekt ze automatisch welke Cardmarket idExpansion overeenkomt
+  met jouw app-set op basis van kaartnamen, en koppelt daarna alleen veilige,
+  unieke kaartnamen. Dubbele namen binnen een set worden bewust niet gekoppeld.
+- Deze versie leest ook prijsbestanden die als object per idProduct zijn opgebouwd.
+- Cardmarket-namen worden opgeslagen als cmName/cmRawName zodat de app ermee kan zoeken.
+
+Geen Cardmarket API-sleutels nodig. Alleen publieke downloadbestanden.
+"""
 from __future__ import annotations
 
 import argparse
@@ -342,19 +360,122 @@ def cardmarket_name_variants(value: Any) -> List[str]:
     return out
 
 
-def price_records(obj: Any) -> List[Dict[str, Any]]:
-    """Lees Cardmarket price guide robuust.
+def _has_price_like_key(row: Dict[str, Any]) -> bool:
+    flat = flatten(row)
+    for k in flat:
+        if any(token in k for token in ["price", "avg", "trend", "foil", "low", "sell"]):
+            return True
+    return False
 
-    Ondersteunt:
-    - lijst van dicts
-    - object per idProduct
-    - lijst van lijsten met header
-    - lijst van lijsten zonder header in de officiële kolomvolgorde
-    - CSV fallback via download_data
+
+def _has_id_like_key(row: Dict[str, Any]) -> bool:
+    return bool(get_text(row, ["idProduct", "id_product", "productId", "Product ID", "ID Product", "id", "product"]))
+
+
+def _row_with_id_from_key(key: Any, value: Any) -> Optional[Dict[str, Any]]:
+    """Cardmarket kan de price guide als object per idProduct aanbieden.
+
+    Mogelijke vormen die we hier opvangen:
+    - {"12345": {"Trend Price": "1.23", ...}}
+    - {"12345": [avgSell, low, trend, ...]}
+    - {"12345": "1.23"}
     """
-    rows = rows_from_table_like(obj, PRICE_GUIDE_COLUMNS)
-    # Zorg dat idProduct ook bestaat wanneer de eerste kolom zo binnenkwam.
+    key_txt = coerce_text(key).strip()
+    if not re.fullmatch(r"\d+", key_txt):
+        return None
+
+    if isinstance(value, dict):
+        row = dict(value)
+        if not _has_id_like_key(row):
+            row["idProduct"] = key_txt
+        return row
+
+    if isinstance(value, (list, tuple)):
+        # Als de idProduct de sleutel is, start de kolomlijst na idProduct.
+        headers = PRICE_GUIDE_COLUMNS[1:]
+        row = {"idProduct": key_txt}
+        for i, val in enumerate(value):
+            header = headers[i] if i < len(headers) else f"col{i+1}"
+            row[header] = val
+        return row
+
+    if isinstance(value, (int, float, str)) and parse_float(value) is not None:
+        return {"idProduct": key_txt, "Trend Price": value}
+
+    return None
+
+
+def _deep_price_rows(obj: Any, depth: int = 0, max_depth: int = 8) -> List[Dict[str, Any]]:
+    """Vind prijsregels ook wanneer Cardmarket de JSON dieper nest.
+
+    De vorige parser las alleen klassieke tabellen. In jouw debug zagen we
+    productRows > 0 maar priceRows = 0. Daarom zoeken we nu recursief naar
+    records met idProduct + prijsvelden, én naar objecten die per product-id
+    zijn opgebouwd.
+    """
+    if depth > max_depth or obj is None:
+        return []
+
+    # Directe tabelvorm eerst proberen.
+    direct = rows_from_table_like(obj, PRICE_GUIDE_COLUMNS)
+    direct_rows: List[Dict[str, Any]] = []
+    for row in direct:
+        if not isinstance(row, dict):
+            continue
+        r = dict(row)
+        if not _has_id_like_key(r):
+            for possible in ["0", "col0", "ID Product", "Product ID", "product"]:
+                val = get_text(r, [possible])
+                if val:
+                    r["idProduct"] = val
+                    break
+        if _has_id_like_key(r) and _has_price_like_key(r):
+            direct_rows.append(r)
+    if direct_rows:
+        return direct_rows
+
+    found: List[Dict[str, Any]] = []
+
+    if isinstance(obj, dict):
+        # Vorm: {"12345": {...prijs...}} of {"12345": [prijzen...]}
+        numeric_key_rows = []
+        for k, v in obj.items():
+            row = _row_with_id_from_key(k, v)
+            if row is not None and _has_price_like_key(row):
+                numeric_key_rows.append(row)
+        if numeric_key_rows:
+            return numeric_key_rows
+
+        # Een losse dict kan zelf al een prijsrecord zijn.
+        if _has_id_like_key(obj) and _has_price_like_key(obj):
+            return [dict(obj)]
+
+        # Recursief door alle waarden.
+        for v in obj.values():
+            found.extend(_deep_price_rows(v, depth + 1, max_depth))
+            if len(found) > 1000000:
+                break
+        return found
+
+    if isinstance(obj, list):
+        # Als het een lijst van records is, zitten die mogelijk één niveau dieper.
+        for item in obj:
+            found.extend(_deep_price_rows(item, depth + 1, max_depth))
+            if len(found) > 1000000:
+                break
+        return found
+
+    return []
+
+
+def price_records(obj: Any) -> List[Dict[str, Any]]:
+    """Lees Cardmarket price guide zeer robuust.
+
+    Ondersteunt nu ook geneste objecten en objecten per idProduct.
+    """
+    rows = _deep_price_rows(obj)
     normalized = []
+    seen = set()
     for row in rows:
         if not isinstance(row, dict):
             continue
@@ -365,6 +486,14 @@ def price_records(obj: Any) -> List[Dict[str, Any]]:
                 if val:
                     r["idProduct"] = val
                     break
+        pid = get_text(r, ["idProduct", "id_product", "productId", "id"])
+        if not pid:
+            continue
+        pid = re.sub(r"\.0$", "", str(pid).strip())
+        if not pid or pid in seen:
+            continue
+        r["idProduct"] = pid
+        seen.add(pid)
         normalized.append(r)
     return normalized
 
@@ -870,6 +999,34 @@ def build(force: bool = False) -> None:
         for key, count in unmatched_by_set.most_common():
             writer.writerow([key, count])
 
+    def shape_info(obj: Any) -> Dict[str, Any]:
+        info: Dict[str, Any] = {"type": type(obj).__name__}
+        if isinstance(obj, dict):
+            keys = list(obj.keys())[:30]
+            info["topKeys"] = [coerce_text(k) for k in keys]
+            info["valueTypes"] = {coerce_text(k): type(obj[k]).__name__ for k in keys[:10]}
+        elif isinstance(obj, list):
+            info["length"] = len(obj)
+            if obj:
+                info["firstType"] = type(obj[0]).__name__
+                if isinstance(obj[0], dict):
+                    info["firstKeys"] = list(obj[0].keys())[:30]
+                elif isinstance(obj[0], list):
+                    info["firstListLength"] = len(obj[0])
+                    info["firstListSample"] = [coerce_text(x) for x in obj[0][:20]]
+        return info
+
+    price_cache = CACHE_DIR / "price_guide_6.json"
+    raw_sample = ""
+    raw_cache_size = 0
+    if price_cache.exists():
+        try:
+            raw_text = price_cache.read_text(encoding="utf-8", errors="replace")
+            raw_cache_size = len(raw_text)
+            raw_sample = raw_text[:500]
+        except Exception as exc:
+            raw_sample = f"Kon cache niet lezen: {exc}"
+
     debug_payload = {
         "updatedAt": now,
         "productRows": len(product_rows),
@@ -879,6 +1036,9 @@ def build(force: bool = False) -> None:
         "matchedCards": matched,
         "pricedCards": priced,
         "samplePriceKeys": sample_price_keys,
+        "priceObjectShape": shape_info(prices_obj),
+        "priceCacheSizeChars": raw_cache_size,
+        "priceCacheFirst500Chars": raw_sample,
         "matchTypes": dict(match_type_counts),
     }
     OUT_DEBUG.write_text(json.dumps(debug_payload, ensure_ascii=False, indent=2), encoding="utf-8")
