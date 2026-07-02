@@ -38,14 +38,20 @@ jobs:
           print('matchedCards:', data.get('matchedCards'))
           print('pricedCards:', data.get('pricedCards'))
           print('prices length:', len(data.get('prices', [])))
+          dbg = Path('cardmarket_debug.json')
+          if dbg.exists():
+              debug = json.loads(dbg.read_text(encoding='utf-8'))
+              print('priceRows:', debug.get('priceRows'))
+              print('priceMapIds:', debug.get('priceMapIds'))
+              print('samplePriceKeys:', debug.get('samplePriceKeys'))
           PY
 
       - name: Gewijzigde prijsbestanden bewaren
         run: |
-          if [[ -n "$(git status --porcelain prices.json price_history.json cardmarket_match_report.csv cardmarket_setcodes.csv)" ]]; then
+          if [[ -n "$(git status --porcelain prices.json price_history.json cardmarket_match_report.csv cardmarket_setcodes.csv cardmarket_debug.json cardmarket_unmatched_by_set.csv)" ]]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add prices.json price_history.json cardmarket_match_report.csv cardmarket_setcodes.csv
+            git add prices.json price_history.json cardmarket_match_report.csv cardmarket_setcodes.csv cardmarket_debug.json cardmarket_unmatched_by_set.csv
             git commit -m "Dagelijkse Cardmarket-prijzen bijwerken"
             git push
           else
