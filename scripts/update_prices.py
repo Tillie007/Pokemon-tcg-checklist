@@ -1,22 +1,4 @@
 #!/usr/bin/env python3
-"""
-Dagelijkse Cardmarket prijsupdate voor de Pokémon TCG Checklist PWA.
-
-Versie: 2026-07-02 FIX 3 — prijsbestand robuust uitlezen + debug
-
-Waarom deze versie?
-- De publieke Cardmarket productlijst bevat vaak wel idProduct + idExpansion + naam,
-  maar niet altijd kaartnummer/setcode als apart veld.
-- De vorige versie eiste kaartnummer + setcode en koppelde daardoor 0 kaarten.
-- Deze versie probeert eerst exact te koppelen op setcode + kaartnummer + naam.
-- Als dat niet kan, zoekt ze automatisch welke Cardmarket idExpansion overeenkomt
-  met jouw app-set op basis van kaartnamen, en koppelt daarna alleen veilige,
-  unieke kaartnamen. Dubbele namen binnen een set worden bewust niet gekoppeld.
-- Deze versie leest ook prijsbestanden die als object per idProduct zijn opgebouwd.
-- Cardmarket-namen worden opgeslagen als cmName/cmRawName zodat de app ermee kan zoeken.
-
-Geen Cardmarket API-sleutels nodig. Alleen publieke downloadbestanden.
-"""
 from __future__ import annotations
 
 import argparse
