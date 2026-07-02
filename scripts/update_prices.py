@@ -2,7 +2,7 @@
 """
 Dagelijkse Cardmarket prijsupdate voor de Pokémon TCG Checklist PWA.
 
-Versie: 2026-07-02 FIX
+Versie: 2026-07-02 FIX 2 — prijsmap + Cardmarket-naam
 
 Waarom deze versie?
 - De publieke Cardmarket productlijst bevat vaak wel idProduct + idExpansion + naam,
@@ -12,6 +12,8 @@ Waarom deze versie?
 - Als dat niet kan, zoekt ze automatisch welke Cardmarket idExpansion overeenkomt
   met jouw app-set op basis van kaartnamen, en koppelt daarna alleen veilige,
   unieke kaartnamen. Dubbele namen binnen een set worden bewust niet gekoppeld.
+- Deze versie leest ook prijsbestanden die als object per idProduct zijn opgebouwd.
+- Cardmarket-namen worden opgeslagen als cmName/cmRawName zodat de app ermee kan zoeken.
 
 Geen Cardmarket API-sleutels nodig. Alleen publieke downloadbestanden.
 """
@@ -171,7 +173,13 @@ def as_records(obj: Any) -> List[Dict[str, Any]]:
             if isinstance(val, list):
                 return [x for x in val if isinstance(x, dict)]
         if obj and all(isinstance(v, dict) for v in obj.values()):
-            return list(obj.values())
+            rows = []
+            for k, v in obj.items():
+                row = dict(v)
+                if not get_text(row, ["idProduct", "id_product", "productId", "id"]):
+                    row["idProduct"] = str(k)
+                rows.append(row)
+            return rows
     return []
 
 
@@ -201,6 +209,84 @@ def norm_num(value: Any) -> str:
     s = re.sub(r"^([A-Z]*)(0*\d+)$", repl, s)
     return s
 
+
+
+VARIANT_WORDS_RE = re.compile(
+    r"\b(reverse\s*holo|holofoil|holo|foil|non\s*foil|normal|reverse|stamped|promo|prerelease|staff|"
+    r"1st\s*edition|first\s*edition|unlimited|alternate\s*art|full\s*art|secret\s*rare|rainbow\s*rare)\b",
+    re.IGNORECASE,
+)
+
+
+def cardmarket_name_variants(value: Any) -> List[str]:
+    """Maak veilige naamvarianten voor matching.
+
+    Cardmarket-productnamen bevatten geregeld extra aanduidingen zoals (Holo),
+    Reverse Holo of collector numbers. De app-data bevat meestal alleen de
+    kaartnaam. Daarom bewaren we zowel de volledige Cardmarket-naam als een
+    opgeschoonde matchnaam.
+    """
+    raw = coerce_text(value)
+    clean, _code, _num = extract_code_number_from_text(raw)
+    candidates = {raw, clean}
+
+    # Verwijder enkel duidelijke variant-/finish-tags, niet zomaar elke haakjesinhoud.
+    no_variant_parens = re.sub(
+        r"\s*[\(\[]\s*(reverse\s*holo|holofoil|holo|foil|normal|stamped|promo|prerelease|staff|1st\s*edition|first\s*edition|unlimited)\s*[\)\]]\s*",
+        " ",
+        clean,
+        flags=re.IGNORECASE,
+    )
+    candidates.add(no_variant_parens)
+
+    # Verwijder trailing tags na een koppelteken of slash.
+    no_trailing = re.sub(
+        r"\s*[-–—/]\s*(reverse\s*holo|holofoil|holo|foil|normal|stamped|promo|prerelease|staff|1st\s*edition|first\s*edition|unlimited)\s*$",
+        "",
+        clean,
+        flags=re.IGNORECASE,
+    )
+    candidates.add(no_trailing)
+
+    # Laatste fallback: losse variantwoorden wegfilteren.
+    no_words = VARIANT_WORDS_RE.sub(" ", clean)
+    candidates.add(no_words)
+
+    out = []
+    seen = set()
+    for c in candidates:
+        n = norm_text(c)
+        if n and n not in seen:
+            seen.add(n)
+            out.append(n)
+    return out
+
+
+def price_records(obj: Any) -> List[Dict[str, Any]]:
+    """Lees Cardmarket price guide robuust.
+
+    De publieke price guide kan als lijst terugkomen, maar ook als object waarbij
+    de sleutel zelf het idProduct is. In dat laatste geval moeten we die sleutel
+    expliciet als idProduct bewaren; anders krijg je wel matches, maar 0 prijzen.
+    """
+    if isinstance(obj, list):
+        return [x for x in obj if isinstance(x, dict)]
+    if isinstance(obj, dict):
+        for key in ["products", "product", "data", "items", "prices", "priceGuide", "priceguide"]:
+            val = obj.get(key)
+            if isinstance(val, list):
+                return [x for x in val if isinstance(x, dict)]
+            if isinstance(val, dict):
+                return price_records(val)
+        if obj and all(isinstance(v, dict) for v in obj.values()):
+            rows = []
+            for k, v in obj.items():
+                row = dict(v)
+                if not get_text(row, ["idProduct", "id_product", "productId", "id"]):
+                    row["idProduct"] = str(k)
+                rows.append(row)
+            return rows
+    return []
 
 def parse_float(value: Any) -> Optional[float]:
     if value in (None, ""):
@@ -276,6 +362,9 @@ def product_record(row: Dict[str, Any]) -> Dict[str, str]:
         "name": clean_name,
         "rawName": raw_name,
         "normName": norm_text(clean_name),
+        "normNames": cardmarket_name_variants(raw_name),
+        "cmName": clean_name,
+        "cmRawName": raw_name,
         "cmSetCode": str(cm_code or "").upper().strip(),
         "cmSetName": str(cm_set or "").strip(),
         "normSet": norm_text(cm_set),
@@ -302,16 +391,19 @@ def make_product_indexes(products: List[Dict[str, str]]) -> Dict[str, Dict[Tuple
         "set_num_name": defaultdict(list),
     }
     for p in products:
-        if not p["normName"]:
+        names = p.get("normNames") or [p.get("normName", "")]
+        names = [n for n in names if n]
+        if not names:
             continue
-        if p["cmSetCode"] and p["number"]:
-            indexes["code_num_name"][(norm_compact(p["cmSetCode"]), p["number"], p["normName"])].append(p)
-        if p["idExpansion"] and p["number"]:
-            indexes["exp_num_name"][(p["idExpansion"], p["number"], p["normName"])].append(p)
-        if p["idExpansion"]:
-            indexes["exp_name"][(p["idExpansion"], "", p["normName"])].append(p)
-        if p["normSet"] and p["number"]:
-            indexes["set_num_name"][(p["normSet"], p["number"], p["normName"])].append(p)
+        for nm in names:
+            if p["cmSetCode"] and p["number"]:
+                indexes["code_num_name"][(norm_compact(p["cmSetCode"]), p["number"], nm)].append(p)
+            if p["idExpansion"] and p["number"]:
+                indexes["exp_num_name"][(p["idExpansion"], p["number"], nm)].append(p)
+            if p["idExpansion"]:
+                indexes["exp_name"][(p["idExpansion"], "", nm)].append(p)
+            if p["normSet"] and p["number"]:
+                indexes["set_num_name"][(p["normSet"], p["number"], nm)].append(p)
     return indexes
 
 
@@ -339,10 +431,12 @@ def infer_expansion_map(cards: List[Dict[str, Any]], sets: List[Dict[str, Any]],
     exp_meta: Dict[str, Dict[str, Any]] = defaultdict(lambda: {"setCodes": Counter(), "setNames": Counter(), "products": 0})
     for p in products:
         exp = p.get("idExpansion", "")
-        nm = p.get("normName", "")
-        if not exp or not nm:
+        names = p.get("normNames") or [p.get("normName", "")]
+        names = [n for n in names if n]
+        if not exp or not names:
             continue
-        exp_counts[exp][nm] += 1
+        for nm in set(names):
+            exp_counts[exp][nm] += 1
         exp_meta[exp]["products"] += 1
         if p.get("cmSetCode"):
             exp_meta[exp]["setCodes"][p["cmSetCode"]] += 1
@@ -406,8 +500,8 @@ def infer_expansion_map(cards: List[Dict[str, Any]], sets: List[Dict[str, Any]],
         if best:
             score, overlap, exp = best
             # Vereist duidelijke marge zodat een verkeerde set niet snel gekozen wordt.
-            min_overlap = max(8, int(len(app_unique) * 0.18))
-            if overlap >= min_overlap and score >= 0.28 and score >= second_score + 0.05:
+            min_overlap = max(5, min(12, int(len(app_unique) * 0.12)))
+            if overlap >= min_overlap and score >= 0.18 and score >= second_score + 0.03:
                 meta = exp_meta[exp]
                 mapping[skey] = {
                     "idExpansion": exp,
@@ -528,7 +622,7 @@ def build(force: bool = False) -> None:
     products_obj = download_json(PRODUCTS_URL, "products_singles_6.json", force=force)
     prices_obj = download_json(PRICE_GUIDE_URL, "price_guide_6.json", force=force)
     product_rows = as_records(products_obj)
-    price_rows = as_records(prices_obj)
+    price_rows = price_records(prices_obj)
     log(f"Cardmarket productregels: {len(product_rows):,}".replace(",", "."))
     log(f"Cardmarket prijsregels: {len(price_rows):,}".replace(",", "."))
 
@@ -562,7 +656,7 @@ def build(force: bool = False) -> None:
     output: List[Dict[str, Any]] = []
     report_rows: List[List[str]] = [[
         "status", "matchType", "candidateCount", "appKey", "serie", "set", "abbr", "kaartnr", "kaartnaam",
-        "cmProductId", "cmExpansionId", "cmSetCode", "cmSetName", "cmNumber", "cmName", "price", "foilTrendPrice", "url"
+        "cmProductId", "cmExpansionId", "cmSetCode", "cmSetName", "cmNumber", "cmName", "cmRawName", "price", "foilTrendPrice", "url"
     ]]
 
     matched = 0
@@ -576,7 +670,7 @@ def build(force: bool = False) -> None:
             report_rows.append([
                 "niet gekoppeld", match_type, str(cand_count), card.get("key", ""), card.get("series", ""),
                 card.get("set", ""), card.get("abbr", ""), card.get("num", ""), card.get("name", ""),
-                "", "", "", "", "", "", "", "", ""
+                "", "", "", "", "", "", "", "", "", ""
             ])
             continue
 
@@ -602,6 +696,8 @@ def build(force: bool = False) -> None:
             "cmSetName": prod.get("cmSetName", ""),
             "cmExpansionId": prod.get("idExpansion", ""),
             "cmProductId": prod["idProduct"],
+            "cmName": prod.get("cmName", "") or prod.get("name", ""),
+            "cmRawName": prod.get("cmRawName", "") or prod.get("rawName", ""),
             "num": card.get("num", ""),
             "name": card.get("name", ""),
             "price": price,
@@ -624,7 +720,7 @@ def build(force: bool = False) -> None:
             "gekoppeld", match_type, str(cand_count), card.get("key", ""), card.get("series", ""),
             card.get("set", ""), card.get("abbr", ""), card.get("num", ""), card.get("name", ""),
             prod["idProduct"], prod.get("idExpansion", ""), prod.get("cmSetCode", ""), prod.get("cmSetName", ""),
-            prod.get("number", ""), prod.get("name", ""), item["price"], item["foilTrendPrice"], prod["url"]
+            prod.get("number", ""), prod.get("cmName", "") or prod.get("name", ""), prod.get("cmRawName", ""), item["price"], item["foilTrendPrice"], prod["url"]
         ])
 
     payload = {
