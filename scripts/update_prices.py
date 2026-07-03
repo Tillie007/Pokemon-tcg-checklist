@@ -2,7 +2,7 @@
 """
 Dagelijkse Cardmarket prijsupdate voor de Pokémon TCG Checklist PWA.
 
-Versie: 2026-07-02 FIX 4 — geneste price guide uitlezen + debug
+Versie: 2026-07-02 FIX 5 — meer setkoppelingen via Cardmarket-setnaam
 
 Waarom deze versie?
 - De publieke Cardmarket productlijst bevat vaak wel idProduct + idExpansion + naam,
@@ -14,6 +14,7 @@ Waarom deze versie?
   unieke kaartnamen. Dubbele namen binnen een set worden bewust niet gekoppeld.
 - Deze versie leest ook prijsbestanden die als object per idProduct zijn opgebouwd.
 - Cardmarket-namen worden opgeslagen als cmName/cmRawName zodat de app ermee kan zoeken.
+- Extra: app-sets worden nu ook gekoppeld via Cardmarket-setnaam/category + veilige aliasnamen.
 
 Geen Cardmarket API-sleutels nodig. Alleen publieke downloadbestanden.
 """
@@ -24,6 +25,7 @@ import csv
 import io
 import datetime as dt
 import gzip
+import difflib
 import json
 import math
 import re
@@ -283,15 +285,122 @@ def as_records(obj: Any) -> List[Dict[str, Any]]:
 
 def norm_text(value: Any) -> str:
     s = coerce_text(value)
+    # Pokémon/Cardmarket gebruiken soms speciale tekens in kaartnamen.
+    # Die willen we niet zomaar kwijtspelen bij het matchen.
+    s = s.replace("♀", " female ").replace("♂", " male ")
+    s = s.replace("’", "'").replace("`", "'")
     s = unicodedata.normalize("NFD", s)
     s = "".join(ch for ch in s if unicodedata.category(ch) != "Mn")
-    s = s.lower().replace("pokémon", "pokemon")
+    s = s.lower().replace("pokémon", "pokemon").replace("pokémon", "pokemon")
+    s = s.replace("&", " and ")
+    # Cardmarket zet ex/V/VMAX enz. soms exact anders gespatieerd; woorden blijven wel bewaard.
     s = re.sub(r"[^a-z0-9]+", " ", s)
     return re.sub(r"\s+", " ", s).strip()
 
 
 def norm_compact(value: Any) -> str:
     return re.sub(r"[^a-z0-9]", "", norm_text(value))
+
+
+SERIES_PREFIXES = [
+    "scarlet violet", "sword shield", "sun moon", "black white",
+    "heartgold soulsilver", "diamond pearl", "mega evolution",
+]
+
+
+def strip_series_prefixes(text: str) -> str:
+    out = norm_text(text)
+    changed = True
+    while changed:
+        changed = False
+        for prefix in SERIES_PREFIXES:
+            if out.startswith(prefix + " "):
+                out = out[len(prefix):].strip()
+                changed = True
+            elif out == prefix:
+                out = ""
+                changed = True
+    return out.strip()
+
+
+def set_name_aliases(series: Any, set_name: Any, abbr: Any = "") -> List[str]:
+    """Naamvarianten om app-sets voorzichtig aan Cardmarket-categorieën te koppelen.
+
+    Cardmarket gebruikt in de productlijst meestal een Category/Expansion-naam,
+    maar die kan licht verschillen van de dataset: dubbele punten, prefixen
+    zoals 'Sword & Shield', accenten, promo-benamingen, enz.
+    """
+    raw_series = coerce_text(series)
+    raw_set = coerce_text(set_name)
+    raw_abbr = coerce_text(abbr)
+    base = norm_text(raw_set)
+    aliases = {base, strip_series_prefixes(base), norm_text(f"{raw_series} {raw_set}"), norm_text(f"{raw_set} {raw_series}")}
+
+    # Veelvoorkomende officiële/Cardmarket-naamvarianten.
+    manual: Dict[str, List[str]] = {
+        "base": ["base set"],
+        "scarlet violet": ["scarlet and violet"],
+        "scarlet violet black star promos": ["sv black star promos", "scarlet and violet black star promos"],
+        "swsh black star promos": ["sword and shield black star promos", "swsh promo", "sword shield promos"],
+        "sm black star promos": ["sun and moon black star promos", "sm promo"],
+        "xy black star promos": ["xy promos", "xy black star promo"],
+        "bw black star promos": ["black and white black star promos", "bw promos"],
+        "dp black star promos": ["diamond and pearl black star promos", "dp promos"],
+        "hgss black star promos": ["heartgold soulsilver black star promos", "hgss promos"],
+        "wizards black star promos": ["wizards promo", "wizards promos"],
+        "expedition base set": ["expedition", "expedition base"],
+        "hs triumphant": ["triumphant", "heartgold soulsilver triumphant"],
+        "hs undaunted": ["undaunted", "heartgold soulsilver undaunted"],
+        "hs unleashed": ["unleashed", "heartgold soulsilver unleashed"],
+        "pokemon go": ["pokemon go"],
+        "151": ["151", "scarlet and violet 151", "scarlet violet 151"],
+        "celebrations classic collection": ["celebrations classic collection", "classic collection"],
+        "crown zenith galarian gallery": ["crown zenith galarian gallery", "galarian gallery"],
+        "brilliant stars trainer gallery": ["brilliant stars trainer gallery", "trainer gallery brilliant stars"],
+        "astral radiance trainer gallery": ["astral radiance trainer gallery", "trainer gallery astral radiance"],
+        "lost origin trainer gallery": ["lost origin trainer gallery", "trainer gallery lost origin"],
+        "silver tempest trainer gallery": ["silver tempest trainer gallery", "trainer gallery silver tempest"],
+        "hidden fates shiny vault": ["hidden fates shiny vault", "shiny vault"],
+        "shining fates shiny vault": ["shining fates shiny vault", "shiny vault shining fates"],
+        "team magma vs team aqua": ["team magma vs team aqua", "team magma and team aqua"],
+        "firered leafgreen": ["firered leafgreen", "fire red leaf green", "firered and leafgreen", "fire red and leaf green"],
+        "ruby sapphire": ["ruby sapphire", "ruby and sapphire"],
+        "heartgold soulsilver": ["heartgold soulsilver", "heartgold and soulsilver"],
+        "black white": ["black white", "black and white"],
+        "diamond pearl": ["diamond pearl", "diamond and pearl"],
+    }
+    for a in manual.get(base, []):
+        aliases.add(norm_text(a))
+        aliases.add(strip_series_prefixes(a))
+
+    # Afkorting zelf is alleen bruikbaar als Cardmarket die in de setnaam heeft opgenomen.
+    if raw_abbr and raw_abbr not in {"—", "-"}:
+        aliases.add(norm_text(raw_abbr))
+
+    out = []
+    seen = set()
+    for a in aliases:
+        a = re.sub(r"\s+", " ", a).strip()
+        if a and a not in seen:
+            seen.add(a)
+            out.append(a)
+    return out
+
+
+def set_name_similarity(a: str, b: str) -> float:
+    """Voorzichtige setnaam-score. Exacte aliasmatch blijft eerst komen."""
+    a = norm_text(a)
+    b = norm_text(b)
+    if not a or not b:
+        return 0.0
+    if a == b:
+        return 1.0
+    ta, tb = set(a.split()), set(b.split())
+    jacc = len(ta & tb) / max(1, len(ta | tb))
+    seq = difflib.SequenceMatcher(None, a, b).ratio()
+    # Extra score wanneer één naam de andere bevat, bv. 'scarlet violet 151' vs '151'.
+    contains = 0.92 if (len(a) >= 3 and len(b) >= 3 and (a in b or b in a)) else 0.0
+    return max(seq, 0.65 * seq + 0.35 * jacc, contains)
 
 
 def norm_num(value: Any) -> str:
@@ -630,7 +739,16 @@ def set_key_from_set(row: Dict[str, Any]) -> str:
 
 
 def infer_expansion_map(cards: List[Dict[str, Any]], sets: List[Dict[str, Any]], products: List[Dict[str, str]]) -> Dict[str, Dict[str, Any]]:
-    """Koppel app-sets aan Cardmarket idExpansion op basis van overlap in unieke kaartnamen."""
+    """Koppel app-sets aan Cardmarket idExpansion.
+
+    Deze versie gebruikt drie veilige lagen:
+    1. exacte/alias-match op Cardmarket Category/Setnaam;
+    2. duidelijke fuzzy match op setnaam;
+    3. naamoverlap op kaartnamen.
+
+    Zo koppelen we meer sets dan alleen de paar sets die toevallig via unieke
+    kaartnamen werden herkend, maar vermijden we nog steeds risicovolle gokken.
+    """
     app_counts: Dict[str, Counter[str]] = defaultdict(Counter)
     for card in cards:
         nm = norm_text(card.get("name"))
@@ -653,7 +771,74 @@ def infer_expansion_map(cards: List[Dict[str, Any]], sets: List[Dict[str, Any]],
         if p.get("cmSetName"):
             exp_meta[exp]["setNames"][p["cmSetName"]] += 1
 
-    # Eerste pass: als Cardmarket-setcode uit namen komt, gebruik die meteen.
+    mapping: Dict[str, Dict[str, Any]] = {}
+
+    def meta_row(exp: str, method: str, score: Any = "", overlap: Any = "") -> Dict[str, Any]:
+        meta = exp_meta[exp]
+        return {
+            "idExpansion": exp,
+            "method": method,
+            "score": score,
+            "overlap": overlap,
+            "cmSetCode": meta["setCodes"].most_common(1)[0][0] if meta["setCodes"] else "",
+            "cmSetName": meta["setNames"].most_common(1)[0][0] if meta["setNames"] else "",
+        }
+
+    # Kandidaten per genormaliseerde Cardmarket-setnaam/category.
+    by_set_name: Dict[str, List[str]] = defaultdict(list)
+    all_exp_names: Dict[str, List[str]] = defaultdict(list)
+    for exp, meta in exp_meta.items():
+        for raw_name, cnt in meta["setNames"].items():
+            if cnt < 1:
+                continue
+            variants = {norm_text(raw_name), strip_series_prefixes(raw_name)}
+            for v in list(variants):
+                variants.add(re.sub(r"\bthe\b", "", v).strip())
+            for v in variants:
+                v = re.sub(r"\s+", " ", v).strip()
+                if v:
+                    by_set_name[v].append(exp)
+                    all_exp_names[exp].append(v)
+
+    # Pass 1: exacte aliasmatch op setnaam/category.
+    for st in sets:
+        skey = set_key_from_set(st)
+        aliases = set_name_aliases(st.get("series", ""), st.get("set", ""), st.get("abbr", ""))
+        hits: List[str] = []
+        for alias in aliases:
+            hits.extend(by_set_name.get(alias, []))
+        uniq = sorted(set(hits))
+        if len(uniq) == 1:
+            mapping[skey] = meta_row(uniq[0], "set-name-alias", 1.0, "")
+
+    # Pass 2: zeer duidelijke fuzzy setnaam. Alleen gebruiken als er één winnaar is.
+    for st in sets:
+        skey = set_key_from_set(st)
+        if skey in mapping:
+            continue
+        aliases = set_name_aliases(st.get("series", ""), st.get("set", ""), st.get("abbr", ""))
+        scored: List[Tuple[float, str, str, str]] = []
+        for exp, names in all_exp_names.items():
+            best_for_exp = 0.0
+            best_alias = ""
+            best_name = ""
+            for alias in aliases:
+                for exp_name in names:
+                    score = set_name_similarity(alias, exp_name)
+                    if score > best_for_exp:
+                        best_for_exp = score
+                        best_alias = alias
+                        best_name = exp_name
+            if best_for_exp >= 0.93:
+                scored.append((best_for_exp, exp, best_alias, best_name))
+        scored.sort(reverse=True)
+        if scored:
+            best_score, best_exp, best_alias, best_name = scored[0]
+            second = scored[1][0] if len(scored) > 1 else 0.0
+            if best_score >= 0.95 or best_score >= second + 0.04:
+                mapping[skey] = meta_row(best_exp, "set-name-fuzzy", round(best_score, 4), f"{best_alias} -> {best_name}")
+
+    # Pass 3: setcode uit productnamen, indien beschikbaar.
     by_code: Dict[str, List[str]] = defaultdict(list)
     for exp, meta in exp_meta.items():
         if meta["setCodes"]:
@@ -661,28 +846,18 @@ def infer_expansion_map(cards: List[Dict[str, Any]], sets: List[Dict[str, Any]],
             if cnt >= 3:
                 by_code[norm_compact(code)].append(exp)
 
-    mapping: Dict[str, Dict[str, Any]] = {}
-    used: set[str] = set()
-    for s in sets:
-        skey = set_key_from_set(s)
-        abbr = norm_compact(s.get("abbr"))
+    for st in sets:
+        skey = set_key_from_set(st)
+        if skey in mapping:
+            continue
+        abbr = norm_compact(st.get("abbr"))
         possible = by_code.get(abbr, [])
         if len(possible) == 1:
-            exp = possible[0]
-            meta = exp_meta[exp]
-            mapping[skey] = {
-                "idExpansion": exp,
-                "method": "setcode",
-                "score": 1.0,
-                "overlap": "",
-                "cmSetCode": meta["setCodes"].most_common(1)[0][0] if meta["setCodes"] else s.get("abbr", ""),
-                "cmSetName": meta["setNames"].most_common(1)[0][0] if meta["setNames"] else "",
-            }
-            used.add(exp)
+            mapping[skey] = meta_row(possible[0], "setcode", 1.0, "")
 
-    # Tweede pass: naamoverlap. Dit is voorzichtig: alleen kiezen bij voldoende duidelijke score.
-    for s in sets:
-        skey = set_key_from_set(s)
+    # Pass 4: naamoverlap op kaartnamen. Dit blijft voorzichtig.
+    for st in sets:
+        skey = set_key_from_set(st)
         if skey in mapping:
             continue
         ac = app_counts.get(skey, Counter())
@@ -697,7 +872,6 @@ def infer_expansion_map(cards: List[Dict[str, Any]], sets: List[Dict[str, Any]],
             if overlap < 3:
                 continue
             score = overlap / math.sqrt(max(1, len(app_unique)) * max(1, len(prod_unique)))
-            # Geef kleine bonus als aantallen dicht bij elkaar liggen.
             size_ratio = min(len(app_unique), len(prod_unique)) / max(len(app_unique), len(prod_unique))
             final_score = score * (0.85 + 0.15 * size_ratio)
             if best is None or final_score > best[0]:
@@ -709,22 +883,11 @@ def infer_expansion_map(cards: List[Dict[str, Any]], sets: List[Dict[str, Any]],
 
         if best:
             score, overlap, exp = best
-            # Vereist duidelijke marge zodat een verkeerde set niet snel gekozen wordt.
             min_overlap = max(5, min(12, int(len(app_unique) * 0.12)))
             if overlap >= min_overlap and score >= 0.18 and score >= second_score + 0.03:
-                meta = exp_meta[exp]
-                mapping[skey] = {
-                    "idExpansion": exp,
-                    "method": "name-overlap",
-                    "score": round(score, 4),
-                    "overlap": overlap,
-                    "cmSetCode": meta["setCodes"].most_common(1)[0][0] if meta["setCodes"] else s.get("abbr", ""),
-                    "cmSetName": meta["setNames"].most_common(1)[0][0] if meta["setNames"] else "",
-                }
-                used.add(exp)
+                mapping[skey] = meta_row(exp, "name-overlap", round(score, 4), overlap)
 
     return mapping
-
 
 def build_price_map(price_rows: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
     by_id: Dict[str, Dict[str, Any]] = {}
@@ -958,7 +1121,9 @@ def build(force: bool = False) -> None:
         "pricedCards": priced,
         "matchTypes": dict(match_type_counts),
         "note": "Dubbele kaartnamen zonder betrouwbaar kaartnummer worden bewust niet gekoppeld om foute prijzen te vermijden.",
+        "format": "direct-key-map-v2",
         "prices": output,
+        "pricesByKey": {item["key"]: item for item in output if item.get("key")},
     }
     OUT_PRICES.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
