@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pokemon-tcg-checklist-pwa-v2';
+const CACHE_NAME = 'pokemon-tcg-checklist-pwa-v3-direct-prices';
 const APP_ASSETS = ['./','./index.html','./manifest.webmanifest','./HANDLEIDING_iPhone_PWA.html','./HANDLEIDING_iPhone_PWA.txt','./icons/icon-32.png','./icons/icon-180.png','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png','./icons/startup-1170x2532.png'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_ASSETS).catch(() => undefined))); self.skipWaiting(); });
 self.addEventListener('activate', event => { event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))))); self.clients.claim(); });
