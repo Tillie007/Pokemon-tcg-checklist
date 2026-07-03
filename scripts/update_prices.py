@@ -46,6 +46,8 @@ OUT_REPORT = ROOT_DIR / "cardmarket_match_report.csv"
 OUT_SETCODES = ROOT_DIR / "cardmarket_setcodes.csv"
 OUT_DEBUG = ROOT_DIR / "cardmarket_debug.json"
 OUT_UNMATCHED_BY_SET = ROOT_DIR / "cardmarket_unmatched_by_set.csv"
+OUT_SET_CANDIDATES = ROOT_DIR / "cardmarket_set_mapping_candidates.csv"
+MANUAL_SET_MAP = ROOT_DIR / "cardmarket_manual_set_map.csv"
 CACHE_DIR = ROOT_DIR / ".cache" / "cardmarket"
 
 # Game id 6 = Pokémon in de publieke Cardmarket-downloadlinks.
@@ -738,6 +740,149 @@ def set_key_from_set(row: Dict[str, Any]) -> str:
     return f"{row.get('series','')}|{row.get('set','')}|{row.get('abbr','')}"
 
 
+
+def read_manual_set_map() -> Dict[str, Dict[str, Any]]:
+    """Lees optionele handmatige setmapping.
+
+    Bestand: cardmarket_manual_set_map.csv
+    Vereiste kolommen: serie;set;appAfkorting;cardmarketExpansionId
+    Optioneel: cardmarketSetcode;cardmarketSetnaam;opmerking
+
+    Dit is de nieuwe aanpak: als automatische herkenning te voorzichtig blijft,
+    leggen we per set één keer het juiste Cardmarket idExpansion vast.
+    """
+    if not MANUAL_SET_MAP.exists():
+        return {}
+    text = MANUAL_SET_MAP.read_text(encoding="utf-8-sig", errors="replace")
+    if not text.strip():
+        return {}
+    sample = text[:4096]
+    try:
+        dialect = csv.Sniffer().sniff(sample, delimiters=";,\t")
+    except Exception:
+        dialect = csv.excel
+        dialect.delimiter = ";"
+    rows = csv.DictReader(io.StringIO(text), dialect=dialect)
+    out: Dict[str, Dict[str, Any]] = {}
+    for row in rows:
+        serie = coerce_text(row.get("serie") or row.get("series"))
+        set_name = coerce_text(row.get("set") or row.get("setnaam"))
+        abbr = coerce_text(row.get("appAfkorting") or row.get("abbr") or row.get("afkorting"))
+        exp = coerce_text(row.get("cardmarketExpansionId") or row.get("idExpansion") or row.get("expansionId"))
+        if not serie or not set_name or not exp:
+            continue
+        skey = f"{serie}|{set_name}|{abbr}"
+        out[skey] = {
+            "idExpansion": exp,
+            "method": "manual-set-map",
+            "score": "manual",
+            "overlap": coerce_text(row.get("opmerking")) or "",
+            "cmSetCode": coerce_text(row.get("cardmarketSetcode") or row.get("cmSetCode")),
+            "cmSetName": coerce_text(row.get("cardmarketSetnaam") or row.get("cmSetName")),
+        }
+    return out
+
+
+def write_manual_set_map_template(sets: List[Dict[str, Any]]) -> None:
+    """Maak een leeg template als het nog niet bestaat."""
+    if MANUAL_SET_MAP.exists():
+        return
+    with MANUAL_SET_MAP.open("w", encoding="utf-8-sig", newline="") as f:
+        writer = csv.writer(f, delimiter=";")
+        writer.writerow(["serie", "set", "appAfkorting", "cardmarketExpansionId", "cardmarketSetcode", "cardmarketSetnaam", "opmerking"])
+        for s in sets:
+            writer.writerow([s.get("series", ""), s.get("set", ""), s.get("abbr", ""), "", "", "", ""])
+
+
+def write_set_mapping_candidates(
+    cards: List[Dict[str, Any]],
+    sets: List[Dict[str, Any]],
+    products: List[Dict[str, str]],
+    current_map: Dict[str, Dict[str, Any]],
+) -> None:
+    """Schrijf per app-set de beste Cardmarket idExpansion-kandidaten weg.
+
+    Dit bestand is bedoeld om door de gebruiker terug te sturen, zodat we éénmalig
+    een betrouwbare manual_set_map kunnen invullen. Het verandert je prijzen niet.
+    """
+    app_counts: Dict[str, Counter[str]] = defaultdict(Counter)
+    app_raw_names: Dict[str, Dict[str, str]] = defaultdict(dict)
+    for card in cards:
+        skey = set_key_from_card(card)
+        for nm in card_name_variants(card.get("name", "")):
+            app_counts[skey][nm] += 1
+            app_raw_names[skey].setdefault(nm, coerce_text(card.get("name", "")))
+
+    exp_counts: Dict[str, Counter[str]] = defaultdict(Counter)
+    exp_meta: Dict[str, Dict[str, Any]] = defaultdict(lambda: {"setCodes": Counter(), "setNames": Counter(), "products": 0, "rawNames": defaultdict(set)})
+    for p in products:
+        exp = p.get("idExpansion", "")
+        names = p.get("normNames") or [p.get("normName", "")]
+        names = [n for n in names if n]
+        if not exp or not names:
+            continue
+        for nm in set(names):
+            exp_counts[exp][nm] += 1
+            exp_meta[exp]["rawNames"][nm].add(p.get("cmRawName") or p.get("cmName") or p.get("name") or "")
+        exp_meta[exp]["products"] += 1
+        if p.get("cmSetCode"):
+            exp_meta[exp]["setCodes"][p["cmSetCode"]] += 1
+        if p.get("cmSetName"):
+            exp_meta[exp]["setNames"][p["cmSetName"]] += 1
+
+    rows = [[
+        "serie", "set", "appAfkorting", "huidigeMapping", "rang", "candidateExpansionId",
+        "score", "overlap", "appUniekeNamen", "cmUniekeNamen", "cmProducten",
+        "cardmarketSetcode", "cardmarketSetnaam", "sampleOverlap", "sampleAlleenApp", "sampleAlleenCardmarket", "advies"
+    ]]
+
+    for s in sets:
+        skey = set_key_from_set(s)
+        app_unique = set(app_counts.get(skey, Counter()))
+        mapped = current_map.get(skey, {})
+        candidates: List[Tuple[float, int, str, float]] = []
+        for exp, pc in exp_counts.items():
+            prod_unique = set(pc)
+            if not app_unique or not prod_unique:
+                continue
+            overlap_names = app_unique & prod_unique
+            overlap = len(overlap_names)
+            if overlap < 2:
+                continue
+            score = overlap / math.sqrt(max(1, len(app_unique)) * max(1, len(prod_unique)))
+            size_ratio = min(len(app_unique), len(prod_unique)) / max(len(app_unique), len(prod_unique))
+            final_score = score * (0.85 + 0.15 * size_ratio)
+            candidates.append((final_score, overlap, exp, size_ratio))
+        candidates.sort(key=lambda x: (x[0], x[1]), reverse=True)
+
+        if not candidates:
+            rows.append([s.get("series", ""), s.get("set", ""), s.get("abbr", ""), mapped.get("idExpansion", ""), "", "", "", "", len(app_unique), "", "", "", "", "", "", "", "geen kandidaat"])
+            continue
+
+        for rank, (score, overlap, exp, size_ratio) in enumerate(candidates[:8], start=1):
+            prod_unique = set(exp_counts[exp])
+            overlap_names = sorted(app_unique & prod_unique)[:18]
+            only_app = sorted(app_unique - prod_unique)[:14]
+            only_cm = sorted(prod_unique - app_unique)[:14]
+            meta = exp_meta[exp]
+            cm_code = meta["setCodes"].most_common(1)[0][0] if meta["setCodes"] else ""
+            cm_set_name = meta["setNames"].most_common(1)[0][0] if meta["setNames"] else ""
+            if rank == 1 and overlap >= max(8, int(len(app_unique) * 0.10)) and score >= 0.12:
+                advies = "STERKE KANDIDAAT - controleer en zet in manual_set_map indien juist"
+            elif rank == 1 and overlap >= 5:
+                advies = "MOGELIJK - handmatig controleren"
+            else:
+                advies = "zwak/alternatief"
+            rows.append([
+                s.get("series", ""), s.get("set", ""), s.get("abbr", ""), mapped.get("idExpansion", ""),
+                rank, exp, round(score, 4), overlap, len(app_unique), len(prod_unique), meta["products"], cm_code,
+                cm_set_name, ", ".join(overlap_names), ", ".join(only_app), ", ".join(only_cm), advies
+            ])
+
+    with OUT_SET_CANDIDATES.open("w", encoding="utf-8-sig", newline="") as f:
+        writer = csv.writer(f, delimiter=";")
+        writer.writerows(rows)
+
 def infer_expansion_map(cards: List[Dict[str, Any]], sets: List[Dict[str, Any]], products: List[Dict[str, str]]) -> Dict[str, Dict[str, Any]]:
     """Koppel app-sets aan Cardmarket idExpansion.
 
@@ -1027,7 +1172,13 @@ def build(force: bool = False) -> None:
             app_set_name_counts[set_key_from_card(card)][nm] += 1
 
     set_map = infer_expansion_map(cards, sets, products)
-    log(f"Automatisch herkende Cardmarket expansions: {len(set_map)}/{len(sets)}")
+    manual_set_map = read_manual_set_map()
+    if manual_set_map:
+        set_map.update(manual_set_map)
+        log(f"Handmatige Cardmarket setmappings toegepast: {len(manual_set_map)}")
+    write_manual_set_map_template(sets)
+    write_set_mapping_candidates(cards, sets, products, set_map)
+    log(f"Automatisch/handmatig herkende Cardmarket expansions: {len(set_map)}/{len(sets)}")
 
     now_dt = dt.datetime.now(dt.timezone.utc)
     now = now_dt.isoformat()
@@ -1205,6 +1356,8 @@ def build(force: bool = False) -> None:
         "priceCacheSizeChars": raw_cache_size,
         "priceCacheFirst500Chars": raw_sample,
         "matchTypes": dict(match_type_counts),
+        "setMappingCandidates": OUT_SET_CANDIDATES.name,
+        "manualSetMapFile": MANUAL_SET_MAP.name,
     }
     OUT_DEBUG.write_text(json.dumps(debug_payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -1212,7 +1365,7 @@ def build(force: bool = False) -> None:
     for k, v in match_type_counts.most_common():
         log(f"  {k}: {v}")
     log(f"Klaar: {matched:,}/{len(cards):,} kaarten gekoppeld, {priced:,} met prijs.".replace(",", "."))
-    log(f"Bestanden gemaakt: {OUT_PRICES.name}, {OUT_HISTORY.name}, {OUT_REPORT.name}, {OUT_SETCODES.name}, {OUT_DEBUG.name}")
+    log(f"Bestanden gemaakt: {OUT_PRICES.name}, {OUT_HISTORY.name}, {OUT_REPORT.name}, {OUT_SETCODES.name}, {OUT_DEBUG.name}, {OUT_SET_CANDIDATES.name}, {MANUAL_SET_MAP.name}")
 
 
 def main() -> None:
