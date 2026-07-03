@@ -1,0 +1,63 @@
+name: Update Cardmarket prijzen
+
+on:
+  schedule:
+    # Dagelijks rond 04:15 UTC. In België is dat meestal 05:15 of 06:15.
+    - cron: '15 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository ophalen
+        uses: actions/checkout@v5
+
+      - name: Python installeren
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+
+      - name: Cardmarket-prijzen bijwerken
+        run: python scripts/update_prices.py --force
+
+      - name: Toon resultaat
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('prices.json')
+          if not p.exists():
+              raise SystemExit('prices.json bestaat niet na update')
+          data = json.loads(p.read_text(encoding='utf-8'))
+          print('updatedAt:', data.get('updatedAt'))
+          print('totalCards:', data.get('totalCards'))
+          print('matchedCards:', data.get('matchedCards'))
+          print('pricedCards:', data.get('pricedCards'))
+          print('prices length:', len(data.get('prices', [])))
+          dbg = Path('cardmarket_debug.json')
+          if dbg.exists():
+              debug = json.loads(dbg.read_text(encoding='utf-8'))
+              print('priceRows:', debug.get('priceRows'))
+              print('priceMapIds:', debug.get('priceMapIds'))
+              print('samplePriceKeys:', debug.get('samplePriceKeys'))
+              print('priceObjectShape:', debug.get('priceObjectShape'))
+              print('priceCacheSizeChars:', debug.get('priceCacheSizeChars'))
+              print('setMappingCandidates:', debug.get('setMappingCandidates'))
+              print('manualSetMapFile:', debug.get('manualSetMapFile'))
+          PY
+
+      - name: Gewijzigde prijsbestanden bewaren
+        run: |
+          if [[ -n "$(git status --porcelain prices.json price_history.json cardmarket_match_report.csv cardmarket_setcodes.csv cardmarket_debug.json cardmarket_unmatched_by_set.csv cardmarket_set_mapping_candidates.csv cardmarket_manual_set_map.csv)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add prices.json price_history.json cardmarket_match_report.csv cardmarket_setcodes.csv cardmarket_debug.json cardmarket_unmatched_by_set.csv cardmarket_set_mapping_candidates.csv cardmarket_manual_set_map.csv
+            git commit -m "Dagelijkse Cardmarket-prijzen bijwerken"
+            git push
+          else
+            echo "Geen wijzigingen in prijsbestanden."
+          fi
