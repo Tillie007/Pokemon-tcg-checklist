@@ -1,8 +1,17 @@
 {
   "source": "Cardmarket publieke bestanden",
-  "updatedAt": "2026-07-02T19:05:55.352401+00:00",
+  "updatedAt": "2026-07-03T11:30:20.003987+00:00",
   "history": {
     "Gym|Gym Heroes|G1|019|The Rocket's Trap": [
+      {
+        "date": "2026-07-03",
+        "price": "44.14",
+        "trendPrice": "44.14",
+        "avg30": "31.21",
+        "lowPrice": "9.99",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "44.14",
@@ -15,6 +24,15 @@
     ],
     "Gym|Gym Heroes|G1|097|Blaine's Quiz #1": [
       {
+        "date": "2026-07-03",
+        "price": "20.17",
+        "trendPrice": "20.17",
+        "avg30": "13.65",
+        "lowPrice": "5.49",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "20.17",
         "trendPrice": "20.17",
@@ -25,6 +43,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|099|Charity": [
+      {
+        "date": "2026-07-03",
+        "price": "9.50",
+        "trendPrice": "9.50",
+        "avg30": "8.88",
+        "lowPrice": "3.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "10.01",
@@ -37,6 +64,15 @@
     ],
     "Gym|Gym Heroes|G1|103|No Removal Gym": [
       {
+        "date": "2026-07-03",
+        "price": "13.93",
+        "trendPrice": "13.93",
+        "avg30": "10.87",
+        "lowPrice": "5.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "13.93",
         "trendPrice": "13.93",
@@ -47,6 +83,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|104|The Rocket's Training Gym": [
+      {
+        "date": "2026-07-03",
+        "price": "20.19",
+        "trendPrice": "20.19",
+        "avg30": "16.05",
+        "lowPrice": "7.95",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "20.19",
@@ -59,6 +104,15 @@
     ],
     "Gym|Gym Heroes|G1|105|Blaine's Last Resort": [
       {
+        "date": "2026-07-03",
+        "price": "2.23",
+        "trendPrice": "2.23",
+        "avg30": "2.01",
+        "lowPrice": "0.30",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "2.29",
         "trendPrice": "2.29",
@@ -69,6 +123,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|106|Brock's Training Method": [
+      {
+        "date": "2026-07-03",
+        "price": "1.34",
+        "trendPrice": "1.34",
+        "avg30": "1.58",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.33",
@@ -81,6 +144,15 @@
     ],
     "Gym|Gym Heroes|G1|107|Celadon City Gym": [
       {
+        "date": "2026-07-03",
+        "price": "1.58",
+        "trendPrice": "1.58",
+        "avg30": "1.57",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.77",
         "trendPrice": "1.77",
@@ -91,6 +163,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|108|Cerulean City Gym": [
+      {
+        "date": "2026-07-03",
+        "price": "1.27",
+        "trendPrice": "1.27",
+        "avg30": "1.80",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.24",
@@ -103,6 +184,15 @@
     ],
     "Gym|Gym Heroes|G1|109|Erika's Maids": [
       {
+        "date": "2026-07-03",
+        "price": "2.05",
+        "trendPrice": "2.05",
+        "avg30": "2.27",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "2.05",
         "trendPrice": "2.05",
@@ -113,6 +203,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|110|Erika's Perfume": [
+      {
+        "date": "2026-07-03",
+        "price": "1.76",
+        "trendPrice": "1.76",
+        "avg30": "1.87",
+        "lowPrice": "0.30",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.76",
@@ -125,6 +224,15 @@
     ],
     "Gym|Gym Heroes|G1|111|Good Manners": [
       {
+        "date": "2026-07-03",
+        "price": "4.95",
+        "trendPrice": "4.95",
+        "avg30": "5.09",
+        "lowPrice": "2.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "4.95",
         "trendPrice": "4.95",
@@ -135,6 +243,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|112|Lt. Surge's Treaty": [
+      {
+        "date": "2026-07-03",
+        "price": "2.47",
+        "trendPrice": "2.47",
+        "avg30": "2.32",
+        "lowPrice": "0.40",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "2.47",
@@ -147,6 +264,15 @@
     ],
     "Gym|Gym Heroes|G1|113|Minion of Team Rocket": [
       {
+        "date": "2026-07-03",
+        "price": "6.65",
+        "trendPrice": "6.65",
+        "avg30": "6.33",
+        "lowPrice": "2.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "6.65",
         "trendPrice": "6.65",
@@ -157,6 +283,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|114|Misty's Wrath": [
+      {
+        "date": "2026-07-03",
+        "price": "11.92",
+        "trendPrice": "11.92",
+        "avg30": "7.93",
+        "lowPrice": "1.99",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "9.57",
@@ -169,6 +304,15 @@
     ],
     "Gym|Gym Heroes|G1|115|Pewter City Gym": [
       {
+        "date": "2026-07-03",
+        "price": "0.94",
+        "trendPrice": "0.94",
+        "avg30": "1.17",
+        "lowPrice": "0.14",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.94",
         "trendPrice": "0.94",
@@ -179,6 +323,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|116|Recall": [
+      {
+        "date": "2026-07-03",
+        "price": "8.82",
+        "trendPrice": "8.82",
+        "avg30": "7.50",
+        "lowPrice": "3.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "8.82",
@@ -191,6 +344,15 @@
     ],
     "Gym|Gym Heroes|G1|117|Sabrina's ESP": [
       {
+        "date": "2026-07-03",
+        "price": "3.57",
+        "trendPrice": "3.57",
+        "avg30": "3.75",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "3.57",
         "trendPrice": "3.57",
@@ -201,6 +363,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|118|Secret Mission": [
+      {
+        "date": "2026-07-03",
+        "price": "1.75",
+        "trendPrice": "1.75",
+        "avg30": "1.70",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.66",
@@ -213,6 +384,15 @@
     ],
     "Gym|Gym Heroes|G1|119|Tickling Machine": [
       {
+        "date": "2026-07-03",
+        "price": "4.08",
+        "trendPrice": "4.08",
+        "avg30": "4.74",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "4.08",
         "trendPrice": "4.08",
@@ -223,6 +403,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|120|Vermilion City Gym": [
+      {
+        "date": "2026-07-03",
+        "price": "1.46",
+        "trendPrice": "1.46",
+        "avg30": "1.25",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.43",
@@ -235,6 +424,15 @@
     ],
     "Gym|Gym Heroes|G1|121|Blaine's Gamble": [
       {
+        "date": "2026-07-03",
+        "price": "0.90",
+        "trendPrice": "0.90",
+        "avg30": "0.83",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.96",
         "trendPrice": "0.96",
@@ -245,6 +443,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|122|Energy Flow": [
+      {
+        "date": "2026-07-03",
+        "price": "0.95",
+        "trendPrice": "0.95",
+        "avg30": "0.58",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.98",
@@ -257,6 +464,15 @@
     ],
     "Gym|Gym Heroes|G1|123|Misty's Duel": [
       {
+        "date": "2026-07-03",
+        "price": "2.58",
+        "trendPrice": "2.58",
+        "avg30": "2.19",
+        "lowPrice": "0.30",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "2.58",
         "trendPrice": "2.58",
@@ -267,6 +483,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|124|Narrow Gym": [
+      {
+        "date": "2026-07-03",
+        "price": "0.85",
+        "trendPrice": "0.85",
+        "avg30": "0.97",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.85",
@@ -279,6 +504,15 @@
     ],
     "Gym|Gym Heroes|G1|125|Sabrina's Gaze": [
       {
+        "date": "2026-07-03",
+        "price": "1.83",
+        "trendPrice": "1.83",
+        "avg30": "1.19",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.90",
         "trendPrice": "1.90",
@@ -289,6 +523,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|126|Trash Exchange": [
+      {
+        "date": "2026-07-03",
+        "price": "1.08",
+        "trendPrice": "1.08",
+        "avg30": "1.25",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.08",
@@ -301,6 +544,15 @@
     ],
     "Gym|Gym Heroes|G1|127|Fighting Energy": [
       {
+        "date": "2026-07-03",
+        "price": "0.44",
+        "trendPrice": "0.44",
+        "avg30": "0.34",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.49",
         "trendPrice": "0.49",
@@ -311,6 +563,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|128|Fire Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "1.18",
+        "trendPrice": "1.18",
+        "avg30": "1.52",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.18",
@@ -323,6 +584,15 @@
     ],
     "Gym|Gym Heroes|G1|129|Grass Energy": [
       {
+        "date": "2026-07-03",
+        "price": "0.67",
+        "trendPrice": "0.67",
+        "avg30": "0.47",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.70",
         "trendPrice": "0.70",
@@ -333,6 +603,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|130|Lightning Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "0.89",
+        "trendPrice": "0.89",
+        "avg30": "0.48",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.96",
@@ -345,6 +624,15 @@
     ],
     "Gym|Gym Heroes|G1|131|Psychic Energy": [
       {
+        "date": "2026-07-03",
+        "price": "1.07",
+        "trendPrice": "1.07",
+        "avg30": "1.10",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.07",
         "trendPrice": "1.07",
@@ -355,6 +643,15 @@
       }
     ],
     "Gym|Gym Heroes|G1|132|Water Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "0.37",
+        "trendPrice": "0.37",
+        "avg30": "0.51",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.37",
@@ -367,6 +664,15 @@
     ],
     "Mega Evolution|Perfect Order|POR|068|Antique Jaw Fossil": [
       {
+        "date": "2026-07-03",
+        "price": "0.03",
+        "trendPrice": "0.03",
+        "avg30": "0.04",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.03",
         "trendPrice": "0.03",
@@ -377,6 +683,15 @@
       }
     ],
     "Mega Evolution|Perfect Order|POR|069|Antique Sail Fossil": [
+      {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.04",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.04",
@@ -389,6 +704,15 @@
     ],
     "Mega Evolution|Perfect Order|POR|070|Core Memory": [
       {
+        "date": "2026-07-03",
+        "price": "0.05",
+        "trendPrice": "0.05",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.03",
         "trendPrice": "0.03",
@@ -399,6 +723,15 @@
       }
     ],
     "Mega Evolution|Perfect Order|POR|071|Crushing Hammer": [
+      {
+        "date": "2026-07-03",
+        "price": "0.10",
+        "trendPrice": "0.10",
+        "avg30": "0.08",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.09",
@@ -411,6 +744,15 @@
     ],
     "Mega Evolution|Perfect Order|POR|072|Energy Search": [
       {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.05",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.03",
         "trendPrice": "0.03",
@@ -421,6 +763,15 @@
       }
     ],
     "Mega Evolution|Perfect Order|POR|073|Energy Swatter": [
+      {
+        "date": "2026-07-03",
+        "price": "0.05",
+        "trendPrice": "0.05",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.04",
@@ -433,6 +784,15 @@
     ],
     "Mega Evolution|Perfect Order|POR|076|Judge": [
       {
+        "date": "2026-07-03",
+        "price": "0.08",
+        "trendPrice": "0.08",
+        "avg30": "0.07",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.07",
         "trendPrice": "0.07",
@@ -443,6 +803,15 @@
       }
     ],
     "Mega Evolution|Perfect Order|POR|078|Lumiose Galette": [
+      {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.03",
@@ -455,6 +824,15 @@
     ],
     "Mega Evolution|Perfect Order|POR|080|Poké Ball": [
       {
+        "date": "2026-07-03",
+        "price": "0.06",
+        "trendPrice": "0.06",
+        "avg30": "0.06",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.06",
         "trendPrice": "0.06",
@@ -465,6 +843,15 @@
       }
     ],
     "Mega Evolution|Perfect Order|POR|082|Pokémon Catcher": [
+      {
+        "date": "2026-07-03",
+        "price": "0.07",
+        "trendPrice": "0.07",
+        "avg30": "0.04",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.07",
@@ -477,6 +864,15 @@
     ],
     "Mega Evolution|Perfect Order|POR|083|Potion": [
       {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.04",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.04",
         "trendPrice": "0.04",
@@ -487,6 +883,15 @@
       }
     ],
     "Mega Evolution|Perfect Order|POR|108|Energy Recycler": [
+      {
+        "date": "2026-07-03",
+        "price": "3.49",
+        "trendPrice": "3.49",
+        "avg30": "3.67",
+        "lowPrice": "2.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "3.52",
@@ -499,6 +904,15 @@
     ],
     "Mega Evolution|Perfect Order|POR|109|Forest of Vitality": [
       {
+        "date": "2026-07-03",
+        "price": "6.96",
+        "trendPrice": "6.96",
+        "avg30": "7.85",
+        "lowPrice": "2.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "7.04",
         "trendPrice": "7.04",
@@ -509,6 +923,15 @@
       }
     ],
     "Mega Evolution|Perfect Order|POR|115|Sacred Ash": [
+      {
+        "date": "2026-07-03",
+        "price": "2.85",
+        "trendPrice": "2.85",
+        "avg30": "3.48",
+        "lowPrice": "1.90",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "2.89",
@@ -521,6 +944,15 @@
     ],
     "Mega Evolution|Perfect Order|POR|117|Wondrous Patch": [
       {
+        "date": "2026-07-03",
+        "price": "4.10",
+        "trendPrice": "4.10",
+        "avg30": "4.37",
+        "lowPrice": "2.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "4.20",
         "trendPrice": "4.20",
@@ -531,6 +963,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|094|Area Zero Underdepths": [
+      {
+        "date": "2026-07-03",
+        "price": "0.05",
+        "trendPrice": "0.05",
+        "avg30": "0.07",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.06",
@@ -543,6 +984,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|095|Binding Mochi": [
       {
+        "date": "2026-07-03",
+        "price": "0.06",
+        "trendPrice": "0.06",
+        "avg30": "0.05",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.06",
         "trendPrice": "0.06",
@@ -553,6 +1003,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|100|Briar": [
+      {
+        "date": "2026-07-03",
+        "price": "0.03",
+        "trendPrice": "0.03",
+        "avg30": "0.04",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.03",
@@ -565,6 +1024,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|101|Buddy-Buddy Poffin": [
       {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.13",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.16",
         "trendPrice": "0.16",
@@ -575,6 +1043,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|102|Bug Catching Set": [
+      {
+        "date": "2026-07-03",
+        "price": "0.12",
+        "trendPrice": "0.12",
+        "avg30": "0.09",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.12",
@@ -587,6 +1064,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|103|Carmine": [
       {
+        "date": "2026-07-03",
+        "price": "0.05",
+        "trendPrice": "0.05",
+        "avg30": "0.05",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.05",
         "trendPrice": "0.05",
@@ -597,6 +1083,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|104|Ciphermaniac's Codebreaking": [
+      {
+        "date": "2026-07-03",
+        "price": "0.09",
+        "trendPrice": "0.09",
+        "avg30": "0.08",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.09",
@@ -609,6 +1104,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|106|Earthen Vessel": [
       {
+        "date": "2026-07-03",
+        "price": "0.09",
+        "trendPrice": "0.09",
+        "avg30": "0.09",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.09",
         "trendPrice": "0.09",
@@ -619,6 +1123,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|107|Explorer's Guidance": [
+      {
+        "date": "2026-07-03",
+        "price": "0.03",
+        "trendPrice": "0.03",
+        "avg30": "0.05",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.03",
@@ -631,6 +1144,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|108|Festival Grounds": [
       {
+        "date": "2026-07-03",
+        "price": "0.07",
+        "trendPrice": "0.07",
+        "avg30": "0.06",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.07",
         "trendPrice": "0.07",
@@ -641,6 +1163,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|110|Glass Trumpet": [
+      {
+        "date": "2026-07-03",
+        "price": "0.03",
+        "trendPrice": "0.03",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.03",
@@ -653,6 +1184,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|111|Haban Berry": [
       {
+        "date": "2026-07-03",
+        "price": "0.03",
+        "trendPrice": "0.03",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.03",
         "trendPrice": "0.03",
@@ -663,6 +1203,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|116|Max Rod": [
+      {
+        "date": "2026-07-03",
+        "price": "0.95",
+        "trendPrice": "0.95",
+        "avg30": "0.92",
+        "lowPrice": "0.19",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.94",
@@ -675,6 +1224,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|117|Maximum Belt": [
       {
+        "date": "2026-07-03",
+        "price": "1.30",
+        "trendPrice": "1.30",
+        "avg30": "1.27",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.26",
         "trendPrice": "1.26",
@@ -685,6 +1243,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|118|Ogre's Mask": [
+      {
+        "date": "2026-07-03",
+        "price": "0.03",
+        "trendPrice": "0.03",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.03",
@@ -697,6 +1264,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|119|Prime Catcher": [
       {
+        "date": "2026-07-03",
+        "price": "0.65",
+        "trendPrice": "0.65",
+        "avg30": "0.67",
+        "lowPrice": "0.09",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.61",
         "trendPrice": "0.61",
@@ -707,6 +1283,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|120|Professor Sada's Vitality": [
+      {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.04",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.04",
@@ -719,6 +1304,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|121|Professor Turo's Scenario": [
       {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.05",
         "trendPrice": "0.05",
@@ -729,6 +1323,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|126|Rescue Board": [
+      {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.05",
@@ -741,6 +1344,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|127|Roto-Stick": [
       {
+        "date": "2026-07-03",
+        "price": "0.09",
+        "trendPrice": "0.09",
+        "avg30": "0.09",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.09",
         "trendPrice": "0.09",
@@ -751,6 +1363,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|128|Scoop Up Cyclone": [
+      {
+        "date": "2026-07-03",
+        "price": "0.46",
+        "trendPrice": "0.46",
+        "avg30": "0.43",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.40",
@@ -763,6 +1384,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|129|Sparkling Crystal": [
       {
+        "date": "2026-07-03",
+        "price": "0.47",
+        "trendPrice": "0.47",
+        "avg30": "0.42",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.46",
         "trendPrice": "0.46",
@@ -773,6 +1403,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|130|Techno Radar": [
+      {
+        "date": "2026-07-03",
+        "price": "0.03",
+        "trendPrice": "0.03",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.03",
@@ -785,6 +1424,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|131|Treasure Tracker": [
       {
+        "date": "2026-07-03",
+        "price": "0.50",
+        "trendPrice": "0.50",
+        "avg30": "0.37",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.49",
         "trendPrice": "0.49",
@@ -795,6 +1443,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|135|Brassius": [
+      {
+        "date": "2026-07-03",
+        "price": "0.79",
+        "trendPrice": "0.79",
+        "avg30": "0.80",
+        "lowPrice": "0.08",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.77",
@@ -807,6 +1464,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|136|Eri": [
       {
+        "date": "2026-07-03",
+        "price": "1.13",
+        "trendPrice": "1.13",
+        "avg30": "1.11",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.07",
         "trendPrice": "1.07",
@@ -817,6 +1483,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|138|Giacomo": [
+      {
+        "date": "2026-07-03",
+        "price": "0.71",
+        "trendPrice": "0.71",
+        "avg30": "0.75",
+        "lowPrice": "0.09",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.68",
@@ -829,6 +1504,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|140|Mela": [
       {
+        "date": "2026-07-03",
+        "price": "0.87",
+        "trendPrice": "0.87",
+        "avg30": "0.87",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.90",
         "trendPrice": "0.90",
@@ -839,6 +1523,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|141|Ortega": [
+      {
+        "date": "2026-07-03",
+        "price": "0.85",
+        "trendPrice": "0.85",
+        "avg30": "0.78",
+        "lowPrice": "0.09",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.81",
@@ -851,6 +1544,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|142|Raifort": [
       {
+        "date": "2026-07-03",
+        "price": "0.72",
+        "trendPrice": "0.72",
+        "avg30": "0.74",
+        "lowPrice": "0.08",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.73",
         "trendPrice": "0.73",
@@ -861,6 +1563,15 @@
       }
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|143|Tyme": [
+      {
+        "date": "2026-07-03",
+        "price": "0.70",
+        "trendPrice": "0.70",
+        "avg30": "0.66",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.68",
@@ -873,6 +1584,15 @@
     ],
     "Scarlet & Violet|Prismatic Evolutions|PRE|172|Drayton": [
       {
+        "date": "2026-07-03",
+        "price": "20.16",
+        "trendPrice": "20.16",
+        "avg30": "20.79",
+        "lowPrice": "7.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "22.02",
         "trendPrice": "22.02",
@@ -883,6 +1603,15 @@
       }
     ],
     "Sword & Shield|Chilling Reign|CRE|133|Crushing Gloves": [
+      {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.04",
@@ -895,6 +1624,15 @@
     ],
     "Sword & Shield|Chilling Reign|CRE|135|Dyna Tree Hill": [
       {
+        "date": "2026-07-03",
+        "price": "0.03",
+        "trendPrice": "0.03",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.03",
         "trendPrice": "0.03",
@@ -905,6 +1643,15 @@
       }
     ],
     "Sword & Shield|Chilling Reign|CRE|137|Expedition Uniform": [
+      {
+        "date": "2026-07-03",
+        "price": "0.03",
+        "trendPrice": "0.03",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.03",
@@ -917,6 +1664,15 @@
     ],
     "Sword & Shield|Chilling Reign|CRE|138|Fire-Resistant Gloves": [
       {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.04",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.04",
         "trendPrice": "0.04",
@@ -927,6 +1683,15 @@
       }
     ],
     "Sword & Shield|Chilling Reign|CRE|141|Galarian Chestplate": [
+      {
+        "date": "2026-07-03",
+        "price": "0.05",
+        "trendPrice": "0.05",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.05",
@@ -939,6 +1704,15 @@
     ],
     "Sword & Shield|Chilling Reign|CRE|143|Justified Gloves": [
       {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.04",
         "trendPrice": "0.04",
@@ -949,6 +1723,15 @@
       }
     ],
     "Sword & Shield|Chilling Reign|CRE|147|Old Cemetery": [
+      {
+        "date": "2026-07-03",
+        "price": "0.10",
+        "trendPrice": "0.10",
+        "avg30": "0.05",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.09",
@@ -961,6 +1744,15 @@
     ],
     "Sword & Shield|Chilling Reign|CRE|148|Path to the Peak": [
       {
+        "date": "2026-07-03",
+        "price": "0.10",
+        "trendPrice": "0.10",
+        "avg30": "0.08",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.12",
         "trendPrice": "0.12",
@@ -971,6 +1763,15 @@
       }
     ],
     "Sword & Shield|Chilling Reign|CRE|151|Rapid Strike Scroll of the Skies": [
+      {
+        "date": "2026-07-03",
+        "price": "0.07",
+        "trendPrice": "0.07",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.07",
@@ -983,6 +1784,15 @@
     ],
     "Sword & Shield|Chilling Reign|CRE|154|Single Strike Scroll of Piercing": [
       {
+        "date": "2026-07-03",
+        "price": "0.05",
+        "trendPrice": "0.05",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.05",
         "trendPrice": "0.05",
@@ -993,6 +1803,15 @@
       }
     ],
     "Sword & Shield|Chilling Reign|CRE|155|Weeding Gloves": [
+      {
+        "date": "2026-07-03",
+        "price": "0.03",
+        "trendPrice": "0.03",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.03",
@@ -1005,6 +1824,15 @@
     ],
     "Sword & Shield|Chilling Reign|CRE|157|Impact Energy": [
       {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.04",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.04",
         "trendPrice": "0.04",
@@ -1015,6 +1843,15 @@
       }
     ],
     "Sword & Shield|Chilling Reign|CRE|158|Lucky Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "0.06",
+        "trendPrice": "0.06",
+        "avg30": "0.05",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.07",
@@ -1027,6 +1864,15 @@
     ],
     "Sword & Shield|Chilling Reign|CRE|159|Spiral Energy": [
       {
+        "date": "2026-07-03",
+        "price": "0.05",
+        "trendPrice": "0.05",
+        "avg30": "0.05",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.05",
         "trendPrice": "0.05",
@@ -1037,6 +1883,15 @@
       }
     ],
     "Sword & Shield|Chilling Reign|CRE|226|Fan of Waves": [
+      {
+        "date": "2026-07-03",
+        "price": "6.01",
+        "trendPrice": "6.01",
+        "avg30": "5.12",
+        "lowPrice": "3.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "6.01",
@@ -1049,6 +1904,15 @@
     ],
     "Sword & Shield|Chilling Reign|CRE|229|Urn of Vitality": [
       {
+        "date": "2026-07-03",
+        "price": "3.89",
+        "trendPrice": "3.89",
+        "avg30": "4.30",
+        "lowPrice": "1.95",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "3.89",
         "trendPrice": "3.89",
@@ -1059,6 +1923,15 @@
       }
     ],
     "Sword & Shield|Chilling Reign|CRE|231|Water Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "10.86",
+        "trendPrice": "10.86",
+        "avg30": "10.11",
+        "lowPrice": "9.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "10.86",
@@ -1071,6 +1944,15 @@
     ],
     "Sword & Shield|Chilling Reign|CRE|232|Psychic Energy": [
       {
+        "date": "2026-07-03",
+        "price": "10.37",
+        "trendPrice": "10.37",
+        "avg30": "10.25",
+        "lowPrice": "7.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "10.37",
         "trendPrice": "10.37",
@@ -1081,6 +1963,15 @@
       }
     ],
     "Sword & Shield|Chilling Reign|CRE|233|Fighting Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "8.39",
+        "trendPrice": "8.39",
+        "avg30": "8.50",
+        "lowPrice": "4.98",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "8.39",
@@ -1093,6 +1984,15 @@
     ],
     "Sword & Shield|Champion's Path|CPA|050|Bede": [
       {
+        "date": "2026-07-03",
+        "price": "0.02",
+        "trendPrice": "0.02",
+        "avg30": "0.07",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.02",
         "trendPrice": "0.02",
@@ -1103,6 +2003,15 @@
       }
     ],
     "Sword & Shield|Champion's Path|CPA|051|Full Heal": [
+      {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.04",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.03",
@@ -1115,6 +2024,15 @@
     ],
     "Sword & Shield|Champion's Path|CPA|052|Great Ball": [
       {
+        "date": "2026-07-03",
+        "price": "0.05",
+        "trendPrice": "0.05",
+        "avg30": "0.07",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.05",
         "trendPrice": "0.05",
@@ -1125,6 +2043,15 @@
       }
     ],
     "Sword & Shield|Champion's Path|CPA|054|Hyper Potion": [
+      {
+        "date": "2026-07-03",
+        "price": "0.02",
+        "trendPrice": "0.02",
+        "avg30": "0.10",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.02",
@@ -1137,6 +2064,15 @@
     ],
     "Sword & Shield|Champion's Path|CPA|056|Marnie": [
       {
+        "date": "2026-07-03",
+        "price": "0.03",
+        "trendPrice": "0.03",
+        "avg30": "0.32",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.06",
         "trendPrice": "0.06",
@@ -1147,6 +2083,15 @@
       }
     ],
     "Sword & Shield|Champion's Path|CPA|057|Milo": [
+      {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.05",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.04",
@@ -1159,6 +2104,15 @@
     ],
     "Sword & Shield|Champion's Path|CPA|059|Poké Ball": [
       {
+        "date": "2026-07-03",
+        "price": "0.02",
+        "trendPrice": "0.02",
+        "avg30": "0.03",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.02",
         "trendPrice": "0.02",
@@ -1169,6 +2123,15 @@
       }
     ],
     "Sword & Shield|Champion's Path|CPA|060|Pokémon Center Lady": [
+      {
+        "date": "2026-07-03",
+        "price": "0.06",
+        "trendPrice": "0.06",
+        "avg30": "0.07",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.05",
@@ -1181,6 +2144,15 @@
     ],
     "Sword & Shield|Champion's Path|CPA|061|Potion": [
       {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.04",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.04",
         "trendPrice": "0.04",
@@ -1191,6 +2163,15 @@
       }
     ],
     "Sword & Shield|Champion's Path|CPA|062|Professor's Research (Professor Magnolia)": [
+      {
+        "date": "2026-07-03",
+        "price": "0.15",
+        "trendPrice": "0.15",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.15",
@@ -1203,6 +2184,15 @@
     ],
     "Sword & Shield|Champion's Path|CPA|063|Rotom Bike": [
       {
+        "date": "2026-07-03",
+        "price": "0.09",
+        "trendPrice": "0.09",
+        "avg30": "0.06",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.09",
         "trendPrice": "0.09",
@@ -1213,6 +2203,15 @@
       }
     ],
     "Sword & Shield|Champion's Path|CPA|064|Rotom Phone": [
+      {
+        "date": "2026-07-03",
+        "price": "0.09",
+        "trendPrice": "0.09",
+        "avg30": "0.11",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.09",
@@ -1225,6 +2224,15 @@
     ],
     "Sword & Shield|Champion's Path|CPA|065|Sonia": [
       {
+        "date": "2026-07-03",
+        "price": "0.10",
+        "trendPrice": "0.10",
+        "avg30": "0.11",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.12",
         "trendPrice": "0.12",
@@ -1235,6 +2243,15 @@
       }
     ],
     "Sword & Shield|Champion's Path|CPA|067|Team Yell Grunt": [
+      {
+        "date": "2026-07-03",
+        "price": "0.05",
+        "trendPrice": "0.05",
+        "avg30": "0.06",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.05",
@@ -1247,6 +2264,15 @@
     ],
     "Sword & Shield|Champion's Path|CPA|068|Turffield Stadium": [
       {
+        "date": "2026-07-03",
+        "price": "0.09",
+        "trendPrice": "0.09",
+        "avg30": "0.08",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.09",
         "trendPrice": "0.09",
@@ -1257,6 +2283,15 @@
       }
     ],
     "Sword & Shield|Sword & Shield|SSH|158|Big Charm": [
+      {
+        "date": "2026-07-03",
+        "price": "0.50",
+        "trendPrice": "0.50",
+        "avg30": "0.26",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.50",
@@ -1269,6 +2304,15 @@
     ],
     "Sword & Shield|Sword & Shield|SSH|160|Energy Retrieval": [
       {
+        "date": "2026-07-03",
+        "price": "0.05",
+        "trendPrice": "0.05",
+        "avg30": "0.05",
+        "lowPrice": "0.79",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.05",
         "trendPrice": "0.05",
@@ -1279,6 +2323,15 @@
       }
     ],
     "Sword & Shield|Sword & Shield|SSH|162|Energy Switch": [
+      {
+        "date": "2026-07-03",
+        "price": "0.25",
+        "trendPrice": "0.25",
+        "avg30": "0.25",
+        "lowPrice": "0.65",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.25",
@@ -1291,6 +2344,15 @@
     ],
     "Sword & Shield|Sword & Shield|SSH|172|Pal Pad": [
       {
+        "date": "2026-07-03",
+        "price": "0.25",
+        "trendPrice": "0.25",
+        "avg30": "0.15",
+        "lowPrice": "2.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.25",
         "trendPrice": "0.25",
@@ -1301,6 +2363,15 @@
       }
     ],
     "Sword & Shield|Sword & Shield|SSH|177|Potion": [
+      {
+        "date": "2026-07-03",
+        "price": "0.05",
+        "trendPrice": "0.05",
+        "avg30": "0.05",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.05",
@@ -1313,6 +2384,15 @@
     ],
     "Sword & Shield|Sword & Shield|SSH|180|Rare Candy": [
       {
+        "date": "2026-07-03",
+        "price": "1.76",
+        "trendPrice": "1.76",
+        "avg30": "0.84",
+        "lowPrice": "0.24",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.76",
         "trendPrice": "1.76",
@@ -1323,6 +2403,15 @@
       }
     ],
     "Sword & Shield|Sword & Shield|SSH|181|Rotom Bike": [
+      {
+        "date": "2026-07-03",
+        "price": "0.66",
+        "trendPrice": "0.66",
+        "avg30": "0.36",
+        "lowPrice": "",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.66",
@@ -1335,6 +2424,15 @@
     ],
     "Sword & Shield|Sword & Shield|SSH|182|Sitrus Berry": [
       {
+        "date": "2026-07-03",
+        "price": "0.49",
+        "trendPrice": "0.49",
+        "avg30": "0.27",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.49",
         "trendPrice": "0.49",
@@ -1345,6 +2443,15 @@
       }
     ],
     "Sun & Moon|Celestial Storm|CES|125|Beast Ball": [
+      {
+        "date": "2026-07-03",
+        "price": "0.27",
+        "trendPrice": "0.27",
+        "avg30": "0.23",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.27",
@@ -1357,6 +2464,15 @@
     ],
     "Sun & Moon|Celestial Storm|CES|128|Energy Recycle System": [
       {
+        "date": "2026-07-03",
+        "price": "0.34",
+        "trendPrice": "0.34",
+        "avg30": "0.24",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.34",
         "trendPrice": "0.34",
@@ -1367,6 +2483,15 @@
       }
     ],
     "Sun & Moon|Celestial Storm|CES|130|Fisherman": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.20",
@@ -1379,6 +2504,15 @@
     ],
     "Sun & Moon|Celestial Storm|CES|131|Friend Ball": [
       {
+        "date": "2026-07-03",
+        "price": "0.36",
+        "trendPrice": "0.36",
+        "avg30": "0.29",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.36",
         "trendPrice": "0.36",
@@ -1389,6 +2523,15 @@
       }
     ],
     "Sun & Moon|Celestial Storm|CES|132|Hau": [
+      {
+        "date": "2026-07-03",
+        "price": "0.02",
+        "trendPrice": "0.02",
+        "avg30": "0.04",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.02",
@@ -1401,6 +2544,15 @@
     ],
     "Sun & Moon|Celestial Storm|CES|133|Hiker": [
       {
+        "date": "2026-07-03",
+        "price": "0.18",
+        "trendPrice": "0.18",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.18",
         "trendPrice": "0.18",
@@ -1411,6 +2563,15 @@
       }
     ],
     "Sun & Moon|Celestial Storm|CES|135|Last Chance Potion": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.19",
@@ -1423,6 +2584,15 @@
     ],
     "Sun & Moon|Celestial Storm|CES|138|Lure Ball": [
       {
+        "date": "2026-07-03",
+        "price": "0.36",
+        "trendPrice": "0.36",
+        "avg30": "0.26",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.36",
         "trendPrice": "0.36",
@@ -1433,6 +2603,15 @@
       }
     ],
     "Sun & Moon|Celestial Storm|CES|139|The Masked Royal": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.22",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.20",
@@ -1445,6 +2624,15 @@
     ],
     "Sun & Moon|Celestial Storm|CES|143|Shrine of Punishment": [
       {
+        "date": "2026-07-03",
+        "price": "1.01",
+        "trendPrice": "1.01",
+        "avg30": "0.85",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.01",
         "trendPrice": "1.01",
@@ -1455,6 +2643,15 @@
       }
     ],
     "Sun & Moon|Celestial Storm|CES|144|Sky Pillar": [
+      {
+        "date": "2026-07-03",
+        "price": "0.29",
+        "trendPrice": "0.29",
+        "avg30": "0.26",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.29",
@@ -1467,6 +2664,15 @@
     ],
     "Sun & Moon|Celestial Storm|CES|146|Super Scoop Up": [
       {
+        "date": "2026-07-03",
+        "price": "0.23",
+        "trendPrice": "0.23",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.23",
         "trendPrice": "0.23",
@@ -1477,6 +2683,15 @@
       }
     ],
     "XY|Fates Collide|FCO|090|Alakazam Spirit Link": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.21",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.19",
@@ -1489,6 +2704,15 @@
     ],
     "XY|Fates Collide|FCO|091|Altaria Spirit Link": [
       {
+        "date": "2026-07-03",
+        "price": "0.15",
+        "trendPrice": "0.15",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.15",
         "trendPrice": "0.15",
@@ -1499,6 +2723,15 @@
       }
     ],
     "XY|Fates Collide|FCO|093|Bent Spoon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.09",
+        "trendPrice": "0.09",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.11",
@@ -1511,6 +2744,15 @@
     ],
     "XY|Fates Collide|FCO|095|Devolution Spray": [
       {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.24",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.22",
         "trendPrice": "0.22",
@@ -1521,6 +2763,15 @@
       }
     ],
     "XY|Fates Collide|FCO|096|Dome Fossil Kabuto": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.21",
@@ -1533,6 +2784,15 @@
     ],
     "XY|Fates Collide|FCO|097|Energy Pouch": [
       {
+        "date": "2026-07-03",
+        "price": "0.10",
+        "trendPrice": "0.10",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.10",
         "trendPrice": "0.10",
@@ -1543,6 +2803,15 @@
       }
     ],
     "XY|Fates Collide|FCO|098|Energy Reset": [
+      {
+        "date": "2026-07-03",
+        "price": "0.11",
+        "trendPrice": "0.11",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.11",
@@ -1555,6 +2824,15 @@
     ],
     "XY|Fates Collide|FCO|099|Fairy Drop": [
       {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.18",
         "trendPrice": "0.18",
@@ -1565,6 +2843,15 @@
       }
     ],
     "XY|Fates Collide|FCO|100|Fairy Garden": [
+      {
+        "date": "2026-07-03",
+        "price": "0.28",
+        "trendPrice": "0.28",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.28",
@@ -1577,6 +2864,15 @@
     ],
     "XY|Fates Collide|FCO|101|Fossil Excavation Kit": [
       {
+        "date": "2026-07-03",
+        "price": "0.12",
+        "trendPrice": "0.12",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.12",
         "trendPrice": "0.12",
@@ -1587,6 +2883,15 @@
       }
     ],
     "XY|Fates Collide|FCO|102|Helix Fossil Omanyte": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.19",
@@ -1599,6 +2904,15 @@
     ],
     "XY|Fates Collide|FCO|103|Lass's Special": [
       {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.17",
         "trendPrice": "0.17",
@@ -1609,6 +2923,15 @@
       }
     ],
     "XY|Fates Collide|FCO|104|Mega Catcher": [
+      {
+        "date": "2026-07-03",
+        "price": "0.14",
+        "trendPrice": "0.14",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.14",
@@ -1621,6 +2944,15 @@
     ],
     "XY|Fates Collide|FCO|106|Old Amber Aerodactyl": [
       {
+        "date": "2026-07-03",
+        "price": "0.13",
+        "trendPrice": "0.13",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.13",
         "trendPrice": "0.13",
@@ -1631,6 +2963,15 @@
       }
     ],
     "XY|Fates Collide|FCO|107|Pokémon Fan Club": [
+      {
+        "date": "2026-07-03",
+        "price": "0.08",
+        "trendPrice": "0.08",
+        "avg30": "0.10",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.08",
@@ -1643,6 +2984,15 @@
     ],
     "XY|Fates Collide|FCO|108|Power Memory": [
       {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.19",
         "trendPrice": "0.19",
@@ -1653,6 +3003,15 @@
       }
     ],
     "XY|Fates Collide|FCO|109|Random Receiver": [
+      {
+        "date": "2026-07-03",
+        "price": "0.31",
+        "trendPrice": "0.31",
+        "avg30": "0.27",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.26",
@@ -1665,6 +3024,15 @@
     ],
     "XY|Fates Collide|FCO|110|Scorched Earth": [
       {
+        "date": "2026-07-03",
+        "price": "0.10",
+        "trendPrice": "0.10",
+        "avg30": "0.21",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.12",
         "trendPrice": "0.12",
@@ -1675,6 +3043,15 @@
       }
     ],
     "XY|Phantom Forces|PHF|094|Enhanced Hammer": [
+      {
+        "date": "2026-07-03",
+        "price": "0.43",
+        "trendPrice": "0.43",
+        "avg30": "0.35",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.43",
@@ -1687,6 +3064,15 @@
     ],
     "XY|Phantom Forces|PHF|095|Gengar Spirit Link": [
       {
+        "date": "2026-07-03",
+        "price": "5.62",
+        "trendPrice": "5.62",
+        "avg30": "4.78",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "5.62",
         "trendPrice": "5.62",
@@ -1697,6 +3083,15 @@
       }
     ],
     "XY|Phantom Forces|PHF|096|Hand Scope": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.16",
@@ -1709,6 +3104,15 @@
     ],
     "XY|Phantom Forces|PHF|097|Head Ringer Team Flare Hyper Gear": [
       {
+        "date": "2026-07-03",
+        "price": "2.85",
+        "trendPrice": "2.85",
+        "avg30": "2.72",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "2.85",
         "trendPrice": "2.85",
@@ -1719,6 +3123,15 @@
       }
     ],
     "XY|Phantom Forces|PHF|098|Jamming Net Team Flare Hyper Gear": [
+      {
+        "date": "2026-07-03",
+        "price": "4.03",
+        "trendPrice": "4.03",
+        "avg30": "2.73",
+        "lowPrice": "0.69",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "4.03",
@@ -1731,6 +3144,15 @@
     ],
     "XY|Phantom Forces|PHF|100|Manectric Spirit Link": [
       {
+        "date": "2026-07-03",
+        "price": "0.38",
+        "trendPrice": "0.38",
+        "avg30": "0.32",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.38",
         "trendPrice": "0.38",
@@ -1741,6 +3163,15 @@
       }
     ],
     "XY|Phantom Forces|PHF|101|Professor Sycamore": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.14",
@@ -1753,6 +3184,15 @@
     ],
     "XY|Phantom Forces|PHF|102|Robo Substitute Team Flare Gear": [
       {
+        "date": "2026-07-03",
+        "price": "0.47",
+        "trendPrice": "0.47",
+        "avg30": "0.44",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.43",
         "trendPrice": "0.43",
@@ -1763,6 +3203,15 @@
       }
     ],
     "XY|Phantom Forces|PHF|103|Roller Skates": [
+      {
+        "date": "2026-07-03",
+        "price": "0.06",
+        "trendPrice": "0.06",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.06",
@@ -1775,6 +3224,15 @@
     ],
     "XY|Phantom Forces|PHF|104|Shauna": [
       {
+        "date": "2026-07-03",
+        "price": "0.14",
+        "trendPrice": "0.14",
+        "avg30": "0.13",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.14",
         "trendPrice": "0.14",
@@ -1785,6 +3243,15 @@
       }
     ],
     "XY|Phantom Forces|PHF|105|Steel Shelter": [
+      {
+        "date": "2026-07-03",
+        "price": "0.18",
+        "trendPrice": "0.18",
+        "avg30": "0.19",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.18",
@@ -1797,6 +3264,15 @@
     ],
     "XY|Phantom Forces|PHF|106|Target Whistle Team Flare Gear": [
       {
+        "date": "2026-07-03",
+        "price": "0.26",
+        "trendPrice": "0.26",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.26",
         "trendPrice": "0.26",
@@ -1807,6 +3283,15 @@
       }
     ],
     "XY|Phantom Forces|PHF|107|Tierno": [
+      {
+        "date": "2026-07-03",
+        "price": "0.06",
+        "trendPrice": "0.06",
+        "avg30": "0.06",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.06",
@@ -1819,6 +3304,15 @@
     ],
     "XY|Phantom Forces|PHF|108|Trick Coin": [
       {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.17",
         "trendPrice": "0.17",
@@ -1829,6 +3323,15 @@
       }
     ],
     "XY|Phantom Forces|PHF|111|Double Colorless Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "0.91",
+        "trendPrice": "0.91",
+        "avg30": "0.66",
+        "lowPrice": "0.06",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.91",
@@ -1841,6 +3344,15 @@
     ],
     "XY|Phantom Forces|PHF|112|Mystery Energy": [
       {
+        "date": "2026-07-03",
+        "price": "2.89",
+        "trendPrice": "2.89",
+        "avg30": "2.48",
+        "lowPrice": "0.43",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "2.89",
         "trendPrice": "2.89",
@@ -1851,6 +3363,15 @@
       }
     ],
     "EX|EX Trainer Kit 2 Plusle|—|010|Professor Cozmo's Discovery": [
+      {
+        "date": "2026-07-03",
+        "price": "0.35",
+        "trendPrice": "0.35",
+        "avg30": "0.29",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.35",
@@ -1863,6 +3384,15 @@
     ],
     "EX|EX Trainer Kit 2 Plusle|—|012|Psychic Energy": [
       {
+        "date": "2026-07-03",
+        "price": "0.09",
+        "trendPrice": "0.09",
+        "avg30": "0.10",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.09",
         "trendPrice": "0.09",
@@ -1873,6 +3403,15 @@
       }
     ],
     "EX|EX Trainer Kit 2 Minun|—|008|Celio's Network": [
+      {
+        "date": "2026-07-03",
+        "price": "0.27",
+        "trendPrice": "0.27",
+        "avg30": "0.32",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.27",
@@ -1885,6 +3424,15 @@
     ],
     "EX|EX Trainer Kit 2 Minun|—|011|Fire Energy": [
       {
+        "date": "2026-07-03",
+        "price": "0.12",
+        "trendPrice": "0.12",
+        "avg30": "0.13",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.12",
         "trendPrice": "0.12",
@@ -1895,6 +3443,15 @@
       }
     ],
     "EX|Team Magma vs Team Aqua|MA|069|Team Aqua Schemer": [
+      {
+        "date": "2026-07-03",
+        "price": "0.38",
+        "trendPrice": "0.38",
+        "avg30": "0.32",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.41",
@@ -1907,6 +3464,15 @@
     ],
     "EX|Team Magma vs Team Aqua|MA|070|Team Magma Schemer": [
       {
+        "date": "2026-07-03",
+        "price": "0.32",
+        "trendPrice": "0.32",
+        "avg30": "0.29",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.32",
         "trendPrice": "0.32",
@@ -1917,6 +3483,15 @@
       }
     ],
     "EX|Team Magma vs Team Aqua|MA|071|Archie": [
+      {
+        "date": "2026-07-03",
+        "price": "2.62",
+        "trendPrice": "2.62",
+        "avg30": "1.96",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "2.62",
@@ -1929,6 +3504,15 @@
     ],
     "EX|Team Magma vs Team Aqua|MA|072|Dual Ball": [
       {
+        "date": "2026-07-03",
+        "price": "1.89",
+        "trendPrice": "1.89",
+        "avg30": "1.47",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.89",
         "trendPrice": "1.89",
@@ -1939,6 +3523,15 @@
       }
     ],
     "EX|Team Magma vs Team Aqua|MA|073|Maxie": [
+      {
+        "date": "2026-07-03",
+        "price": "2.77",
+        "trendPrice": "2.77",
+        "avg30": "2.04",
+        "lowPrice": "0.40",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "2.77",
@@ -1951,6 +3544,15 @@
     ],
     "EX|Team Magma vs Team Aqua|MA|074|Strength Charm": [
       {
+        "date": "2026-07-03",
+        "price": "1.50",
+        "trendPrice": "1.50",
+        "avg30": "1.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.50",
         "trendPrice": "1.50",
@@ -1961,6 +3563,15 @@
       }
     ],
     "EX|Team Magma vs Team Aqua|MA|075|Team Aqua Ball": [
+      {
+        "date": "2026-07-03",
+        "price": "0.77",
+        "trendPrice": "0.77",
+        "avg30": "0.70",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.80",
@@ -1973,6 +3584,15 @@
     ],
     "EX|Team Magma vs Team Aqua|MA|076|Team Aqua Belt": [
       {
+        "date": "2026-07-03",
+        "price": "1.40",
+        "trendPrice": "1.40",
+        "avg30": "1.09",
+        "lowPrice": "0.14",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.40",
         "trendPrice": "1.40",
@@ -1983,6 +3603,15 @@
       }
     ],
     "EX|Team Magma vs Team Aqua|MA|077|Team Aqua Conspirator": [
+      {
+        "date": "2026-07-03",
+        "price": "0.35",
+        "trendPrice": "0.35",
+        "avg30": "0.56",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.38",
@@ -1995,6 +3624,15 @@
     ],
     "EX|Team Magma vs Team Aqua|MA|078|Team Aqua Hideout": [
       {
+        "date": "2026-07-03",
+        "price": "0.54",
+        "trendPrice": "0.54",
+        "avg30": "0.77",
+        "lowPrice": "0.09",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.54",
         "trendPrice": "0.54",
@@ -2005,6 +3643,15 @@
       }
     ],
     "EX|Team Magma vs Team Aqua|MA|079|Team Aqua Technical Machine 01": [
+      {
+        "date": "2026-07-03",
+        "price": "1.12",
+        "trendPrice": "1.12",
+        "avg30": "0.90",
+        "lowPrice": "0.19",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.12",
@@ -2017,6 +3664,15 @@
     ],
     "EX|Team Magma vs Team Aqua|MA|080|Team Magma Ball": [
       {
+        "date": "2026-07-03",
+        "price": "0.59",
+        "trendPrice": "0.59",
+        "avg30": "0.64",
+        "lowPrice": "0.08",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.63",
         "trendPrice": "0.63",
@@ -2027,6 +3683,15 @@
       }
     ],
     "EX|Team Magma vs Team Aqua|MA|081|Team Magma Belt": [
+      {
+        "date": "2026-07-03",
+        "price": "0.97",
+        "trendPrice": "0.97",
+        "avg30": "0.91",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.01",
@@ -2039,6 +3704,15 @@
     ],
     "EX|Team Magma vs Team Aqua|MA|082|Team Magma Conspirator": [
       {
+        "date": "2026-07-03",
+        "price": "0.47",
+        "trendPrice": "0.47",
+        "avg30": "0.98",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.43",
         "trendPrice": "0.43",
@@ -2049,6 +3723,15 @@
       }
     ],
     "EX|Team Magma vs Team Aqua|MA|083|Team Magma Hideout": [
+      {
+        "date": "2026-07-03",
+        "price": "0.73",
+        "trendPrice": "0.73",
+        "avg30": "0.76",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.77",
@@ -2061,6 +3744,15 @@
     ],
     "EX|Team Magma vs Team Aqua|MA|084|Team Magma Technical Machine 01": [
       {
+        "date": "2026-07-03",
+        "price": "1.24",
+        "trendPrice": "1.24",
+        "avg30": "1.36",
+        "lowPrice": "0.09",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.31",
         "trendPrice": "1.31",
@@ -2071,6 +3763,15 @@
       }
     ],
     "EX|Team Magma vs Team Aqua|MA|085|Warp Point": [
+      {
+        "date": "2026-07-03",
+        "price": "1.44",
+        "trendPrice": "1.44",
+        "avg30": "1.22",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.23",
@@ -2083,6 +3784,15 @@
     ],
     "EX|Team Magma vs Team Aqua|MA|086|Aqua Energy": [
       {
+        "date": "2026-07-03",
+        "price": "1.34",
+        "trendPrice": "1.34",
+        "avg30": "1.34",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.39",
         "trendPrice": "1.39",
@@ -2093,6 +3803,15 @@
       }
     ],
     "EX|Team Magma vs Team Aqua|MA|087|Magma Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "2.14",
+        "trendPrice": "2.14",
+        "avg30": "1.58",
+        "lowPrice": "0.35",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "2.14",
@@ -2105,6 +3824,15 @@
     ],
     "EX|Team Magma vs Team Aqua|MA|088|Double Rainbow Energy": [
       {
+        "date": "2026-07-03",
+        "price": "2.36",
+        "trendPrice": "2.36",
+        "avg30": "2.26",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "2.36",
         "trendPrice": "2.36",
@@ -2115,6 +3843,15 @@
       }
     ],
     "E-Card|Aquapolis|AQ|118|Apricorn Forest": [
+      {
+        "date": "2026-07-03",
+        "price": "3.04",
+        "trendPrice": "3.04",
+        "avg30": "3.36",
+        "lowPrice": "0.59",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "3.04",
@@ -2127,6 +3864,15 @@
     ],
     "E-Card|Aquapolis|AQ|119|Darkness Cube 01": [
       {
+        "date": "2026-07-03",
+        "price": "0.98",
+        "trendPrice": "0.98",
+        "avg30": "0.98",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.03",
         "trendPrice": "1.03",
@@ -2137,6 +3883,15 @@
       }
     ],
     "E-Card|Aquapolis|AQ|120|Energy Switch": [
+      {
+        "date": "2026-07-03",
+        "price": "7.04",
+        "trendPrice": "7.04",
+        "avg30": "5.47",
+        "lowPrice": "1.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "6.91",
@@ -2149,6 +3904,15 @@
     ],
     "E-Card|Aquapolis|AQ|121|Fighting Cube 01": [
       {
+        "date": "2026-07-03",
+        "price": "0.99",
+        "trendPrice": "0.99",
+        "avg30": "0.98",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.99",
         "trendPrice": "0.99",
@@ -2159,6 +3923,15 @@
       }
     ],
     "E-Card|Aquapolis|AQ|122|Fire Cube 01": [
+      {
+        "date": "2026-07-03",
+        "price": "1.14",
+        "trendPrice": "1.14",
+        "avg30": "1.13",
+        "lowPrice": "0.19",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.06",
@@ -2171,6 +3944,15 @@
     ],
     "E-Card|Aquapolis|AQ|123|Forest Guardian": [
       {
+        "date": "2026-07-03",
+        "price": "1.10",
+        "trendPrice": "1.10",
+        "avg30": "0.85",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.20",
         "trendPrice": "1.20",
@@ -2181,6 +3963,15 @@
       }
     ],
     "E-Card|Aquapolis|AQ|124|Grass Cube 01": [
+      {
+        "date": "2026-07-03",
+        "price": "0.69",
+        "trendPrice": "0.69",
+        "avg30": "0.88",
+        "lowPrice": "0.19",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.69",
@@ -2193,6 +3984,15 @@
     ],
     "E-Card|Aquapolis|AQ|125|Healing Berry": [
       {
+        "date": "2026-07-03",
+        "price": "1.16",
+        "trendPrice": "1.16",
+        "avg30": "1.12",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.16",
         "trendPrice": "1.16",
@@ -2203,6 +4003,15 @@
       }
     ],
     "E-Card|Aquapolis|AQ|126|Juggler": [
+      {
+        "date": "2026-07-03",
+        "price": "1.07",
+        "trendPrice": "1.07",
+        "avg30": "0.81",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.92",
@@ -2215,6 +4024,15 @@
     ],
     "E-Card|Aquapolis|AQ|127|Lightning Cube 01": [
       {
+        "date": "2026-07-03",
+        "price": "0.84",
+        "trendPrice": "0.84",
+        "avg30": "0.91",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.84",
         "trendPrice": "0.84",
@@ -2225,6 +4043,15 @@
       }
     ],
     "E-Card|Aquapolis|AQ|128|Memory Berry": [
+      {
+        "date": "2026-07-03",
+        "price": "2.39",
+        "trendPrice": "2.39",
+        "avg30": "1.43",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "2.29",
@@ -2237,6 +4064,15 @@
     ],
     "E-Card|Aquapolis|AQ|129|Metal Cube 01": [
       {
+        "date": "2026-07-03",
+        "price": "0.86",
+        "trendPrice": "0.86",
+        "avg30": "0.97",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.91",
         "trendPrice": "0.91",
@@ -2247,6 +4083,15 @@
       }
     ],
     "E-Card|Aquapolis|AQ|130|Pokémon Fan Club": [
+      {
+        "date": "2026-07-03",
+        "price": "2.61",
+        "trendPrice": "2.61",
+        "avg30": "2.87",
+        "lowPrice": "0.18",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "2.61",
@@ -2259,6 +4104,15 @@
     ],
     "E-Card|Aquapolis|AQ|131|Pokémon Park": [
       {
+        "date": "2026-07-03",
+        "price": "3.19",
+        "trendPrice": "3.19",
+        "avg30": "3.28",
+        "lowPrice": "1.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "3.19",
         "trendPrice": "3.19",
@@ -2269,6 +4123,15 @@
       }
     ],
     "E-Card|Aquapolis|AQ|132|Psychic Cube 01": [
+      {
+        "date": "2026-07-03",
+        "price": "0.92",
+        "trendPrice": "0.92",
+        "avg30": "0.87",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.02",
@@ -2281,6 +4144,15 @@
     ],
     "E-Card|Aquapolis|AQ|133|Seer": [
       {
+        "date": "2026-07-03",
+        "price": "1.23",
+        "trendPrice": "1.23",
+        "avg30": "1.17",
+        "lowPrice": "0.23",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.23",
         "trendPrice": "1.23",
@@ -2291,6 +4163,15 @@
       }
     ],
     "E-Card|Aquapolis|AQ|134|Super Energy Removal 2": [
+      {
+        "date": "2026-07-03",
+        "price": "0.86",
+        "trendPrice": "0.86",
+        "avg30": "1.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.02",
@@ -2303,6 +4184,15 @@
     ],
     "E-Card|Aquapolis|AQ|135|Time Shard": [
       {
+        "date": "2026-07-03",
+        "price": "1.07",
+        "trendPrice": "1.07",
+        "avg30": "1.19",
+        "lowPrice": "0.22",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.15",
         "trendPrice": "1.15",
@@ -2313,6 +4203,15 @@
       }
     ],
     "E-Card|Aquapolis|AQ|136|Town Volunteers": [
+      {
+        "date": "2026-07-03",
+        "price": "1.78",
+        "trendPrice": "1.78",
+        "avg30": "1.63",
+        "lowPrice": "0.29",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.88",
@@ -2325,6 +4224,15 @@
     ],
     "E-Card|Aquapolis|AQ|137|Traveling Salesman": [
       {
+        "date": "2026-07-03",
+        "price": "1.05",
+        "trendPrice": "1.05",
+        "avg30": "0.85",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.05",
         "trendPrice": "1.05",
@@ -2335,6 +4243,15 @@
       }
     ],
     "E-Card|Aquapolis|AQ|138|Undersea Ruins": [
+      {
+        "date": "2026-07-03",
+        "price": "3.12",
+        "trendPrice": "3.12",
+        "avg30": "2.76",
+        "lowPrice": "0.40",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "3.12",
@@ -2347,6 +4264,15 @@
     ],
     "E-Card|Aquapolis|AQ|139|Power Plant": [
       {
+        "date": "2026-07-03",
+        "price": "1.68",
+        "trendPrice": "1.68",
+        "avg30": "2.21",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.64",
         "trendPrice": "1.64",
@@ -2357,6 +4283,15 @@
       }
     ],
     "E-Card|Aquapolis|AQ|140|Water Cube 01": [
+      {
+        "date": "2026-07-03",
+        "price": "0.98",
+        "trendPrice": "0.98",
+        "avg30": "0.93",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.98",
@@ -2369,6 +4304,15 @@
     ],
     "E-Card|Aquapolis|AQ|141|Weakness Guard": [
       {
+        "date": "2026-07-03",
+        "price": "13.56",
+        "trendPrice": "13.56",
+        "avg30": "7.02",
+        "lowPrice": "1.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "13.56",
         "trendPrice": "13.56",
@@ -2379,6 +4323,15 @@
       }
     ],
     "E-Card|Aquapolis|AQ|144|Rainbow Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "4.73",
+        "trendPrice": "4.73",
+        "avg30": "4.18",
+        "lowPrice": "1.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "4.84",
@@ -2391,6 +4344,15 @@
     ],
     "E-Card|Aquapolis|AQ|145|Boost Energy": [
       {
+        "date": "2026-07-03",
+        "price": "1.85",
+        "trendPrice": "1.85",
+        "avg30": "1.62",
+        "lowPrice": "0.19",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.85",
         "trendPrice": "1.85",
@@ -2401,6 +4363,15 @@
       }
     ],
     "E-Card|Aquapolis|AQ|146|Crystal Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "2.39",
+        "trendPrice": "2.39",
+        "avg30": "1.97",
+        "lowPrice": "0.13",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "2.39",
@@ -2413,6 +4384,15 @@
     ],
     "E-Card|Aquapolis|AQ|147|Warp Energy": [
       {
+        "date": "2026-07-03",
+        "price": "1.69",
+        "trendPrice": "1.69",
+        "avg30": "1.79",
+        "lowPrice": "0.35",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.81",
         "trendPrice": "1.81",
@@ -2423,6 +4403,15 @@
       }
     ],
     "Neo|Neo Genesis|N1|083|Arcade Game": [
+      {
+        "date": "2026-07-03",
+        "price": "5.76",
+        "trendPrice": "5.76",
+        "avg30": "4.00",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "6.28",
@@ -2435,6 +4424,15 @@
     ],
     "Neo|Neo Genesis|N1|084|Ecogym": [
       {
+        "date": "2026-07-03",
+        "price": "2.43",
+        "trendPrice": "2.43",
+        "avg30": "2.17",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "2.43",
         "trendPrice": "2.43",
@@ -2445,6 +4443,15 @@
       }
     ],
     "Neo|Neo Genesis|N1|085|Energy Charge": [
+      {
+        "date": "2026-07-03",
+        "price": "2.83",
+        "trendPrice": "2.83",
+        "avg30": "1.98",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "2.88",
@@ -2457,6 +4464,15 @@
     ],
     "Neo|Neo Genesis|N1|086|Focus Band": [
       {
+        "date": "2026-07-03",
+        "price": "5.22",
+        "trendPrice": "5.22",
+        "avg30": "7.67",
+        "lowPrice": "1.30",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "5.22",
         "trendPrice": "5.22",
@@ -2467,6 +4483,15 @@
       }
     ],
     "Neo|Neo Genesis|N1|087|Mary": [
+      {
+        "date": "2026-07-03",
+        "price": "3.11",
+        "trendPrice": "3.11",
+        "avg30": "2.86",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "3.19",
@@ -2479,6 +4504,15 @@
     ],
     "Neo|Neo Genesis|N1|088|PokéGear": [
       {
+        "date": "2026-07-03",
+        "price": "2.15",
+        "trendPrice": "2.15",
+        "avg30": "3.09",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.66",
         "trendPrice": "1.66",
@@ -2489,6 +4523,15 @@
       }
     ],
     "Neo|Neo Genesis|N1|089|Super Energy Retrieval": [
+      {
+        "date": "2026-07-03",
+        "price": "1.95",
+        "trendPrice": "1.95",
+        "avg30": "2.02",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "2.03",
@@ -2501,6 +4544,15 @@
     ],
     "Neo|Neo Genesis|N1|090|Time Capsule": [
       {
+        "date": "2026-07-03",
+        "price": "1.61",
+        "trendPrice": "1.61",
+        "avg30": "1.51",
+        "lowPrice": "0.07",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.69",
         "trendPrice": "1.69",
@@ -2511,6 +4563,15 @@
       }
     ],
     "Neo|Neo Genesis|N1|091|Bill's Teleporter": [
+      {
+        "date": "2026-07-03",
+        "price": "0.74",
+        "trendPrice": "0.74",
+        "avg30": "0.54",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.77",
@@ -2523,6 +4584,15 @@
     ],
     "Neo|Neo Genesis|N1|092|Card-Flip Game": [
       {
+        "date": "2026-07-03",
+        "price": "0.64",
+        "trendPrice": "0.64",
+        "avg30": "0.85",
+        "lowPrice": "0.08",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.64",
         "trendPrice": "0.64",
@@ -2533,6 +4603,15 @@
       }
     ],
     "Neo|Neo Genesis|N1|093|Gold Berry": [
+      {
+        "date": "2026-07-03",
+        "price": "1.43",
+        "trendPrice": "1.43",
+        "avg30": "1.89",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.54",
@@ -2545,6 +4624,15 @@
     ],
     "Neo|Neo Genesis|N1|094|Miracle Berry": [
       {
+        "date": "2026-07-03",
+        "price": "0.55",
+        "trendPrice": "0.55",
+        "avg30": "0.55",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.60",
         "trendPrice": "0.60",
@@ -2555,6 +4643,15 @@
       }
     ],
     "Neo|Neo Genesis|N1|095|New Pokédex": [
+      {
+        "date": "2026-07-03",
+        "price": "0.43",
+        "trendPrice": "0.43",
+        "avg30": "0.58",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.40",
@@ -2567,6 +4664,15 @@
     ],
     "Neo|Neo Genesis|N1|096|Professor Elm": [
       {
+        "date": "2026-07-03",
+        "price": "0.90",
+        "trendPrice": "0.90",
+        "avg30": "0.68",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.87",
         "trendPrice": "0.87",
@@ -2577,6 +4683,15 @@
       }
     ],
     "Neo|Neo Genesis|N1|097|Sprout Tower": [
+      {
+        "date": "2026-07-03",
+        "price": "1.11",
+        "trendPrice": "1.11",
+        "avg30": "0.77",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.11",
@@ -2589,6 +4704,15 @@
     ],
     "Neo|Neo Genesis|N1|098|Super Scoop Up": [
       {
+        "date": "2026-07-03",
+        "price": "0.87",
+        "trendPrice": "0.87",
+        "avg30": "1.12",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.94",
         "trendPrice": "0.94",
@@ -2599,6 +4723,15 @@
       }
     ],
     "Neo|Neo Genesis|N1|099|Berry": [
+      {
+        "date": "2026-07-03",
+        "price": "0.34",
+        "trendPrice": "0.34",
+        "avg30": "0.27",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.30",
@@ -2611,6 +4744,15 @@
     ],
     "Neo|Neo Genesis|N1|100|Double Gust": [
       {
+        "date": "2026-07-03",
+        "price": "0.53",
+        "trendPrice": "0.53",
+        "avg30": "1.07",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.52",
         "trendPrice": "0.52",
@@ -2621,6 +4763,15 @@
       }
     ],
     "Neo|Neo Genesis|N1|101|Moo-Moo Milk": [
+      {
+        "date": "2026-07-03",
+        "price": "0.37",
+        "trendPrice": "0.37",
+        "avg30": "0.27",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.38",
@@ -2633,6 +4784,15 @@
     ],
     "Neo|Neo Genesis|N1|102|Pokémon March": [
       {
+        "date": "2026-07-03",
+        "price": "1.40",
+        "trendPrice": "1.40",
+        "avg30": "0.64",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.47",
         "trendPrice": "1.47",
@@ -2643,6 +4803,15 @@
       }
     ],
     "Neo|Neo Genesis|N1|103|Super Rod": [
+      {
+        "date": "2026-07-03",
+        "price": "0.39",
+        "trendPrice": "0.39",
+        "avg30": "0.40",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.39",
@@ -2655,6 +4824,15 @@
     ],
     "Neo|Neo Genesis|N1|105|Recycle Energy": [
       {
+        "date": "2026-07-03",
+        "price": "4.28",
+        "trendPrice": "4.28",
+        "avg30": "3.84",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "4.69",
         "trendPrice": "4.69",
@@ -2665,6 +4843,15 @@
       }
     ],
     "Neo|Neo Genesis|N1|106|Fighting Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "0.44",
+        "trendPrice": "0.44",
+        "avg30": "0.51",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.45",
@@ -2677,6 +4864,15 @@
     ],
     "Neo|Neo Genesis|N1|107|Fire Energy": [
       {
+        "date": "2026-07-03",
+        "price": "0.82",
+        "trendPrice": "0.82",
+        "avg30": "0.48",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.69",
         "trendPrice": "0.69",
@@ -2687,6 +4883,15 @@
       }
     ],
     "Neo|Neo Genesis|N1|108|Grass Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "0.41",
+        "trendPrice": "0.41",
+        "avg30": "0.29",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.32",
@@ -2699,6 +4904,15 @@
     ],
     "Neo|Neo Genesis|N1|109|Lightning Energy": [
       {
+        "date": "2026-07-03",
+        "price": "0.62",
+        "trendPrice": "0.62",
+        "avg30": "0.40",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.67",
         "trendPrice": "0.67",
@@ -2709,6 +4923,15 @@
       }
     ],
     "Neo|Neo Genesis|N1|110|Psychic Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "0.70",
+        "trendPrice": "0.70",
+        "avg30": "0.57",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "0.76",
@@ -2721,6 +4944,15 @@
     ],
     "Neo|Neo Genesis|N1|111|Water Energy": [
       {
+        "date": "2026-07-03",
+        "price": "0.29",
+        "trendPrice": "0.29",
+        "avg30": "0.27",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.23",
         "trendPrice": "0.23",
@@ -2731,6 +4963,15 @@
       }
     ],
     "Gym|Gym Challenge|G2|101|Brock's Protection": [
+      {
+        "date": "2026-07-03",
+        "price": "10.29",
+        "trendPrice": "10.29",
+        "avg30": "8.57",
+        "lowPrice": "3.98",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "9.00",
@@ -2743,6 +4984,15 @@
     ],
     "Gym|Gym Challenge|G2|102|Chaos Gym": [
       {
+        "date": "2026-07-03",
+        "price": "11.49",
+        "trendPrice": "11.49",
+        "avg30": "11.59",
+        "lowPrice": "5.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "11.35",
         "trendPrice": "11.35",
@@ -2753,6 +5003,15 @@
       }
     ],
     "Gym|Gym Challenge|G2|103|Erika's Kindness": [
+      {
+        "date": "2026-07-03",
+        "price": "20.81",
+        "trendPrice": "20.81",
+        "avg30": "19.71",
+        "lowPrice": "9.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "20.81",
@@ -2765,6 +5024,15 @@
     ],
     "Gym|Gym Challenge|G2|105|Giovanni's Last Resort": [
       {
+        "date": "2026-07-03",
+        "price": "13.94",
+        "trendPrice": "13.94",
+        "avg30": "14.47",
+        "lowPrice": "4.90",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "13.94",
         "trendPrice": "13.94",
@@ -2775,6 +5043,15 @@
       }
     ],
     "Gym|Gym Challenge|G2|107|Lt. Surge's Secret Plan": [
+      {
+        "date": "2026-07-03",
+        "price": "8.98",
+        "trendPrice": "8.98",
+        "avg30": "7.48",
+        "lowPrice": "1.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "8.98",
@@ -2787,6 +5064,15 @@
     ],
     "Gym|Gym Challenge|G2|108|Misty's Wish": [
       {
+        "date": "2026-07-03",
+        "price": "16.52",
+        "trendPrice": "16.52",
+        "avg30": "15.19",
+        "lowPrice": "4.70",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "15.66",
         "trendPrice": "15.66",
@@ -2797,6 +5083,15 @@
       }
     ],
     "Gym|Gym Challenge|G2|109|Resistance Gym": [
+      {
+        "date": "2026-07-03",
+        "price": "10.39",
+        "trendPrice": "10.39",
+        "avg30": "7.88",
+        "lowPrice": "3.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "10.39",
@@ -2809,6 +5104,15 @@
     ],
     "Gym|Gym Challenge|G2|111|Blaine's Quiz #2": [
       {
+        "date": "2026-07-03",
+        "price": "7.27",
+        "trendPrice": "7.27",
+        "avg30": "9.67",
+        "lowPrice": "1.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "7.27",
         "trendPrice": "7.27",
@@ -2819,6 +5123,15 @@
       }
     ],
     "Gym|Gym Challenge|G2|112|Blaine's Quiz #3": [
+      {
+        "date": "2026-07-03",
+        "price": "6.43",
+        "trendPrice": "6.43",
+        "avg30": "5.97",
+        "lowPrice": "3.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "6.43",
@@ -2831,6 +5144,15 @@
     ],
     "Gym|Gym Challenge|G2|113|Cinnabar City Gym": [
       {
+        "date": "2026-07-03",
+        "price": "1.57",
+        "trendPrice": "1.57",
+        "avg30": "1.91",
+        "lowPrice": "0.09",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.80",
         "trendPrice": "1.80",
@@ -2841,6 +5163,15 @@
       }
     ],
     "Gym|Gym Challenge|G2|114|Fuchsia City Gym": [
+      {
+        "date": "2026-07-03",
+        "price": "2.00",
+        "trendPrice": "2.00",
+        "avg30": "1.95",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "2.00",
@@ -2853,6 +5184,15 @@
     ],
     "Gym|Gym Challenge|G2|115|Koga's Ninja Trick": [
       {
+        "date": "2026-07-03",
+        "price": "3.53",
+        "trendPrice": "3.53",
+        "avg30": "3.27",
+        "lowPrice": "0.70",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "3.38",
         "trendPrice": "3.38",
@@ -2863,6 +5203,15 @@
       }
     ],
     "Gym|Gym Challenge|G2|116|Master Ball": [
+      {
+        "date": "2026-07-03",
+        "price": "4.54",
+        "trendPrice": "4.54",
+        "avg30": "2.94",
+        "lowPrice": "0.30",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "4.54",
@@ -2875,6 +5224,15 @@
     ],
     "Gym|Gym Challenge|G2|117|Max Revive": [
       {
+        "date": "2026-07-03",
+        "price": "3.42",
+        "trendPrice": "3.42",
+        "avg30": "4.15",
+        "lowPrice": "0.70",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "3.42",
         "trendPrice": "3.42",
@@ -2885,6 +5243,15 @@
       }
     ],
     "Gym|Gym Challenge|G2|118|Misty's Tears": [
+      {
+        "date": "2026-07-03",
+        "price": "26.67",
+        "trendPrice": "26.67",
+        "avg30": "24.18",
+        "lowPrice": "10.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "22.91",
@@ -2897,6 +5264,15 @@
     ],
     "Gym|Gym Challenge|G2|119|Rocket's Minefield Gym": [
       {
+        "date": "2026-07-03",
+        "price": "4.04",
+        "trendPrice": "4.04",
+        "avg30": "2.64",
+        "lowPrice": "0.39",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "4.23",
         "trendPrice": "4.23",
@@ -2907,6 +5283,15 @@
       }
     ],
     "Gym|Gym Challenge|G2|120|Rocket's Secret Experiment": [
+      {
+        "date": "2026-07-03",
+        "price": "8.16",
+        "trendPrice": "8.16",
+        "avg30": "8.71",
+        "lowPrice": "3.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "8.16",
@@ -2919,6 +5304,15 @@
     ],
     "Gym|Gym Challenge|G2|121|Sabrina's Psychic Control": [
       {
+        "date": "2026-07-03",
+        "price": "5.82",
+        "trendPrice": "5.82",
+        "avg30": "6.23",
+        "lowPrice": "0.99",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "4.91",
         "trendPrice": "4.91",
@@ -2929,6 +5323,15 @@
       }
     ],
     "Gym|Gym Challenge|G2|122|Saffron City Gym": [
+      {
+        "date": "2026-07-03",
+        "price": "1.19",
+        "trendPrice": "1.19",
+        "avg30": "1.94",
+        "lowPrice": "0.30",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.30",
@@ -2941,6 +5344,15 @@
     ],
     "Gym|Gym Challenge|G2|123|Viridian City Gym": [
       {
+        "date": "2026-07-03",
+        "price": "2.26",
+        "trendPrice": "2.26",
+        "avg30": "1.99",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "2.34",
         "trendPrice": "2.34",
@@ -2951,6 +5363,15 @@
       }
     ],
     "Gym|Gym Challenge|G2|124|Fervor": [
+      {
+        "date": "2026-07-03",
+        "price": "2.67",
+        "trendPrice": "2.67",
+        "avg30": "1.76",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "2.92",
@@ -2963,6 +5384,15 @@
     ],
     "Gym|Gym Challenge|G2|125|Transparent Walls": [
       {
+        "date": "2026-07-03",
+        "price": "1.48",
+        "trendPrice": "1.48",
+        "avg30": "1.41",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "1.35",
         "trendPrice": "1.35",
@@ -2973,6 +5403,15 @@
       }
     ],
     "Gym|Gym Challenge|G2|126|Warp Point": [
+      {
+        "date": "2026-07-03",
+        "price": "1.20",
+        "trendPrice": "1.20",
+        "avg30": "1.36",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.32",
@@ -2985,6 +5424,15 @@
     ],
     "Gym|Gym Challenge|G2|127|Fighting Energy": [
       {
+        "date": "2026-07-03",
+        "price": "2.12",
+        "trendPrice": "2.12",
+        "avg30": "1.27",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "2.12",
         "trendPrice": "2.12",
@@ -2995,6 +5443,15 @@
       }
     ],
     "Gym|Gym Challenge|G2|128|Fire Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "1.05",
+        "trendPrice": "1.05",
+        "avg30": "0.61",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.05",
@@ -3007,6 +5464,15 @@
     ],
     "Gym|Gym Challenge|G2|129|Grass Energy": [
       {
+        "date": "2026-07-03",
+        "price": "0.65",
+        "trendPrice": "0.65",
+        "avg30": "0.52",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.72",
         "trendPrice": "0.72",
@@ -3017,6 +5483,15 @@
       }
     ],
     "Gym|Gym Challenge|G2|130|Lightning Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "1.62",
+        "trendPrice": "1.62",
+        "avg30": "1.83",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "1.62",
@@ -3029,6 +5504,15 @@
     ],
     "Gym|Gym Challenge|G2|131|Psychic Energy": [
       {
+        "date": "2026-07-03",
+        "price": "0.83",
+        "trendPrice": "0.83",
+        "avg30": "0.68",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
+      {
         "date": "2026-07-02",
         "price": "0.83",
         "trendPrice": "0.83",
@@ -3039,6 +5523,15 @@
       }
     ],
     "Gym|Gym Challenge|G2|132|Water Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "3.23",
+        "trendPrice": "3.23",
+        "avg30": "2.05",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      },
       {
         "date": "2026-07-02",
         "price": "3.23",

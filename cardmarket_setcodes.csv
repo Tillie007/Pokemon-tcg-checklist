@@ -1,6 +1,6 @@
 ﻿serie;set;appAfkorting;cardmarketExpansionId;cardmarketSetcode;cardmarketSetnaam;methode;score;overlap;gekoppeldeKaarten
 Mega Evolution;Chaos Rising;CRI;;;;;;;0
-Mega Evolution;Perfect Order;POR;6443;POR;;name-overlap;0.2283;21;15
+Mega Evolution;Perfect Order;POR;6443;;;name-overlap;0.2283;21;15
 Mega Evolution;Ascended Heroes;ASC;;;;;;;0
 Mega Evolution;Phantasmal Flames;PFL;;;;;;;0
 Mega Evolution;Mega Evolution;MEG;;;;;;;0
@@ -8,7 +8,7 @@ Scarlet & Violet;White Flare;WHT;;;;;;;0
 Scarlet & Violet;Black Bolt;BLK;;;;;;;0
 Scarlet & Violet;Destined Rivals;DRI;;;;;;;0
 Scarlet & Violet;Journey Together;JTG;;;;;;;0
-Scarlet & Violet;Prismatic Evolutions;PRE;5944;PRE;;name-overlap;0.2778;41;32
+Scarlet & Violet;Prismatic Evolutions;PRE;5944;;;name-overlap;0.2778;41;32
 Scarlet & Violet;Surging Sparks;SSP;;;;;;;0
 Scarlet & Violet;Stellar Crown;SCR;;;;;;;0
 Scarlet & Violet;Shrouded Fable;SFA;;;;;;;0
@@ -37,15 +37,15 @@ Sword & Shield;Fusion Strike;FST;;;;;;;0
 Sword & Shield;Celebrations: Classic Collection;CEL;;;;;;;0
 Sword & Shield;Celebrations;CEL;;;;;;;0
 Sword & Shield;Evolving Skies;EVS;;;;;;;0
-Sword & Shield;Chilling Reign;CRE;4174;CRE;;name-overlap;0.2049;36;19
+Sword & Shield;Chilling Reign;CRE;4174;;;name-overlap;0.2049;36;19
 Sword & Shield;Battle Styles;BST;;;;;;;0
 Sword & Shield;Shining Fates Shiny Vault;SHF;;;;;;;0
 Sword & Shield;Shining Fates;SHF;;;;;;;0
 Sword & Shield;Vivid Voltage;VIV;;;;;;;0
-Sword & Shield;Champion's Path;CPA;3419;CPA;;name-overlap;0.2283;19;15
+Sword & Shield;Champion's Path;CPA;3419;;;name-overlap;0.2283;19;15
 Sword & Shield;Darkness Ablaze;DAA;;;;;;;0
 Sword & Shield;Rebel Clash;RCL;;;;;;;0
-Sword & Shield;Sword & Shield;SSH;3600;SSH;;name-overlap;0.1998;24;8
+Sword & Shield;Sword & Shield;SSH;3600;;;name-overlap;0.1998;24;8
 Sword & Shield;SWSH Black Star Promos;PR-SW;;;;;;;0
 Other;McDonald's Collection 2022;—;;;;;;;0
 Other;McDonald's Collection 2021;—;;;;;;;0
@@ -71,7 +71,7 @@ Sun & Moon;Detective Pikachu;DET;;;;;;;0
 Sun & Moon;Team Up;TEU;;;;;;;0
 Sun & Moon;Lost Thunder;LOT;;;;;;;0
 Sun & Moon;Dragon Majesty;DRM;;;;;;;0
-Sun & Moon;Celestial Storm;CES;2320;CES;;name-overlap;0.1909;29;12
+Sun & Moon;Celestial Storm;CES;2320;;;name-overlap;0.1909;29;12
 Sun & Moon;Forbidden Light;FLI;;;;;;;0
 Sun & Moon;Ultra Prism;UPR;;;;;;;0
 Sun & Moon;Crimson Invasion;CIN;;;;;;;0
@@ -82,7 +82,7 @@ Sun & Moon;Sun & Moon;SUM;;;;;;;0
 Sun & Moon;SM Black Star Promos;PR-SM;;;;;;;0
 XY;Evolutions;EVO;;;;;;;0
 XY;Steam Siege;STS;;;;;;;0
-XY;Fates Collide;FCO;1706;FCO;;name-overlap;0.2297;26;18
+XY;Fates Collide;FCO;1706;;;name-overlap;0.2297;26;18
 XY;Generations;GEN;;;;;;;0
 XY;BREAKpoint;BKP;;;;;;;0
 XY;BREAKthrough;BKT;;;;;;;0
@@ -90,7 +90,7 @@ XY;Ancient Origins;AOR;;;;;;;0
 XY;Roaring Skies;ROS;;;;;;;0
 XY;Double Crisis;DCR;;;;;;;0
 XY;Primal Clash;PRC;;;;;;;0
-XY;Phantom Forces;PHF;1521;PHF;;name-overlap;0.1885;22;16
+XY;Phantom Forces;PHF;1521;;;name-overlap;0.1885;22;16
 XY;Furious Fists;FFI;;;;;;;0
 XY;Flashfire;FLF;;;;;;;0
 XY;XY;XY;;;;;;;0
@@ -140,8 +140,8 @@ EX;Power Keepers;PK;;;;;;;0
 EX;Dragon Frontiers;DF;;;;;;;0
 EX;Crystal Guardians;CG;;;;;;;0
 EX;Holon Phantoms;HP;;;;;;;0
-EX;EX Trainer Kit 2 Plusle;—;1627;—;;name-overlap;0.2947;5;2
-EX;EX Trainer Kit 2 Minun;—;1627;—;;name-overlap;0.2947;5;2
+EX;EX Trainer Kit 2 Plusle;—;1627;;;name-overlap;0.2947;5;2
+EX;EX Trainer Kit 2 Minun;—;1627;;;name-overlap;0.2947;5;2
 EX;Legend Maker;LM;;;;;;;0
 EX;Delta Species;DS;;;;;;;0
 EX;Unseen Forces;UF;;;;;;;0
@@ -152,20 +152,20 @@ EX;FireRed & LeafGreen;RG;;;;;;;0
 EX;Hidden Legends;HL;;;;;;;0
 EX;EX Trainer Kit Latios;—;;;;;;;0
 EX;EX Trainer Kit Latias;—;;;;;;;0
-EX;Team Magma vs Team Aqua;MA;1542;MA;;name-overlap;0.227;20;20
+EX;Team Magma vs Team Aqua;MA;1542;;;name-overlap;0.227;20;20
 EX;Dragon;DR;;;;;;;0
 EX;Sandstorm;SS;;;;;;;0
 EX;Ruby & Sapphire;RS;;;;;;;0
 NP;Nintendo Black Star Promos;PR-NP;;;;;;;0
 E-Card;Skyridge;SK;;;;;;;0
-E-Card;Aquapolis;AQ;1537;AQ;;name-overlap;0.1935;28;28
+E-Card;Aquapolis;AQ;1537;;;name-overlap;0.1935;28;28
 E-Card;Expedition Base Set;EX;;;;;;;0
 Neo;Neo Destiny;N4;;;;;;;0
 Neo;Neo Revelation;N3;;;;;;;0
 Neo;Neo Discovery;N2;;;;;;;0
-Neo;Neo Genesis;N1;1531;N1;;name-overlap;0.2599;28;28
-Gym;Gym Challenge;G2;1530;G2;;name-overlap;0.2622;33;29
-Gym;Gym Heroes;G1;1529;G1;;name-overlap;0.3042;37;33
+Neo;Neo Genesis;N1;1531;;;name-overlap;0.2599;28;28
+Gym;Gym Challenge;G2;1530;;;name-overlap;0.2615;33;29
+Gym;Gym Heroes;G1;1529;;;name-overlap;0.3042;37;33
 Base;Team Rocket;TR;;;;;;;0
 Base;Base Set 2;B2;;;;;;;0
 Base;Fossil;FO;;;;;;;0
