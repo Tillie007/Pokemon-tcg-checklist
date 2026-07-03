@@ -2,7 +2,7 @@
 """
 Dagelijkse Cardmarket prijsupdate voor de Pokémon TCG Checklist PWA.
 
-Versie: 2026-07-02 FIX 5 — meer setkoppelingen via Cardmarket-setnaam
+Versie: 2026-07-03 FIX 7 — meer matches door Level/Lv-prefix toe te laten
 
 Waarom deze versie?
 - De publieke Cardmarket productlijst bevat vaak wel idProduct + idExpansion + naam,
@@ -15,6 +15,7 @@ Waarom deze versie?
 - Deze versie leest ook prijsbestanden die als object per idProduct zijn opgebouwd.
 - Cardmarket-namen worden opgeslagen als cmName/cmRawName zodat de app ermee kan zoeken.
 - Extra: app-sets worden nu ook gekoppeld via Cardmarket-setnaam/category + veilige aliasnamen.
+- Nieuw: Cardmarket-namen met Lv./Level na de kaartnaam worden nu veilig toegelaten wanneer de kaartnaam uniek is binnen de set.
 
 Geen Cardmarket API-sleutels nodig. Alleen publieke downloadbestanden.
 """
@@ -763,10 +764,10 @@ def product_name_starts_with_card(product_name: str, card_name: str) -> bool:
     # Bescherm tegen foutieve matches zoals "Mewtwo" -> "Mewtwo ex".
     if first in variant_tokens and first not in card_tokens:
         return False
-    # Ook geen match als het vervolg duidelijk een level/nummer-label is
-    # terwijl dat niet in de app-naam staat.
-    if first in {"lv", "level"} and first not in card_tokens:
-        return False
+    # Lv./Level is geen echte variant maar onderdeel van oudere Cardmarket-productnamen.
+    # Voorbeeld: app "Arcanine" tegenover Cardmarket "Arcanine Lv 32 Overrun Combustion".
+    # Omdat we deze prefix-match alleen doen als de kaartnaam uniek is in de app-set
+    # én er exact één passend Cardmarket-product is, is dit veilig genoeg om toe te laten.
     return True
 
 
