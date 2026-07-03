@@ -705,17 +705,23 @@ def card_name_variants(name: str) -> List[str]:
 
 
 def make_product_indexes(products: List[Dict[str, str]]) -> Dict[str, Dict[Tuple[str, str, str], List[Dict[str, str]]]]:
-    indexes: Dict[str, Dict[Tuple[str, str, str], List[Dict[str, str]]]] = {
+    indexes: Dict[str, Any] = {
         "code_num_name": defaultdict(list),
         "exp_num_name": defaultdict(list),
         "exp_name": defaultdict(list),
         "set_num_name": defaultdict(list),
+        # Nieuw: alle producten per Cardmarket-expansion, zodat we veilig kunnen
+        # matchen op productnamen die beginnen met de kaartnaam. Cardmarket zet
+        # vaak aanvallen achter de kaartnaam, bv. "Ampharos Synchro Pulse...".
+        "exp_all_by_exp": defaultdict(list),
     }
     for p in products:
         names = p.get("normNames") or [p.get("normName", "")]
         names = [n for n in names if n]
         if not names:
             continue
+        if p["idExpansion"]:
+            indexes["exp_all_by_exp"][p["idExpansion"]].append(p)
         for nm in names:
             if p["cmSetCode"] and p["number"]:
                 indexes["code_num_name"][(norm_compact(p["cmSetCode"]), p["number"], nm)].append(p)
@@ -730,6 +736,38 @@ def make_product_indexes(products: List[Dict[str, str]]) -> Dict[str, Dict[Tuple
 
 def choose_unique(candidates: List[Dict[str, str]]) -> Optional[Dict[str, str]]:
     return candidates[0] if len(candidates) == 1 else None
+
+
+def product_name_starts_with_card(product_name: str, card_name: str) -> bool:
+    """Veilige prefix-match voor Cardmarket-productnamen.
+
+    Cardmarket publiceert Pokémon-productnamen vaak als:
+    "Ampharos Synchro Pulse Flashing Bolt" of
+    "Beedrill ex Bee Rumble". In onze kaartlijst staat dan gewoon
+    "Ampharos" of "Beedrill ex".
+
+    We matchen daarom alleen wanneer de productnaam begint met de volledige
+    kaartnaam + spatie. We weigeren verdachte variant-overgangen zoals
+    "Mewtwo" -> "Mewtwo ex" als de app-kaart zelf geen ex/V/GX/... bevat.
+    """
+    pn = norm_text(product_name)
+    cn = norm_text(card_name)
+    if not pn or not cn or pn == cn:
+        return False
+    if not pn.startswith(cn + " "):
+        return False
+    rest = pn[len(cn):].strip()
+    first = rest.split()[0] if rest else ""
+    variant_tokens = {"ex", "v", "vmax", "vstar", "gx", "break", "prime"}
+    card_tokens = set(cn.split())
+    # Bescherm tegen foutieve matches zoals "Mewtwo" -> "Mewtwo ex".
+    if first in variant_tokens and first not in card_tokens:
+        return False
+    # Ook geen match als het vervolg duidelijk een level/nummer-label is
+    # terwijl dat niet in de app-naam staat.
+    if first in {"lv", "level"} and first not in card_tokens:
+        return False
+    return True
 
 
 def set_key_from_card(card: Dict[str, Any]) -> str:
@@ -1083,6 +1121,22 @@ def find_product(
                 return prod, "mapped-expansion+unique-name", len(cands)
             if cands:
                 return None, "ambiguous-name-in-expansion", len(cands)
+
+        # Nieuwe veilige fallback: Cardmarket-productnamen bevatten vaak de
+        # kaartnaam gevolgd door aanvalsnamen. Voorbeeld: app "Ampharos" tegenover
+        # Cardmarket "Ampharos Synchro Pulse Flashing Bolt".
+        # We doen dit alleen als de kaartnaam uniek is in de app-set én er exact
+        # één passend product in de Cardmarket-expansion bestaat.
+        exp_products = indexes.get("exp_all_by_exp", {}).get(exp, [])
+        for nm in names:
+            if app_set_name_counts.get(skey, Counter()).get(nm, 0) != 1:
+                continue
+            cands = [p for p in exp_products if product_name_starts_with_card(p.get("normName", ""), nm)]
+            prod = choose_unique(cands)
+            if prod:
+                return prod, "mapped-expansion+unique-prefix-name", len(cands)
+            if cands:
+                return None, "ambiguous-prefix-name-in-expansion", len(cands)
 
     for nm in names:
         cands = indexes["set_num_name"].get((set_name, num, nm), [])
