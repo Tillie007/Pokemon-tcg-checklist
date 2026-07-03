@@ -1,7 +1,7 @@
 ﻿serie;set;appAfkorting;cardmarketExpansionId;cardmarketSetcode;cardmarketSetnaam;methode;score;overlap;gekoppeldeKaarten
-Mega Evolution;Chaos Rising;CRI;;;;;;;0
-Mega Evolution;Perfect Order;POR;6443;;;name-overlap;0.2283;21;15
-Mega Evolution;Ascended Heroes;ASC;;;;;;;0
+Mega Evolution;Chaos Rising;CRI;6596;;;manual-set-map;manual;voorlopige sterke kandidaat uit cardmarket_set_mapping_candidates.csv;4
+Mega Evolution;Perfect Order;POR;6443;;;manual-set-map;manual;voorlopige sterke kandidaat uit cardmarket_set_mapping_candidates.csv;15
+Mega Evolution;Ascended Heroes;ASC;6395;;;manual-set-map;manual;voorlopige sterke kandidaat uit cardmarket_set_mapping_candidates.csv;28
 Mega Evolution;Phantasmal Flames;PFL;;;;;;;0
 Mega Evolution;Mega Evolution;MEG;;;;;;;0
 Scarlet & Violet;White Flare;WHT;;;;;;;0

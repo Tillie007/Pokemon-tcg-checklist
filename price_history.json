@@ -1,6 +1,6 @@
 {
   "source": "Cardmarket publieke bestanden",
-  "updatedAt": "2026-07-03T11:47:41.923106+00:00",
+  "updatedAt": "2026-07-03T12:03:05.706747+00:00",
   "history": {
     "Gym|Gym Heroes|G1|019|The Rocket's Trap": [
       {
@@ -5538,6 +5538,358 @@
         "trendPrice": "3.23",
         "avg30": "2.05",
         "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Chaos Rising|CRI|108|Energy Retrieval": [
+      {
+        "date": "2026-07-03",
+        "price": "",
+        "trendPrice": "",
+        "avg30": "",
+        "lowPrice": "",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Chaos Rising|CRI|109|Jumbo Ice Cream": [
+      {
+        "date": "2026-07-03",
+        "price": "",
+        "trendPrice": "",
+        "avg30": "",
+        "lowPrice": "",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Chaos Rising|CRI|114|Surfing Beach": [
+      {
+        "date": "2026-07-03",
+        "price": "",
+        "trendPrice": "",
+        "avg30": "",
+        "lowPrice": "",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Chaos Rising|CRI|115|Tool Scrapper": [
+      {
+        "date": "2026-07-03",
+        "price": "",
+        "trendPrice": "",
+        "avg30": "",
+        "lowPrice": "",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|180|Acerola's Mischief": [
+      {
+        "date": "2026-07-03",
+        "price": "0.05",
+        "trendPrice": "0.05",
+        "avg30": "0.04",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|181|Air Balloon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.12",
+        "trendPrice": "0.12",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|184|Buddy-Buddy Poffin": [
+      {
+        "date": "2026-07-03",
+        "price": "0.10",
+        "trendPrice": "0.10",
+        "avg30": "0.10",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|187|Fighting Gong": [
+      {
+        "date": "2026-07-03",
+        "price": "0.06",
+        "trendPrice": "0.06",
+        "avg30": "0.06",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|188|Forest of Vitality": [
+      {
+        "date": "2026-07-03",
+        "price": "0.07",
+        "trendPrice": "0.07",
+        "avg30": "0.10",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|191|Light Ball": [
+      {
+        "date": "2026-07-03",
+        "price": "0.08",
+        "trendPrice": "0.08",
+        "avg30": "0.06",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|192|Lillie's Determination": [
+      {
+        "date": "2026-07-03",
+        "price": "0.47",
+        "trendPrice": "0.47",
+        "avg30": "0.47",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|193|Mega Signal": [
+      {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.06",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|194|Mystery Garden": [
+      {
+        "date": "2026-07-03",
+        "price": "0.06",
+        "trendPrice": "0.06",
+        "avg30": "0.06",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|196|Night Stretcher": [
+      {
+        "date": "2026-07-03",
+        "price": "0.15",
+        "trendPrice": "0.15",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|198|Poké Pad": [
+      {
+        "date": "2026-07-03",
+        "price": "0.59",
+        "trendPrice": "0.59",
+        "avg30": "0.63",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|199|Premium Power Pro": [
+      {
+        "date": "2026-07-03",
+        "price": "0.05",
+        "trendPrice": "0.05",
+        "avg30": "0.05",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|201|Team Rocket's Archer": [
+      {
+        "date": "2026-07-03",
+        "price": "0.07",
+        "trendPrice": "0.07",
+        "avg30": "0.07",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|202|Team Rocket's Ariana": [
+      {
+        "date": "2026-07-03",
+        "price": "0.06",
+        "trendPrice": "0.06",
+        "avg30": "0.08",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|203|Team Rocket's Factory": [
+      {
+        "date": "2026-07-03",
+        "price": "0.07",
+        "trendPrice": "0.07",
+        "avg30": "0.06",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|204|Team Rocket's Giovanni": [
+      {
+        "date": "2026-07-03",
+        "price": "0.09",
+        "trendPrice": "0.09",
+        "avg30": "0.09",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|205|Team Rocket's Great Ball": [
+      {
+        "date": "2026-07-03",
+        "price": "0.05",
+        "trendPrice": "0.05",
+        "avg30": "0.05",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|207|Team Rocket's Petrel": [
+      {
+        "date": "2026-07-03",
+        "price": "0.26",
+        "trendPrice": "0.26",
+        "avg30": "0.27",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|208|Team Rocket's Proton": [
+      {
+        "date": "2026-07-03",
+        "price": "0.11",
+        "trendPrice": "0.11",
+        "avg30": "0.08",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|210|Team Rocket's Watchtower": [
+      {
+        "date": "2026-07-03",
+        "price": "0.09",
+        "trendPrice": "0.09",
+        "avg30": "0.10",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|212|Tool Scrapper": [
+      {
+        "date": "2026-07-03",
+        "price": "0.06",
+        "trendPrice": "0.06",
+        "avg30": "0.06",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|214|Urbain": [
+      {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.04",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|215|Waitress": [
+      {
+        "date": "2026-07-03",
+        "price": "0.07",
+        "trendPrice": "0.07",
+        "avg30": "0.04",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|216|Prism Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "0.05",
+        "trendPrice": "0.05",
+        "avg30": "0.06",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|217|Team Rocket's Energy": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|255|Black Belt's Training": [
+      {
+        "date": "2026-07-03",
+        "price": "1.04",
+        "trendPrice": "1.04",
+        "avg30": "1.12",
+        "lowPrice": "0.19",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|258|Cheren": [
+      {
+        "date": "2026-07-03",
+        "price": "0.90",
+        "trendPrice": "0.90",
+        "avg30": "0.96",
+        "lowPrice": "0.12",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Mega Evolution|Ascended Heroes|ASC|261|Jamming Tower": [
+      {
+        "date": "2026-07-03",
+        "price": "1.01",
+        "trendPrice": "1.01",
+        "avg30": "1.08",
+        "lowPrice": "0.38",
         "foilTrendPrice": "",
         "currency": "EUR"
       }
