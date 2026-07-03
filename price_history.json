@@ -1,6 +1,6 @@
 {
   "source": "Cardmarket publieke bestanden",
-  "updatedAt": "2026-07-03T12:36:57.181305+00:00",
+  "updatedAt": "2026-07-03T13:50:54.968315+00:00",
   "history": {
     "Gym|Gym Heroes|G1|019|The Rocket's Trap": [
       {
@@ -106286,6 +106286,6782 @@
         "price": "0.46",
         "trendPrice": "0.46",
         "avg30": "0.55",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|001|Charizard": [
+      {
+        "date": "2026-07-03",
+        "price": "28.46",
+        "trendPrice": "28.46",
+        "avg30": "24.52",
+        "lowPrice": "4.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|002|Froslass": [
+      {
+        "date": "2026-07-03",
+        "price": "2.60",
+        "trendPrice": "2.60",
+        "avg30": "2.46",
+        "lowPrice": "0.39",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|003|Heatran": [
+      {
+        "date": "2026-07-03",
+        "price": "1.77",
+        "trendPrice": "1.77",
+        "avg30": "1.87",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|004|Kabutops": [
+      {
+        "date": "2026-07-03",
+        "price": "5.65",
+        "trendPrice": "5.65",
+        "avg30": "6.28",
+        "lowPrice": "0.89",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|005|Luxray": [
+      {
+        "date": "2026-07-03",
+        "price": "2.13",
+        "trendPrice": "2.13",
+        "avg30": "1.60",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|006|Mothim": [
+      {
+        "date": "2026-07-03",
+        "price": "2.10",
+        "trendPrice": "2.10",
+        "avg30": "1.78",
+        "lowPrice": "0.19",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|007|Probopass": [
+      {
+        "date": "2026-07-03",
+        "price": "1.32",
+        "trendPrice": "1.32",
+        "avg30": "1.40",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|009|Swalot": [
+      {
+        "date": "2026-07-03",
+        "price": "0.96",
+        "trendPrice": "0.96",
+        "avg30": "1.70",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|011|Toxicroak": [
+      {
+        "date": "2026-07-03",
+        "price": "0.02",
+        "trendPrice": "0.02",
+        "avg30": "2.60",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|012|Zapdos G": [
+      {
+        "date": "2026-07-03",
+        "price": "2.72",
+        "trendPrice": "2.72",
+        "avg30": "5.88",
+        "lowPrice": "0.80",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|013|Aerodactyl": [
+      {
+        "date": "2026-07-03",
+        "price": "1.30",
+        "trendPrice": "1.30",
+        "avg30": "1.98",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|015|Cherrim": [
+      {
+        "date": "2026-07-03",
+        "price": "1.36",
+        "trendPrice": "1.36",
+        "avg30": "1.31",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|018|Glalie": [
+      {
+        "date": "2026-07-03",
+        "price": "0.63",
+        "trendPrice": "0.63",
+        "avg30": "0.69",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|019|Golem": [
+      {
+        "date": "2026-07-03",
+        "price": "0.86",
+        "trendPrice": "0.86",
+        "avg30": "0.82",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|020|Hariyama": [
+      {
+        "date": "2026-07-03",
+        "price": "0.53",
+        "trendPrice": "0.53",
+        "avg30": "0.54",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|021|Lopunny": [
+      {
+        "date": "2026-07-03",
+        "price": "0.71",
+        "trendPrice": "0.71",
+        "avg30": "0.65",
+        "lowPrice": "0.09",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|023|Omastar": [
+      {
+        "date": "2026-07-03",
+        "price": "0.76",
+        "trendPrice": "0.76",
+        "avg30": "0.95",
+        "lowPrice": "0.12",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|025|Pichu": [
+      {
+        "date": "2026-07-03",
+        "price": "3.77",
+        "trendPrice": "3.77",
+        "avg30": "4.36",
+        "lowPrice": "1.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|026|Porygon-Z G": [
+      {
+        "date": "2026-07-03",
+        "price": "0.67",
+        "trendPrice": "0.67",
+        "avg30": "0.74",
+        "lowPrice": "0.09",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|029|Raticate": [
+      {
+        "date": "2026-07-03",
+        "price": "0.60",
+        "trendPrice": "0.60",
+        "avg30": "0.55",
+        "lowPrice": "0.19",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|035|Charmeleon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.55",
+        "trendPrice": "0.55",
+        "avg30": "0.54",
+        "lowPrice": "0.08",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|037|Graveler": [
+      {
+        "date": "2026-07-03",
+        "price": "0.26",
+        "trendPrice": "0.26",
+        "avg30": "0.35",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|043|Luxio": [
+      {
+        "date": "2026-07-03",
+        "price": "0.29",
+        "trendPrice": "0.29",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|048|Shelgon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.24",
+        "trendPrice": "0.24",
+        "avg30": "0.25",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|049|Wormadam Plant Cloak": [
+      {
+        "date": "2026-07-03",
+        "price": "0.23",
+        "trendPrice": "0.23",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|050|Wormadam Sandy Cloak": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.23",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|051|Wormadam Trash Cloak": [
+      {
+        "date": "2026-07-03",
+        "price": "0.27",
+        "trendPrice": "0.27",
+        "avg30": "0.22",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|053|Beedrill G": [
+      {
+        "date": "2026-07-03",
+        "price": "0.18",
+        "trendPrice": "0.18",
+        "avg30": "0.22",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|055|Buneary": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|056|Burmy Plant Cloak": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|057|Burmy Sandy Cloak": [
+      {
+        "date": "2026-07-03",
+        "price": "0.18",
+        "trendPrice": "0.18",
+        "avg30": "0.29",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|058|Burmy Trash Cloak": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|059|Charmander": [
+      {
+        "date": "2026-07-03",
+        "price": "0.56",
+        "trendPrice": "0.56",
+        "avg30": "0.70",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|060|Cherubi": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.25",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|061|Croagunk": [
+      {
+        "date": "2026-07-03",
+        "price": "0.26",
+        "trendPrice": "0.26",
+        "avg30": "0.35",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|065|Geodude": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|067|Kabuto": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|068|Makuhita": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|069|Nosepass": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.13",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|070|Omanyte": [
+      {
+        "date": "2026-07-03",
+        "price": "0.26",
+        "trendPrice": "0.26",
+        "avg30": "0.23",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|071|Pikachu": [
+      {
+        "date": "2026-07-03",
+        "price": "1.99",
+        "trendPrice": "1.99",
+        "avg30": "2.86",
+        "lowPrice": "0.19",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|073|Rattata": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|075|Snorunt": [
+      {
+        "date": "2026-07-03",
+        "price": "0.33",
+        "trendPrice": "0.33",
+        "avg30": "0.31",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Arceus|AR|097|Gengar LV.X": [
+      {
+        "date": "2026-07-03",
+        "price": "223.21",
+        "trendPrice": "223.21",
+        "avg30": "203.34",
+        "lowPrice": "20.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|001|Arcanine": [
+      {
+        "date": "2026-07-03",
+        "price": "5.86",
+        "trendPrice": "5.86",
+        "avg30": "7.00",
+        "lowPrice": "0.79",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|002|Bastiodon GL": [
+      {
+        "date": "2026-07-03",
+        "price": "3.84",
+        "trendPrice": "3.84",
+        "avg30": "3.58",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|003|Darkrai G": [
+      {
+        "date": "2026-07-03",
+        "price": "10.61",
+        "trendPrice": "10.61",
+        "avg30": "13.23",
+        "lowPrice": "2.45",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|006|Froslass GL": [
+      {
+        "date": "2026-07-03",
+        "price": "2.30",
+        "trendPrice": "2.30",
+        "avg30": "3.07",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|007|Jirachi": [
+      {
+        "date": "2026-07-03",
+        "price": "6.03",
+        "trendPrice": "6.03",
+        "avg30": "6.77",
+        "lowPrice": "0.80",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|008|Lucario GL": [
+      {
+        "date": "2026-07-03",
+        "price": "4.94",
+        "trendPrice": "4.94",
+        "avg30": "5.51",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|011|Rampardos GL": [
+      {
+        "date": "2026-07-03",
+        "price": "3.86",
+        "trendPrice": "3.86",
+        "avg30": "4.23",
+        "lowPrice": "0.30",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|012|Roserade GL": [
+      {
+        "date": "2026-07-03",
+        "price": "2.29",
+        "trendPrice": "2.29",
+        "avg30": "3.01",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|013|Shiftry": [
+      {
+        "date": "2026-07-03",
+        "price": "1.72",
+        "trendPrice": "1.72",
+        "avg30": "1.88",
+        "lowPrice": "0.38",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|014|Aggron": [
+      {
+        "date": "2026-07-03",
+        "price": "1.28",
+        "trendPrice": "1.28",
+        "avg30": "1.42",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|015|Beedrill": [
+      {
+        "date": "2026-07-03",
+        "price": "0.34",
+        "trendPrice": "0.34",
+        "avg30": "0.43",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|021|Gastrodon East Sea": [
+      {
+        "date": "2026-07-03",
+        "price": "0.94",
+        "trendPrice": "0.94",
+        "avg30": "0.80",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|022|Gastrodon West Sea": [
+      {
+        "date": "2026-07-03",
+        "price": "1.61",
+        "trendPrice": "1.61",
+        "avg30": "1.20",
+        "lowPrice": "0.08",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|026|Jolteon": [
+      {
+        "date": "2026-07-03",
+        "price": "3.80",
+        "trendPrice": "3.80",
+        "avg30": "5.15",
+        "lowPrice": "0.55",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|027|Mamoswine GL": [
+      {
+        "date": "2026-07-03",
+        "price": "1.78",
+        "trendPrice": "1.78",
+        "avg30": "1.54",
+        "lowPrice": "0.30",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|029|Nidoking": [
+      {
+        "date": "2026-07-03",
+        "price": "2.58",
+        "trendPrice": "2.58",
+        "avg30": "1.68",
+        "lowPrice": "0.29",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|030|Nidoqueen": [
+      {
+        "date": "2026-07-03",
+        "price": "2.78",
+        "trendPrice": "2.78",
+        "avg30": "1.73",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|031|Raichu GL": [
+      {
+        "date": "2026-07-03",
+        "price": "3.02",
+        "trendPrice": "3.02",
+        "avg30": "3.27",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|034|Vaporeon": [
+      {
+        "date": "2026-07-03",
+        "price": "5.41",
+        "trendPrice": "5.41",
+        "avg30": "4.90",
+        "lowPrice": "0.70",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|036|Walrein": [
+      {
+        "date": "2026-07-03",
+        "price": "0.84",
+        "trendPrice": "0.84",
+        "avg30": "0.82",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|039|Electrode G": [
+      {
+        "date": "2026-07-03",
+        "price": "0.28",
+        "trendPrice": "0.28",
+        "avg30": "0.35",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|040|Gengar GL": [
+      {
+        "date": "2026-07-03",
+        "price": "5.07",
+        "trendPrice": "5.07",
+        "avg30": "4.19",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|041|Glaceon": [
+      {
+        "date": "2026-07-03",
+        "price": "2.35",
+        "trendPrice": "2.35",
+        "avg30": "2.08",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|044|Lairon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.30",
+        "trendPrice": "0.30",
+        "avg30": "0.24",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|045|Leafeon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.95",
+        "trendPrice": "0.95",
+        "avg30": "0.77",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|046|Machamp GL": [
+      {
+        "date": "2026-07-03",
+        "price": "0.80",
+        "trendPrice": "0.80",
+        "avg30": "0.50",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|049|Sharpedo": [
+      {
+        "date": "2026-07-03",
+        "price": "0.34",
+        "trendPrice": "0.34",
+        "avg30": "0.27",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|050|Starmie": [
+      {
+        "date": "2026-07-03",
+        "price": "0.25",
+        "trendPrice": "0.25",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|051|Steelix GL": [
+      {
+        "date": "2026-07-03",
+        "price": "0.92",
+        "trendPrice": "0.92",
+        "avg30": "0.69",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|053|Vibrava": [
+      {
+        "date": "2026-07-03",
+        "price": "0.29",
+        "trendPrice": "0.29",
+        "avg30": "0.23",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|055|Aerodactyl GL": [
+      {
+        "date": "2026-07-03",
+        "price": "0.30",
+        "trendPrice": "0.30",
+        "avg30": "0.24",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|056|Ambipom G": [
+      {
+        "date": "2026-07-03",
+        "price": "0.31",
+        "trendPrice": "0.31",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|057|Aron": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.21",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|058|Carvanha": [
+      {
+        "date": "2026-07-03",
+        "price": "0.18",
+        "trendPrice": "0.18",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|059|Eevee": [
+      {
+        "date": "2026-07-03",
+        "price": "0.74",
+        "trendPrice": "0.74",
+        "avg30": "0.89",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|061|Forretress G": [
+      {
+        "date": "2026-07-03",
+        "price": "0.26",
+        "trendPrice": "0.26",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|063|Growlithe": [
+      {
+        "date": "2026-07-03",
+        "price": "0.28",
+        "trendPrice": "0.28",
+        "avg30": "0.29",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|064|Hippopotas": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.13",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|066|Kakuna": [
+      {
+        "date": "2026-07-03",
+        "price": "0.15",
+        "trendPrice": "0.15",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|067|Kecleon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.29",
+        "trendPrice": "0.29",
+        "avg30": "0.18",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|068|Koffing": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|073|Nidorina": [
+      {
+        "date": "2026-07-03",
+        "price": "0.25",
+        "trendPrice": "0.25",
+        "avg30": "0.22",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|074|Nidorino": [
+      {
+        "date": "2026-07-03",
+        "price": "0.24",
+        "trendPrice": "0.24",
+        "avg30": "0.21",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|075|Nuzleaf": [
+      {
+        "date": "2026-07-03",
+        "price": "0.13",
+        "trendPrice": "0.13",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|076|Quagsire GL": [
+      {
+        "date": "2026-07-03",
+        "price": "0.35",
+        "trendPrice": "0.35",
+        "avg30": "0.26",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|077|Sealeo": [
+      {
+        "date": "2026-07-03",
+        "price": "0.29",
+        "trendPrice": "0.29",
+        "avg30": "0.24",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|078|Seedot": [
+      {
+        "date": "2026-07-03",
+        "price": "0.24",
+        "trendPrice": "0.24",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|079|Shellos East Sea": [
+      {
+        "date": "2026-07-03",
+        "price": "0.35",
+        "trendPrice": "0.35",
+        "avg30": "0.36",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|080|Shellos West Sea": [
+      {
+        "date": "2026-07-03",
+        "price": "0.30",
+        "trendPrice": "0.30",
+        "avg30": "0.23",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|082|Spheal": [
+      {
+        "date": "2026-07-03",
+        "price": "0.72",
+        "trendPrice": "0.72",
+        "avg30": "0.33",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|083|Staryu": [
+      {
+        "date": "2026-07-03",
+        "price": "0.15",
+        "trendPrice": "0.15",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|084|Trapinch": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|085|Turtwig GL": [
+      {
+        "date": "2026-07-03",
+        "price": "0.45",
+        "trendPrice": "0.45",
+        "avg30": "0.39",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|086|Weedle": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|087|Weezing": [
+      {
+        "date": "2026-07-03",
+        "price": "0.18",
+        "trendPrice": "0.18",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|112|Pikachu": [
+      {
+        "date": "2026-07-03",
+        "price": "65.51",
+        "trendPrice": "65.51",
+        "avg30": "58.63",
+        "lowPrice": "20.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|113|Flying Pikachu": [
+      {
+        "date": "2026-07-03",
+        "price": "46.74",
+        "trendPrice": "46.74",
+        "avg30": "76.94",
+        "lowPrice": "7.99",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|114|Surfing Pikachu": [
+      {
+        "date": "2026-07-03",
+        "price": "83.75",
+        "trendPrice": "83.75",
+        "avg30": "85.15",
+        "lowPrice": "8.99",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|RT1|Fan Rotom": [
+      {
+        "date": "2026-07-03",
+        "price": "4.20",
+        "trendPrice": "4.20",
+        "avg30": "3.64",
+        "lowPrice": "1.75",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|RT2|Frost Rotom": [
+      {
+        "date": "2026-07-03",
+        "price": "3.45",
+        "trendPrice": "3.45",
+        "avg30": "3.60",
+        "lowPrice": "3.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|RT3|Heat Rotom": [
+      {
+        "date": "2026-07-03",
+        "price": "7.01",
+        "trendPrice": "7.01",
+        "avg30": "5.19",
+        "lowPrice": "0.85",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|RT4|Mow Rotom": [
+      {
+        "date": "2026-07-03",
+        "price": "5.58",
+        "trendPrice": "5.58",
+        "avg30": "3.97",
+        "lowPrice": "3.75",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Rising Rivals|RR|RT5|Wash Rotom": [
+      {
+        "date": "2026-07-03",
+        "price": "5.63",
+        "trendPrice": "5.63",
+        "avg30": "4.37",
+        "lowPrice": "5.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|001|Ampharos": [
+      {
+        "date": "2026-07-03",
+        "price": "5.53",
+        "trendPrice": "5.53",
+        "avg30": "4.60",
+        "lowPrice": "0.99",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|002|Blastoise": [
+      {
+        "date": "2026-07-03",
+        "price": "7.55",
+        "trendPrice": "7.55",
+        "avg30": "10.00",
+        "lowPrice": "1.85",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|003|Blaziken": [
+      {
+        "date": "2026-07-03",
+        "price": "1.77",
+        "trendPrice": "1.77",
+        "avg30": "5.18",
+        "lowPrice": "0.90",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|004|Delcatty": [
+      {
+        "date": "2026-07-03",
+        "price": "1.29",
+        "trendPrice": "1.29",
+        "avg30": "3.43",
+        "lowPrice": "0.99",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|008|Gardevoir": [
+      {
+        "date": "2026-07-03",
+        "price": "3.07",
+        "trendPrice": "3.07",
+        "avg30": "5.36",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|011|Manectric": [
+      {
+        "date": "2026-07-03",
+        "price": "2.92",
+        "trendPrice": "2.92",
+        "avg30": "2.54",
+        "lowPrice": "0.39",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|013|Rampardos": [
+      {
+        "date": "2026-07-03",
+        "price": "4.12",
+        "trendPrice": "4.12",
+        "avg30": "3.25",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|016|Slaking": [
+      {
+        "date": "2026-07-03",
+        "price": "2.54",
+        "trendPrice": "2.54",
+        "avg30": "2.15",
+        "lowPrice": "0.40",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|017|Weavile G": [
+      {
+        "date": "2026-07-03",
+        "price": "2.35",
+        "trendPrice": "2.35",
+        "avg30": "3.68",
+        "lowPrice": "0.75",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|018|Altaria": [
+      {
+        "date": "2026-07-03",
+        "price": "1.59",
+        "trendPrice": "1.59",
+        "avg30": "1.26",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|019|Banette": [
+      {
+        "date": "2026-07-03",
+        "price": "2.79",
+        "trendPrice": "2.79",
+        "avg30": "2.31",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|020|Bastiodon": [
+      {
+        "date": "2026-07-03",
+        "price": "1.12",
+        "trendPrice": "1.12",
+        "avg30": "1.24",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|021|Beautifly": [
+      {
+        "date": "2026-07-03",
+        "price": "0.77",
+        "trendPrice": "0.77",
+        "avg30": "0.52",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|022|Blissey": [
+      {
+        "date": "2026-07-03",
+        "price": "1.14",
+        "trendPrice": "1.14",
+        "avg30": "1.38",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|024|Dugtrio": [
+      {
+        "date": "2026-07-03",
+        "price": "0.42",
+        "trendPrice": "0.42",
+        "avg30": "0.41",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|025|Dustox": [
+      {
+        "date": "2026-07-03",
+        "price": "1.08",
+        "trendPrice": "1.08",
+        "avg30": "0.78",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|026|Empoleon": [
+      {
+        "date": "2026-07-03",
+        "price": "1.61",
+        "trendPrice": "1.61",
+        "avg30": "1.44",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|029|Golduck": [
+      {
+        "date": "2026-07-03",
+        "price": "1.32",
+        "trendPrice": "1.32",
+        "avg30": "0.99",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|030|Gyarados G": [
+      {
+        "date": "2026-07-03",
+        "price": "2.01",
+        "trendPrice": "2.01",
+        "avg30": "2.88",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|031|Infernape": [
+      {
+        "date": "2026-07-03",
+        "price": "1.32",
+        "trendPrice": "1.32",
+        "avg30": "1.11",
+        "lowPrice": "0.30",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|032|Kricketune": [
+      {
+        "date": "2026-07-03",
+        "price": "0.58",
+        "trendPrice": "0.58",
+        "avg30": "0.56",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|033|Lickilicky": [
+      {
+        "date": "2026-07-03",
+        "price": "1.23",
+        "trendPrice": "1.23",
+        "avg30": "1.13",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|034|Ludicolo": [
+      {
+        "date": "2026-07-03",
+        "price": "0.56",
+        "trendPrice": "0.56",
+        "avg30": "1.21",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|035|Luvdisc": [
+      {
+        "date": "2026-07-03",
+        "price": "1.09",
+        "trendPrice": "1.09",
+        "avg30": "0.79",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|036|Ninetales": [
+      {
+        "date": "2026-07-03",
+        "price": "0.62",
+        "trendPrice": "0.62",
+        "avg30": "0.86",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|039|Torterra": [
+      {
+        "date": "2026-07-03",
+        "price": "0.96",
+        "trendPrice": "0.96",
+        "avg30": "1.43",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|040|Toxicroak G": [
+      {
+        "date": "2026-07-03",
+        "price": "1.45",
+        "trendPrice": "1.45",
+        "avg30": "1.01",
+        "lowPrice": "0.08",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|041|Bronzong G": [
+      {
+        "date": "2026-07-03",
+        "price": "0.52",
+        "trendPrice": "0.52",
+        "avg30": "0.40",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|042|Cacturne": [
+      {
+        "date": "2026-07-03",
+        "price": "0.33",
+        "trendPrice": "0.33",
+        "avg30": "0.40",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|044|Cascoon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.58",
+        "trendPrice": "0.58",
+        "avg30": "0.37",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|045|Combusken": [
+      {
+        "date": "2026-07-03",
+        "price": "0.31",
+        "trendPrice": "0.31",
+        "avg30": "0.34",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|046|Cranidos": [
+      {
+        "date": "2026-07-03",
+        "price": "0.43",
+        "trendPrice": "0.43",
+        "avg30": "0.43",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|047|Crobat G": [
+      {
+        "date": "2026-07-03",
+        "price": "0.99",
+        "trendPrice": "0.99",
+        "avg30": "1.13",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|048|Flaaffy": [
+      {
+        "date": "2026-07-03",
+        "price": "0.25",
+        "trendPrice": "0.25",
+        "avg30": "0.23",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|049|Grotle": [
+      {
+        "date": "2026-07-03",
+        "price": "0.33",
+        "trendPrice": "0.33",
+        "avg30": "0.35",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|050|Houndoom G": [
+      {
+        "date": "2026-07-03",
+        "price": "0.89",
+        "trendPrice": "0.89",
+        "avg30": "0.93",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|051|Kirlia": [
+      {
+        "date": "2026-07-03",
+        "price": "0.26",
+        "trendPrice": "0.26",
+        "avg30": "0.28",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|052|Lombre": [
+      {
+        "date": "2026-07-03",
+        "price": "0.25",
+        "trendPrice": "0.25",
+        "avg30": "0.23",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|054|Mightyena": [
+      {
+        "date": "2026-07-03",
+        "price": "0.41",
+        "trendPrice": "0.41",
+        "avg30": "0.29",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|055|Mismagius": [
+      {
+        "date": "2026-07-03",
+        "price": "0.40",
+        "trendPrice": "0.40",
+        "avg30": "0.26",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|056|Monferno": [
+      {
+        "date": "2026-07-03",
+        "price": "0.48",
+        "trendPrice": "0.48",
+        "avg30": "0.36",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|057|Muk": [
+      {
+        "date": "2026-07-03",
+        "price": "0.46",
+        "trendPrice": "0.46",
+        "avg30": "0.40",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|058|Octillery": [
+      {
+        "date": "2026-07-03",
+        "price": "0.47",
+        "trendPrice": "0.47",
+        "avg30": "0.30",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|059|Prinplup": [
+      {
+        "date": "2026-07-03",
+        "price": "0.38",
+        "trendPrice": "0.38",
+        "avg30": "0.56",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|060|Probopass": [
+      {
+        "date": "2026-07-03",
+        "price": "0.25",
+        "trendPrice": "0.25",
+        "avg30": "0.22",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|061|Seviper": [
+      {
+        "date": "2026-07-03",
+        "price": "0.30",
+        "trendPrice": "0.30",
+        "avg30": "0.30",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|062|Shieldon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.30",
+        "trendPrice": "0.30",
+        "avg30": "0.23",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|063|Silcoon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.21",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|064|Vigoroth": [
+      {
+        "date": "2026-07-03",
+        "price": "0.28",
+        "trendPrice": "0.28",
+        "avg30": "0.28",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|065|Wartortle": [
+      {
+        "date": "2026-07-03",
+        "price": "0.73",
+        "trendPrice": "0.73",
+        "avg30": "0.87",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|066|Zangoose": [
+      {
+        "date": "2026-07-03",
+        "price": "0.28",
+        "trendPrice": "0.28",
+        "avg30": "0.31",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|067|Cacnea": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|069|Chansey": [
+      {
+        "date": "2026-07-03",
+        "price": "0.27",
+        "trendPrice": "0.27",
+        "avg30": "0.30",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|070|Chimchar": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|071|Combee": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|072|Diglett": [
+      {
+        "date": "2026-07-03",
+        "price": "0.18",
+        "trendPrice": "0.18",
+        "avg30": "0.13",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|073|Dunsparce": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|074|Electrike": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|075|Grimer": [
+      {
+        "date": "2026-07-03",
+        "price": "0.44",
+        "trendPrice": "0.44",
+        "avg30": "0.22",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|076|Happiny": [
+      {
+        "date": "2026-07-03",
+        "price": "1.87",
+        "trendPrice": "1.87",
+        "avg30": "1.48",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|077|Honchkrow G": [
+      {
+        "date": "2026-07-03",
+        "price": "0.29",
+        "trendPrice": "0.29",
+        "avg30": "0.26",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|078|Kricketot": [
+      {
+        "date": "2026-07-03",
+        "price": "0.15",
+        "trendPrice": "0.15",
+        "avg30": "0.13",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|079|Lapras": [
+      {
+        "date": "2026-07-03",
+        "price": "0.41",
+        "trendPrice": "0.41",
+        "avg30": "0.64",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|080|Lickitung": [
+      {
+        "date": "2026-07-03",
+        "price": "0.23",
+        "trendPrice": "0.23",
+        "avg30": "0.75",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|082|Mareep": [
+      {
+        "date": "2026-07-03",
+        "price": "1.09",
+        "trendPrice": "1.09",
+        "avg30": "0.79",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|083|Misdreavus": [
+      {
+        "date": "2026-07-03",
+        "price": "0.14",
+        "trendPrice": "0.14",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|084|Nosepass": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|085|Piplup": [
+      {
+        "date": "2026-07-03",
+        "price": "1.20",
+        "trendPrice": "1.20",
+        "avg30": "1.09",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|086|Poochyena": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.42",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|087|Psyduck": [
+      {
+        "date": "2026-07-03",
+        "price": "5.75",
+        "trendPrice": "5.75",
+        "avg30": "6.75",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|088|Purugly G": [
+      {
+        "date": "2026-07-03",
+        "price": "0.45",
+        "trendPrice": "0.45",
+        "avg30": "0.26",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|089|Ralts": [
+      {
+        "date": "2026-07-03",
+        "price": "0.24",
+        "trendPrice": "0.24",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|090|Remoraid": [
+      {
+        "date": "2026-07-03",
+        "price": "0.31",
+        "trendPrice": "0.31",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|091|Riolu": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.24",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|092|Shuppet": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|093|Skitty": [
+      {
+        "date": "2026-07-03",
+        "price": "0.27",
+        "trendPrice": "0.27",
+        "avg30": "0.24",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|094|Skuntank G": [
+      {
+        "date": "2026-07-03",
+        "price": "0.45",
+        "trendPrice": "0.45",
+        "avg30": "0.38",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|095|Slakoth": [
+      {
+        "date": "2026-07-03",
+        "price": "0.25",
+        "trendPrice": "0.25",
+        "avg30": "0.21",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|096|Squirtle": [
+      {
+        "date": "2026-07-03",
+        "price": "1.02",
+        "trendPrice": "1.02",
+        "avg30": "0.90",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|098|Tauros": [
+      {
+        "date": "2026-07-03",
+        "price": "0.30",
+        "trendPrice": "0.30",
+        "avg30": "0.30",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|099|Torchic": [
+      {
+        "date": "2026-07-03",
+        "price": "0.26",
+        "trendPrice": "0.26",
+        "avg30": "0.26",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|100|Torkoal": [
+      {
+        "date": "2026-07-03",
+        "price": "0.23",
+        "trendPrice": "0.23",
+        "avg30": "0.21",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|101|Turtwig": [
+      {
+        "date": "2026-07-03",
+        "price": "0.30",
+        "trendPrice": "0.30",
+        "avg30": "0.27",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|103|Wurmple": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.25",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|128|Electabuzz": [
+      {
+        "date": "2026-07-03",
+        "price": "8.76",
+        "trendPrice": "8.76",
+        "avg30": "9.47",
+        "lowPrice": "1.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|129|Hitmonchan": [
+      {
+        "date": "2026-07-03",
+        "price": "12.81",
+        "trendPrice": "12.81",
+        "avg30": "9.77",
+        "lowPrice": "2.92",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Platinum|Platinum|PL|130|Scyther": [
+      {
+        "date": "2026-07-03",
+        "price": "14.42",
+        "trendPrice": "14.42",
+        "avg30": "13.98",
+        "lowPrice": "5.90",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|002|Empoleon": [
+      {
+        "date": "2026-07-03",
+        "price": "6.28",
+        "trendPrice": "6.28",
+        "avg30": "3.90",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|003|Infernape": [
+      {
+        "date": "2026-07-03",
+        "price": "12.66",
+        "trendPrice": "12.66",
+        "avg30": "7.30",
+        "lowPrice": "0.99",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|004|Lumineon": [
+      {
+        "date": "2026-07-03",
+        "price": "2.78",
+        "trendPrice": "2.78",
+        "avg30": "2.72",
+        "lowPrice": "0.48",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|007|Mismagius": [
+      {
+        "date": "2026-07-03",
+        "price": "3.10",
+        "trendPrice": "3.10",
+        "avg30": "2.69",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|010|Sceptile": [
+      {
+        "date": "2026-07-03",
+        "price": "4.94",
+        "trendPrice": "4.94",
+        "avg30": "3.20",
+        "lowPrice": "0.49",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|011|Torterra": [
+      {
+        "date": "2026-07-03",
+        "price": "4.04",
+        "trendPrice": "4.04",
+        "avg30": "3.79",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|012|Abomasnow": [
+      {
+        "date": "2026-07-03",
+        "price": "0.46",
+        "trendPrice": "0.46",
+        "avg30": "0.44",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|013|Bronzong": [
+      {
+        "date": "2026-07-03",
+        "price": "0.63",
+        "trendPrice": "0.63",
+        "avg30": "0.59",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|014|Cherrim": [
+      {
+        "date": "2026-07-03",
+        "price": "0.96",
+        "trendPrice": "0.96",
+        "avg30": "0.98",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|015|Drapion": [
+      {
+        "date": "2026-07-03",
+        "price": "0.75",
+        "trendPrice": "0.75",
+        "avg30": "0.83",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|016|Drifblim": [
+      {
+        "date": "2026-07-03",
+        "price": "0.86",
+        "trendPrice": "0.86",
+        "avg30": "0.79",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|018|Gengar": [
+      {
+        "date": "2026-07-03",
+        "price": "12.95",
+        "trendPrice": "12.95",
+        "avg30": "15.80",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|019|Gyarados": [
+      {
+        "date": "2026-07-03",
+        "price": "5.46",
+        "trendPrice": "5.46",
+        "avg30": "3.95",
+        "lowPrice": "0.39",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|021|Mamoswine": [
+      {
+        "date": "2026-07-03",
+        "price": "1.03",
+        "trendPrice": "1.03",
+        "avg30": "1.18",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|022|Rapidash": [
+      {
+        "date": "2026-07-03",
+        "price": "2.05",
+        "trendPrice": "2.05",
+        "avg30": "1.42",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|023|Roserade": [
+      {
+        "date": "2026-07-03",
+        "price": "1.06",
+        "trendPrice": "1.06",
+        "avg30": "0.84",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|024|Salamence": [
+      {
+        "date": "2026-07-03",
+        "price": "1.46",
+        "trendPrice": "1.46",
+        "avg30": "2.05",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|025|Scizor": [
+      {
+        "date": "2026-07-03",
+        "price": "1.79",
+        "trendPrice": "1.79",
+        "avg30": "1.62",
+        "lowPrice": "0.19",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|026|Skuntank": [
+      {
+        "date": "2026-07-03",
+        "price": "0.28",
+        "trendPrice": "0.28",
+        "avg30": "0.28",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|027|Staraptor": [
+      {
+        "date": "2026-07-03",
+        "price": "0.42",
+        "trendPrice": "0.42",
+        "avg30": "0.33",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|028|Steelix": [
+      {
+        "date": "2026-07-03",
+        "price": "1.04",
+        "trendPrice": "1.04",
+        "avg30": "0.84",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|029|Tangrowth": [
+      {
+        "date": "2026-07-03",
+        "price": "0.99",
+        "trendPrice": "0.99",
+        "avg30": "1.02",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|030|Tyranitar": [
+      {
+        "date": "2026-07-03",
+        "price": "4.02",
+        "trendPrice": "4.02",
+        "avg30": "2.12",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|031|Vespiquen": [
+      {
+        "date": "2026-07-03",
+        "price": "1.00",
+        "trendPrice": "1.00",
+        "avg30": "0.86",
+        "lowPrice": "0.07",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|032|Bibarel": [
+      {
+        "date": "2026-07-03",
+        "price": "0.14",
+        "trendPrice": "0.14",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|033|Budew": [
+      {
+        "date": "2026-07-03",
+        "price": "1.27",
+        "trendPrice": "1.27",
+        "avg30": "1.18",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|038|Farfetch'd": [
+      {
+        "date": "2026-07-03",
+        "price": "0.67",
+        "trendPrice": "0.67",
+        "avg30": "0.52",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|039|Grovyle": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.27",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|040|Haunter": [
+      {
+        "date": "2026-07-03",
+        "price": "0.45",
+        "trendPrice": "0.45",
+        "avg30": "0.70",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|041|Machoke": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.48",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|044|Miltank": [
+      {
+        "date": "2026-07-03",
+        "price": "0.28",
+        "trendPrice": "0.28",
+        "avg30": "0.29",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|045|Pichu": [
+      {
+        "date": "2026-07-03",
+        "price": "1.61",
+        "trendPrice": "1.61",
+        "avg30": "1.71",
+        "lowPrice": "0.35",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|047|Pupitar": [
+      {
+        "date": "2026-07-03",
+        "price": "0.15",
+        "trendPrice": "0.15",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|048|Sableye": [
+      {
+        "date": "2026-07-03",
+        "price": "1.57",
+        "trendPrice": "1.57",
+        "avg30": "0.81",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|049|Scyther": [
+      {
+        "date": "2026-07-03",
+        "price": "0.60",
+        "trendPrice": "0.60",
+        "avg30": "0.41",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|050|Shelgon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.38",
+        "trendPrice": "0.38",
+        "avg30": "0.43",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|051|Skarmory": [
+      {
+        "date": "2026-07-03",
+        "price": "0.36",
+        "trendPrice": "0.36",
+        "avg30": "0.25",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|052|Staravia": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|053|Bagon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.36",
+        "trendPrice": "0.36",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|054|Bidoof": [
+      {
+        "date": "2026-07-03",
+        "price": "0.14",
+        "trendPrice": "0.14",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|055|Bronzor": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|056|Cherubi": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.29",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|057|Combee": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|061|Finneon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.18",
+        "trendPrice": "0.18",
+        "avg30": "0.13",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|062|Gastly": [
+      {
+        "date": "2026-07-03",
+        "price": "0.37",
+        "trendPrice": "0.37",
+        "avg30": "0.33",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|063|Larvitar": [
+      {
+        "date": "2026-07-03",
+        "price": "0.24",
+        "trendPrice": "0.24",
+        "avg30": "0.33",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|064|Machop": [
+      {
+        "date": "2026-07-03",
+        "price": "0.15",
+        "trendPrice": "0.15",
+        "avg30": "0.13",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|065|Magikarp": [
+      {
+        "date": "2026-07-03",
+        "price": "0.91",
+        "trendPrice": "0.91",
+        "avg30": "1.09",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|068|Misdreavus": [
+      {
+        "date": "2026-07-03",
+        "price": "0.14",
+        "trendPrice": "0.14",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|069|Onix": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|070|Pikachu": [
+      {
+        "date": "2026-07-03",
+        "price": "4.89",
+        "trendPrice": "4.89",
+        "avg30": "3.62",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|071|Ponyta": [
+      {
+        "date": "2026-07-03",
+        "price": "0.33",
+        "trendPrice": "0.33",
+        "avg30": "0.23",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|072|Roselia": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|073|Skorupi": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|074|Snover": [
+      {
+        "date": "2026-07-03",
+        "price": "0.12",
+        "trendPrice": "0.12",
+        "avg30": "0.10",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|075|Starly": [
+      {
+        "date": "2026-07-03",
+        "price": "0.13",
+        "trendPrice": "0.13",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|076|Stunky": [
+      {
+        "date": "2026-07-03",
+        "price": "0.18",
+        "trendPrice": "0.18",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|077|Swinub": [
+      {
+        "date": "2026-07-03",
+        "price": "0.28",
+        "trendPrice": "0.28",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|078|Tangela": [
+      {
+        "date": "2026-07-03",
+        "price": "0.31",
+        "trendPrice": "0.31",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|079|Treecko": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|101|Charmander": [
+      {
+        "date": "2026-07-03",
+        "price": "30.45",
+        "trendPrice": "30.45",
+        "avg30": "47.24",
+        "lowPrice": "14.99",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|102|Charmeleon": [
+      {
+        "date": "2026-07-03",
+        "price": "29.71",
+        "trendPrice": "29.71",
+        "avg30": "23.79",
+        "lowPrice": "9.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Stormfront|SF|103|Charizard": [
+      {
+        "date": "2026-07-03",
+        "price": "133.65",
+        "trendPrice": "133.65",
+        "avg30": "182.16",
+        "lowPrice": "38.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|001|Articuno": [
+      {
+        "date": "2026-07-03",
+        "price": "17.90",
+        "trendPrice": "17.90",
+        "avg30": "12.16",
+        "lowPrice": "1.99",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|002|Cresselia": [
+      {
+        "date": "2026-07-03",
+        "price": "5.81",
+        "trendPrice": "5.81",
+        "avg30": "5.06",
+        "lowPrice": "0.75",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|003|Darkrai": [
+      {
+        "date": "2026-07-03",
+        "price": "11.04",
+        "trendPrice": "11.04",
+        "avg30": "13.24",
+        "lowPrice": "1.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|004|Dialga": [
+      {
+        "date": "2026-07-03",
+        "price": "9.22",
+        "trendPrice": "9.22",
+        "avg30": "9.13",
+        "lowPrice": "1.90",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|006|Kabutops": [
+      {
+        "date": "2026-07-03",
+        "price": "7.44",
+        "trendPrice": "7.44",
+        "avg30": "7.19",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|008|Manaphy": [
+      {
+        "date": "2026-07-03",
+        "price": "3.38",
+        "trendPrice": "3.38",
+        "avg30": "3.01",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|009|Mewtwo": [
+      {
+        "date": "2026-07-03",
+        "price": "14.16",
+        "trendPrice": "14.16",
+        "avg30": "11.07",
+        "lowPrice": "2.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|010|Moltres": [
+      {
+        "date": "2026-07-03",
+        "price": "11.83",
+        "trendPrice": "11.83",
+        "avg30": "9.37",
+        "lowPrice": "1.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|011|Palkia": [
+      {
+        "date": "2026-07-03",
+        "price": "14.95",
+        "trendPrice": "14.95",
+        "avg30": "12.42",
+        "lowPrice": "0.70",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|013|Rotom": [
+      {
+        "date": "2026-07-03",
+        "price": "1.93",
+        "trendPrice": "1.93",
+        "avg30": "2.88",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|014|Zapdos": [
+      {
+        "date": "2026-07-03",
+        "price": "35.45",
+        "trendPrice": "35.45",
+        "avg30": "14.72",
+        "lowPrice": "0.70",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|015|Aerodactyl": [
+      {
+        "date": "2026-07-03",
+        "price": "2.81",
+        "trendPrice": "2.81",
+        "avg30": "3.03",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|016|Bronzong": [
+      {
+        "date": "2026-07-03",
+        "price": "1.20",
+        "trendPrice": "1.20",
+        "avg30": "0.90",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|017|Empoleon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.88",
+        "trendPrice": "0.88",
+        "avg30": "0.81",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|018|Espeon": [
+      {
+        "date": "2026-07-03",
+        "price": "3.81",
+        "trendPrice": "3.81",
+        "avg30": "3.02",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|019|Flareon": [
+      {
+        "date": "2026-07-03",
+        "price": "4.45",
+        "trendPrice": "4.45",
+        "avg30": "4.13",
+        "lowPrice": "1.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|021|Hippowdon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.51",
+        "trendPrice": "0.51",
+        "avg30": "0.90",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|022|Infernape": [
+      {
+        "date": "2026-07-03",
+        "price": "1.65",
+        "trendPrice": "1.65",
+        "avg30": "2.07",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|023|Jolteon": [
+      {
+        "date": "2026-07-03",
+        "price": "2.05",
+        "trendPrice": "2.05",
+        "avg30": "1.53",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|025|Minun": [
+      {
+        "date": "2026-07-03",
+        "price": "0.93",
+        "trendPrice": "0.93",
+        "avg30": "1.19",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|026|Omastar": [
+      {
+        "date": "2026-07-03",
+        "price": "1.33",
+        "trendPrice": "1.33",
+        "avg30": "1.18",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|028|Plusle": [
+      {
+        "date": "2026-07-03",
+        "price": "1.37",
+        "trendPrice": "1.37",
+        "avg30": "1.02",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|029|Scizor": [
+      {
+        "date": "2026-07-03",
+        "price": "1.65",
+        "trendPrice": "1.65",
+        "avg30": "1.71",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|030|Torterra": [
+      {
+        "date": "2026-07-03",
+        "price": "0.77",
+        "trendPrice": "0.77",
+        "avg30": "0.63",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|031|Toxicroak": [
+      {
+        "date": "2026-07-03",
+        "price": "1.35",
+        "trendPrice": "1.35",
+        "avg30": "1.26",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|032|Umbreon": [
+      {
+        "date": "2026-07-03",
+        "price": "13.94",
+        "trendPrice": "13.94",
+        "avg30": "11.84",
+        "lowPrice": "2.93",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|033|Unown [P]": [
+      {
+        "date": "2026-07-03",
+        "price": "1.52",
+        "trendPrice": "1.52",
+        "avg30": "1.61",
+        "lowPrice": "0.29",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|034|Vaporeon": [
+      {
+        "date": "2026-07-03",
+        "price": "4.81",
+        "trendPrice": "4.81",
+        "avg30": "5.50",
+        "lowPrice": "2.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|035|Ambipom": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|036|Fearow": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.24",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|037|Grotle": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|038|Kangaskhan": [
+      {
+        "date": "2026-07-03",
+        "price": "0.29",
+        "trendPrice": "0.29",
+        "avg30": "0.35",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|039|Lickitung": [
+      {
+        "date": "2026-07-03",
+        "price": "0.23",
+        "trendPrice": "0.23",
+        "avg30": "0.22",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|040|Manectric": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|041|Monferno": [
+      {
+        "date": "2026-07-03",
+        "price": "0.33",
+        "trendPrice": "0.33",
+        "avg30": "0.25",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|043|Pachirisu": [
+      {
+        "date": "2026-07-03",
+        "price": "2.37",
+        "trendPrice": "2.37",
+        "avg30": "2.72",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|044|Prinplup": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|045|Raichu": [
+      {
+        "date": "2026-07-03",
+        "price": "0.34",
+        "trendPrice": "0.34",
+        "avg30": "0.96",
+        "lowPrice": "0.08",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|046|Scyther": [
+      {
+        "date": "2026-07-03",
+        "price": "0.37",
+        "trendPrice": "0.37",
+        "avg30": "0.44",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|047|Staravia": [
+      {
+        "date": "2026-07-03",
+        "price": "0.18",
+        "trendPrice": "0.18",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|048|Sudowoodo": [
+      {
+        "date": "2026-07-03",
+        "price": "0.61",
+        "trendPrice": "0.61",
+        "avg30": "0.32",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|049|Unown [Q]": [
+      {
+        "date": "2026-07-03",
+        "price": "0.57",
+        "trendPrice": "0.57",
+        "avg30": "1.00",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|052|Bronzor": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|053|Buneary": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.23",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|054|Burmy Sandy Cloak": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|055|Chatot": [
+      {
+        "date": "2026-07-03",
+        "price": "0.55",
+        "trendPrice": "0.55",
+        "avg30": "0.54",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|058|Chingling": [
+      {
+        "date": "2026-07-03",
+        "price": "0.52",
+        "trendPrice": "0.52",
+        "avg30": "0.32",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|060|Croagunk": [
+      {
+        "date": "2026-07-03",
+        "price": "0.14",
+        "trendPrice": "0.14",
+        "avg30": "0.08",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|061|Drifloon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.25",
+        "trendPrice": "0.25",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|064|Electrike": [
+      {
+        "date": "2026-07-03",
+        "price": "0.12",
+        "trendPrice": "0.12",
+        "avg30": "0.11",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|065|Glameow": [
+      {
+        "date": "2026-07-03",
+        "price": "0.27",
+        "trendPrice": "0.27",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|066|Hippopotas": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|067|Kabuto": [
+      {
+        "date": "2026-07-03",
+        "price": "0.28",
+        "trendPrice": "0.28",
+        "avg30": "0.25",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|069|Omanyte": [
+      {
+        "date": "2026-07-03",
+        "price": "0.28",
+        "trendPrice": "0.28",
+        "avg30": "0.22",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|070|Pikachu": [
+      {
+        "date": "2026-07-03",
+        "price": "1.19",
+        "trendPrice": "1.19",
+        "avg30": "1.18",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|073|Shellos East Sea": [
+      {
+        "date": "2026-07-03",
+        "price": "0.13",
+        "trendPrice": "0.13",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|074|Spearow": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.22",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|075|Starly": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Majestic Dawn|MD|076|Stunky": [
+      {
+        "date": "2026-07-03",
+        "price": "0.36",
+        "trendPrice": "0.36",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|001|Ampharos": [
+      {
+        "date": "2026-07-03",
+        "price": "4.37",
+        "trendPrice": "4.37",
+        "avg30": "4.09",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|002|Blastoise": [
+      {
+        "date": "2026-07-03",
+        "price": "8.13",
+        "trendPrice": "8.13",
+        "avg30": "13.00",
+        "lowPrice": "1.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|003|Charizard": [
+      {
+        "date": "2026-07-03",
+        "price": "0.02",
+        "trendPrice": "0.02",
+        "avg30": "69.83",
+        "lowPrice": "5.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|004|Entei": [
+      {
+        "date": "2026-07-03",
+        "price": "4.75",
+        "trendPrice": "4.75",
+        "avg30": "6.75",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|005|Flygon": [
+      {
+        "date": "2026-07-03",
+        "price": "2.66",
+        "trendPrice": "2.66",
+        "avg30": "3.27",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|006|Gallade": [
+      {
+        "date": "2026-07-03",
+        "price": "4.00",
+        "trendPrice": "4.00",
+        "avg30": "4.47",
+        "lowPrice": "0.49",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|008|Gastrodon East Sea": [
+      {
+        "date": "2026-07-03",
+        "price": "1.79",
+        "trendPrice": "1.79",
+        "avg30": "2.78",
+        "lowPrice": "0.49",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|009|Gastrodon West Sea": [
+      {
+        "date": "2026-07-03",
+        "price": "3.97",
+        "trendPrice": "3.97",
+        "avg30": "2.80",
+        "lowPrice": "0.44",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|010|Ho-Oh": [
+      {
+        "date": "2026-07-03",
+        "price": "12.62",
+        "trendPrice": "12.62",
+        "avg30": "12.93",
+        "lowPrice": "1.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|011|Jumpluff": [
+      {
+        "date": "2026-07-03",
+        "price": "4.68",
+        "trendPrice": "4.68",
+        "avg30": "4.32",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|012|Lickilicky": [
+      {
+        "date": "2026-07-03",
+        "price": "3.64",
+        "trendPrice": "3.64",
+        "avg30": "3.00",
+        "lowPrice": "0.19",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|013|Ludicolo": [
+      {
+        "date": "2026-07-03",
+        "price": "2.43",
+        "trendPrice": "2.43",
+        "avg30": "3.62",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|014|Lugia": [
+      {
+        "date": "2026-07-03",
+        "price": "38.00",
+        "trendPrice": "38.00",
+        "avg30": "26.03",
+        "lowPrice": "3.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|015|Mew": [
+      {
+        "date": "2026-07-03",
+        "price": "34.60",
+        "trendPrice": "34.60",
+        "avg30": "38.87",
+        "lowPrice": "2.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|016|Raikou": [
+      {
+        "date": "2026-07-03",
+        "price": "1.91",
+        "trendPrice": "1.91",
+        "avg30": "8.30",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|017|Roserade": [
+      {
+        "date": "2026-07-03",
+        "price": "2.11",
+        "trendPrice": "2.11",
+        "avg30": "2.08",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|018|Salamence": [
+      {
+        "date": "2026-07-03",
+        "price": "7.79",
+        "trendPrice": "7.79",
+        "avg30": "6.15",
+        "lowPrice": "0.49",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|019|Suicune": [
+      {
+        "date": "2026-07-03",
+        "price": "5.32",
+        "trendPrice": "5.32",
+        "avg30": "6.08",
+        "lowPrice": "1.00",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|020|Venusaur": [
+      {
+        "date": "2026-07-03",
+        "price": "4.90",
+        "trendPrice": "4.90",
+        "avg30": "5.84",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|021|Absol": [
+      {
+        "date": "2026-07-03",
+        "price": "2.73",
+        "trendPrice": "2.73",
+        "avg30": "2.00",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|022|Arcanine": [
+      {
+        "date": "2026-07-03",
+        "price": "0.66",
+        "trendPrice": "0.66",
+        "avg30": "1.15",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|023|Banette": [
+      {
+        "date": "2026-07-03",
+        "price": "1.70",
+        "trendPrice": "1.70",
+        "avg30": "0.82",
+        "lowPrice": "0.09",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|024|Dugtrio": [
+      {
+        "date": "2026-07-03",
+        "price": "0.54",
+        "trendPrice": "0.54",
+        "avg30": "0.63",
+        "lowPrice": "0.09",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|025|Electivire": [
+      {
+        "date": "2026-07-03",
+        "price": "1.18",
+        "trendPrice": "1.18",
+        "avg30": "1.33",
+        "lowPrice": "0.09",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|026|Electrode": [
+      {
+        "date": "2026-07-03",
+        "price": "0.53",
+        "trendPrice": "0.53",
+        "avg30": "0.35",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|027|Furret": [
+      {
+        "date": "2026-07-03",
+        "price": "1.30",
+        "trendPrice": "1.30",
+        "avg30": "1.49",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|028|Golduck": [
+      {
+        "date": "2026-07-03",
+        "price": "0.90",
+        "trendPrice": "0.90",
+        "avg30": "0.92",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|029|Golem": [
+      {
+        "date": "2026-07-03",
+        "price": "0.65",
+        "trendPrice": "0.65",
+        "avg30": "0.91",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|030|Jynx": [
+      {
+        "date": "2026-07-03",
+        "price": "0.88",
+        "trendPrice": "0.88",
+        "avg30": "0.84",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|031|Magmortar": [
+      {
+        "date": "2026-07-03",
+        "price": "1.01",
+        "trendPrice": "1.01",
+        "avg30": "0.84",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|032|Minun": [
+      {
+        "date": "2026-07-03",
+        "price": "1.29",
+        "trendPrice": "1.29",
+        "avg30": "1.26",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|033|Mothim": [
+      {
+        "date": "2026-07-03",
+        "price": "0.83",
+        "trendPrice": "0.83",
+        "avg30": "0.87",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|034|Nidoking": [
+      {
+        "date": "2026-07-03",
+        "price": "1.27",
+        "trendPrice": "1.27",
+        "avg30": "1.49",
+        "lowPrice": "0.20",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|035|Pidgeot": [
+      {
+        "date": "2026-07-03",
+        "price": "0.09",
+        "trendPrice": "0.09",
+        "avg30": "1.27",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|036|Plusle": [
+      {
+        "date": "2026-07-03",
+        "price": "1.52",
+        "trendPrice": "1.52",
+        "avg30": "1.51",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|037|Sharpedo": [
+      {
+        "date": "2026-07-03",
+        "price": "0.70",
+        "trendPrice": "0.70",
+        "avg30": "0.94",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|038|Sunflora": [
+      {
+        "date": "2026-07-03",
+        "price": "0.67",
+        "trendPrice": "0.67",
+        "avg30": "0.59",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|039|Unown [S]": [
+      {
+        "date": "2026-07-03",
+        "price": "0.99",
+        "trendPrice": "0.99",
+        "avg30": "1.73",
+        "lowPrice": "0.35",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|041|Wormadam Plant Cloak": [
+      {
+        "date": "2026-07-03",
+        "price": "0.43",
+        "trendPrice": "0.43",
+        "avg30": "0.74",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|042|Wormadam Sandy Cloak": [
+      {
+        "date": "2026-07-03",
+        "price": "0.65",
+        "trendPrice": "0.65",
+        "avg30": "0.64",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|043|Wormadam Trash Cloak": [
+      {
+        "date": "2026-07-03",
+        "price": "0.93",
+        "trendPrice": "0.93",
+        "avg30": "0.86",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|044|Xatu": [
+      {
+        "date": "2026-07-03",
+        "price": "0.78",
+        "trendPrice": "0.78",
+        "avg30": "0.82",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|045|Breloom": [
+      {
+        "date": "2026-07-03",
+        "price": "0.54",
+        "trendPrice": "0.54",
+        "avg30": "0.36",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|046|Charmeleon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.48",
+        "trendPrice": "0.48",
+        "avg30": "1.47",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|047|Cloyster": [
+      {
+        "date": "2026-07-03",
+        "price": "0.43",
+        "trendPrice": "0.43",
+        "avg30": "0.33",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|048|Donphan": [
+      {
+        "date": "2026-07-03",
+        "price": "0.13",
+        "trendPrice": "0.13",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|049|Farfetch'd": [
+      {
+        "date": "2026-07-03",
+        "price": "0.30",
+        "trendPrice": "0.30",
+        "avg30": "0.37",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|050|Flaaffy": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.23",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|051|Ivysaur": [
+      {
+        "date": "2026-07-03",
+        "price": "0.61",
+        "trendPrice": "0.61",
+        "avg30": "0.50",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|052|Kecleon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.41",
+        "trendPrice": "0.41",
+        "avg30": "0.45",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|054|Lombre": [
+      {
+        "date": "2026-07-03",
+        "price": "0.31",
+        "trendPrice": "0.31",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|055|Miltank": [
+      {
+        "date": "2026-07-03",
+        "price": "0.26",
+        "trendPrice": "0.26",
+        "avg30": "0.28",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|056|Muk": [
+      {
+        "date": "2026-07-03",
+        "price": "0.23",
+        "trendPrice": "0.23",
+        "avg30": "0.23",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|057|Nidorino": [
+      {
+        "date": "2026-07-03",
+        "price": "0.28",
+        "trendPrice": "0.28",
+        "avg30": "0.26",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|058|Pidgeotto": [
+      {
+        "date": "2026-07-03",
+        "price": "0.48",
+        "trendPrice": "0.48",
+        "avg30": "0.49",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|059|Pinsir": [
+      {
+        "date": "2026-07-03",
+        "price": "0.45",
+        "trendPrice": "0.45",
+        "avg30": "0.33",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|060|Quagsire": [
+      {
+        "date": "2026-07-03",
+        "price": "1.19",
+        "trendPrice": "1.19",
+        "avg30": "0.66",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|061|Raticate": [
+      {
+        "date": "2026-07-03",
+        "price": "0.24",
+        "trendPrice": "0.24",
+        "avg30": "0.22",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|062|Roselia": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.21",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|063|Sableye": [
+      {
+        "date": "2026-07-03",
+        "price": "0.42",
+        "trendPrice": "0.42",
+        "avg30": "0.32",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|064|Shelgon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.18",
+        "trendPrice": "0.18",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|065|Skiploom": [
+      {
+        "date": "2026-07-03",
+        "price": "0.28",
+        "trendPrice": "0.28",
+        "avg30": "0.25",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|066|Smeargle": [
+      {
+        "date": "2026-07-03",
+        "price": "0.28",
+        "trendPrice": "0.28",
+        "avg30": "0.23",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|067|Smoochum": [
+      {
+        "date": "2026-07-03",
+        "price": "0.13",
+        "trendPrice": "0.13",
+        "avg30": "0.48",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|068|Unown [K]": [
+      {
+        "date": "2026-07-03",
+        "price": "0.39",
+        "trendPrice": "0.39",
+        "avg30": "0.41",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|069|Unown [N]": [
+      {
+        "date": "2026-07-03",
+        "price": "1.08",
+        "trendPrice": "1.08",
+        "avg30": "0.58",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|070|Unown [O]": [
+      {
+        "date": "2026-07-03",
+        "price": "0.49",
+        "trendPrice": "0.49",
+        "avg30": "0.49",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|071|Unown [X]": [
+      {
+        "date": "2026-07-03",
+        "price": "0.55",
+        "trendPrice": "0.55",
+        "avg30": "0.52",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|072|Unown [Z]": [
+      {
+        "date": "2026-07-03",
+        "price": "0.47",
+        "trendPrice": "0.47",
+        "avg30": "0.48",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|073|Venomoth": [
+      {
+        "date": "2026-07-03",
+        "price": "0.63",
+        "trendPrice": "0.63",
+        "avg30": "0.30",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|074|Vibrava": [
+      {
+        "date": "2026-07-03",
+        "price": "0.33",
+        "trendPrice": "0.33",
+        "avg30": "0.32",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|075|Wartortle": [
+      {
+        "date": "2026-07-03",
+        "price": "0.93",
+        "trendPrice": "0.93",
+        "avg30": "0.79",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|076|Bagon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|077|Bulbasaur": [
+      {
+        "date": "2026-07-03",
+        "price": "0.31",
+        "trendPrice": "0.31",
+        "avg30": "0.54",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|079|Burmy Sandy Cloak": [
+      {
+        "date": "2026-07-03",
+        "price": "0.34",
+        "trendPrice": "0.34",
+        "avg30": "0.22",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|080|Burmy Trash Cloak": [
+      {
+        "date": "2026-07-03",
+        "price": "0.23",
+        "trendPrice": "0.23",
+        "avg30": "0.21",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|081|Carvanha": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|082|Charmander": [
+      {
+        "date": "2026-07-03",
+        "price": "0.53",
+        "trendPrice": "0.53",
+        "avg30": "0.59",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|083|Clefairy": [
+      {
+        "date": "2026-07-03",
+        "price": "0.32",
+        "trendPrice": "0.32",
+        "avg30": "0.31",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|084|Corsola": [
+      {
+        "date": "2026-07-03",
+        "price": "0.33",
+        "trendPrice": "0.33",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|085|Diglett": [
+      {
+        "date": "2026-07-03",
+        "price": "0.26",
+        "trendPrice": "0.26",
+        "avg30": "0.23",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|086|Duskull": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.22",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|087|Electabuzz": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|088|Grimer": [
+      {
+        "date": "2026-07-03",
+        "price": "0.13",
+        "trendPrice": "0.13",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|089|Growlithe": [
+      {
+        "date": "2026-07-03",
+        "price": "0.25",
+        "trendPrice": "0.25",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|090|Hoppip": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|091|Lickitung": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|092|Lotad": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|093|Magmar": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|094|Mareep": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|095|Murkrow": [
+      {
+        "date": "2026-07-03",
+        "price": "0.33",
+        "trendPrice": "0.33",
+        "avg30": "0.39",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|096|Natu": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.11",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|098|Phanpy": [
+      {
+        "date": "2026-07-03",
+        "price": "0.15",
+        "trendPrice": "0.15",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|099|Pidgey": [
+      {
+        "date": "2026-07-03",
+        "price": "0.45",
+        "trendPrice": "0.45",
+        "avg30": "0.25",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|100|Psyduck": [
+      {
+        "date": "2026-07-03",
+        "price": "2.18",
+        "trendPrice": "2.18",
+        "avg30": "2.18",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|101|Qwilfish": [
+      {
+        "date": "2026-07-03",
+        "price": "0.33",
+        "trendPrice": "0.33",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|102|Ralts": [
+      {
+        "date": "2026-07-03",
+        "price": "0.36",
+        "trendPrice": "0.36",
+        "avg30": "0.25",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|103|Rattata": [
+      {
+        "date": "2026-07-03",
+        "price": "0.29",
+        "trendPrice": "0.29",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|104|Sentret": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.11",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|105|Shellder": [
+      {
+        "date": "2026-07-03",
+        "price": "0.15",
+        "trendPrice": "0.15",
+        "avg30": "0.21",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|106|Shellos East Sea": [
+      {
+        "date": "2026-07-03",
+        "price": "1.06",
+        "trendPrice": "1.06",
+        "avg30": "0.39",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|107|Shellos West Sea": [
+      {
+        "date": "2026-07-03",
+        "price": "0.40",
+        "trendPrice": "0.40",
+        "avg30": "0.31",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|108|Shroomish": [
+      {
+        "date": "2026-07-03",
+        "price": "0.23",
+        "trendPrice": "0.23",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|109|Shuckle": [
+      {
+        "date": "2026-07-03",
+        "price": "0.46",
+        "trendPrice": "0.46",
+        "avg30": "0.32",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|110|Shuppet": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|111|Spinda": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|112|Squirtle": [
+      {
+        "date": "2026-07-03",
+        "price": "1.12",
+        "trendPrice": "1.12",
+        "avg30": "1.34",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|113|Stantler": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.10",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|114|Sunkern": [
+      {
+        "date": "2026-07-03",
+        "price": "0.15",
+        "trendPrice": "0.15",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|115|Trapinch": [
+      {
+        "date": "2026-07-03",
+        "price": "0.15",
+        "trendPrice": "0.15",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|116|Venonat": [
+      {
+        "date": "2026-07-03",
+        "price": "0.15",
+        "trendPrice": "0.15",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|117|Voltorb": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Secret Wonders|SW|118|Wooper": [
+      {
+        "date": "2026-07-03",
+        "price": "6.31",
+        "trendPrice": "6.31",
+        "avg30": "1.42",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|001|Aggron": [
+      {
+        "date": "2026-07-03",
+        "price": "3.33",
+        "trendPrice": "3.33",
+        "avg30": "3.78",
+        "lowPrice": "0.40",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|002|Alakazam": [
+      {
+        "date": "2026-07-03",
+        "price": "6.31",
+        "trendPrice": "6.31",
+        "avg30": "11.45",
+        "lowPrice": "1.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|003|Ambipom": [
+      {
+        "date": "2026-07-03",
+        "price": "3.85",
+        "trendPrice": "3.85",
+        "avg30": "3.37",
+        "lowPrice": "0.44",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|004|Azelf": [
+      {
+        "date": "2026-07-03",
+        "price": "7.83",
+        "trendPrice": "7.83",
+        "avg30": "6.67",
+        "lowPrice": "0.49",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|005|Blissey": [
+      {
+        "date": "2026-07-03",
+        "price": "2.98",
+        "trendPrice": "2.98",
+        "avg30": "3.35",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|006|Bronzong": [
+      {
+        "date": "2026-07-03",
+        "price": "1.48",
+        "trendPrice": "1.48",
+        "avg30": "2.41",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|007|Celebi": [
+      {
+        "date": "2026-07-03",
+        "price": "6.28",
+        "trendPrice": "6.28",
+        "avg30": "7.74",
+        "lowPrice": "0.97",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|008|Feraligatr": [
+      {
+        "date": "2026-07-03",
+        "price": "7.38",
+        "trendPrice": "7.38",
+        "avg30": "5.61",
+        "lowPrice": "0.60",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|009|Garchomp": [
+      {
+        "date": "2026-07-03",
+        "price": "5.27",
+        "trendPrice": "5.27",
+        "avg30": "6.68",
+        "lowPrice": "0.99",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|010|Honchkrow": [
+      {
+        "date": "2026-07-03",
+        "price": "2.77",
+        "trendPrice": "2.77",
+        "avg30": "4.21",
+        "lowPrice": "0.29",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|011|Lumineon": [
+      {
+        "date": "2026-07-03",
+        "price": "3.48",
+        "trendPrice": "3.48",
+        "avg30": "2.44",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|013|Meganium": [
+      {
+        "date": "2026-07-03",
+        "price": "6.69",
+        "trendPrice": "6.69",
+        "avg30": "5.29",
+        "lowPrice": "0.75",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|014|Mesprit": [
+      {
+        "date": "2026-07-03",
+        "price": "5.59",
+        "trendPrice": "5.59",
+        "avg30": "11.84",
+        "lowPrice": "0.45",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|015|Raichu": [
+      {
+        "date": "2026-07-03",
+        "price": "8.53",
+        "trendPrice": "8.53",
+        "avg30": "7.10",
+        "lowPrice": "1.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|016|Typhlosion": [
+      {
+        "date": "2026-07-03",
+        "price": "6.51",
+        "trendPrice": "6.51",
+        "avg30": "5.99",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|017|Tyranitar": [
+      {
+        "date": "2026-07-03",
+        "price": "4.88",
+        "trendPrice": "4.88",
+        "avg30": "6.69",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|018|Uxie": [
+      {
+        "date": "2026-07-03",
+        "price": "9.06",
+        "trendPrice": "9.06",
+        "avg30": "7.49",
+        "lowPrice": "0.99",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|020|Ariados": [
+      {
+        "date": "2026-07-03",
+        "price": "0.41",
+        "trendPrice": "0.41",
+        "avg30": "0.39",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|021|Bastiodon": [
+      {
+        "date": "2026-07-03",
+        "price": "1.75",
+        "trendPrice": "1.75",
+        "avg30": "0.66",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|022|Chimecho": [
+      {
+        "date": "2026-07-03",
+        "price": "0.94",
+        "trendPrice": "0.94",
+        "avg30": "0.64",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|023|Crobat": [
+      {
+        "date": "2026-07-03",
+        "price": "1.46",
+        "trendPrice": "1.46",
+        "avg30": "1.67",
+        "lowPrice": "0.29",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|024|Exeggutor": [
+      {
+        "date": "2026-07-03",
+        "price": "0.87",
+        "trendPrice": "0.87",
+        "avg30": "0.96",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|025|Glalie": [
+      {
+        "date": "2026-07-03",
+        "price": "0.97",
+        "trendPrice": "0.97",
+        "avg30": "0.79",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|026|Gyarados": [
+      {
+        "date": "2026-07-03",
+        "price": "2.36",
+        "trendPrice": "2.36",
+        "avg30": "2.08",
+        "lowPrice": "0.25",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|027|Kricketune": [
+      {
+        "date": "2026-07-03",
+        "price": "0.30",
+        "trendPrice": "0.30",
+        "avg30": "0.24",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|028|Manectric": [
+      {
+        "date": "2026-07-03",
+        "price": "0.68",
+        "trendPrice": "0.68",
+        "avg30": "0.51",
+        "lowPrice": "0.12",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|029|Mantine": [
+      {
+        "date": "2026-07-03",
+        "price": "0.29",
+        "trendPrice": "0.29",
+        "avg30": "0.42",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|030|Mr. Mime": [
+      {
+        "date": "2026-07-03",
+        "price": "1.01",
+        "trendPrice": "1.01",
+        "avg30": "1.03",
+        "lowPrice": "0.08",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|031|Nidoqueen": [
+      {
+        "date": "2026-07-03",
+        "price": "0.60",
+        "trendPrice": "0.60",
+        "avg30": "0.85",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|032|Ninetales": [
+      {
+        "date": "2026-07-03",
+        "price": "1.51",
+        "trendPrice": "1.51",
+        "avg30": "1.81",
+        "lowPrice": "0.30",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|033|Rampardos": [
+      {
+        "date": "2026-07-03",
+        "price": "1.57",
+        "trendPrice": "1.57",
+        "avg30": "1.06",
+        "lowPrice": "0.08",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|034|Slaking": [
+      {
+        "date": "2026-07-03",
+        "price": "2.13",
+        "trendPrice": "2.13",
+        "avg30": "1.35",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|035|Sudowoodo": [
+      {
+        "date": "2026-07-03",
+        "price": "0.90",
+        "trendPrice": "0.90",
+        "avg30": "1.00",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|036|Toxicroak": [
+      {
+        "date": "2026-07-03",
+        "price": "0.69",
+        "trendPrice": "0.69",
+        "avg30": "0.85",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|037|Unown [I]": [
+      {
+        "date": "2026-07-03",
+        "price": "2.01",
+        "trendPrice": "2.01",
+        "avg30": "1.68",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|038|Ursaring": [
+      {
+        "date": "2026-07-03",
+        "price": "0.62",
+        "trendPrice": "0.62",
+        "avg30": "1.15",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|039|Walrein": [
+      {
+        "date": "2026-07-03",
+        "price": "0.62",
+        "trendPrice": "0.62",
+        "avg30": "0.51",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|040|Whiscash": [
+      {
+        "date": "2026-07-03",
+        "price": "0.70",
+        "trendPrice": "0.70",
+        "avg30": "1.12",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|041|Bayleef": [
+      {
+        "date": "2026-07-03",
+        "price": "0.72",
+        "trendPrice": "0.72",
+        "avg30": "0.58",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|043|Cranidos": [
+      {
+        "date": "2026-07-03",
+        "price": "0.24",
+        "trendPrice": "0.24",
+        "avg30": "0.21",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|044|Croconaw": [
+      {
+        "date": "2026-07-03",
+        "price": "0.89",
+        "trendPrice": "0.89",
+        "avg30": "0.63",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|045|Dewgong": [
+      {
+        "date": "2026-07-03",
+        "price": "0.46",
+        "trendPrice": "0.46",
+        "avg30": "0.44",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|046|Dodrio": [
+      {
+        "date": "2026-07-03",
+        "price": "0.28",
+        "trendPrice": "0.28",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|047|Dunsparce": [
+      {
+        "date": "2026-07-03",
+        "price": "0.35",
+        "trendPrice": "0.35",
+        "avg30": "0.27",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|049|Girafarig": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.22",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|050|Golbat": [
+      {
+        "date": "2026-07-03",
+        "price": "0.50",
+        "trendPrice": "0.50",
+        "avg30": "0.35",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|051|Graveler": [
+      {
+        "date": "2026-07-03",
+        "price": "0.24",
+        "trendPrice": "0.24",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|053|Lairon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.22",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|054|Magmar": [
+      {
+        "date": "2026-07-03",
+        "price": "0.29",
+        "trendPrice": "0.29",
+        "avg30": "0.27",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|055|Masquerain": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|056|Nidorina": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|057|Octillery": [
+      {
+        "date": "2026-07-03",
+        "price": "0.45",
+        "trendPrice": "0.45",
+        "avg30": "0.30",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|058|Parasect": [
+      {
+        "date": "2026-07-03",
+        "price": "0.33",
+        "trendPrice": "0.33",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|059|Pupitar": [
+      {
+        "date": "2026-07-03",
+        "price": "0.52",
+        "trendPrice": "0.52",
+        "avg30": "0.28",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|060|Quilava": [
+      {
+        "date": "2026-07-03",
+        "price": "0.66",
+        "trendPrice": "0.66",
+        "avg30": "0.52",
+        "lowPrice": "0.08",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|061|Sandslash": [
+      {
+        "date": "2026-07-03",
+        "price": "0.24",
+        "trendPrice": "0.24",
+        "avg30": "0.25",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|062|Sealeo": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|063|Shieldon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|064|Tropius": [
+      {
+        "date": "2026-07-03",
+        "price": "0.25",
+        "trendPrice": "0.25",
+        "avg30": "0.30",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|065|Unown [E]": [
+      {
+        "date": "2026-07-03",
+        "price": "0.42",
+        "trendPrice": "0.42",
+        "avg30": "0.42",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|066|Unown [M]": [
+      {
+        "date": "2026-07-03",
+        "price": "0.43",
+        "trendPrice": "0.43",
+        "avg30": "0.45",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|067|Unown [T]": [
+      {
+        "date": "2026-07-03",
+        "price": "0.38",
+        "trendPrice": "0.38",
+        "avg30": "0.31",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|068|Vigoroth": [
+      {
+        "date": "2026-07-03",
+        "price": "0.32",
+        "trendPrice": "0.32",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|069|Abra": [
+      {
+        "date": "2026-07-03",
+        "price": "2.45",
+        "trendPrice": "2.45",
+        "avg30": "0.71",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|070|Aipom": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|071|Aron": [
+      {
+        "date": "2026-07-03",
+        "price": "0.50",
+        "trendPrice": "0.50",
+        "avg30": "0.63",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|072|Barboach": [
+      {
+        "date": "2026-07-03",
+        "price": "0.08",
+        "trendPrice": "0.08",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|075|Buizel": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.24",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|076|Chansey": [
+      {
+        "date": "2026-07-03",
+        "price": "0.40",
+        "trendPrice": "0.40",
+        "avg30": "0.32",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|077|Chikorita": [
+      {
+        "date": "2026-07-03",
+        "price": "0.52",
+        "trendPrice": "0.52",
+        "avg30": "0.40",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|078|Croagunk": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|079|Cyndaquil": [
+      {
+        "date": "2026-07-03",
+        "price": "0.50",
+        "trendPrice": "0.50",
+        "avg30": "0.35",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|080|Doduo": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|081|Electrike": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|082|Exeggcute": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.21",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|083|Finneon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|084|Geodude": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.10",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|085|Gible": [
+      {
+        "date": "2026-07-03",
+        "price": "0.28",
+        "trendPrice": "0.28",
+        "avg30": "0.34",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|087|Larvitar": [
+      {
+        "date": "2026-07-03",
+        "price": "0.24",
+        "trendPrice": "0.24",
+        "avg30": "0.23",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|088|Magby": [
+      {
+        "date": "2026-07-03",
+        "price": "0.29",
+        "trendPrice": "0.29",
+        "avg30": "0.21",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|089|Magikarp": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.34",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|090|Murkrow": [
+      {
+        "date": "2026-07-03",
+        "price": "0.23",
+        "trendPrice": "0.23",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|092|Paras": [
+      {
+        "date": "2026-07-03",
+        "price": "0.24",
+        "trendPrice": "0.24",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|093|Pichu": [
+      {
+        "date": "2026-07-03",
+        "price": "2.45",
+        "trendPrice": "2.45",
+        "avg30": "2.88",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|094|Pikachu": [
+      {
+        "date": "2026-07-03",
+        "price": "3.57",
+        "trendPrice": "3.57",
+        "avg30": "6.20",
+        "lowPrice": "0.40",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|095|Remoraid": [
+      {
+        "date": "2026-07-03",
+        "price": "0.08",
+        "trendPrice": "0.08",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|096|Sandshrew": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|097|Seel": [
+      {
+        "date": "2026-07-03",
+        "price": "0.03",
+        "trendPrice": "0.03",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|099|Slakoth": [
+      {
+        "date": "2026-07-03",
+        "price": "0.46",
+        "trendPrice": "0.46",
+        "avg30": "0.62",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|100|Snorunt": [
+      {
+        "date": "2026-07-03",
+        "price": "0.19",
+        "trendPrice": "0.19",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|102|Spheal": [
+      {
+        "date": "2026-07-03",
+        "price": "0.20",
+        "trendPrice": "0.20",
+        "avg30": "0.21",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|103|Spinarak": [
+      {
+        "date": "2026-07-03",
+        "price": "0.16",
+        "trendPrice": "0.16",
+        "avg30": "0.10",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|104|Surskit": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|105|Teddiursa": [
+      {
+        "date": "2026-07-03",
+        "price": "0.56",
+        "trendPrice": "0.56",
+        "avg30": "0.47",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|106|Totodile": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.39",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|107|Vulpix": [
+      {
+        "date": "2026-07-03",
+        "price": "0.47",
+        "trendPrice": "0.47",
+        "avg30": "0.29",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Mysterious Treasures|MT|108|Zubat": [
+      {
+        "date": "2026-07-03",
+        "price": "0.13",
+        "trendPrice": "0.13",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|001|Dialga": [
+      {
+        "date": "2026-07-03",
+        "price": "6.12",
+        "trendPrice": "6.12",
+        "avg30": "7.49",
+        "lowPrice": "0.99",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|002|Dusknoir": [
+      {
+        "date": "2026-07-03",
+        "price": "1.63",
+        "trendPrice": "1.63",
+        "avg30": "3.08",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|006|Lucario": [
+      {
+        "date": "2026-07-03",
+        "price": "6.37",
+        "trendPrice": "6.37",
+        "avg30": "8.92",
+        "lowPrice": "0.95",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|008|Magnezone": [
+      {
+        "date": "2026-07-03",
+        "price": "1.91",
+        "trendPrice": "1.91",
+        "avg30": "2.54",
+        "lowPrice": "0.29",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|009|Manaphy": [
+      {
+        "date": "2026-07-03",
+        "price": "2.85",
+        "trendPrice": "2.85",
+        "avg30": "2.92",
+        "lowPrice": "0.40",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|010|Mismagius": [
+      {
+        "date": "2026-07-03",
+        "price": "3.60",
+        "trendPrice": "3.60",
+        "avg30": "3.39",
+        "lowPrice": "0.30",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|011|Palkia": [
+      {
+        "date": "2026-07-03",
+        "price": "4.50",
+        "trendPrice": "4.50",
+        "avg30": "6.17",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|012|Rhyperior": [
+      {
+        "date": "2026-07-03",
+        "price": "2.13",
+        "trendPrice": "2.13",
+        "avg30": "2.28",
+        "lowPrice": "0.40",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|013|Roserade": [
+      {
+        "date": "2026-07-03",
+        "price": "2.02",
+        "trendPrice": "2.02",
+        "avg30": "2.64",
+        "lowPrice": "0.40",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|014|Shiftry": [
+      {
+        "date": "2026-07-03",
+        "price": "1.45",
+        "trendPrice": "1.45",
+        "avg30": "2.06",
+        "lowPrice": "0.30",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|015|Skuntank": [
+      {
+        "date": "2026-07-03",
+        "price": "2.89",
+        "trendPrice": "2.89",
+        "avg30": "2.82",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|016|Staraptor": [
+      {
+        "date": "2026-07-03",
+        "price": "4.03",
+        "trendPrice": "4.03",
+        "avg30": "3.25",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|018|Azumarill": [
+      {
+        "date": "2026-07-03",
+        "price": "1.33",
+        "trendPrice": "1.33",
+        "avg30": "1.12",
+        "lowPrice": "0.14",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|019|Beautifly": [
+      {
+        "date": "2026-07-03",
+        "price": "0.83",
+        "trendPrice": "0.83",
+        "avg30": "0.75",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|020|Bibarel": [
+      {
+        "date": "2026-07-03",
+        "price": "1.15",
+        "trendPrice": "1.15",
+        "avg30": "1.10",
+        "lowPrice": "0.07",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|021|Carnivine": [
+      {
+        "date": "2026-07-03",
+        "price": "1.02",
+        "trendPrice": "1.02",
+        "avg30": "1.08",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|022|Clefable": [
+      {
+        "date": "2026-07-03",
+        "price": "1.10",
+        "trendPrice": "1.10",
+        "avg30": "1.47",
+        "lowPrice": "0.19",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|023|Drapion": [
+      {
+        "date": "2026-07-03",
+        "price": "1.68",
+        "trendPrice": "1.68",
+        "avg30": "1.32",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|024|Drifblim": [
+      {
+        "date": "2026-07-03",
+        "price": "0.82",
+        "trendPrice": "0.82",
+        "avg30": "0.96",
+        "lowPrice": "0.09",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|025|Dustox": [
+      {
+        "date": "2026-07-03",
+        "price": "0.24",
+        "trendPrice": "0.24",
+        "avg30": "1.09",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|026|Floatzel": [
+      {
+        "date": "2026-07-03",
+        "price": "0.29",
+        "trendPrice": "0.29",
+        "avg30": "0.47",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|027|Gengar": [
+      {
+        "date": "2026-07-03",
+        "price": "14.56",
+        "trendPrice": "14.56",
+        "avg30": "18.25",
+        "lowPrice": "3.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|028|Heracross": [
+      {
+        "date": "2026-07-03",
+        "price": "1.08",
+        "trendPrice": "1.08",
+        "avg30": "1.10",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|029|Hippowdon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.15",
+        "trendPrice": "0.15",
+        "avg30": "0.74",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|030|Lopunny": [
+      {
+        "date": "2026-07-03",
+        "price": "0.85",
+        "trendPrice": "0.85",
+        "avg30": "1.31",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|031|Machamp": [
+      {
+        "date": "2026-07-03",
+        "price": "2.26",
+        "trendPrice": "2.26",
+        "avg30": "2.15",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|032|Medicham": [
+      {
+        "date": "2026-07-03",
+        "price": "0.79",
+        "trendPrice": "0.79",
+        "avg30": "0.61",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|033|Munchlax": [
+      {
+        "date": "2026-07-03",
+        "price": "3.78",
+        "trendPrice": "3.78",
+        "avg30": "3.69",
+        "lowPrice": "0.50",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|034|Noctowl": [
+      {
+        "date": "2026-07-03",
+        "price": "0.61",
+        "trendPrice": "0.61",
+        "avg30": "0.51",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|035|Pachirisu": [
+      {
+        "date": "2026-07-03",
+        "price": "0.96",
+        "trendPrice": "0.96",
+        "avg30": "1.38",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|036|Purugly": [
+      {
+        "date": "2026-07-03",
+        "price": "0.96",
+        "trendPrice": "0.96",
+        "avg30": "1.12",
+        "lowPrice": "0.09",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|037|Snorlax": [
+      {
+        "date": "2026-07-03",
+        "price": "5.29",
+        "trendPrice": "5.29",
+        "avg30": "3.99",
+        "lowPrice": "0.45",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|038|Steelix": [
+      {
+        "date": "2026-07-03",
+        "price": "0.75",
+        "trendPrice": "0.75",
+        "avg30": "1.31",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|039|Vespiquen": [
+      {
+        "date": "2026-07-03",
+        "price": "1.70",
+        "trendPrice": "1.70",
+        "avg30": "0.97",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|040|Weavile": [
+      {
+        "date": "2026-07-03",
+        "price": "1.19",
+        "trendPrice": "1.19",
+        "avg30": "1.19",
+        "lowPrice": "0.08",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|041|Wobbuffet": [
+      {
+        "date": "2026-07-03",
+        "price": "0.89",
+        "trendPrice": "0.89",
+        "avg30": "0.93",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|042|Wynaut": [
+      {
+        "date": "2026-07-03",
+        "price": "1.19",
+        "trendPrice": "1.19",
+        "avg30": "2.60",
+        "lowPrice": "0.49",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|043|Budew": [
+      {
+        "date": "2026-07-03",
+        "price": "0.86",
+        "trendPrice": "0.86",
+        "avg30": "1.00",
+        "lowPrice": "0.03",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|044|Cascoon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.35",
+        "trendPrice": "0.35",
+        "avg30": "0.32",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|045|Cherrim": [
+      {
+        "date": "2026-07-03",
+        "price": "0.56",
+        "trendPrice": "0.56",
+        "avg30": "0.43",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|046|Drifloon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.04",
+        "trendPrice": "0.04",
+        "avg30": "0.35",
+        "lowPrice": "0.04",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|047|Dusclops": [
+      {
+        "date": "2026-07-03",
+        "price": "0.45",
+        "trendPrice": "0.45",
+        "avg30": "0.28",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|048|Elekid": [
+      {
+        "date": "2026-07-03",
+        "price": "0.62",
+        "trendPrice": "0.62",
+        "avg30": "0.59",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|049|Grotle": [
+      {
+        "date": "2026-07-03",
+        "price": "0.33",
+        "trendPrice": "0.33",
+        "avg30": "0.26",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|050|Haunter": [
+      {
+        "date": "2026-07-03",
+        "price": "0.93",
+        "trendPrice": "0.93",
+        "avg30": "0.86",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|051|Hippopotas": [
+      {
+        "date": "2026-07-03",
+        "price": "0.38",
+        "trendPrice": "0.38",
+        "avg30": "0.23",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|053|Machoke": [
+      {
+        "date": "2026-07-03",
+        "price": "0.32",
+        "trendPrice": "0.32",
+        "avg30": "0.30",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|054|Magneton": [
+      {
+        "date": "2026-07-03",
+        "price": "0.15",
+        "trendPrice": "0.15",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|055|Mantyke": [
+      {
+        "date": "2026-07-03",
+        "price": "1.40",
+        "trendPrice": "1.40",
+        "avg30": "1.46",
+        "lowPrice": "0.10",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|056|Monferno": [
+      {
+        "date": "2026-07-03",
+        "price": "0.30",
+        "trendPrice": "0.30",
+        "avg30": "0.25",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|057|Nuzleaf": [
+      {
+        "date": "2026-07-03",
+        "price": "0.39",
+        "trendPrice": "0.39",
+        "avg30": "0.27",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|058|Prinplup": [
+      {
+        "date": "2026-07-03",
+        "price": "0.22",
+        "trendPrice": "0.22",
+        "avg30": "0.21",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|059|Rapidash": [
+      {
+        "date": "2026-07-03",
+        "price": "0.51",
+        "trendPrice": "0.51",
+        "avg30": "0.27",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|060|Rhydon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.43",
+        "trendPrice": "0.43",
+        "avg30": "0.72",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|062|Seaking": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.24",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|063|Silcoon": [
+      {
+        "date": "2026-07-03",
+        "price": "0.23",
+        "trendPrice": "0.23",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|064|Staravia": [
+      {
+        "date": "2026-07-03",
+        "price": "0.29",
+        "trendPrice": "0.29",
+        "avg30": "0.35",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|065|Unown [A]": [
+      {
+        "date": "2026-07-03",
+        "price": "1.13",
+        "trendPrice": "1.13",
+        "avg30": "0.58",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|066|Unown [B]": [
+      {
+        "date": "2026-07-03",
+        "price": "0.51",
+        "trendPrice": "0.51",
+        "avg30": "0.75",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|067|Unown [C]": [
+      {
+        "date": "2026-07-03",
+        "price": "1.45",
+        "trendPrice": "1.45",
+        "avg30": "0.63",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|068|Unown [D]": [
+      {
+        "date": "2026-07-03",
+        "price": "0.50",
+        "trendPrice": "0.50",
+        "avg30": "0.57",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|069|Azurill": [
+      {
+        "date": "2026-07-03",
+        "price": "3.88",
+        "trendPrice": "3.88",
+        "avg30": "3.00",
+        "lowPrice": "0.15",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|070|Bidoof": [
+      {
+        "date": "2026-07-03",
+        "price": "0.02",
+        "trendPrice": "0.02",
+        "avg30": "0.27",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|071|Bonsly": [
+      {
+        "date": "2026-07-03",
+        "price": "3.57",
+        "trendPrice": "3.57",
+        "avg30": "2.39",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|072|Buizel": [
+      {
+        "date": "2026-07-03",
+        "price": "0.17",
+        "trendPrice": "0.17",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|073|Buneary": [
+      {
+        "date": "2026-07-03",
+        "price": "0.07",
+        "trendPrice": "0.07",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|074|Chatot": [
+      {
+        "date": "2026-07-03",
+        "price": "0.27",
+        "trendPrice": "0.27",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|075|Cherubi": [
+      {
+        "date": "2026-07-03",
+        "price": "0.14",
+        "trendPrice": "0.14",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|077|Clefairy": [
+      {
+        "date": "2026-07-03",
+        "price": "0.14",
+        "trendPrice": "0.14",
+        "avg30": "0.38",
+        "lowPrice": "0.05",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|078|Cleffa": [
+      {
+        "date": "2026-07-03",
+        "price": "0.29",
+        "trendPrice": "0.29",
+        "avg30": "0.36",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|079|Combee": [
+      {
+        "date": "2026-07-03",
+        "price": "0.09",
+        "trendPrice": "0.09",
+        "avg30": "0.11",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|080|Duskull": [
+      {
+        "date": "2026-07-03",
+        "price": "0.13",
+        "trendPrice": "0.13",
+        "avg30": "0.18",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|081|Electabuzz": [
+      {
+        "date": "2026-07-03",
+        "price": "0.31",
+        "trendPrice": "0.31",
+        "avg30": "0.26",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|082|Gastly": [
+      {
+        "date": "2026-07-03",
+        "price": "0.36",
+        "trendPrice": "0.36",
+        "avg30": "0.29",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|084|Goldeen": [
+      {
+        "date": "2026-07-03",
+        "price": "0.02",
+        "trendPrice": "0.02",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|085|Hoothoot": [
+      {
+        "date": "2026-07-03",
+        "price": "0.24",
+        "trendPrice": "0.24",
+        "avg30": "0.14",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|086|Machop": [
+      {
+        "date": "2026-07-03",
+        "price": "0.25",
+        "trendPrice": "0.25",
+        "avg30": "0.19",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|087|Magnemite": [
+      {
+        "date": "2026-07-03",
+        "price": "0.09",
+        "trendPrice": "0.09",
+        "avg30": "0.15",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|088|Marill": [
+      {
+        "date": "2026-07-03",
+        "price": "0.34",
+        "trendPrice": "0.34",
+        "avg30": "0.29",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|089|Meditite": [
+      {
+        "date": "2026-07-03",
+        "price": "0.12",
+        "trendPrice": "0.12",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|090|Mime Jr.": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.24",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|091|Misdreavus": [
+      {
+        "date": "2026-07-03",
+        "price": "0.24",
+        "trendPrice": "0.24",
+        "avg30": "0.17",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|092|Onix": [
+      {
+        "date": "2026-07-03",
+        "price": "0.18",
+        "trendPrice": "0.18",
+        "avg30": "0.22",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|094|Ponyta": [
+      {
+        "date": "2026-07-03",
+        "price": "0.06",
+        "trendPrice": "0.06",
+        "avg30": "0.21",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|095|Rhyhorn": [
+      {
+        "date": "2026-07-03",
+        "price": "0.21",
+        "trendPrice": "0.21",
+        "avg30": "0.20",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|096|Roselia": [
+      {
+        "date": "2026-07-03",
+        "price": "0.25",
+        "trendPrice": "0.25",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|097|Seedot": [
+      {
+        "date": "2026-07-03",
+        "price": "0.09",
+        "trendPrice": "0.09",
+        "avg30": "0.16",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|100|Sneasel": [
+      {
+        "date": "2026-07-03",
+        "price": "0.12",
+        "trendPrice": "0.12",
+        "avg30": "0.13",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|101|Starly": [
+      {
+        "date": "2026-07-03",
+        "price": "0.14",
+        "trendPrice": "0.14",
+        "avg30": "0.12",
+        "lowPrice": "0.02",
+        "foilTrendPrice": "",
+        "currency": "EUR"
+      }
+    ],
+    "Diamond & Pearl|Diamond & Pearl|DP|104|Wurmple": [
+      {
+        "date": "2026-07-03",
+        "price": "0.12",
+        "trendPrice": "0.12",
+        "avg30": "0.11",
         "lowPrice": "0.02",
         "foilTrendPrice": "",
         "currency": "EUR"

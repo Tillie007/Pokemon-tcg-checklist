@@ -17,30 +17,24 @@ Black & White | Dragons Exalted | DRX;128
 Scarlet & Violet | Surging Sparks | SSP;125
 Sword & Shield | Shining Fates Shiny Vault | SHF;122
 Sun & Moon | Cosmic Eclipse | CEC;122
-Diamond & Pearl | Secret Wonders | SW;119
 Scarlet & Violet | Twilight Masquerade | TWM;114
 Scarlet & Violet | Paldean Fates | PAF;114
 Sword & Shield | Chilling Reign | CRE;114
-Platinum | Platinum | PL;113
 Scarlet & Violet | Temporal Forces | TEF;112
 Sun & Moon | Lost Thunder | LOT;112
 Sword & Shield | Sword & Shield | SSH;109
 Scarlet & Violet | Destined Rivals | DRI;108
 Sword & Shield | Astral Radiance | ASR;108
-Diamond & Pearl | Mysterious Treasures | MT;108
 Sword & Shield | Evolving Skies | EVS;106
 Sun & Moon | Unified Minds | UNM;106
 Diamond & Pearl | Great Encounters | GE;106
-Diamond & Pearl | Diamond & Pearl | DP;104
 Black & White | Noble Victories | NVI;102
-Platinum | Rising Rivals | RR;102
 Base | Base | BS;102
 Black & White | BW Black Star Promos | PR-BLW;101
 EX | Dragon | DR;100
 EX | Sandstorm | SS;100
 Scarlet & Violet | Stellar Crown | SCR;98
 Black & White | Emerging Powers | EPO;98
-Platinum | Arceus | AR;98
 Sun & Moon | Unbroken Bonds | UNB;96
 E-Card | Skyridge | SK;96
 E-Card | Aquapolis | AQ;95
@@ -50,13 +44,11 @@ Sword & Shield | Pokémon GO | PGO;88
 Sun & Moon | Team Up | TEU;88
 Sun & Moon | Celestial Storm | CES;88
 Sword & Shield | Silver Tempest | SIT;87
-Diamond & Pearl | Stormfront | SF;87
 Sword & Shield | Lost Origin | LOR;86
 E-Card | Expedition Base Set | EX;82
 Sword & Shield | Battle Styles | BST;80
 Sun & Moon | Dragon Majesty | DRM;80
 XY | Primal Clash | PRC;80
-Diamond & Pearl | Majestic Dawn | MD;80
 Sword & Shield | Fusion Strike | FST;79
 Sun & Moon | Burning Shadows | BUS;77
 Scarlet & Violet | 151 | MEW;76
@@ -82,6 +74,7 @@ Scarlet & Violet | Journey Together | JTG;57
 Diamond & Pearl | DP Black Star Promos | PR-DPP;56
 XY | Fates Collide | FCO;55
 Black & White | Black & White | BLW;54
+Platinum | Arceus | AR;54
 Scarlet & Violet | Shrouded Fable | SFA;53
 XY | BREAKthrough | BKT;53
 XY | Ancient Origins | AOR;53
@@ -92,6 +85,7 @@ EX | Team Magma vs Team Aqua | MA;47
 Gym | Gym Heroes | G1;43
 Black & White | Plasma Storm | PLS;41
 HeartGold & SoulSilver | HS—Undaunted | UD;41
+Platinum | Rising Rivals | RR;41
 Sword & Shield | Crown Zenith | CRZ;40
 Sun & Moon | Crimson Invasion | CIN;40
 XY | BREAKpoint | BKP;40
@@ -119,15 +113,18 @@ XY | Furious Fists | FFI;28
 XY | Steam Siege | STS;27
 HeartGold & SoulSilver | Call of Legends | CL;27
 EX | Crystal Guardians | CG;27
+Platinum | Platinum | PL;26
 EX | Hidden Legends | HL;26
 Sword & Shield | Celebrations: Classic Collection | CEL;25
 Sword & Shield | Celebrations | CEL;25
 Other | McDonald's Collection 2021 | —;25
 HeartGold & SoulSilver | HGSS Black Star Promos | PR-HS;25
 Black & White | Next Destinies | NXD;24
+Diamond & Pearl | Stormfront | SF;24
 EX | Holon Phantoms | HP;22
 Sun & Moon | Shining Legends | SLG;21
 Black & White | Dragon Vault | DRV;21
+Diamond & Pearl | Majestic Dawn | MD;21
 EX | Deoxys | DX;21
 Sword & Shield | Champion's Path | CPA;20
 Gym | Gym Challenge | G2;20
@@ -151,6 +148,7 @@ Scarlet & Violet | Scarlet & Violet Energies | SVE;16
 Other | Pokémon Rumble | —;16
 EX | Team Rocket Returns | TRR;16
 Other | McDonald's Collection 2022 | —;15
+Diamond & Pearl | Diamond & Pearl | DP;14
 Other | McDonald's Collection 2019 | —;12
 Other | McDonald's Collection 2018 | —;12
 Other | McDonald's Collection 2017 | —;12
@@ -160,7 +158,9 @@ Other | McDonald's Collection 2014 | —;12
 Other | McDonald's Collection 2012 | —;12
 Other | McDonald's Collection 2011 | —;12
 EX | FireRed & LeafGreen | RG;12
+Diamond & Pearl | Mysterious Treasures | MT;11
 Other | Best of Game | BP;9
+Diamond & Pearl | Secret Wonders | SW;6
 Other | Pokémon Futsal Collection | FUT20;5
 Other | Legendary Collection | LC;5
 EX | EX Trainer Kit 2 Plusle | —;3
