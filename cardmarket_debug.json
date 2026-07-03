@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T11:30:20.003987+00:00",
+  "updatedAt": "2026-07-03T11:47:41.923106+00:00",
   "productRows": 70816,
   "priceRows": 75794,
   "usableProducts": 70816,
@@ -107,5 +107,7 @@
     "unmatched": 20019,
     "mapped-expansion+unique-name": 277,
     "ambiguous-name-in-expansion": 28
-  }
+  },
+  "setMappingCandidates": "cardmarket_set_mapping_candidates.csv",
+  "manualSetMapFile": "cardmarket_manual_set_map.csv"
 }
