@@ -554,7 +554,44 @@ function loadPrices() {
   } catch(e) { return {}; }
 }
 function savePrices() {
-  localStorage.setItem(PRICE_STORAGE_KEY, JSON.stringify(prices));
+  // Bij veel gekoppelde kaarten kan het volledige prijsobject groter worden dan de
+  // localStorage-limiet van de browser. Dan mag de import niet mislukken:
+  // we bewaren een compacte versie voor offline herladen en houden de volledige
+  // data tijdens deze sessie gewoon in het geheugen.
+  try {
+    localStorage.setItem(PRICE_STORAGE_KEY, JSON.stringify(prices));
+    return true;
+  } catch(e) {
+    console.warn('Volledige prijsdata past niet in localStorage; compacte prijsdata wordt bewaard.', e);
+    try {
+      const compact = {};
+      Object.keys(prices || {}).forEach(k => {
+        const p = prices[k] || {};
+        compact[k] = {
+          price: p.price ?? '',
+          lowPrice: p.lowPrice ?? '',
+          trendPrice: p.trendPrice ?? '',
+          avg30: p.avg30 ?? '',
+          foilTrendPrice: p.foilTrendPrice ?? '',
+          foilAvg30: p.foilAvg30 ?? '',
+          cmProductId: p.cmProductId ?? '',
+          cmName: p.cmName ?? '',
+          cmSetCode: p.cmSetCode ?? '',
+          cmSetName: p.cmSetName ?? '',
+          url: p.url ?? '',
+          currency: p.currency ?? 'EUR',
+          source: p.source ?? '',
+          updatedAt: p.updatedAt ?? ''
+        };
+      });
+      localStorage.setItem(PRICE_STORAGE_KEY, JSON.stringify(compact));
+      return true;
+    } catch(e2) {
+      console.warn('Ook compacte prijsdata past niet in localStorage; prijzen blijven alleen zichtbaar tot de app wordt herladen.', e2);
+      try { localStorage.removeItem(PRICE_STORAGE_KEY); } catch(_) {}
+      return false;
+    }
+  }
 }
 function loadPriceHistory() {
   try {
@@ -990,7 +1027,7 @@ async function fetchPricesFromEndpoint(silent = false) {
   } catch(e) {
     console.error(e);
     updatePriceStatus('Ophalen mislukt. Controleer je proxy/API URL.');
-    if (!silent) alert('Prijzen ophalen mislukt. Een lokale HTML-app kan Cardmarket niet rechtstreeks benaderen; gebruik hiervoor een eigen proxy/API die JSON teruggeeft.');
+    if (!silent) alert('Prijzen ophalen mislukt. Controleer of de URL op prices.json staat en of het bestand online bereikbaar is.');
   }
 }
 function maybeAutoUpdatePrices() {
