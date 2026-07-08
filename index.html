@@ -369,6 +369,205 @@ body.pwa-modal-open { overflow: hidden; }
 @media (max-width: 760px) { header { padding: 18px 16px; } header h1 { font-size: 22px; } header p { font-size: 13px; line-height: 1.35; } .app { padding: 12px; gap: 12px; } .sidebar { padding: 14px; } .stat-grid { grid-template-columns: 1fr 1fr; } button, .filebutton { min-height: 44px; } input[type="search"], input[type="url"], select, textarea { font-size: 16px; } .tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; } table { min-width: 940px; } .pwa-install-banner { display:block; } }
 @media (max-width: 430px) { .stat b { font-size: 18px; } .stat span { font-size: 11px; } .button-row { gap: 7px; } button, .filebutton { width: 100%; justify-content: center; text-align:center; } }
 
+
+
+/* Stap 3 - visuele upgrade, detailmenu, kaartafbeelding en prijsevolutie */
+:root {
+  --bg: #eef3fb;
+  --panel: rgba(255,255,255,.96);
+  --text: #172033;
+  --muted: #65758b;
+  --border: #d7e3f2;
+  --blue: #1d4ed8;
+  --blue2: #0f2f70;
+  --yellow: #ffcb05;
+  --green: #16834a;
+  --red: #c0262d;
+  --purple: #6d28d9;
+  --shadow: 0 18px 45px rgba(21, 40, 76, 0.12);
+}
+body {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255,203,5,.25), transparent 30%),
+    radial-gradient(circle at 90% 10%, rgba(59,130,246,.20), transparent 34%),
+    linear-gradient(180deg, #f7fbff 0%, #eef3fb 60%, #eaf1fb 100%);
+}
+header {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 30px 30px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,203,5,.32), transparent 25%),
+    linear-gradient(135deg, #0d2a68 0%, #1d4ed8 55%, #0f766e 100%);
+  border-bottom: 0;
+  box-shadow: 0 14px 35px rgba(15,47,112,.25);
+}
+header::after {
+  content: '';
+  position: absolute;
+  right: -70px;
+  top: -105px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 30px solid rgba(255,255,255,.12);
+}
+header h1 { font-size: clamp(25px, 3vw, 38px); letter-spacing: .3px; position: relative; z-index: 1; }
+header p { max-width: 980px; line-height: 1.45; position: relative; z-index: 1; }
+.panel { border: 1px solid rgba(215,227,242,.95); box-shadow: var(--shadow); backdrop-filter: blur(8px); }
+.sidebar { border-radius: 18px; }
+.main { border-radius: 18px; }
+.stat, .portfolio-stat, .detail-price-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f6faff 100%);
+  border: 1px solid #dbe8f6;
+  box-shadow: 0 8px 22px rgba(15,47,112,.06);
+}
+button, .filebutton, .linkbutton {
+  border-radius: 999px;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+button:hover, .filebutton:hover, .linkbutton:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(15,47,112,.12); }
+button.primary { background: linear-gradient(135deg, #1d4ed8, #0f766e); border-color: transparent; }
+input[type="search"], input[type="text"], input[type="url"], input[type="number"], select, textarea {
+  border-radius: 13px;
+  border-color: #ccdaeb;
+}
+.pricebox { background: linear-gradient(180deg, #effcf5, #f8fffb); border-color: #a7f3d0; }
+.toolbar { background: #fbfdff; grid-template-columns: 1.5fr .8fr .8fr .7fr; }
+.statusline { background: linear-gradient(90deg, #f8fbff, #eef7ff); }
+.tablewrap { background: #fff; }
+th {
+  background: linear-gradient(180deg, #edf6ff 0%, #e3eefb 100%);
+  color: #13233e;
+  font-size: 12px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+td { padding: 9px 10px; }
+tr.owned td { background: #effdf5; }
+tr:hover td { background: #f3f8ff; }
+.cardname-button { color: #123e91; text-decoration: none; }
+.cardname-button:hover { text-decoration: underline; }
+.badge, .variant-badge {
+  border-color: #cbd8e8;
+  background: #f7fbff;
+  color: #21314d;
+}
+.pricecell { color: #0f7a46; }
+.pricecell::before { content: '€ '; display: none; }
+.details-pill { background: #f7fbff; color: #123e91; border-color: #bdd4f5; }
+.modal-backdrop { background: rgba(8, 17, 39, .66); backdrop-filter: blur(5px); }
+.modal-card {
+  max-width: 1120px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,.36);
+}
+.modal-head {
+  background:
+    radial-gradient(circle at 95% 0%, rgba(255,203,5,.25), transparent 30%),
+    linear-gradient(135deg, #0f2f70, #1d4ed8 65%, #0f766e);
+  color: white;
+  border-bottom: 0;
+  border-radius: 0;
+}
+.modal-head h2 { color: white; }
+.modal-head .smallnote { color: rgba(255,255,255,.82); }
+.close-x { background: rgba(255,255,255,.14); color: #fff; border-color: rgba(255,255,255,.25); }
+.modal-body { background: linear-gradient(180deg, #f9fbff 0%, #eef4fb 100%); }
+.detail-grid { grid-template-columns: 300px 1fr; }
+.card-preview {
+  position: sticky;
+  top: 16px;
+  background:
+    linear-gradient(#f8fbff, #f8fbff) padding-box,
+    linear-gradient(135deg, rgba(255,203,5,.85), rgba(29,78,216,.70), rgba(15,118,110,.70)) border-box;
+  border: 2px solid transparent;
+  border-radius: 22px;
+  padding: 16px;
+}
+.card-preview img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 18px 38px rgba(15,47,112,.20);
+  background: #e8eef8;
+}
+.card-preview .placeholder {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px dashed #b5c6dc;
+  border-radius: 16px;
+  background: #fff;
+}
+.image-help { margin-top: 10px; font-size: 12px; color: var(--muted); line-height: 1.35; }
+.detail-owned-row { align-items: center; gap: 8px; }
+.detail-price-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+.daily-movement {
+  margin: 12px 0 14px;
+  padding: 13px;
+  border: 1px solid #d7e3f2;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 22px rgba(15,47,112,.06);
+}
+.daily-movement .move-head { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:8px; }
+.daily-movement .move-title { font-weight: 800; color:#13233e; }
+.daily-movement .move-value { font-size: 24px; font-weight: 900; color:#102f6f; }
+.daily-movement .move-meta { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:8px; }
+.move-chip { border:1px solid #e1e9f4; border-radius:12px; background:#f8fbff; padding:8px; }
+.move-chip b { display:block; font-size:14px; }
+.move-chip span { font-size:11px; color:var(--muted); }
+.profit-positive { color: #16834a !important; }
+.profit-negative { color: #c0262d !important; }
+.detail-kv {
+  background: #fff;
+  border: 1px solid #dce7f3;
+  border-radius: 16px;
+  padding: 12px;
+}
+.detail-actions { margin-top: 16px; }
+.detail-actions .market-button {
+  background: linear-gradient(135deg, #ffcb05, #f59e0b);
+  color: #1d2b45;
+  border-color: transparent;
+}
+.detail-actions .market-button.secondary { background: #fff; color:#123e91; border-color:#bdd4f5; }
+.history-chart-wrap, .history-table {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #dce7f3;
+  box-shadow: 0 8px 22px rgba(15,47,112,.05);
+}
+.history-chart { width: 100%; height: auto; display:block; }
+.history-chart .grid { stroke: #d2dfef; stroke-width: 1; }
+.history-chart text { fill: #64748b; font-size: 12px; }
+.history-chart .area { fill: rgba(29,78,216,.11); }
+.history-chart .line { fill:none; stroke:#1d4ed8; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; }
+.history-chart .dot { fill:#ffcb05; stroke:#0f2f70; stroke-width:2; }
+@media (max-width: 900px) {
+  header { padding: 22px 18px; }
+  .app { grid-template-columns: 1fr; padding: 12px; }
+  .sidebar { position: static; }
+  .toolbar { grid-template-columns: 1fr; }
+  .tablewrap { max-height: none; }
+  .detail-grid { grid-template-columns: 1fr; }
+  .card-preview { position: static; max-width: 340px; margin: 0 auto; }
+  .detail-price-grid, .daily-movement .move-meta { grid-template-columns: 1fr 1fr; }
+  .modal-card { max-height: 94vh; border-radius: 18px; }
+}
+@media (max-width: 560px) {
+  th:nth-child(2), td:nth-child(2), th:nth-child(4), td:nth-child(4), th:nth-child(5), td:nth-child(5) { display:none; }
+  .detail-price-grid, .daily-movement .move-meta, .detail-edit-grid { grid-template-columns: 1fr; }
+  .detail-kv { grid-template-columns: 1fr; }
+}
+
 </style>
 </head>
 <body>
@@ -391,8 +590,8 @@ body.pwa-modal-open { overflow: hidden; }
 </div>
 
 <header>
-  <h1>Pokémon TCG Collectie Checklist met kaartdetails en Cardmarket-prijzen</h1>
-  <p>Offline app om snel aan te duiden welke kaarten je hebt. Klik op een kaart voor detailinfo, Cardmarket-pagina, foto/prijslink, prijsgrafiek, aankoopprijs, winst/verlies en je eigen variantnotities.</p>
+  <h1>Pokémon TCG Collectie Pro</h1>
+  <p>Je persoonlijke Pokémon TCG collectie met marktwaarde, kaartdetails, afbeelding, prijsgeschiedenis en portfolio-overzicht. Cardmarket open je vanaf nu vanuit het detailmenu van elke kaart.</p>
 </header>
 <div class="app">
   <aside class="panel sidebar">
@@ -536,7 +735,6 @@ body.pwa-modal-open { overflow: hidden; }
             <th>Variant</th>
             <th>Waarde</th>
             <th>Details</th>
-            <th>Cardmarket</th>
           </tr>
         </thead>
         <tbody id="cardsBody"></tbody>
@@ -777,10 +975,85 @@ function cardmarketUrlFor(card) {
   const productId = cardmarketProductIdFor(card);
   return p.url || cardmarketDirectUrl(productId) || cardmarketSearchUrl(card);
 }
-function imageUrlFor(card) {
+const POKEMON_TCG_IMAGE_SET_IDS = {
+  'Base|Base|BS':'base1','Base|Jungle|JU':'base2','Base|Fossil|FO':'base3','Base|Base Set 2|B2':'base4','Base|Team Rocket|TR':'base5','Other|Legendary Collection|LC':'base6','Base|Wizards Black Star Promos|PR':'basep',
+  'Gym|Gym Heroes|G1':'gym1','Gym|Gym Challenge|G2':'gym2','Neo|Neo Genesis|N1':'neo1','Neo|Neo Discovery|N2':'neo2','Neo|Neo Revelation|N3':'neo3','Neo|Neo Destiny|N4':'neo4','Other|Southern Islands|—':'si1',
+  'E-Card|Expedition Base Set|EX':'ecard1','E-Card|Aquapolis|AQ':'ecard2','E-Card|Skyridge|SK':'ecard3',
+  'EX|Ruby & Sapphire|RS':'ex1','EX|Sandstorm|SS':'ex2','EX|Dragon|DR':'ex3','EX|Team Magma vs Team Aqua|MA':'ex4','EX|Hidden Legends|HL':'ex5','EX|FireRed & LeafGreen|RG':'ex6','EX|Team Rocket Returns|TRR':'ex7','EX|Deoxys|DX':'ex8','EX|Emerald|EM':'ex9','EX|Unseen Forces|UF':'ex10','EX|Delta Species|DS':'ex11','EX|Legend Maker|LM':'ex12','EX|Holon Phantoms|HP':'ex13','EX|Crystal Guardians|CG':'ex14','EX|Dragon Frontiers|DF':'ex15','EX|Power Keepers|PK':'ex16','NP|Nintendo Black Star Promos|PR-NP':'np',
+  'Diamond & Pearl|Diamond & Pearl|DP':'dp1','Diamond & Pearl|Mysterious Treasures|MT':'dp2','Diamond & Pearl|Secret Wonders|SW':'dp3','Diamond & Pearl|Great Encounters|GE':'dp4','Diamond & Pearl|Majestic Dawn|MD':'dp5','Diamond & Pearl|Legends Awakened|LA':'dp6','Diamond & Pearl|Stormfront|SF':'dp7','Diamond & Pearl|DP Black Star Promos|PR-DPP':'dpp',
+  'Platinum|Platinum|PL':'pl1','Platinum|Rising Rivals|RR':'pl2','Platinum|Supreme Victors|SV':'pl3','Platinum|Arceus|AR':'pl4',
+  'HeartGold & SoulSilver|HeartGold & SoulSilver|HS':'hgss1','HeartGold & SoulSilver|HS—Unleashed|UL':'hgss2','HeartGold & SoulSilver|HS—Undaunted|UD':'hgss3','HeartGold & SoulSilver|HS—Triumphant|TM':'hgss4','HeartGold & SoulSilver|Call of Legends|CL':'col1','HeartGold & SoulSilver|HGSS Black Star Promos|PR-HS':'hsp',
+  'Black & White|Black & White|BLW':'bw1','Black & White|Emerging Powers|EPO':'bw2','Black & White|Noble Victories|NVI':'bw3','Black & White|Next Destinies|NXD':'bw4','Black & White|Dark Explorers|DEX':'bw5','Black & White|Dragons Exalted|DRX':'bw6','Black & White|Dragon Vault|DRV':'dv1','Black & White|Boundaries Crossed|BCR':'bw7','Black & White|Plasma Storm|PLS':'bw8','Black & White|Plasma Freeze|PLF':'bw9','Black & White|Plasma Blast|PLB':'bw10','Black & White|Legendary Treasures|LTR':'bw11','Black & White|BW Black Star Promos|PR-BLW':'bwp',
+  'XY|Kalos Starter Set|KSS':'xy0','XY|XY|XY':'xy1','XY|Flashfire|FLF':'xy2','XY|Furious Fists|FFI':'xy3','XY|Phantom Forces|PHF':'xy4','XY|Primal Clash|PRC':'xy5','XY|Double Crisis|DCR':'dc1','XY|Roaring Skies|ROS':'xy6','XY|Ancient Origins|AOR':'xy7','XY|BREAKthrough|BKT':'xy8','XY|BREAKpoint|BKP':'xy9','XY|Generations|GEN':'g1','XY|Fates Collide|FCO':'xy10','XY|Steam Siege|STS':'xy11','XY|Evolutions|EVO':'xy12','XY|XY Black Star Promos|PR-XY':'xyp',
+  'Sun & Moon|Sun & Moon|SUM':'sm1','Sun & Moon|Guardians Rising|GRI':'sm2','Sun & Moon|Burning Shadows|BUS':'sm3','Sun & Moon|Shining Legends|SLG':'sm35','Sun & Moon|Crimson Invasion|CIN':'sm4','Sun & Moon|Ultra Prism|UPR':'sm5','Sun & Moon|Forbidden Light|FLI':'sm6','Sun & Moon|Celestial Storm|CES':'sm7','Sun & Moon|Dragon Majesty|DRM':'sm75','Sun & Moon|Lost Thunder|LOT':'sm8','Sun & Moon|Team Up|TEU':'sm9','Sun & Moon|Detective Pikachu|DET':'det1','Sun & Moon|Unbroken Bonds|UNB':'sm10','Sun & Moon|Unified Minds|UNM':'sm11','Sun & Moon|Hidden Fates|HIF':'sm115','Sun & Moon|Hidden Fates Shiny Vault|HIF':'sma','Sun & Moon|Cosmic Eclipse|CEC':'sm12','Sun & Moon|SM Black Star Promos|PR-SM':'smp',
+  'Sword & Shield|Sword & Shield|SSH':'swsh1','Sword & Shield|Rebel Clash|RCL':'swsh2','Sword & Shield|Darkness Ablaze|DAA':'swsh3','Sword & Shield|Champion\'s Path|CPA':'swsh35','Sword & Shield|Vivid Voltage|VIV':'swsh4','Sword & Shield|Shining Fates|SHF':'swsh45','Sword & Shield|Shining Fates Shiny Vault|SHF':'swsh45sv','Sword & Shield|Battle Styles|BST':'swsh5','Sword & Shield|Chilling Reign|CRE':'swsh6','Sword & Shield|Evolving Skies|EVS':'swsh7','Sword & Shield|Celebrations|CEL':'cel25','Sword & Shield|Celebrations: Classic Collection|CEL':'cel25c','Sword & Shield|Fusion Strike|FST':'swsh8','Sword & Shield|Brilliant Stars|BRS':'swsh9','Sword & Shield|Brilliant Stars Trainer Gallery|BRS':'swsh9tg','Sword & Shield|Astral Radiance|ASR':'swsh10','Sword & Shield|Astral Radiance Trainer Gallery|ASR':'swsh10tg','Sword & Shield|Pokémon GO|PGO':'pgo','Sword & Shield|Lost Origin|LOR':'swsh11','Sword & Shield|Lost Origin Trainer Gallery|LOR':'swsh11tg','Sword & Shield|Silver Tempest|SIT':'swsh12','Sword & Shield|Silver Tempest Trainer Gallery|SIT':'swsh12tg','Sword & Shield|Crown Zenith|CRZ':'swsh12pt5','Sword & Shield|Crown Zenith Galarian Gallery|CRZ':'swsh12pt5gg','Sword & Shield|SWSH Black Star Promos|PR-SW':'swshp',
+  'Scarlet & Violet|Scarlet & Violet|SVI':'sv1','Scarlet & Violet|Scarlet & Violet Energies|SVE':'sve','Scarlet & Violet|Scarlet & Violet Black Star Promos|PR-SV':'svp','Scarlet & Violet|Paldea Evolved|PAL':'sv2','Scarlet & Violet|Obsidian Flames|OBF':'sv3','Scarlet & Violet|151|MEW':'sv3pt5','Scarlet & Violet|Paradox Rift|PAR':'sv4','Scarlet & Violet|Paldean Fates|PAF':'sv4pt5','Scarlet & Violet|Temporal Forces|TEF':'sv5','Scarlet & Violet|Twilight Masquerade|TWM':'sv6','Scarlet & Violet|Shrouded Fable|SFA':'sv6pt5','Scarlet & Violet|Stellar Crown|SCR':'sv7','Scarlet & Violet|Surging Sparks|SSP':'sv8','Scarlet & Violet|Prismatic Evolutions|PRE':'sv8pt5','Scarlet & Violet|Journey Together|JTG':'sv9','Scarlet & Violet|Destined Rivals|DRI':'sv10',
+  'Mega Evolution|Mega Evolution|MEG':'me1','Mega Evolution|Ascended Heroes|ASC':'me2pt5','Mega Evolution|Perfect Order|POR':'me3','Mega Evolution|Chaos Rising|CRI':'me4'
+};
+function uniqueNonEmpty(arr) {
+  const seen = new Set();
+  return (arr || []).filter(v => {
+    v = String(v || '').trim();
+    if (!v || seen.has(v)) return false;
+    seen.add(v);
+    return true;
+  });
+}
+function normalizedImageNumber(num) {
+  const n = String(num || '').trim();
+  if (!n) return '';
+  if (/^0+\d+$/.test(n)) return String(parseInt(n, 10));
+  return n;
+}
+function tcgImageSetIdFor(card) {
+  const exact = `${card.series}|${card.set}|${card.abbr}`;
+  return POKEMON_TCG_IMAGE_SET_IDS[exact] || '';
+}
+function inferredPokemonTcgImageCandidates(card) {
+  const setId = tcgImageSetIdFor(card);
+  if (!setId) return [];
+  const rawNum = String(card.num || '').trim();
+  const normNum = normalizedImageNumber(rawNum);
+  const nums = uniqueNonEmpty([rawNum, normNum]);
+  const urls = [];
+  nums.forEach(n => {
+    urls.push(`https://images.pokemontcg.io/${setId}/${encodeURIComponent(n)}_hires.png`);
+    urls.push(`https://images.pokemontcg.io/${setId}/${encodeURIComponent(n)}.png`);
+  });
+  return uniqueNonEmpty(urls);
+}
+function imageCandidatesFor(card) {
   const d = detailsFor(card) || {};
   const p = priceFor(card) || {};
-  return d.imageUrl || p.imageUrl || p.image || p.imageURL || card.imageUrl || '';
+  return uniqueNonEmpty([
+    d.imageUrl,
+    p.imageUrl,
+    p.image,
+    p.imageURL,
+    p.cardImage,
+    card.imageUrl,
+    ...inferredPokemonTcgImageCandidates(card)
+  ]);
+}
+function imageUrlFor(card) {
+  const imgs = imageCandidatesFor(card);
+  return imgs[0] || '';
+}
+function tryNextCardImage(img) {
+  try {
+    const raw = img.getAttribute('data-fallbacks') || '';
+    const list = raw ? JSON.parse(decodeURIComponent(raw)) : [];
+    const next = list.shift();
+    if (next) {
+      img.setAttribute('data-fallbacks', encodeURIComponent(JSON.stringify(list)));
+      img.src = next;
+    } else {
+      const wrap = img.closest('.card-preview');
+      if (wrap) wrap.innerHTML = '<div class="placeholder"><b>Geen automatische afbeelding gevonden</b><span>Plak hieronder eventueel zelf een afbeeldingslink. De app bewaart die bij deze kaart.</span></div>';
+    }
+  } catch(e) {
+    img.style.display = 'none';
+  }
 }
 function rarityFor(card) {
   const p = priceFor(card) || {};
@@ -1168,6 +1441,76 @@ function historyRowsFor(card) {
 function historyRowsAsc(card) {
   return historyRowsFor(card).slice().reverse();
 }
+function dateOnly(value) {
+  const s = String(value || '').trim();
+  if (!s) return '';
+  return s.slice(0, 10);
+}
+function currentPricePoint(card) {
+  const p = priceFor(card) || {};
+  const value = numericCardPrice(card);
+  if (!Number.isFinite(value)) return null;
+  return { date: dateOnly(p.updatedAt || new Date().toISOString()), value, currency: p.currency || 'EUR' };
+}
+function priceEvolutionPoints(card) {
+  const rows = historyRowsAsc(card)
+    .map(r => ({ date: dateOnly(r.date || r.updatedAt), value: historyValueFor(r), currency: r.currency || 'EUR' }))
+    .filter(p => p.date && Number.isFinite(p.value));
+  const cur = currentPricePoint(card);
+  if (cur) {
+    const last = rows[rows.length - 1];
+    if (!last || last.date !== cur.date || Math.abs(last.value - cur.value) > 0.0001) rows.push(cur);
+  }
+  const byDate = new Map();
+  rows.forEach(p => byDate.set(p.date, p));
+  return [...byDate.values()].sort((a,b)=>a.date.localeCompare(b.date));
+}
+function pointDaysBack(points, days) {
+  if (!points.length) return null;
+  const last = points[points.length - 1];
+  const target = new Date(last.date + 'T00:00:00Z');
+  target.setUTCDate(target.getUTCDate() - days);
+  const targetStr = target.toISOString().slice(0,10);
+  let best = null;
+  for (const p of points) {
+    if (p.date <= targetStr) best = p;
+  }
+  return best || points[0] || null;
+}
+function formatChange(value, currency) {
+  if (!Number.isFinite(value)) return '—';
+  const sign = value > 0 ? '+' : '';
+  return sign + formatMoney(value, currency || 'EUR');
+}
+function renderDailyMovement(card) {
+  const points = priceEvolutionPoints(card);
+  const cur = points[points.length - 1] || currentPricePoint(card);
+  if (!cur) {
+    return `<div class="daily-movement"><div class="move-head"><div><div class="move-title">Dagelijkse prijsevolutie</div><div class="smallnote">Nog geen prijsdata voor deze kaart.</div></div><div class="move-value">—</div></div></div>`;
+  }
+  const prev = points.length >= 2 ? points[points.length - 2] : null;
+  const p7 = pointDaysBack(points, 7);
+  const p30 = pointDaysBack(points, 30);
+  const diff1 = prev ? cur.value - prev.value : NaN;
+  const diff7 = p7 ? cur.value - p7.value : NaN;
+  const diff30 = p30 ? cur.value - p30.value : NaN;
+  const pct1 = prev && prev.value ? (diff1 / prev.value * 100) : NaN;
+  const c1 = Number.isFinite(diff1) && diff1 >= 0 ? 'profit-positive' : 'profit-negative';
+  const c7 = Number.isFinite(diff7) && diff7 >= 0 ? 'profit-positive' : 'profit-negative';
+  const c30 = Number.isFinite(diff30) && diff30 >= 0 ? 'profit-positive' : 'profit-negative';
+  return `<div class="daily-movement">
+    <div class="move-head">
+      <div><div class="move-title">Dagelijkse prijsevolutie</div><div class="smallnote">Laatste prijsmeting: ${escapeHtml(cur.date || 'vandaag')}. Historiek groeit verder bij elke dagelijkse GitHub-update.</div></div>
+      <div class="move-value">${escapeHtml(formatMoney(cur.value, cur.currency))}</div>
+    </div>
+    <div class="move-meta">
+      <div class="move-chip"><b class="${c1}">${Number.isFinite(diff1) ? escapeHtml(formatChange(diff1, cur.currency)) : '—'} ${Number.isFinite(pct1) ? '(' + (pct1 > 0 ? '+' : '') + pct1.toFixed(1).replace('.', ',') + '%)' : ''}</b><span>t.o.v. vorige meting</span></div>
+      <div class="move-chip"><b class="${c7}">${Number.isFinite(diff7) ? escapeHtml(formatChange(diff7, cur.currency)) : '—'}</b><span>ongeveer 7 dagen</span></div>
+      <div class="move-chip"><b class="${c30}">${Number.isFinite(diff30) ? escapeHtml(formatChange(diff30, cur.currency)) : '—'}</b><span>ongeveer 30 dagen</span></div>
+    </div>
+  </div>`;
+}
+
 function renderHistorySummary(card) {
   const rows = historyRowsAsc(card);
   const values = rows.map(historyValueFor).filter(Number.isFinite);
@@ -1190,8 +1533,7 @@ function renderHistorySummary(card) {
   </div>`;
 }
 function renderHistoryChart(card) {
-  const rows = historyRowsAsc(card);
-  const points = rows.map((r, idx) => ({ idx, date: r.date || '', value: historyValueFor(r) })).filter(p => Number.isFinite(p.value));
+  const points = priceEvolutionPoints(card).map((p, idx) => ({ idx, date: p.date || '', value: p.value, currency: p.currency || 'EUR' })).filter(p => Number.isFinite(p.value));
   if (points.length < 2) {
     return '<div class="history-chart-wrap"><p class="smallnote">Nog te weinig prijshistoriek voor een grafiek. Na meerdere dagelijkse updates verschijnt hier automatisch een prijslijn.</p></div>';
   }
@@ -1230,7 +1572,9 @@ function openCardModal(card) {
   const p = priceFor(card) || {};
   const d = detailsFor(card);
   const productUrl = cardmarketUrlFor(card);
-  const imageUrl = imageUrlFor(card);
+  const imageCandidates = imageCandidatesFor(card);
+  const imageUrl = imageCandidates[0] || '';
+  const imageFallbacks = imageCandidates.slice(1);
   const currentPrice = numericCardPrice(card);
   const qty = detailQuantity(card);
   const purchasePrice = detailPurchasePrice(card);
@@ -1240,7 +1584,9 @@ function openCardModal(card) {
   const profitClass = Number.isFinite(profit) && profit >= 0 ? 'profit-positive' : 'profit-negative';
   el('modalTitle').textContent = `${card.name} ${card.num ? '(' + card.num + ')' : ''}`;
   el('modalSubtitle').textContent = `${card.series} — ${card.set} — ${card.abbr}${cardmarketCodeFor(card) ? ' / CM ' + cardmarketCodeFor(card) : ''}`;
-  const imgHtml = imageUrl ? `<img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(card.name)}" loading="lazy">` : `<div class="placeholder">Nog geen kaartafbeelding in de prijsdata. Plak hieronder eventueel zelf een afbeeldingslink, of open de Cardmarket-pagina.</div>`;
+  const imgHtml = imageUrl
+    ? `<img id="detailCardImage" src="${escapeHtml(imageUrl)}" data-fallbacks="${escapeHtml(encodeURIComponent(JSON.stringify(imageFallbacks)))}" onerror="tryNextCardImage(this)" alt="${escapeHtml(card.name)}" loading="lazy"><div class="image-help">Afbeelding automatisch gezocht. Klopt ze niet? Plak hieronder zelf de juiste afbeeldingslink.</div>`
+    : `<div class="placeholder"><b>Geen automatische afbeelding gevonden</b><span>Plak hieronder eventueel zelf een afbeeldingslink. De app bewaart die bij deze kaart.</span></div>`;
   el('modalBody').innerHTML = `
     <div class="detail-grid">
       <div class="card-preview">${imgHtml}</div>
@@ -1256,6 +1602,7 @@ function openCardModal(card) {
           <div class="detail-price-card"><b>${escapeHtml(formatMoney(totalPurchase, p.currency || 'EUR'))}</b><span>aankoop totaal</span></div>
           <div class="detail-price-card"><b class="${profitClass}">${escapeHtml(formatMoney(profit, p.currency || 'EUR'))}</b><span>winst / verlies</span></div>
         </div>
+        ${renderDailyMovement(card)}
         <div class="detail-kv">
           <b>Serie</b><span>${escapeHtml(card.series)}</span>
           <b>Set</b><span>${escapeHtml(card.set)}</span>
@@ -1267,8 +1614,8 @@ function openCardModal(card) {
           <b>Prijsbron</b><span>${escapeHtml(productMetaFor(card) || 'Nog niet gekoppeld')}</span>
         </div>
         <div class="detail-actions">
-          <a class="linkbutton greenlink" href="${escapeHtml(productUrl)}" target="_blank" rel="noopener noreferrer">Open Cardmarket-pagina</a>
-          <a class="linkbutton" href="${escapeHtml(cardmarketSearchUrl(card))}" target="_blank" rel="noopener noreferrer">Zoeken op Cardmarket</a>
+          <a class="linkbutton market-button" href="${escapeHtml(productUrl)}" target="_blank" rel="noopener noreferrer">Bekijk op Cardmarket</a>
+          <a class="linkbutton market-button secondary" href="${escapeHtml(cardmarketSearchUrl(card))}" target="_blank" rel="noopener noreferrer">Zoek alternatief op Cardmarket</a>
         </div>
         <h3 style="margin:14px 0 6px;">Mijn versie van deze kaart</h3>
         <div class="detail-edit-grid">
@@ -1301,8 +1648,8 @@ function openCardModal(card) {
             <input id="detailPurchasePrice" type="text" inputmode="decimal" placeholder="bv. 2,50" value="${escapeHtml(d.purchasePrice || '')}">
           </div>
           <div style="grid-column:1 / -1;">
-            <label for="detailImageUrl">Afbeelding URL, optioneel</label>
-            <input id="detailImageUrl" type="url" placeholder="https://..." value="${escapeHtml(d.imageUrl || '')}">
+            <label for="detailImageUrl">Eigen afbeelding URL, optioneel</label>
+            <input id="detailImageUrl" type="url" placeholder="Plak hier een rechtstreekse afbeeldingslink als de automatische afbeelding ontbreekt of fout is" value="${escapeHtml(d.imageUrl || '')}">
           </div>
           <textarea id="detailNote" placeholder="Eigen notitie, bv. Nederlands, sleeve, dubbele kaart, bijzondere print..."></textarea>
         </div>
@@ -1525,8 +1872,7 @@ function renderTable() {
       <td><button class="cardname-button" data-detail-key="${escapeHtml(card.key)}" title="Open kaartdetails">${escapeHtml(card.name)}</button></td>
       <td><span class="variant-badge">${escapeHtml(variantLabel(card))}</span></td>
       <td>${priceDisplay(card)}</td>
-      <td><button class="linkbutton" type="button" data-detail-key="${escapeHtml(card.key)}">details</button></td>
-      <td><a class="linkbutton" href="${escapeHtml(cardmarketUrlFor(card))}" target="_blank" rel="noopener noreferrer">pagina</a></td>`;
+      <td><button class="linkbutton details-pill" type="button" data-detail-key="${escapeHtml(card.key)}">Open detail</button></td>`;
     frag.appendChild(tr);
   });
   tbody.appendChild(frag);
