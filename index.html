@@ -764,6 +764,13 @@ body.modal-open { overflow: hidden; }
 .pkmn-button { background:#eef6ff; color:#123e91; border-color:#bdd4f5; }
 .pkmn-button:hover { background:#dcecff; }
 .image-source-note { display:block; margin-top:8px; font-size:11px; color:#64748b; line-height:1.35; }
+.syncbox { background: linear-gradient(180deg, #eef6ff, #ffffff); border-color:#bfdbfe; }
+.syncbox .side-card-head span { color:#1d4ed8; }
+.sync-quick input { margin-bottom:8px; }
+.sync-quick .button-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:8px 0; }
+#syncStatus.sync-ok { color:#047857; font-weight:700; }
+#syncStatus.sync-warn { color:#b45309; font-weight:700; }
+#syncStatus.sync-error { color:#b91c1c; font-weight:700; }
 @media (max-width: 900px) {
   .sidebar { max-height:none; overflow:visible; position:static; }
   .compact-actions { grid-template-columns: 1fr; }
@@ -778,7 +785,7 @@ body.modal-open { overflow: hidden; }
   <div class="pwa-card">
     <img src="icons/icon-192.png" alt="Pokémon TCG Checklist icoon">
     <h2>Pokémon TCG Checklist</h2>
-    <p>Je iPhone-versie is klaar. Je vinkjes, varianten en notities worden lokaal op dit toestel bewaard.</p>
+    <p>Je iPhone-versie is klaar. Je vinkjes, varianten en notities kunnen nu ook online gesynchroniseerd worden via Supabase.</p>
     <p>Maak regelmatig een backup via <b>Backup opslaan</b>, zeker als je wisselt van toestel.</p>
     <div class="pwa-actions">
       <button id="pwaStartBtn" class="primary">Start app</button>
@@ -858,6 +865,26 @@ body.modal-open { overflow: hidden; }
     </div>
 
 
+    <div class="side-card syncbox">
+      <div class="side-card-head"><b>Cloud-sync</b><span id="syncMiniStatus">Supabase</span></div>
+      <div class="side-card-body sync-quick">
+        <label for="syncCollectionIdInput">Collectie-ID</label>
+        <input id="syncCollectionIdInput" type="text" inputmode="text" autocomplete="username" placeholder="bv. tim-pokemon" />
+        <label for="syncPinInput">Pincode</label>
+        <input id="syncPinInput" type="password" inputmode="numeric" autocomplete="current-password" placeholder="minstens 4 tekens" />
+        <div class="button-row">
+          <button id="syncSaveBtn" class="green">Online opslaan</button>
+          <button id="syncLoadBtn">Online laden</button>
+        </div>
+        <span class="smallnote" id="syncStatus">Nog niet gesynchroniseerd. Prijzen blijven via GitHub lopen.</span>
+        <details class="side-details">
+          <summary>Wat wordt gesynchroniseerd?</summary>
+          <div class="side-details-content">
+            Je aangevinkte kaarten, aantal, variant, conditie, aankoopprijs, notities en eigen afbeeldingslinks. Prijsdata wordt niet opgeslagen in Supabase.
+          </div>
+        </details>
+      </div>
+    </div>
 
     <div class="portfolio-box">
       <b>Portfolio-overzicht</b><br>
@@ -989,6 +1016,9 @@ const DEFAULT_PRICE_ENDPOINT = 'prices.json';
 const PRICE_LAST_UPDATE_KEY = 'pokemon_tcg_price_last_update_v1';
 const PRICE_HISTORY_STORAGE_KEY = 'pokemon_tcg_price_history_v1';
 const CARD_DETAILS_STORAGE_KEY = 'pokemon_tcg_card_details_v1';
+const SYNC_COLLECTION_ID_KEY = 'pokemon_tcg_sync_collection_id_v1';
+const SUPABASE_URL = 'https://qtfeeagnonoojnsohwob.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_hOI52AyDcNgCmdHPA3br4g_DR1EIEmS';
 let owned = loadOwned();
 let prices = loadPrices();
 let priceHistory = loadPriceHistory();
@@ -1645,6 +1675,120 @@ function maybeAutoUpdatePrices() {
   if (!priceAutoUpdate || !endpoint) return;
   const due = !lastDate || (Date.now() - lastDate.getTime()) > 24*60*60*1000;
   if (due) fetchPricesFromEndpoint(true);
+}
+
+
+function collectionPayloadForSync() {
+  return {
+    app: 'Pokemon TCG Collectie Pro',
+    schemaVersion: 2,
+    syncedAt: new Date().toISOString(),
+    totalCards: cards.length,
+    ownedKeys: Object.keys(owned || {}),
+    cardDetails: cardDetails || {}
+  };
+}
+function applyCollectionPayload(payload) {
+  if (!payload || typeof payload !== 'object') throw new Error('Geen geldige collectiegegevens ontvangen.');
+  const keys = payload.ownedKeys || payload.owned || [];
+  if (!Array.isArray(keys)) throw new Error('Geen geldige ownedKeys in collectie.');
+  owned = {};
+  keys.forEach(k => { if (k) owned[k] = true; });
+  cardDetails = (payload.cardDetails && typeof payload.cardDetails === 'object') ? payload.cardDetails : {};
+  saveOwned();
+  saveCardDetails();
+  applyFilters(false);
+}
+function updateSyncStatus(message, type = '') {
+  const status = el('syncStatus');
+  if (!status) return;
+  status.textContent = message;
+  status.classList.remove('sync-ok','sync-warn','sync-error');
+  if (type) status.classList.add('sync-' + type);
+  const mini = el('syncMiniStatus');
+  if (mini) mini.textContent = type === 'ok' ? 'online' : type === 'error' ? 'fout' : 'Supabase';
+}
+function syncCredentials() {
+  const collectionIdEl = el('syncCollectionIdInput');
+  const pinEl = el('syncPinInput');
+  const collectionId = collectionIdEl ? collectionIdEl.value.trim() : '';
+  const pin = pinEl ? pinEl.value : '';
+  if (!collectionId || !/^[A-Za-z0-9_-]{3,64}$/.test(collectionId)) {
+    throw new Error('Vul een collectie-ID in van minstens 3 tekens. Gebruik enkel letters, cijfers, _ of -.');
+  }
+  if (!pin || pin.length < 4) {
+    throw new Error('Vul een pincode in van minstens 4 tekens.');
+  }
+  localStorage.setItem(SYNC_COLLECTION_ID_KEY, collectionId);
+  return { collectionId, pin };
+}
+async function supabaseRpc(functionName, body) {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${functionName}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+    },
+    body: JSON.stringify(body)
+  });
+  let payload = null;
+  const text = await res.text();
+  try { payload = text ? JSON.parse(text) : null; } catch(e) { payload = text; }
+  if (!res.ok) {
+    const msg = payload && payload.message ? payload.message : (typeof payload === 'string' ? payload : `HTTP ${res.status}`);
+    throw new Error(msg);
+  }
+  return payload;
+}
+async function syncSaveOnline() {
+  try {
+    const { collectionId, pin } = syncCredentials();
+    const count = Object.keys(owned || {}).length;
+    if (!confirm(`Je gaat je lokale collectie online opslaan onder “${collectionId}”.\n\nKaarten in bezit: ${count.toLocaleString('nl-BE')}\n\nAls deze collectie al online bestaat, wordt ze overschreven. Doorgaan?`)) return;
+    updateSyncStatus('Online opslaan...', 'warn');
+    const result = await supabaseRpc('save_pokemon_collection', {
+      p_collection_id: collectionId,
+      p_pin: pin,
+      p_data: collectionPayloadForSync()
+    });
+    const when = result && result.updated_at ? new Date(result.updated_at).toLocaleString('nl-BE') : new Date().toLocaleString('nl-BE');
+    updateSyncStatus(`Online opgeslagen om ${when}.`, 'ok');
+  } catch(e) {
+    console.error(e);
+    updateSyncStatus(`Opslaan mislukt: ${e.message || e}`, 'error');
+    alert(`Online opslaan mislukt.\n\n${e.message || e}`);
+  }
+}
+async function syncLoadOnline() {
+  try {
+    const { collectionId, pin } = syncCredentials();
+    const localCount = Object.keys(owned || {}).length;
+    if (localCount > 0 || Object.keys(cardDetails || {}).length > 0) {
+      if (!confirm(`Online laden vervangt je lokale collectie op dit toestel door de online versie van “${collectionId}”.\n\nMaak eventueel eerst een backup. Doorgaan?`)) return;
+    }
+    updateSyncStatus('Online collectie laden...', 'warn');
+    const result = await supabaseRpc('load_pokemon_collection', {
+      p_collection_id: collectionId,
+      p_pin: pin
+    });
+    const data = result && result.data ? result.data : result;
+    applyCollectionPayload(data);
+    const when = result && result.updated_at ? new Date(result.updated_at).toLocaleString('nl-BE') : new Date().toLocaleString('nl-BE');
+    updateSyncStatus(`Online geladen. Laatste sync: ${when}.`, 'ok');
+  } catch(e) {
+    console.error(e);
+    updateSyncStatus(`Laden mislukt: ${e.message || e}`, 'error');
+    alert(`Online laden mislukt.\n\n${e.message || e}`);
+  }
+}
+function initSyncUi() {
+  const collectionIdEl = el('syncCollectionIdInput');
+  if (collectionIdEl) collectionIdEl.value = localStorage.getItem(SYNC_COLLECTION_ID_KEY) || '';
+  const saveBtn = el('syncSaveBtn');
+  const loadBtn = el('syncLoadBtn');
+  if (saveBtn) saveBtn.addEventListener('click', syncSaveOnline);
+  if (loadBtn) loadBtn.addEventListener('click', syncLoadOnline);
 }
 
 function detailQuantity(card) {
@@ -2610,6 +2754,7 @@ const cardModal = el('cardModal');
 if (cardModal) cardModal.addEventListener('click', (ev) => { if (ev.target === cardModal) closeCardModal(); });
 document.addEventListener('keydown', ev => { if (ev.key === 'Escape') closeCardModal(); });
 
+initSyncUi();
 initFilters();
 applyFilters(true);
 maybeAutoUpdatePrices();
