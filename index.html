@@ -682,6 +682,94 @@ body.modal-open { overflow: hidden; }
   .move-meta { grid-template-columns: 1fr; }
 }
 
+
+
+/* Stap 3C - compacte zijbalk, PkmnCards-afbeeldingen en duidelijkere grafiek */
+.sidebar { max-height: calc(100vh - 24px); overflow: auto; scrollbar-width: thin; }
+.sidebar::-webkit-scrollbar { width: 8px; }
+.sidebar::-webkit-scrollbar-thumb { background: #c8d6eb; border-radius: 999px; }
+.side-card {
+  margin-top: 12px;
+  border: 1px solid #dbe7f5;
+  border-radius: 18px;
+  background: rgba(255,255,255,.88);
+  box-shadow: 0 8px 22px rgba(31,74,150,.06);
+  overflow: hidden;
+}
+.side-card-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding: 11px 12px;
+  background: linear-gradient(135deg,#f8fbff,#eef6ff);
+  border-bottom: 1px solid #e4edf8;
+}
+.side-card-head b { color:#0f2f70; font-size: 14px; }
+.side-card-head span { color:#64748b; font-size: 11px; }
+.side-card-body { padding: 11px 12px 12px; }
+.compact-actions { display:grid; grid-template-columns: 1fr 1fr; gap:8px; }
+.compact-actions button, .compact-actions .filebutton { margin:0; justify-content:center; text-align:center; }
+.side-details {
+  margin-top: 10px;
+  border:1px solid #e2eaf4;
+  background:#fbfdff;
+  border-radius: 14px;
+  overflow:hidden;
+}
+.side-details summary {
+  list-style:none;
+  cursor:pointer;
+  padding: 10px 12px;
+  font-weight: 800;
+  color:#123e91;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.side-details summary::-webkit-details-marker { display:none; }
+.side-details summary::after { content:'+'; font-weight:900; color:#64748b; }
+.side-details[open] summary::after { content:'–'; }
+.side-details-content { padding: 0 12px 12px; color:#475569; font-size: 12px; line-height:1.35; }
+.pricebox.compact-price { padding:0; background: transparent; border:none; margin-top:12px; }
+.price-quick { display:grid; gap:8px; }
+.price-quick .button-row { margin-top:0; }
+.status-chip {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  border:1px solid #c9dff8;
+  background:#f8fbff;
+  color:#0f2f70;
+  border-radius:999px;
+  padding:6px 9px;
+  font-size:11px;
+  font-weight:700;
+}
+.sidebar .help { display:none; }
+.sidebar .portfolio-box { border-radius:18px; box-shadow: 0 8px 22px rgba(31,74,150,.06); }
+.sidebar .setlist { max-height: 360px; overflow:auto; padding-right:3px; }
+.modal-card { display:flex; flex-direction:column; max-height:92dvh; }
+.modal-head { flex: 0 0 auto; }
+.modal-body { flex: 1 1 auto; overflow:auto; -webkit-overflow-scrolling:touch; }
+.mini-sparkline-wrap::before {
+  content:'Grafiek laatste prijsmetingen';
+  display:block;
+  font-size:12px;
+  font-weight:800;
+  color:#123e91;
+  margin:2px 0 6px 4px;
+}
+.mini-sparkline { height: 126px; }
+.pkmn-button { background:#eef6ff; color:#123e91; border-color:#bdd4f5; }
+.pkmn-button:hover { background:#dcecff; }
+.image-source-note { display:block; margin-top:8px; font-size:11px; color:#64748b; line-height:1.35; }
+@media (max-width: 900px) {
+  .sidebar { max-height:none; overflow:visible; position:static; }
+  .compact-actions { grid-template-columns: 1fr; }
+  .modal-card { height: 100dvh; max-height: 100dvh; }
+}
+
 </style>
 </head>
 <body>
@@ -724,36 +812,49 @@ body.modal-open { overflow: hidden; }
       <div class="stat"><b id="pricedCount">0</b><span>kaarten met prijs</span></div>
     </div>
 
-    <div class="button-row">
-      <button class="primary" id="exportJsonBtn">Backup opslaan</button>
-      <label class="filebutton">Backup importeren<input type="file" id="importJsonInput" accept="application/json,.json" /></label>
-      <button id="exportCsvBtn">CSV export</button>
-      <button id="exportWordBtn">Word-lijst</button>
-      <button class="danger" id="resetBtn">Alles wissen</button>
+    <div class="side-card">
+      <div class="side-card-head"><b>Acties</b><span>backup & export</span></div>
+      <div class="side-card-body">
+        <div class="compact-actions">
+          <button class="primary" id="exportJsonBtn">Backup opslaan</button>
+          <label class="filebutton">Backup importeren<input type="file" id="importJsonInput" accept="application/json,.json" /></label>
+          <button id="exportCsvBtn">CSV export</button>
+          <button id="exportWordBtn">Word-lijst</button>
+        </div>
+        <details class="side-details">
+          <summary>Gebruik & veiligheid</summary>
+          <div class="side-details-content">
+            Vink kaarten aan die je hebt. Zoek op kaartnaam, nummer, set of afkorting. Maak regelmatig een backup, zeker als je wisselt tussen laptop en iPhone.<br><br>
+            <button class="danger" id="resetBtn">Alles wissen</button>
+          </div>
+        </details>
+      </div>
     </div>
 
-    <div class="help">
-      <b>Gebruik:</b><br>
-      Vink kaarten aan die je hebt. Zoek op kaartnaam, nummer, set of afkorting. Gebruik “Word-lijst” om je huidige filter als Word-bestand te downloaden. Maak af en toe een backup, dan ben je je voortgang niet kwijt.
-    </div>
-
-
-    <div class="pricebox">
-      <b>Cardmarket prijzen</b><br>
-      Gebruik hiervoor het online prices.json-bestand dat dagelijks via GitHub Actions wordt bijgewerkt. De standaardlink staat op prices.json, dus op GitHub Pages haalt de app de prijsdata automatisch uit dezelfde map.
-      <div class="button-row">
-        <label class="filebutton">Prijzen importeren CSV<input type="file" id="importPricesInput" accept=".csv,text/csv" /></label>
-        <label class="filebutton">Prijzen importeren JSON<input type="file" id="importPricesJsonInput" accept="application/json,.json" /></label>
-        <button id="exportPricesBtn">Prijzen export</button>
-        <button id="clearPricesBtn" class="danger">Prijzen wissen</button>
+    <div class="pricebox compact-price">
+      <div class="side-card">
+        <div class="side-card-head"><b>Cardmarket prijzen</b><span id="priceMiniStatus">prijzenbestand</span></div>
+        <div class="side-card-body price-quick">
+          <label for="priceEndpointInput">Prijsbestand</label>
+          <input id="priceEndpointInput" type="url" placeholder="prices.json" />
+          <div class="button-row">
+            <button id="fetchPricesBtn" class="green">Prijzen ophalen / verversen</button>
+            <button id="toggleAutoPriceBtn">Dagelijkse update: uit</button>
+          </div>
+          <span class="smallnote" id="priceStatus">Nog geen prijsdata ingeladen.</span>
+          <details class="side-details">
+            <summary>Extra prijsacties</summary>
+            <div class="side-details-content">
+              <div class="button-row">
+                <label class="filebutton">Import CSV<input type="file" id="importPricesInput" accept=".csv,text/csv" /></label>
+                <label class="filebutton">Import JSON<input type="file" id="importPricesJsonInput" accept="application/json,.json" /></label>
+                <button id="exportPricesBtn">Prijzen export</button>
+                <button id="clearPricesBtn" class="danger">Prijzen wissen</button>
+              </div>
+            </div>
+          </details>
+        </div>
       </div>
-      <label for="priceEndpointInput">Eigen prijs-API/proxy URL</label>
-      <input id="priceEndpointInput" type="url" placeholder="prices.json" />
-      <div class="button-row">
-        <button id="fetchPricesBtn" class="green">Prijzen ophalen / verversen</button>
-        <button id="toggleAutoPriceBtn">Dagelijkse update: uit</button>
-      </div>
-      <span class="smallnote" id="priceStatus">Nog geen prijsdata ingeladen.</span>
     </div>
 
 
@@ -1150,6 +1251,7 @@ function imageCandidatesFor(card) {
     p.imageURL,
     p.cardImage,
     card.imageUrl,
+    ...inferredPkmnCardsImageCandidates(card),
     ...inferredPokemonTcgImageCandidates(card)
   ]);
 }
@@ -1167,7 +1269,7 @@ function tryNextCardImage(img) {
       img.src = next;
     } else {
       const wrap = img.closest('.card-preview');
-      if (wrap) wrap.innerHTML = '<div class="placeholder"><b>Geen automatische afbeelding gevonden</b><span>Plak hieronder eventueel zelf een afbeeldingslink. De app bewaart die bij deze kaart.</span></div>';
+      if (wrap) wrap.innerHTML = '<div class="placeholder"><b>Geen automatische afbeelding gevonden</b><span>Gebruik de PkmnCards-knop in de details om de juiste kaartpagina te openen, of plak hieronder zelf een afbeeldingslink.</span></div>';
     }
   } catch(e) {
     img.style.display = 'none';
@@ -1190,6 +1292,53 @@ function setCmCodeFor(setObj) {
   return found ? cardmarketCodeFor(found) : (setObj.cmSetCode || '');
 }
 
+
+function slugForPkmnCards(value) {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[’']/g, '')
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+function pkmnCardsCardUrl(card) {
+  const nameSlug = slugForPkmnCards(card.name);
+  const setSlug = slugForPkmnCards(card.set);
+  const abbrSlug = slugForPkmnCards(card.abbr || cardmarketCodeFor(card) || '');
+  const numSlug = slugForPkmnCards(String(card.num || '').replace(/^0+(?=\d)/, '')) || slugForPkmnCards(card.num);
+  if (!nameSlug || !setSlug || !abbrSlug || !numSlug) return pkmnCardsSearchUrl(card);
+  return `https://pkmncards.com/card/${nameSlug}-${setSlug}-${abbrSlug}-${numSlug}/`;
+}
+function pkmnCardsSearchUrl(card) {
+  const query = `${card.name} ${card.abbr || ''} ${card.num || ''}`.trim();
+  return 'https://pkmncards.com/?s=' + encodeURIComponent(query);
+}
+function pkmnCardsImageNumberCandidates(num) {
+  const raw = String(num || '').trim();
+  if (!raw) return [];
+  const out = [raw, raw.toUpperCase(), raw.toLowerCase()];
+  if (/^\d+$/.test(raw)) {
+    const n = parseInt(raw, 10);
+    out.push(String(n));
+    out.push(String(n).padStart(3, '0'));
+  }
+  if (/^0+\d+$/.test(raw)) out.push(String(parseInt(raw, 10)).padStart(3, '0'));
+  return uniqueNonEmpty(out);
+}
+function inferredPkmnCardsImageCandidates(card) {
+  const setId = tcgImageSetIdFor(card);
+  if (!setId) return [];
+  const nums = pkmnCardsImageNumberCandidates(card.num);
+  const urls = [];
+  nums.forEach(n => {
+    const safe = encodeURIComponent(n);
+    urls.push(`https://pkmncards.com/wp-content/uploads/${setId}_en_${safe}_std.png`);
+    urls.push(`https://pkmncards.com/wp-content/uploads/${setId}_en_${safe}_std.jpg`);
+  });
+  return uniqueNonEmpty(urls);
+}
+
 function cardmarketSearchUrl(card) {
   const cmCode = cardmarketCodeFor(card) || card.abbr || '';
   const query = `${card.name} ${cmCode} ${card.num}`;
@@ -1208,6 +1357,8 @@ function priceDisplay(card) {
 function updatePriceStatus(message) {
   const statusEl = el('priceStatus');
   if (statusEl) statusEl.textContent = message;
+  const mini = el('priceMiniStatus');
+  if (mini) mini.textContent = message && message.length > 36 ? message.slice(0, 34) + '…' : (message || 'prijzenbestand');
 }
 function splitCsvLine(line, delimiter) {
   const out = [];
@@ -1763,8 +1914,8 @@ function openCardModal(card) {
   el('modalTitle').textContent = `${card.name} ${card.num ? '(' + card.num + ')' : ''}`;
   el('modalSubtitle').textContent = `${card.series} — ${card.set} — ${card.abbr}${cardmarketCodeFor(card) ? ' / CM ' + cardmarketCodeFor(card) : ''}`;
   const imgHtml = imageUrl
-    ? `<img id="detailCardImage" src="${escapeHtml(imageUrl)}" data-fallbacks="${escapeHtml(encodeURIComponent(JSON.stringify(imageFallbacks)))}" onerror="tryNextCardImage(this)" alt="${escapeHtml(card.name)}" loading="lazy"><div class="image-help">Afbeelding automatisch gezocht. Klopt ze niet? Plak hieronder zelf de juiste afbeeldingslink.</div>`
-    : `<div class="placeholder"><b>Geen automatische afbeelding gevonden</b><span>Plak hieronder eventueel zelf een afbeeldingslink. De app bewaart die bij deze kaart.</span></div>`;
+    ? `<img id="detailCardImage" src="${escapeHtml(imageUrl)}" data-fallbacks="${escapeHtml(encodeURIComponent(JSON.stringify(imageFallbacks)))}" onerror="tryNextCardImage(this)" alt="${escapeHtml(card.name)}" loading="lazy"><div class="image-help">Afbeelding automatisch gezocht via Pokémon TCG-data en PkmnCards. Klopt ze niet? Gebruik de PkmnCards-knop of plak hieronder zelf de juiste afbeeldingslink.</div>`
+    : `<div class="placeholder"><b>Geen automatische afbeelding gevonden</b><span>Gebruik de PkmnCards-knop in de details om de juiste kaartpagina te openen, of plak hieronder zelf een afbeeldingslink.</span></div>`;
   el('modalBody').innerHTML = `
     <div class="detail-grid">
       <div class="card-preview">${imgHtml}</div>
@@ -1794,6 +1945,8 @@ function openCardModal(card) {
         <div class="detail-actions">
           <a class="linkbutton market-button" href="${escapeHtml(productUrl)}" target="_blank" rel="noopener noreferrer">Bekijk op Cardmarket</a>
           <a class="linkbutton market-button secondary" href="${escapeHtml(cardmarketSearchUrl(card))}" target="_blank" rel="noopener noreferrer">Zoek alternatief op Cardmarket</a>
+          <a class="linkbutton pkmn-button" href="${escapeHtml(pkmnCardsCardUrl(card))}" target="_blank" rel="noopener noreferrer">Bekijk op PkmnCards</a>
+          <a class="linkbutton pkmn-button" href="${escapeHtml(pkmnCardsSearchUrl(card))}" target="_blank" rel="noopener noreferrer">Zoek afbeelding op PkmnCards</a>
         </div>
         <h3 style="margin:14px 0 6px;">Mijn versie van deze kaart</h3>
         <div class="detail-edit-grid">
@@ -2281,6 +2434,94 @@ body.modal-open { overflow: hidden; }
   .move-head { display:block; }
   .move-value { margin-top:8px; }
   .move-meta { grid-template-columns: 1fr; }
+}
+
+
+
+/* Stap 3C - compacte zijbalk, PkmnCards-afbeeldingen en duidelijkere grafiek */
+.sidebar { max-height: calc(100vh - 24px); overflow: auto; scrollbar-width: thin; }
+.sidebar::-webkit-scrollbar { width: 8px; }
+.sidebar::-webkit-scrollbar-thumb { background: #c8d6eb; border-radius: 999px; }
+.side-card {
+  margin-top: 12px;
+  border: 1px solid #dbe7f5;
+  border-radius: 18px;
+  background: rgba(255,255,255,.88);
+  box-shadow: 0 8px 22px rgba(31,74,150,.06);
+  overflow: hidden;
+}
+.side-card-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding: 11px 12px;
+  background: linear-gradient(135deg,#f8fbff,#eef6ff);
+  border-bottom: 1px solid #e4edf8;
+}
+.side-card-head b { color:#0f2f70; font-size: 14px; }
+.side-card-head span { color:#64748b; font-size: 11px; }
+.side-card-body { padding: 11px 12px 12px; }
+.compact-actions { display:grid; grid-template-columns: 1fr 1fr; gap:8px; }
+.compact-actions button, .compact-actions .filebutton { margin:0; justify-content:center; text-align:center; }
+.side-details {
+  margin-top: 10px;
+  border:1px solid #e2eaf4;
+  background:#fbfdff;
+  border-radius: 14px;
+  overflow:hidden;
+}
+.side-details summary {
+  list-style:none;
+  cursor:pointer;
+  padding: 10px 12px;
+  font-weight: 800;
+  color:#123e91;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.side-details summary::-webkit-details-marker { display:none; }
+.side-details summary::after { content:'+'; font-weight:900; color:#64748b; }
+.side-details[open] summary::after { content:'–'; }
+.side-details-content { padding: 0 12px 12px; color:#475569; font-size: 12px; line-height:1.35; }
+.pricebox.compact-price { padding:0; background: transparent; border:none; margin-top:12px; }
+.price-quick { display:grid; gap:8px; }
+.price-quick .button-row { margin-top:0; }
+.status-chip {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  border:1px solid #c9dff8;
+  background:#f8fbff;
+  color:#0f2f70;
+  border-radius:999px;
+  padding:6px 9px;
+  font-size:11px;
+  font-weight:700;
+}
+.sidebar .help { display:none; }
+.sidebar .portfolio-box { border-radius:18px; box-shadow: 0 8px 22px rgba(31,74,150,.06); }
+.sidebar .setlist { max-height: 360px; overflow:auto; padding-right:3px; }
+.modal-card { display:flex; flex-direction:column; max-height:92dvh; }
+.modal-head { flex: 0 0 auto; }
+.modal-body { flex: 1 1 auto; overflow:auto; -webkit-overflow-scrolling:touch; }
+.mini-sparkline-wrap::before {
+  content:'Grafiek laatste prijsmetingen';
+  display:block;
+  font-size:12px;
+  font-weight:800;
+  color:#123e91;
+  margin:2px 0 6px 4px;
+}
+.mini-sparkline { height: 126px; }
+.pkmn-button { background:#eef6ff; color:#123e91; border-color:#bdd4f5; }
+.pkmn-button:hover { background:#dcecff; }
+.image-source-note { display:block; margin-top:8px; font-size:11px; color:#64748b; line-height:1.35; }
+@media (max-width: 900px) {
+  .sidebar { max-height:none; overflow:visible; position:static; }
+  .compact-actions { grid-template-columns: 1fr; }
+  .modal-card { height: 100dvh; max-height: 100dvh; }
 }
 
 </style></head><body><h1>${escapeHtml(title)}</h1><p class="small">Aangemaakt op ${date}. Totaal in deze lijst: ${rows.length.toLocaleString('nl-BE')} kaarten.</p><table><thead><tr><th>Heb ik</th><th>Serie</th><th>Set</th><th>Afkorting</th><th>CM-code</th><th>Kaartnr.</th><th>Kaartnaam</th><th>Variant</th><th>Waarde</th></tr></thead><tbody>${bodyRows}</tbody></table></body></html>`;

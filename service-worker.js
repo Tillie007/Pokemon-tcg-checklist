@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pokemon-tcg-checklist-step3b-ui-scroll-graph-v2';
+const CACHE_NAME = 'pokemon-tcg-checklist-step3c-v2';
 self.addEventListener('install', event => {
   self.skipWaiting();
 });
