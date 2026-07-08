@@ -568,6 +568,120 @@ tr:hover td { background: #f3f8ff; }
   .detail-kv { grid-template-columns: 1fr; }
 }
 
+
+
+/* Stap 3B - UX-fix: scrollbaar detailvenster, zichtbare grafiek en modernere zijbalk */
+body.modal-open { overflow: hidden; }
+.sidebar {
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+.sidebar-hero {
+  padding: 18px 18px 16px;
+  background: radial-gradient(circle at top left, rgba(255,203,5,.55), transparent 38%), linear-gradient(135deg, #163c7a 0%, #2856a3 58%, #31a56b 120%);
+  color: white;
+  border-radius: 14px 14px 0 0;
+}
+.sidebar-hero .hero-kicker { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; opacity: .84; font-weight: 800; }
+.sidebar-hero h2 { margin: 6px 0 4px !important; font-size: 23px !important; line-height: 1.1; }
+.sidebar-hero p { margin: 0; color: rgba(255,255,255,.84); font-size: 13px; line-height: 1.35; }
+.sidebar > .progressbar { margin: 14px 16px 0; height: 10px; border: 0; background: #e8eef8; }
+.sidebar > .progressbar div { background: linear-gradient(90deg, #ffcb05, #22c55e); }
+.sidebar .stat-grid { padding: 0 16px; margin: 14px 0 8px; }
+.sidebar .stat {
+  border: 0;
+  background: white;
+  box-shadow: 0 6px 18px rgba(30, 64, 130, .08);
+  position: relative;
+  overflow: hidden;
+}
+.sidebar .stat::after { content: ''; position: absolute; inset: auto 0 0 0; height: 3px; background: linear-gradient(90deg, #2856a3, #ffcb05); opacity: .55; }
+.sidebar .stat b { font-size: 23px; letter-spacing: -.02em; }
+.sidebar .button-row { padding: 0 16px; }
+.sidebar .button-row button, .sidebar .button-row .filebutton { flex: 1 1 auto; }
+.sidebar .help,
+.sidebar .pricebox,
+.sidebar .portfolio-box {
+  margin: 14px 16px;
+  border: 0;
+  box-shadow: 0 8px 24px rgba(20, 48, 92, .08);
+}
+.sidebar .help { background: linear-gradient(180deg, #fff8db, #fffdf3); }
+.sidebar .pricebox { background: linear-gradient(180deg, #ecfdf5, #f7fffb); }
+.sidebar .portfolio-box { background: linear-gradient(180deg, #eef6ff, #fbfdff); }
+.sidebar h3[style] { padding: 0 16px; color: var(--blue2); }
+.sidebar .setlist { margin: 0 16px 16px; max-height: 310px; border: 0; box-shadow: inset 0 0 0 1px var(--border); background: white; }
+.setitem { border-color: #eef2f7; }
+.setitem b { font-size: 12px; }
+
+.modal-backdrop { align-items: flex-start; justify-content: center; overflow: hidden; padding: 22px; }
+.modal-card {
+  width: min(1080px, 100%);
+  max-width: 1080px;
+  height: min(94vh, 980px);
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 22px;
+}
+.modal-head {
+  flex: 0 0 auto;
+  background: linear-gradient(135deg, #163c7a, #2856d6 55%, #31a56b 120%);
+  color: white;
+  border-bottom: 0;
+  padding: 18px 22px;
+}
+.modal-head h2 { color: white; }
+.modal-head .smallnote { color: rgba(255,255,255,.9); }
+.close-x { background: rgba(255,255,255,.14); color: white; border-color: rgba(255,255,255,.25); border-radius: 999px; }
+.close-x:hover { background: rgba(255,255,255,.24); }
+.modal-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px 22px 28px;
+  background: linear-gradient(180deg, #f8fbff, #eef4fb);
+}
+.detail-grid { grid-template-columns: 300px 1fr; }
+.card-preview {
+  background: linear-gradient(145deg, #ffffff, #eaf2ff);
+  border: 1px solid rgba(40,86,163,.24);
+  box-shadow: 0 12px 32px rgba(30, 64, 130, .10);
+  position: sticky;
+  top: 0;
+}
+.card-preview img { width: 100%; max-height: 420px; object-fit: contain; background:#0f172a; }
+.daily-movement { border: 1px solid #dbe7f7; border-radius: 18px; background: #fff; box-shadow: 0 10px 26px rgba(20,48,92,.06); padding: 16px; margin: 14px 0; }
+.move-title { font-size: 19px; font-weight: 900; color: #0f2f68; }
+.move-value { font-size: 28px; font-weight: 900; color:#0f3f8c; white-space: nowrap; }
+.move-head { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+.move-meta { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px; margin-top:12px; }
+.move-chip { border:1px solid #e1e9f5; border-radius:12px; background:#f8fbff; padding:10px; }
+.move-chip b { display:block; font-size:14px; }
+.move-chip span { display:block; color:var(--muted); font-size:11px; margin-top:2px; }
+.mini-sparkline-wrap { margin-top: 12px; border-radius: 14px; background: linear-gradient(180deg, #f8fbff, #ffffff); border: 1px solid #e4ecf7; padding: 8px; }
+.mini-sparkline { width: 100%; height: 104px; display:block; }
+.mini-sparkline .grid { stroke:#e2eaf5; stroke-width:1; }
+.mini-sparkline .line { stroke:#2563eb; stroke-width:3; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.mini-sparkline .area { fill:rgba(37,99,235,.10); }
+.mini-sparkline .dot { fill:#2563eb; stroke:white; stroke-width:2; }
+.mini-sparkline text { fill:#64748b; font-size:10px; }
+.history-chart-wrap { background: white; box-shadow: 0 8px 20px rgba(20,48,92,.06); }
+.history-chart.empty { opacity: .92; }
+@media (max-width: 900px) {
+  .modal-backdrop { padding: 0; }
+  .modal-card { width: 100%; height: 100dvh; max-height: 100dvh; border-radius: 0; }
+  .modal-head { border-radius: 0; }
+  .detail-grid { grid-template-columns: 1fr; }
+  .card-preview { position: static; max-width: 340px; margin: 0 auto; }
+  .move-head { display:block; }
+  .move-value { margin-top:8px; }
+  .move-meta { grid-template-columns: 1fr; }
+}
+
 </style>
 </head>
 <body>
@@ -595,7 +709,11 @@ tr:hover td { background: #f3f8ff; }
 </header>
 <div class="app">
   <aside class="panel sidebar">
-    <h2 style="margin:0 0 8px; font-size:20px;">Mijn voortgang</h2>
+    <div class="sidebar-hero">
+      <div class="hero-kicker">Collectie dashboard</div>
+      <h2>Mijn voortgang</h2>
+      <p>Waarde, prijzen en setvoortgang in één overzicht.</p>
+    </div>
     <div class="progressbar"><div id="totalProgress"></div></div>
     <div class="stat-grid">
       <div class="stat"><b id="ownedCount">0</b><span>kaarten in bezit</span></div>
@@ -1482,6 +1600,51 @@ function formatChange(value, currency) {
   const sign = value > 0 ? '+' : '';
   return sign + formatMoney(value, currency || 'EUR');
 }
+
+function renderMiniSparkline(card) {
+  const rawPoints = priceEvolutionPoints(card)
+    .map((p, idx) => ({ idx, date: p.date || '', value: p.value, currency: p.currency || 'EUR' }))
+    .filter(p => Number.isFinite(p.value));
+  const cur = currentPricePoint(card);
+  if (!rawPoints.length && cur) rawPoints.push(cur);
+  if (!rawPoints.length) return '<div class="mini-sparkline-wrap"><p class="smallnote">Nog geen prijsdata om te tekenen.</p></div>';
+  let points = rawPoints.slice(-30);
+  let singlePoint = false;
+  if (points.length === 1) {
+    singlePoint = true;
+    points = [
+      { date: 'vorige', value: points[0].value, currency: points[0].currency },
+      points[0]
+    ];
+  }
+  const w = 620, h = 104, padL = 46, padR = 14, padT = 12, padB = 24;
+  const min = Math.min(...points.map(p => p.value));
+  const max = Math.max(...points.map(p => p.value));
+  const visualMin = min === max ? Math.max(0, min * 0.92) : min;
+  const visualMax = min === max ? (max * 1.08 || 1) : max;
+  const span = visualMax - visualMin || 1;
+  const x = i => padL + (points.length === 1 ? 0 : i * (w - padL - padR) / (points.length - 1));
+  const y = v => padT + (visualMax - v) * (h - padT - padB) / span;
+  const line = points.map((p,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${y(p.value).toFixed(1)}`).join(' ');
+  const area = `${line} L${x(points.length-1).toFixed(1)},${h-padB} L${x(0).toFixed(1)},${h-padB} Z`;
+  const startLabel = singlePoint ? 'start' : (points[0].date || 'start');
+  const endLabel = points[points.length-1].date || 'laatste';
+  return `<div class="mini-sparkline-wrap">
+    <svg class="mini-sparkline" viewBox="0 0 ${w} ${h}" role="img" aria-label="Mini prijsgrafiek">
+      <line class="grid" x1="${padL}" y1="${padT}" x2="${padL}" y2="${h-padB}"></line>
+      <line class="grid" x1="${padL}" y1="${h-padB}" x2="${w-padR}" y2="${h-padB}"></line>
+      <text x="5" y="${padT+5}">${escapeHtml(formatMoney(visualMax, 'EUR'))}</text>
+      <text x="5" y="${h-padB}">${escapeHtml(formatMoney(visualMin, 'EUR'))}</text>
+      <text x="${padL}" y="${h-7}">${escapeHtml(startLabel)}</text>
+      <text x="${w-padR-95}" y="${h-7}">${escapeHtml(endLabel)}</text>
+      <path class="area" d="${area}"></path>
+      <path class="line" d="${line}"></path>
+      ${points.map((p,i)=>`<circle class="dot" cx="${x(i).toFixed(1)}" cy="${y(p.value).toFixed(1)}" r="3.8"><title>${escapeHtml(p.date)}: ${escapeHtml(formatMoney(p.value,'EUR'))}</title></circle>`).join('')}
+    </svg>
+    ${singlePoint ? '<div class="smallnote">Nog maar één echte prijsmeting voor deze kaart. De grafiek groeit automatisch mee met elke dagelijkse update.</div>' : ''}
+  </div>`;
+}
+
 function renderDailyMovement(card) {
   const points = priceEvolutionPoints(card);
   const cur = points[points.length - 1] || currentPricePoint(card);
@@ -1508,6 +1671,7 @@ function renderDailyMovement(card) {
       <div class="move-chip"><b class="${c7}">${Number.isFinite(diff7) ? escapeHtml(formatChange(diff7, cur.currency)) : '—'}</b><span>ongeveer 7 dagen</span></div>
       <div class="move-chip"><b class="${c30}">${Number.isFinite(diff30) ? escapeHtml(formatChange(diff30, cur.currency)) : '—'}</b><span>ongeveer 30 dagen</span></div>
     </div>
+    ${renderMiniSparkline(card)}
   </div>`;
 }
 
@@ -1533,32 +1697,46 @@ function renderHistorySummary(card) {
   </div>`;
 }
 function renderHistoryChart(card) {
-  const points = priceEvolutionPoints(card).map((p, idx) => ({ idx, date: p.date || '', value: p.value, currency: p.currency || 'EUR' })).filter(p => Number.isFinite(p.value));
-  if (points.length < 2) {
-    return '<div class="history-chart-wrap"><p class="smallnote">Nog te weinig prijshistoriek voor een grafiek. Na meerdere dagelijkse updates verschijnt hier automatisch een prijslijn.</p></div>';
+  const rawPoints = priceEvolutionPoints(card).map((p, idx) => ({ idx, date: p.date || '', value: p.value, currency: p.currency || 'EUR' })).filter(p => Number.isFinite(p.value));
+  const cur = currentPricePoint(card);
+  if (!rawPoints.length && cur) rawPoints.push(cur);
+  if (!rawPoints.length) {
+    return '<div class="history-chart-wrap"><p class="smallnote">Nog geen prijsdata voor een grafiek.</p></div>';
+  }
+  let points = rawPoints.slice(-60);
+  let singlePoint = false;
+  if (points.length === 1) {
+    singlePoint = true;
+    points = [
+      { date: 'start', value: points[0].value, currency: points[0].currency },
+      points[0]
+    ];
   }
   const w = 720, h = 190, padL = 52, padR = 18, padT = 18, padB = 32;
   const min = Math.min(...points.map(p => p.value));
   const max = Math.max(...points.map(p => p.value));
-  const span = max - min || 1;
+  const visualMin = min === max ? Math.max(0, min * 0.92) : min;
+  const visualMax = min === max ? (max * 1.08 || 1) : max;
+  const span = visualMax - visualMin || 1;
   const x = i => padL + (points.length === 1 ? 0 : i * (w - padL - padR) / (points.length - 1));
-  const y = v => padT + (max - v) * (h - padT - padB) / span;
+  const y = v => padT + (visualMax - v) * (h - padT - padB) / span;
   const line = points.map((p,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${y(p.value).toFixed(1)}`).join(' ');
   const area = `${line} L${x(points.length-1).toFixed(1)},${h-padB} L${x(0).toFixed(1)},${h-padB} Z`;
-  const startLabel = escapeHtml(points[0].date || 'start');
+  const startLabel = escapeHtml(singlePoint ? 'start' : (points[0].date || 'start'));
   const endLabel = escapeHtml(points[points.length-1].date || 'laatste');
   return `<div class="history-chart-wrap">
-    <svg class="history-chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="Prijsgeschiedenis">
+    <svg class="history-chart ${singlePoint ? 'empty' : ''}" viewBox="0 0 ${w} ${h}" role="img" aria-label="Prijsgeschiedenis">
       <line class="grid" x1="${padL}" y1="${padT}" x2="${padL}" y2="${h-padB}"></line>
       <line class="grid" x1="${padL}" y1="${h-padB}" x2="${w-padR}" y2="${h-padB}"></line>
-      <text x="6" y="${padT+5}">${escapeHtml(formatMoney(max, 'EUR'))}</text>
-      <text x="6" y="${h-padB}">${escapeHtml(formatMoney(min, 'EUR'))}</text>
+      <text x="6" y="${padT+5}">${escapeHtml(formatMoney(visualMax, 'EUR'))}</text>
+      <text x="6" y="${h-padB}">${escapeHtml(formatMoney(visualMin, 'EUR'))}</text>
       <text x="${padL}" y="${h-8}">${startLabel}</text>
       <text x="${w-padR-120}" y="${h-8}">${endLabel}</text>
       <path class="area" d="${area}"></path>
       <path class="line" d="${line}"></path>
       ${points.map((p,i)=>`<circle class="dot" cx="${x(i).toFixed(1)}" cy="${y(p.value).toFixed(1)}" r="4"><title>${escapeHtml(p.date)}: ${escapeHtml(formatMoney(p.value,'EUR'))}</title></circle>`).join('')}
     </svg>
+    ${singlePoint ? '<p class="smallnote">Nog maar één echte prijsmeting beschikbaar. Zodra GitHub Actions meerdere dagen heeft gedraaid, zie je hier echte stijgingen en dalingen.</p>' : ''}
   </div>`;
 }
 function renderHistoryTable(card) {
@@ -1689,6 +1867,7 @@ function openCardModal(card) {
     render();
     openCardModal(card);
   });
+  document.body.classList.add('modal-open');
   el('cardModal').classList.add('open');
   el('cardModal').setAttribute('aria-hidden', 'false');
 }
@@ -1697,6 +1876,7 @@ function closeCardModal() {
   if (!modal) return;
   modal.classList.remove('open');
   modal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
 }
 function initFilters() {
   const series = [...new Set(cards.map(c => c.series))].sort((a,b)=>a.localeCompare(b,'nl'));
@@ -1989,7 +2169,121 @@ function wordHtmlForRows(rows) {
     const p = priceFor(c) || {};
     return `<tr><td>${isOwned(c) ? '☑' : '☐'}</td><td>${escapeHtml(c.series)}</td><td>${escapeHtml(c.set)}</td><td>${escapeHtml(c.abbr)}</td><td>${escapeHtml(cardmarketCodeFor(c) || '')}</td><td>${escapeHtml(c.num)}</td><td>${escapeHtml(c.name)}</td><td>${escapeHtml(variantLabel(c))}</td><td>${escapeHtml(formatMoney(choosePrice(p), p.currency || 'EUR'))}</td></tr>`;
   }).join('');
-  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${escapeHtml(title)}</title><style>body{font-family:Arial,sans-serif;}h1{color:#1f4e79;}table{border-collapse:collapse;width:100%;font-size:10pt;}th,td{border:1px solid #999;padding:4px;text-align:left;}th{background:#dbe9f6;}td:first-child,th:first-child{text-align:center;width:55px;}.small{color:#666;font-size:9pt;}</style></head><body><h1>${escapeHtml(title)}</h1><p class="small">Aangemaakt op ${date}. Totaal in deze lijst: ${rows.length.toLocaleString('nl-BE')} kaarten.</p><table><thead><tr><th>Heb ik</th><th>Serie</th><th>Set</th><th>Afkorting</th><th>CM-code</th><th>Kaartnr.</th><th>Kaartnaam</th><th>Variant</th><th>Waarde</th></tr></thead><tbody>${bodyRows}</tbody></table></body></html>`;
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${escapeHtml(title)}</title><style>body{font-family:Arial,sans-serif;}h1{color:#1f4e79;}table{border-collapse:collapse;width:100%;font-size:10pt;}th,td{border:1px solid #999;padding:4px;text-align:left;}th{background:#dbe9f6;}td:first-child,th:first-child{text-align:center;width:55px;}.small{color:#666;font-size:9pt;}
+
+/* Stap 3B - UX-fix: scrollbaar detailvenster, zichtbare grafiek en modernere zijbalk */
+body.modal-open { overflow: hidden; }
+.sidebar {
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+.sidebar-hero {
+  padding: 18px 18px 16px;
+  background: radial-gradient(circle at top left, rgba(255,203,5,.55), transparent 38%), linear-gradient(135deg, #163c7a 0%, #2856a3 58%, #31a56b 120%);
+  color: white;
+  border-radius: 14px 14px 0 0;
+}
+.sidebar-hero .hero-kicker { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; opacity: .84; font-weight: 800; }
+.sidebar-hero h2 { margin: 6px 0 4px !important; font-size: 23px !important; line-height: 1.1; }
+.sidebar-hero p { margin: 0; color: rgba(255,255,255,.84); font-size: 13px; line-height: 1.35; }
+.sidebar > .progressbar { margin: 14px 16px 0; height: 10px; border: 0; background: #e8eef8; }
+.sidebar > .progressbar div { background: linear-gradient(90deg, #ffcb05, #22c55e); }
+.sidebar .stat-grid { padding: 0 16px; margin: 14px 0 8px; }
+.sidebar .stat {
+  border: 0;
+  background: white;
+  box-shadow: 0 6px 18px rgba(30, 64, 130, .08);
+  position: relative;
+  overflow: hidden;
+}
+.sidebar .stat::after { content: ''; position: absolute; inset: auto 0 0 0; height: 3px; background: linear-gradient(90deg, #2856a3, #ffcb05); opacity: .55; }
+.sidebar .stat b { font-size: 23px; letter-spacing: -.02em; }
+.sidebar .button-row { padding: 0 16px; }
+.sidebar .button-row button, .sidebar .button-row .filebutton { flex: 1 1 auto; }
+.sidebar .help,
+.sidebar .pricebox,
+.sidebar .portfolio-box {
+  margin: 14px 16px;
+  border: 0;
+  box-shadow: 0 8px 24px rgba(20, 48, 92, .08);
+}
+.sidebar .help { background: linear-gradient(180deg, #fff8db, #fffdf3); }
+.sidebar .pricebox { background: linear-gradient(180deg, #ecfdf5, #f7fffb); }
+.sidebar .portfolio-box { background: linear-gradient(180deg, #eef6ff, #fbfdff); }
+.sidebar h3[style] { padding: 0 16px; color: var(--blue2); }
+.sidebar .setlist { margin: 0 16px 16px; max-height: 310px; border: 0; box-shadow: inset 0 0 0 1px var(--border); background: white; }
+.setitem { border-color: #eef2f7; }
+.setitem b { font-size: 12px; }
+
+.modal-backdrop { align-items: flex-start; justify-content: center; overflow: hidden; padding: 22px; }
+.modal-card {
+  width: min(1080px, 100%);
+  max-width: 1080px;
+  height: min(94vh, 980px);
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 22px;
+}
+.modal-head {
+  flex: 0 0 auto;
+  background: linear-gradient(135deg, #163c7a, #2856d6 55%, #31a56b 120%);
+  color: white;
+  border-bottom: 0;
+  padding: 18px 22px;
+}
+.modal-head h2 { color: white; }
+.modal-head .smallnote { color: rgba(255,255,255,.9); }
+.close-x { background: rgba(255,255,255,.14); color: white; border-color: rgba(255,255,255,.25); border-radius: 999px; }
+.close-x:hover { background: rgba(255,255,255,.24); }
+.modal-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px 22px 28px;
+  background: linear-gradient(180deg, #f8fbff, #eef4fb);
+}
+.detail-grid { grid-template-columns: 300px 1fr; }
+.card-preview {
+  background: linear-gradient(145deg, #ffffff, #eaf2ff);
+  border: 1px solid rgba(40,86,163,.24);
+  box-shadow: 0 12px 32px rgba(30, 64, 130, .10);
+  position: sticky;
+  top: 0;
+}
+.card-preview img { width: 100%; max-height: 420px; object-fit: contain; background:#0f172a; }
+.daily-movement { border: 1px solid #dbe7f7; border-radius: 18px; background: #fff; box-shadow: 0 10px 26px rgba(20,48,92,.06); padding: 16px; margin: 14px 0; }
+.move-title { font-size: 19px; font-weight: 900; color: #0f2f68; }
+.move-value { font-size: 28px; font-weight: 900; color:#0f3f8c; white-space: nowrap; }
+.move-head { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+.move-meta { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px; margin-top:12px; }
+.move-chip { border:1px solid #e1e9f5; border-radius:12px; background:#f8fbff; padding:10px; }
+.move-chip b { display:block; font-size:14px; }
+.move-chip span { display:block; color:var(--muted); font-size:11px; margin-top:2px; }
+.mini-sparkline-wrap { margin-top: 12px; border-radius: 14px; background: linear-gradient(180deg, #f8fbff, #ffffff); border: 1px solid #e4ecf7; padding: 8px; }
+.mini-sparkline { width: 100%; height: 104px; display:block; }
+.mini-sparkline .grid { stroke:#e2eaf5; stroke-width:1; }
+.mini-sparkline .line { stroke:#2563eb; stroke-width:3; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.mini-sparkline .area { fill:rgba(37,99,235,.10); }
+.mini-sparkline .dot { fill:#2563eb; stroke:white; stroke-width:2; }
+.mini-sparkline text { fill:#64748b; font-size:10px; }
+.history-chart-wrap { background: white; box-shadow: 0 8px 20px rgba(20,48,92,.06); }
+.history-chart.empty { opacity: .92; }
+@media (max-width: 900px) {
+  .modal-backdrop { padding: 0; }
+  .modal-card { width: 100%; height: 100dvh; max-height: 100dvh; border-radius: 0; }
+  .modal-head { border-radius: 0; }
+  .detail-grid { grid-template-columns: 1fr; }
+  .card-preview { position: static; max-width: 340px; margin: 0 auto; }
+  .move-head { display:block; }
+  .move-value { margin-top:8px; }
+  .move-meta { grid-template-columns: 1fr; }
+}
+
+</style></head><body><h1>${escapeHtml(title)}</h1><p class="small">Aangemaakt op ${date}. Totaal in deze lijst: ${rows.length.toLocaleString('nl-BE')} kaarten.</p><table><thead><tr><th>Heb ik</th><th>Serie</th><th>Set</th><th>Afkorting</th><th>CM-code</th><th>Kaartnr.</th><th>Kaartnaam</th><th>Variant</th><th>Waarde</th></tr></thead><tbody>${bodyRows}</tbody></table></body></html>`;
 }
 function exportWord() {
   const html = wordHtmlForRows(filtered);
