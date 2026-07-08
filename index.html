@@ -283,6 +283,52 @@ input[type="text"], input[type="url"], textarea {
   line-height:1.35;
   margin:12px 0;
 }
+
+
+/* Stap 2 - detailvenster, prijsgeschiedenis en portfolio */
+.portfolio-box {
+  margin-top: 14px;
+  background: #f8fbff;
+  border: 1px solid #c9dff8;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 13px;
+}
+.portfolio-box h3 { margin: 10px 0 8px; font-size: 15px; color: var(--blue2); }
+.portfolio-stats { display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin:10px 0; }
+.portfolio-stat { border:1px solid #d9e6f7; background:#fff; border-radius:10px; padding:9px; }
+.portfolio-stat b { display:block; color:var(--blue2); font-size:16px; }
+.portfolio-stat span { color:var(--muted); font-size:11px; }
+.portfolio-list { display:grid; gap:7px; }
+.portfolio-row { border:1px solid #e4ebf5; background:#fff; border-radius:10px; padding:8px; cursor:pointer; }
+.portfolio-row:hover { background:#eef6ff; }
+.portfolio-row b { display:block; color:#1f2937; }
+.portfolio-row .mini { display:block; color:var(--muted); font-size:11px; margin-top:2px; }
+.detail-price-grid { display:grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap:9px; margin: 12px 0; }
+.detail-price-card { border:1px solid #dbe5f1; border-radius:12px; background:#fff; padding:10px; }
+.detail-price-card b { display:block; color:var(--blue2); font-size:17px; }
+.detail-price-card span { display:block; color:var(--muted); font-size:11px; margin-top:2px; }
+.history-chart-wrap { border:1px solid #e1e8f2; border-radius:14px; background:#fff; padding:10px; margin: 10px 0 12px; }
+.history-chart { width:100%; height:190px; display:block; }
+.history-chart text { fill:#64748b; font-size:11px; }
+.history-chart .grid { stroke:#e5eaf2; stroke-width:1; }
+.history-chart .line { stroke:#1d4ed8; stroke-width:3; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.history-chart .area { fill:rgba(29,78,216,.10); }
+.history-chart .dot { fill:#1d4ed8; stroke:#fff; stroke-width:2; }
+.history-summary { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:8px; margin:10px 0; }
+.history-summary .portfolio-stat b { font-size:15px; }
+.detail-actions .greenlink { background:#ecfdf3; border-color:#bbf7d0; color:#166534; }
+.detail-owned-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:10px 0; }
+.detail-owned-row label { display:flex; align-items:center; gap:8px; font-weight:700; color:#1f2937; }
+.detail-owned-row input[type="checkbox"] { width:20px; height:20px; }
+.detail-edit-grid input[type="text"], .detail-edit-grid input[type="number"], .detail-edit-grid input[type="url"] { width:100%; box-sizing:border-box; }
+.profit-positive { color:#15803d; font-weight:700; }
+.profit-negative { color:#b91c1c; font-weight:700; }
+@media (max-width: 760px) {
+  .detail-price-grid, .history-summary { grid-template-columns: 1fr 1fr; }
+  .portfolio-stats { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 760px) {
   .detail-grid { grid-template-columns: 1fr; }
   .detail-kv { grid-template-columns: 1fr; }
@@ -346,7 +392,7 @@ body.pwa-modal-open { overflow: hidden; }
 
 <header>
   <h1>Pokémon TCG Collectie Checklist met kaartdetails en Cardmarket-prijzen</h1>
-  <p>Offline app om snel aan te duiden welke kaarten je hebt. Klik op een kaart voor detailinfo, Cardmarket-pagina, foto/prijslink, prijshistoriek en je eigen variantnotities.</p>
+  <p>Offline app om snel aan te duiden welke kaarten je hebt. Klik op een kaart voor detailinfo, Cardmarket-pagina, foto/prijslink, prijsgrafiek, aankoopprijs, winst/verlies en je eigen variantnotities.</p>
 </header>
 <div class="app">
   <aside class="panel sidebar">
@@ -391,6 +437,18 @@ body.pwa-modal-open { overflow: hidden; }
         <button id="toggleAutoPriceBtn">Dagelijkse update: uit</button>
       </div>
       <span class="smallnote" id="priceStatus">Nog geen prijsdata ingeladen.</span>
+    </div>
+
+
+
+    <div class="portfolio-box">
+      <b>Portfolio-overzicht</b><br>
+      <span class="smallnote">Gebaseerd op kaarten die je aanvinkt als “heb ik”. Aankoopprijs en aantal kan je per kaart invullen in het detailvenster.</span>
+      <div class="portfolio-stats" id="portfolioSummaryCards"></div>
+      <h3>Topkaarten in bezit</h3>
+      <div class="portfolio-list" id="portfolioTopCards"><span class="smallnote">Nog geen kaarten aangeduid.</span></div>
+      <h3>Waarde per set</h3>
+      <div class="portfolio-list" id="portfolioSetValues"><span class="smallnote">Nog geen setwaarde.</span></div>
     </div>
 
     <h3 style="font-size:16px; margin:16px 0 8px;">Setsnelkoppelingen</h3>
@@ -617,7 +675,7 @@ function detailsFor(card) {
 function setDetailsFor(card, data) {
   cardDetails[card.key] = Object.assign({}, detailsFor(card), data || {});
   const d = cardDetails[card.key];
-  if (!d.variant && !d.condition && !d.note) delete cardDetails[card.key];
+  if (!d.variant && !d.condition && !d.note && !d.purchasePrice && !d.quantity && !d.imageUrl) delete cardDetails[card.key];
   saveCardDetails();
 }
 function variantLabel(card) {
@@ -720,8 +778,9 @@ function cardmarketUrlFor(card) {
   return p.url || cardmarketDirectUrl(productId) || cardmarketSearchUrl(card);
 }
 function imageUrlFor(card) {
+  const d = detailsFor(card) || {};
   const p = priceFor(card) || {};
-  return p.imageUrl || p.image || p.imageURL || card.imageUrl || '';
+  return d.imageUrl || p.imageUrl || p.image || p.imageURL || card.imageUrl || '';
 }
 function rarityFor(card) {
   const p = priceFor(card) || {};
@@ -1046,29 +1105,157 @@ function maybeAutoUpdatePrices() {
   if (due) fetchPricesFromEndpoint(true);
 }
 
+function detailQuantity(card) {
+  const q = parseInt(detailsFor(card).quantity || '1', 10);
+  return Number.isFinite(q) && q > 0 ? q : 1;
+}
+function detailPurchasePrice(card) {
+  const n = parsePrice(detailsFor(card).purchasePrice);
+  return Number.isFinite(n) ? n : NaN;
+}
+function numericCardPrice(card) {
+  return choosePrice(priceFor(card));
+}
+function ownedCardValue(card) {
+  const n = numericCardPrice(card);
+  return Number.isFinite(n) ? n * detailQuantity(card) : 0;
+}
+function historyValueFor(row) {
+  if (!row) return NaN;
+  return parsePrice(row.price ?? row.trendPrice ?? row.avg30 ?? row.avg7 ?? row.lowPrice ?? row.foilTrendPrice ?? row.foilAvg30);
+}
+function normalizeHistoryRow(row, key = '') {
+  if (Array.isArray(row)) {
+    return { date: row[0] || key, price: row[1], trendPrice: row[2], avg30: row[3], lowPrice: row[4], currency: 'EUR' };
+  }
+  if (row && typeof row === 'object') {
+    return {
+      date: row.date || row.updatedAt || row.day || row.timestamp || key,
+      price: row.price ?? row.value ?? row.trendPrice ?? row.avg30 ?? '',
+      trendPrice: row.trendPrice ?? row.trend_price ?? row.trend ?? '',
+      avg30: row.avg30 ?? row.avg_30 ?? row.AVG30 ?? '',
+      avg7: row.avg7 ?? row.avg_7 ?? row.AVG7 ?? '',
+      lowPrice: row.lowPrice ?? row.low_price ?? row.low ?? '',
+      foilTrendPrice: row.foilTrendPrice ?? row.foil_trend ?? '',
+      foilAvg30: row.foilAvg30 ?? row.foil_avg30 ?? '',
+      currency: row.currency || 'EUR'
+    };
+  }
+  return { date: key, price: row, currency: 'EUR' };
+}
+function rawHistoryFor(card) {
+  const productId = cardmarketProductIdFor(card);
+  const candidates = [card.key, productId, String(productId || '')].filter(Boolean);
+  for (const k of candidates) {
+    if (priceHistory && priceHistory[k]) return priceHistory[k];
+  }
+  return [];
+}
 function historyRowsFor(card) {
-  const rows = priceHistory[card.key] || [];
-  return Array.isArray(rows) ? rows.slice().sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))).slice(0, 30) : [];
+  const raw = rawHistoryFor(card);
+  let rows = [];
+  if (Array.isArray(raw)) rows = raw.map(r => normalizeHistoryRow(r));
+  else if (raw && typeof raw === 'object') {
+    const inner = raw.history || raw.prices || raw.data || raw.rows;
+    if (Array.isArray(inner)) rows = inner.map(r => normalizeHistoryRow(r));
+    else rows = Object.entries(raw).map(([k,v]) => normalizeHistoryRow(v, k));
+  }
+  return rows
+    .filter(r => Number.isFinite(historyValueFor(r)))
+    .sort((a,b)=>String(b.date||'').localeCompare(String(a.date||'')))
+    .slice(0, 60);
+}
+function historyRowsAsc(card) {
+  return historyRowsFor(card).slice().reverse();
+}
+function renderHistorySummary(card) {
+  const rows = historyRowsAsc(card);
+  const values = rows.map(historyValueFor).filter(Number.isFinite);
+  const current = numericCardPrice(card);
+  if (!values.length && !Number.isFinite(current)) {
+    return '<div class="history-summary"><div class="portfolio-stat"><b>—</b><span>Nog geen prijshistoriek</span></div></div>';
+  }
+  const all = values.length ? values : [current];
+  const min = Math.min(...all);
+  const max = Math.max(...all);
+  const first = values.length ? values[0] : current;
+  const last = Number.isFinite(current) ? current : (values.length ? values[values.length - 1] : NaN);
+  const diff = Number.isFinite(first) && Number.isFinite(last) ? last - first : NaN;
+  const diffClass = Number.isFinite(diff) && diff >= 0 ? 'profit-positive' : 'profit-negative';
+  return `<div class="history-summary">
+    <div class="portfolio-stat"><b>${escapeHtml(formatMoney(last, 'EUR'))}</b><span>laatste waarde</span></div>
+    <div class="portfolio-stat"><b>${escapeHtml(formatMoney(min, 'EUR'))}</b><span>laagste punt</span></div>
+    <div class="portfolio-stat"><b>${escapeHtml(formatMoney(max, 'EUR'))}</b><span>hoogste punt</span></div>
+    <div class="portfolio-stat"><b class="${diffClass}">${Number.isFinite(diff) ? escapeHtml(formatMoney(diff, 'EUR')) : '—'}</b><span>verschil sinds eerste punt</span></div>
+  </div>`;
+}
+function renderHistoryChart(card) {
+  const rows = historyRowsAsc(card);
+  const points = rows.map((r, idx) => ({ idx, date: r.date || '', value: historyValueFor(r) })).filter(p => Number.isFinite(p.value));
+  if (points.length < 2) {
+    return '<div class="history-chart-wrap"><p class="smallnote">Nog te weinig prijshistoriek voor een grafiek. Na meerdere dagelijkse updates verschijnt hier automatisch een prijslijn.</p></div>';
+  }
+  const w = 720, h = 190, padL = 52, padR = 18, padT = 18, padB = 32;
+  const min = Math.min(...points.map(p => p.value));
+  const max = Math.max(...points.map(p => p.value));
+  const span = max - min || 1;
+  const x = i => padL + (points.length === 1 ? 0 : i * (w - padL - padR) / (points.length - 1));
+  const y = v => padT + (max - v) * (h - padT - padB) / span;
+  const line = points.map((p,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${y(p.value).toFixed(1)}`).join(' ');
+  const area = `${line} L${x(points.length-1).toFixed(1)},${h-padB} L${x(0).toFixed(1)},${h-padB} Z`;
+  const startLabel = escapeHtml(points[0].date || 'start');
+  const endLabel = escapeHtml(points[points.length-1].date || 'laatste');
+  return `<div class="history-chart-wrap">
+    <svg class="history-chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="Prijsgeschiedenis">
+      <line class="grid" x1="${padL}" y1="${padT}" x2="${padL}" y2="${h-padB}"></line>
+      <line class="grid" x1="${padL}" y1="${h-padB}" x2="${w-padR}" y2="${h-padB}"></line>
+      <text x="6" y="${padT+5}">${escapeHtml(formatMoney(max, 'EUR'))}</text>
+      <text x="6" y="${h-padB}">${escapeHtml(formatMoney(min, 'EUR'))}</text>
+      <text x="${padL}" y="${h-8}">${startLabel}</text>
+      <text x="${w-padR-120}" y="${h-8}">${endLabel}</text>
+      <path class="area" d="${area}"></path>
+      <path class="line" d="${line}"></path>
+      ${points.map((p,i)=>`<circle class="dot" cx="${x(i).toFixed(1)}" cy="${y(p.value).toFixed(1)}" r="4"><title>${escapeHtml(p.date)}: ${escapeHtml(formatMoney(p.value,'EUR'))}</title></circle>`).join('')}
+    </svg>
+  </div>`;
 }
 function renderHistoryTable(card) {
   const rows = historyRowsFor(card);
   if (!rows.length) {
-    return '<p class="smallnote">Nog geen lokale prijshistoriek. Vanaf nu bewaart de automatische prijsserver bij elke dagelijkse update een historiekpunt.</p>';
+    return '<p class="smallnote">Nog geen lokale prijshistoriek. De app probeert price_history.json automatisch naast prices.json op te halen.</p>';
   }
-  return `<table class="history-table"><thead><tr><th>Datum</th><th>Prijs</th><th>Trend</th><th>AVG30</th><th>Low</th></tr></thead><tbody>${rows.map(r => `<tr><td>${escapeHtml(r.date || '')}</td><td>${escapeHtml(formatMoney(r.price, r.currency || 'EUR'))}</td><td>${escapeHtml(formatMoney(r.trendPrice, r.currency || 'EUR'))}</td><td>${escapeHtml(formatMoney(r.avg30, r.currency || 'EUR'))}</td><td>${escapeHtml(formatMoney(r.lowPrice, r.currency || 'EUR'))}</td></tr>`).join('')}</tbody></table>`;
+  return `<table class="history-table"><thead><tr><th>Datum</th><th>Prijs</th><th>Trend</th><th>AVG30</th><th>Low</th></tr></thead><tbody>${rows.slice(0, 20).map(r => `<tr><td>${escapeHtml(r.date || '')}</td><td>${escapeHtml(formatMoney(r.price, r.currency || 'EUR'))}</td><td>${escapeHtml(formatMoney(r.trendPrice, r.currency || 'EUR'))}</td><td>${escapeHtml(formatMoney(r.avg30, r.currency || 'EUR'))}</td><td>${escapeHtml(formatMoney(r.lowPrice, r.currency || 'EUR'))}</td></tr>`).join('')}</tbody></table>`;
 }
 function openCardModal(card) {
   const p = priceFor(card) || {};
   const d = detailsFor(card);
   const productUrl = cardmarketUrlFor(card);
   const imageUrl = imageUrlFor(card);
+  const currentPrice = numericCardPrice(card);
+  const qty = detailQuantity(card);
+  const purchasePrice = detailPurchasePrice(card);
+  const totalNow = Number.isFinite(currentPrice) ? currentPrice * qty : NaN;
+  const totalPurchase = Number.isFinite(purchasePrice) ? purchasePrice * qty : NaN;
+  const profit = Number.isFinite(totalNow) && Number.isFinite(totalPurchase) ? totalNow - totalPurchase : NaN;
+  const profitClass = Number.isFinite(profit) && profit >= 0 ? 'profit-positive' : 'profit-negative';
   el('modalTitle').textContent = `${card.name} ${card.num ? '(' + card.num + ')' : ''}`;
   el('modalSubtitle').textContent = `${card.series} — ${card.set} — ${card.abbr}${cardmarketCodeFor(card) ? ' / CM ' + cardmarketCodeFor(card) : ''}`;
-  const imgHtml = imageUrl ? `<img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(card.name)}" loading="lazy">` : `<div class="placeholder">De publieke prijsbestanden bevatten niet altijd een losse kaartafbeelding. Open de Cardmarket-pagina om de foto van de kaart te bekijken.</div>`;
+  const imgHtml = imageUrl ? `<img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(card.name)}" loading="lazy">` : `<div class="placeholder">Nog geen kaartafbeelding in de prijsdata. Plak hieronder eventueel zelf een afbeeldingslink, of open de Cardmarket-pagina.</div>`;
   el('modalBody').innerHTML = `
     <div class="detail-grid">
       <div class="card-preview">${imgHtml}</div>
       <div>
+        <div class="detail-owned-row">
+          <label><input type="checkbox" id="detailOwned" ${isOwned(card) ? 'checked' : ''}> Deze kaart heb ik</label>
+          <span class="variant-badge">Aantal: ${escapeHtml(qty)}</span>
+          <span class="variant-badge">Variant: ${escapeHtml(variantLabel(card))}</span>
+        </div>
+        <div class="detail-price-grid">
+          <div class="detail-price-card"><b>${escapeHtml(formatMoney(currentPrice, p.currency || 'EUR'))}</b><span>huidige waarde</span></div>
+          <div class="detail-price-card"><b>${escapeHtml(formatMoney(totalNow, p.currency || 'EUR'))}</b><span>waarde × aantal</span></div>
+          <div class="detail-price-card"><b>${escapeHtml(formatMoney(totalPurchase, p.currency || 'EUR'))}</b><span>aankoop totaal</span></div>
+          <div class="detail-price-card"><b class="${profitClass}">${escapeHtml(formatMoney(profit, p.currency || 'EUR'))}</b><span>winst / verlies</span></div>
+        </div>
         <div class="detail-kv">
           <b>Serie</b><span>${escapeHtml(card.series)}</span>
           <b>Set</b><span>${escapeHtml(card.set)}</span>
@@ -1077,15 +1264,11 @@ function openCardModal(card) {
           <b>Cardmarket-naam</b><span>${escapeHtml(cardmarketCardNameFor(card) || 'Nog niet gekoppeld')}</span>
           <b>Kaartnummer</b><span>${escapeHtml(card.num)}</span>
           <b>Rarity/type</b><span>${escapeHtml(rarityFor(card))}</span>
-          <b>Waarde</b><span>${priceDisplay(card)}</span>
-          <b>Productinfo</b><span>${escapeHtml(productMetaFor(card) || 'Nog niet gekoppeld')}</span>
+          <b>Prijsbron</b><span>${escapeHtml(productMetaFor(card) || 'Nog niet gekoppeld')}</span>
         </div>
         <div class="detail-actions">
-          <a class="linkbutton" href="${escapeHtml(productUrl)}" target="_blank" rel="noopener noreferrer">Open Cardmarket-pagina</a>
+          <a class="linkbutton greenlink" href="${escapeHtml(productUrl)}" target="_blank" rel="noopener noreferrer">Open Cardmarket-pagina</a>
           <a class="linkbutton" href="${escapeHtml(cardmarketSearchUrl(card))}" target="_blank" rel="noopener noreferrer">Zoeken op Cardmarket</a>
-        </div>
-        <div class="info-note">
-          Op de Cardmarket-pagina zie je normaal de kaartfoto, beschikbare aanbiedingen en de prijsgrafiek/prijsinformatie. In deze app bewaren we daarnaast vanaf nu een eigen lokale prijshistoriek per dag.
         </div>
         <h3 style="margin:14px 0 6px;">Mijn versie van deze kaart</h3>
         <div class="detail-edit-grid">
@@ -1109,18 +1292,36 @@ function openCardModal(card) {
               <option>Mint</option><option>Near Mint</option><option>Excellent</option><option>Good</option><option>Light Played</option><option>Played</option><option>Poor</option>
             </select>
           </div>
+          <div>
+            <label for="detailQuantity">Aantal</label>
+            <input id="detailQuantity" type="number" min="1" step="1" value="${escapeHtml(qty)}">
+          </div>
+          <div>
+            <label for="detailPurchasePrice">Aankoopprijs per kaart</label>
+            <input id="detailPurchasePrice" type="text" inputmode="decimal" placeholder="bv. 2,50" value="${escapeHtml(d.purchasePrice || '')}">
+          </div>
+          <div style="grid-column:1 / -1;">
+            <label for="detailImageUrl">Afbeelding URL, optioneel</label>
+            <input id="detailImageUrl" type="url" placeholder="https://..." value="${escapeHtml(d.imageUrl || '')}">
+          </div>
           <textarea id="detailNote" placeholder="Eigen notitie, bv. Nederlands, sleeve, dubbele kaart, bijzondere print..."></textarea>
         </div>
         <div class="button-row">
           <button id="saveDetailBtn" class="primary">Kaartdetails opslaan</button>
         </div>
-        <h3 style="margin:16px 0 6px;">Lokale prijshistoriek</h3>
+        <h3 style="margin:16px 0 6px;">Prijsgeschiedenis</h3>
+        ${renderHistorySummary(card)}
+        ${renderHistoryChart(card)}
         ${renderHistoryTable(card)}
       </div>
     </div>`;
   const variantSelect = el('detailVariant');
   const conditionSelect = el('detailCondition');
   const noteInput = el('detailNote');
+  const quantityInput = el('detailQuantity');
+  const purchaseInput = el('detailPurchasePrice');
+  const imageInput = el('detailImageUrl');
+  const ownedInput = el('detailOwned');
   if (variantSelect) variantSelect.value = d.variant || '';
   if (conditionSelect) conditionSelect.value = d.condition || '';
   if (noteInput) noteInput.value = d.note || '';
@@ -1129,9 +1330,16 @@ function openCardModal(card) {
     setDetailsFor(card, {
       variant: variantSelect ? variantSelect.value : '',
       condition: conditionSelect ? conditionSelect.value : '',
-      note: noteInput ? noteInput.value.trim() : ''
+      note: noteInput ? noteInput.value.trim() : '',
+      quantity: quantityInput ? String(Math.max(1, parseInt(quantityInput.value || '1', 10) || 1)) : '',
+      purchasePrice: purchaseInput ? purchaseInput.value.trim() : '',
+      imageUrl: imageInput ? imageInput.value.trim() : ''
     });
-    renderTable();
+    if (ownedInput) {
+      setOwned(card, ownedInput.checked);
+      saveOwned();
+    }
+    render();
     openCardModal(card);
   });
   el('cardModal').classList.add('open');
@@ -1249,6 +1457,50 @@ function renderStats() {
   const fMissing = filtered.length - fOwned;
   el('filteredSummary').textContent = `${filtered.length.toLocaleString('nl-BE')} kaarten gevonden`;
   el('filteredDetails').textContent = ` — ${fOwned.toLocaleString('nl-BE')} in bezit, ${fMissing.toLocaleString('nl-BE')} nog nodig`;
+  renderPortfolio();
+}
+function renderPortfolio() {
+  const summary = el('portfolioSummaryCards');
+  const topEl = el('portfolioTopCards');
+  const setEl = el('portfolioSetValues');
+  if (!summary || !topEl || !setEl) return;
+  const ownedCards = cards.filter(c => isOwned(c));
+  const pricedOwned = ownedCards.filter(c => Number.isFinite(numericCardPrice(c)));
+  const totalValue = ownedCards.reduce((sum,c)=>sum + ownedCardValue(c),0);
+  const totalQty = ownedCards.reduce((sum,c)=>sum + detailQuantity(c),0);
+  const purchaseCards = ownedCards.filter(c => Number.isFinite(detailPurchasePrice(c)));
+  const totalPurchase = purchaseCards.reduce((sum,c)=>sum + detailPurchasePrice(c) * detailQuantity(c),0);
+  const profit = purchaseCards.length ? totalValue - totalPurchase : NaN;
+  const profitClass = Number.isFinite(profit) && profit >= 0 ? 'profit-positive' : 'profit-negative';
+  summary.innerHTML = `
+    <div class="portfolio-stat"><b>${escapeHtml(formatMoney(totalValue, 'EUR'))}</b><span>waarde bezit</span></div>
+    <div class="portfolio-stat"><b>${ownedCards.length.toLocaleString('nl-BE')}</b><span>unieke kaarten in bezit</span></div>
+    <div class="portfolio-stat"><b>${totalQty.toLocaleString('nl-BE')}</b><span>totaal aantal kaarten</span></div>
+    <div class="portfolio-stat"><b class="${profitClass}">${Number.isFinite(profit) ? escapeHtml(formatMoney(profit, 'EUR')) : '—'}</b><span>winst/verlies ingevuld</span></div>`;
+  const top = pricedOwned.slice().sort((a,b)=>ownedCardValue(b)-ownedCardValue(a)).slice(0,5);
+  topEl.innerHTML = top.length ? top.map(c => `<div class="portfolio-row" data-detail-key="${escapeHtml(c.key)}"><b>${escapeHtml(c.name)} <span class="badge">${escapeHtml(c.num)}</span></b><span class="mini">${escapeHtml(c.set)} — ${escapeHtml(formatMoney(ownedCardValue(c), 'EUR'))}${detailQuantity(c) > 1 ? ' voor ' + detailQuantity(c) + ' stuks' : ''}</span></div>`).join('') : '<span class="smallnote">Vink eerst kaarten aan die je hebt.</span>';
+  const bySet = new Map();
+  pricedOwned.forEach(c => {
+    const key = `${c.series}|||${c.set}|||${c.abbr}`;
+    if (!bySet.has(key)) bySet.set(key, { series:c.series, set:c.set, abbr:c.abbr, value:0, count:0 });
+    const obj = bySet.get(key);
+    obj.value += ownedCardValue(c);
+    obj.count += detailQuantity(c);
+  });
+  const topSets = [...bySet.values()].sort((a,b)=>b.value-a.value).slice(0,5);
+  setEl.innerHTML = topSets.length ? topSets.map(s => `<div class="portfolio-row" data-setvalue="${escapeHtml(s.series + '|||' + s.set + '|||' + s.abbr)}"><b>${escapeHtml(s.set)} <span class="badge">${escapeHtml(s.abbr)}</span></b><span class="mini">${s.count.toLocaleString('nl-BE')} kaarten — ${escapeHtml(formatMoney(s.value, 'EUR'))}</span></div>`).join('') : '<span class="smallnote">Nog geen waarde per set.</span>';
+  topEl.querySelectorAll('[data-detail-key]').forEach(item => item.addEventListener('click', () => {
+    const card = cardsByKey[item.dataset.detailKey];
+    if (card) openCardModal(card);
+  }));
+  setEl.querySelectorAll('[data-setvalue]').forEach(item => item.addEventListener('click', () => {
+    const [ser] = item.dataset.setvalue.split('|||');
+    seriesFilter.value = ser;
+    updateSetFilter();
+    setFilter.value = item.dataset.setvalue;
+    applyFilters(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }));
 }
 function renderTable() {
   const tbody = el('cardsBody');
@@ -1362,10 +1614,16 @@ function importJson(file) {
   reader.readAsText(file, 'utf-8');
 }
 function exportCsv() {
-  const rows = [['Heb ik','Serie','Set','Afkorting','Cardmarket Setcode','Cardmarket Setnaam','Kaartnr.','Kaartnaam','Variant','Conditie','Prijs','Bron prijs','Cardmarket Product ID','Cardmarket URL']];
+  const rows = [['Heb ik','Serie','Set','Afkorting','Cardmarket Setcode','Cardmarket Setnaam','Kaartnr.','Kaartnaam','Variant','Conditie','Aantal','Aankoopprijs','Huidige prijs','Waarde totaal','Winst/verlies','Notitie','Afbeelding URL','Bron prijs','Cardmarket Product ID','Cardmarket URL']];
   cards.forEach(c => {
     const p = priceFor(c) || {};
-    rows.push([isOwned(c) ? 'Ja' : 'Nee', c.series, c.set, c.abbr, cardmarketCodeFor(c), cardmarketNameFor(c), c.num, c.name, variantLabel(c), conditionLabel(c), formatMoney(choosePrice(p), p.currency || 'EUR'), p.source || '', cardmarketProductIdFor(c), cardmarketUrlFor(c)]);
+    const d = detailsFor(c);
+    const current = numericCardPrice(c);
+    const value = ownedCardValue(c);
+    const purchase = detailPurchasePrice(c);
+    const totalPurchase = Number.isFinite(purchase) ? purchase * detailQuantity(c) : NaN;
+    const profit = Number.isFinite(current) && Number.isFinite(totalPurchase) ? value - totalPurchase : NaN;
+    rows.push([isOwned(c) ? 'Ja' : 'Nee', c.series, c.set, c.abbr, cardmarketCodeFor(c), cardmarketNameFor(c), c.num, c.name, variantLabel(c), conditionLabel(c), detailQuantity(c), Number.isFinite(purchase) ? formatMoney(purchase, p.currency || 'EUR') : '', formatMoney(current, p.currency || 'EUR'), formatMoney(value, p.currency || 'EUR'), Number.isFinite(profit) ? formatMoney(profit, p.currency || 'EUR') : '', d.note || '', d.imageUrl || '', p.source || '', cardmarketProductIdFor(c), cardmarketUrlFor(c)]);
   });
   const csv = rows.map(row => row.map(csvEscape).join(';')).join('\n');
   download('pokemon_tcg_collectie.csv', '\ufeff' + csv, 'text/csv;charset=utf-8');

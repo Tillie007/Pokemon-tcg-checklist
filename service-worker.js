@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pokemon-tcg-checklist-storagefix-v1';
+const CACHE_NAME = 'pokemon-tcg-checklist-step2-details-portfolio-v1';
 self.addEventListener('install', event => {
   self.skipWaiting();
 });
