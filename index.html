@@ -901,30 +901,6 @@ body.modal-open { overflow: hidden; }
   </aside>
 
   <main class="panel main">
-
-    <section class="market-dashboard" aria-label="Portfolio dashboard">
-      <div class="market-hero-card">
-        <div class="dash-kicker">Portfolio</div>
-        <h2>Collectiewaarde</h2>
-        <div class="dash-main-value" id="dashboardValue">€0,00</div>
-        <div class="dash-subline" id="dashboardSubline">Vink kaarten aan om je portfolio te vullen.</div>
-      </div>
-      <div class="market-metrics">
-        <div class="metric-card"><span>Kaarten in bezit</span><b id="dashboardOwned">0</b></div>
-        <div class="metric-card"><span>Met prijs</span><b id="dashboardPriced">0</b></div>
-        <div class="metric-card"><span>Aankoopwaarde</span><b id="dashboardPurchase">—</b></div>
-        <div class="metric-card"><span>Winst / verlies</span><b id="dashboardProfit">—</b></div>
-      </div>
-      <div class="market-card market-topcards">
-        <div class="market-card-head"><b>Duurste kaarten</b><span>in bezit</span></div>
-        <div id="dashboardTopCards" class="dashboard-list"><span class="smallnote">Nog geen kaarten aangeduid.</span></div>
-      </div>
-      <div class="market-card market-sets">
-        <div class="market-card-head"><b>Waarde per set</b><span>top 5</span></div>
-        <div id="dashboardSetBars" class="set-bar-list"><span class="smallnote">Nog geen setwaarde.</span></div>
-      </div>
-    </section>
-
     <div class="toolbar">
       <div>
         <label for="searchInput">Zoeken</label>
@@ -2322,25 +2298,11 @@ function renderPortfolio() {
   const profitClass = Number.isFinite(profit) && profit >= 0 ? 'profit-positive' : 'profit-negative';
   summary.innerHTML = `
     <div class="portfolio-stat"><b>${escapeHtml(formatMoney(totalValue, 'EUR'))}</b><span>waarde bezit</span></div>
-    <div class="portfolio-stat"><b>${ownedCards.length.toLocaleString('nl-BE')}</b><span>unieke kaarten</span></div>
-    <div class="portfolio-stat"><b>${totalQty.toLocaleString('nl-BE')}</b><span>aantal stuks</span></div>
-    <div class="portfolio-stat"><b class="${profitClass}">${Number.isFinite(profit) ? escapeHtml(formatMoney(profit, 'EUR')) : '—'}</b><span>winst/verlies</span></div>`;
-  const dashValue = el('dashboardValue');
-  const dashSubline = el('dashboardSubline');
-  const dashOwned = el('dashboardOwned');
-  const dashPriced = el('dashboardPriced');
-  const dashPurchase = el('dashboardPurchase');
-  const dashProfit = el('dashboardProfit');
-  if (dashValue) dashValue.textContent = formatMoney(totalValue, 'EUR');
-  if (dashSubline) dashSubline.textContent = ownedCards.length ? `${ownedCards.length.toLocaleString('nl-BE')} unieke kaarten • ${totalQty.toLocaleString('nl-BE')} stuks • ${pricedOwned.length.toLocaleString('nl-BE')} met marktprijs` : 'Vink kaarten aan om je portfolio te vullen.';
-  if (dashOwned) dashOwned.textContent = ownedCards.length.toLocaleString('nl-BE');
-  if (dashPriced) dashPriced.textContent = pricedOwned.length.toLocaleString('nl-BE');
-  if (dashPurchase) dashPurchase.textContent = purchaseCards.length ? formatMoney(totalPurchase, 'EUR') : '—';
-  if (dashProfit) { dashProfit.textContent = Number.isFinite(profit) ? formatMoney(profit, 'EUR') : '—'; dashProfit.className = profitClass; }
+    <div class="portfolio-stat"><b>${ownedCards.length.toLocaleString('nl-BE')}</b><span>unieke kaarten in bezit</span></div>
+    <div class="portfolio-stat"><b>${totalQty.toLocaleString('nl-BE')}</b><span>totaal aantal kaarten</span></div>
+    <div class="portfolio-stat"><b class="${profitClass}">${Number.isFinite(profit) ? escapeHtml(formatMoney(profit, 'EUR')) : '—'}</b><span>winst/verlies ingevuld</span></div>`;
   const top = pricedOwned.slice().sort((a,b)=>ownedCardValue(b)-ownedCardValue(a)).slice(0,5);
   topEl.innerHTML = top.length ? top.map(c => `<div class="portfolio-row" data-detail-key="${escapeHtml(c.key)}"><b>${escapeHtml(c.name)} <span class="badge">${escapeHtml(c.num)}</span></b><span class="mini">${escapeHtml(c.set)} — ${escapeHtml(formatMoney(ownedCardValue(c), 'EUR'))}${detailQuantity(c) > 1 ? ' voor ' + detailQuantity(c) + ' stuks' : ''}</span></div>`).join('') : '<span class="smallnote">Vink eerst kaarten aan die je hebt.</span>';
-  const dashTop = el('dashboardTopCards');
-  if (dashTop) dashTop.innerHTML = top.length ? top.map(c => `<div class="dashboard-row" data-detail-key="${escapeHtml(c.key)}"><div><b>${escapeHtml(c.name)} <span class="badge">${escapeHtml(c.num)}</span></b><div class="mini">${escapeHtml(c.set)} • ${escapeHtml(variantLabel(c))}${detailQuantity(c) > 1 ? ' • ' + detailQuantity(c) + ' stuks' : ''}</div></div><div class="value">${escapeHtml(formatMoney(ownedCardValue(c), 'EUR'))}</div></div>`).join('') : '<span class="smallnote">Vink eerst kaarten aan die je hebt.</span>';
   const bySet = new Map();
   pricedOwned.forEach(c => {
     const key = `${c.series}|||${c.set}|||${c.abbr}`;
@@ -2351,33 +2313,11 @@ function renderPortfolio() {
   });
   const topSets = [...bySet.values()].sort((a,b)=>b.value-a.value).slice(0,5);
   setEl.innerHTML = topSets.length ? topSets.map(s => `<div class="portfolio-row" data-setvalue="${escapeHtml(s.series + '|||' + s.set + '|||' + s.abbr)}"><b>${escapeHtml(s.set)} <span class="badge">${escapeHtml(s.abbr)}</span></b><span class="mini">${s.count.toLocaleString('nl-BE')} kaarten — ${escapeHtml(formatMoney(s.value, 'EUR'))}</span></div>`).join('') : '<span class="smallnote">Nog geen waarde per set.</span>';
-  const dashBars = el('dashboardSetBars');
-  if (dashBars) {
-    const maxValue = topSets.length ? Math.max(...topSets.map(s => s.value)) : 0;
-    dashBars.innerHTML = topSets.length ? topSets.map(s => {
-      const pct = maxValue ? Math.max(4, Math.round((s.value / maxValue) * 100)) : 0;
-      return `<div class="set-bar-item" data-setvalue="${escapeHtml(s.series + '|||' + s.set + '|||' + s.abbr)}"><div class="set-bar-top"><b>${escapeHtml(s.set)} <span class="badge">${escapeHtml(s.abbr)}</span></b><span>${escapeHtml(formatMoney(s.value, 'EUR'))}</span></div><div class="set-bar-track"><div class="set-bar-fill" style="width:${pct}%"></div></div><div class="mini">${s.count.toLocaleString('nl-BE')} kaarten</div></div>`;
-    }).join('') : '<span class="smallnote">Nog geen setwaarde.</span>';
-  }
   topEl.querySelectorAll('[data-detail-key]').forEach(item => item.addEventListener('click', () => {
     const card = cardsByKey[item.dataset.detailKey];
     if (card) openCardModal(card);
   }));
   setEl.querySelectorAll('[data-setvalue]').forEach(item => item.addEventListener('click', () => {
-    const [ser] = item.dataset.setvalue.split('|||');
-    seriesFilter.value = ser;
-    updateSetFilter();
-    setFilter.value = item.dataset.setvalue;
-    applyFilters(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }));
-  const dashTopEl = el('dashboardTopCards');
-  if (dashTopEl) dashTopEl.querySelectorAll('[data-detail-key]').forEach(item => item.addEventListener('click', () => {
-    const card = cardsByKey[item.dataset.detailKey];
-    if (card) openCardModal(card);
-  }));
-  const dashBarsEl = el('dashboardSetBars');
-  if (dashBarsEl) dashBarsEl.querySelectorAll('[data-setvalue]').forEach(item => item.addEventListener('click', () => {
     const [ser] = item.dataset.setvalue.split('|||');
     seriesFilter.value = ser;
     updateSetFilter();
@@ -2726,123 +2666,6 @@ body.modal-open { overflow: hidden; }
   .sidebar { max-height:none; overflow:visible; position:static; }
   .compact-actions { grid-template-columns: 1fr; }
   .modal-card { height: 100dvh; max-height: 100dvh; }
-}
-
-
-/* Stap 5 - CardmarketPrice-geïnspireerd dashboard en compactere zijbalk */
-.market-dashboard {
-  display:grid;
-  grid-template-columns: minmax(260px, 1.15fr) minmax(320px, 1.35fr);
-  gap: 14px;
-  margin-bottom: 16px;
-}
-.market-hero-card, .market-card {
-  border:1px solid rgba(40,86,163,.14);
-  border-radius:22px;
-  background:linear-gradient(180deg,#ffffff,#f8fbff);
-  box-shadow:0 16px 36px rgba(31,74,150,.08);
-}
-.market-hero-card {
-  padding:22px;
-  position:relative;
-  overflow:hidden;
-  min-height:190px;
-}
-.market-hero-card::after {
-  content:'';
-  position:absolute;
-  right:-70px; top:-70px;
-  width:190px; height:190px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(255,203,5,.42),rgba(40,86,163,.02) 68%);
-}
-.dash-kicker {
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:.14em;
-  font-weight:900;
-  color:#2856a3;
-}
-.market-hero-card h2 { margin:8px 0 6px; font-size:18px; color:#102a56; }
-.dash-main-value { font-size:40px; line-height:1; font-weight:950; letter-spacing:-.04em; color:#0f172a; }
-.dash-subline { margin-top:10px; color:#64748b; font-size:13px; line-height:1.35; max-width:360px; }
-.market-metrics {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
-}
-.metric-card {
-  border:1px solid rgba(148,163,184,.22);
-  background:#fff;
-  border-radius:18px;
-  padding:14px 16px;
-  box-shadow:0 10px 24px rgba(15,23,42,.04);
-}
-.metric-card span { display:block; font-size:12px; color:#64748b; font-weight:700; }
-.metric-card b { display:block; margin-top:6px; font-size:22px; letter-spacing:-.02em; color:#0f172a; }
-.market-card { padding:16px; min-height: 190px; }
-.market-card-head { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:12px; }
-.market-card-head b { font-size:15px; color:#102a56; }
-.market-card-head span { font-size:11px; color:#64748b; text-transform:uppercase; letter-spacing:.1em; font-weight:800; }
-.dashboard-list { display:grid; gap:8px; }
-.dashboard-row {
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:10px;
-  padding:10px 12px;
-  border:1px solid #e6edf7;
-  border-radius:14px;
-  background:#fff;
-  cursor:pointer;
-}
-.dashboard-row:hover { border-color:#bdd4f5; background:#f7fbff; }
-.dashboard-row b { font-size:13px; color:#102a56; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.dashboard-row .mini { font-size:11px; color:#64748b; }
-.dashboard-row .value { font-weight:900; color:#0f172a; align-self:center; }
-.set-bar-list { display:grid; gap:10px; }
-.set-bar-item { cursor:pointer; padding:10px 0 2px; border-bottom:1px solid #edf2f7; }
-.set-bar-top { display:flex; justify-content:space-between; gap:12px; font-size:12px; margin-bottom:6px; }
-.set-bar-top b { color:#102a56; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.set-bar-track { height:9px; border-radius:999px; background:#e8eef8; overflow:hidden; }
-.set-bar-fill { height:100%; border-radius:999px; background:linear-gradient(90deg,#2856a3,#ffcb05); }
-.sidebar { padding:12px; }
-.sidebar-hero { padding:16px; border-radius:18px; }
-.sidebar-hero h2 { font-size:20px !important; }
-.sidebar-hero p { display:none; }
-.sidebar > .progressbar { margin:10px 10px 0; }
-.sidebar .stat-grid {
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap:8px;
-  padding:0 10px;
-  margin:10px 0;
-}
-.sidebar .stat {
-  min-height:0;
-  padding:10px 10px;
-  border-radius:14px;
-  box-shadow:none;
-}
-.sidebar .stat b { font-size:17px; }
-.sidebar .stat span { font-size:10px; line-height:1.2; }
-.sidebar .stat:has(#setCount), .sidebar .stat:has(#cardCount) { display:none; }
-.side-card, .pricebox, .portfolio-box { border-radius:16px !important; }
-.side-card-body, .portfolio-box { padding:12px !important; }
-.portfolio-box > .smallnote, .portfolio-box h3 { display:none; }
-.portfolio-box .portfolio-stats { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px; }
-.portfolio-box .portfolio-stat { padding:9px; border-radius:12px; }
-.portfolio-box #portfolioTopCards, .portfolio-box #portfolioSetValues { display:none; }
-.compact-actions { grid-template-columns:1fr 1fr; gap:8px; }
-.price-quick input, .sync-quick input { min-height:38px; padding:9px 10px; }
-.price-quick .button-row, .sync-quick .button-row { gap:8px; }
-@media (max-width: 1180px) {
-  .market-dashboard { grid-template-columns:1fr; }
-}
-@media (max-width: 760px) {
-  .market-dashboard { gap:10px; }
-  .market-metrics { grid-template-columns:1fr 1fr; }
-  .dash-main-value { font-size:34px; }
-  .market-card { min-height:0; }
 }
 
 </style></head><body><h1>${escapeHtml(title)}</h1><p class="small">Aangemaakt op ${date}. Totaal in deze lijst: ${rows.length.toLocaleString('nl-BE')} kaarten.</p><table><thead><tr><th>Heb ik</th><th>Serie</th><th>Set</th><th>Afkorting</th><th>CM-code</th><th>Kaartnr.</th><th>Kaartnaam</th><th>Variant</th><th>Waarde</th></tr></thead><tbody>${bodyRows}</tbody></table></body></html>`;

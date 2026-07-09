@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pokemon-tcg-checklist-step5-portfolio-dashboard-v1';
+const CACHE_NAME = 'pokemon-tcg-checklist-step5-rollback-clean-v1';
 self.addEventListener('install', event => {
   self.skipWaiting();
 });
