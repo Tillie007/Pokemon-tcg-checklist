@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Maak automatisch pokemon_image_map.json met kandidaat-afbeeldingen per kaart.
-Deze stap verandert geen collectiegegevens en raakt prices.json niet aan.
+Deze versie zet de officiële Pokémon TCG image-CDN eerst waar mogelijk.
+Limitless blijft fallback, omdat die soms een kaartachterkant/placeholder teruggeeft.
 """
 from __future__ import annotations
 
@@ -16,11 +17,14 @@ DATA_PATH = ROOT / "pokemon_cards_data.json"
 OUT_PATH = ROOT / "pokemon_image_map.json"
 DEBUG_PATH = ROOT / "pokemon_image_debug.json"
 
+# Primaire bron: https://images.pokemontcg.io/{set_id}/{number}_hires.png
+# Eerst exact op serie|set|afkorting, daarna fallback op serie|set.
 POKEMON_TCG_IMAGE_SET_IDS = {
     "Base|Base|BS": "base1", "Base|Jungle|JU": "base2", "Base|Fossil|FO": "base3", "Base|Base Set 2|B2": "base4", "Base|Team Rocket|TR": "base5", "Other|Legendary Collection|LC": "base6", "Base|Wizards Black Star Promos|PR": "basep",
     "Gym|Gym Heroes|G1": "gym1", "Gym|Gym Challenge|G2": "gym2", "Neo|Neo Genesis|N1": "neo1", "Neo|Neo Discovery|N2": "neo2", "Neo|Neo Revelation|N3": "neo3", "Neo|Neo Destiny|N4": "neo4", "Other|Southern Islands|—": "si1",
     "E-Card|Expedition Base Set|EX": "ecard1", "E-Card|Aquapolis|AQ": "ecard2", "E-Card|Skyridge|SK": "ecard3",
     "EX|Ruby & Sapphire|RS": "ex1", "EX|Sandstorm|SS": "ex2", "EX|Dragon|DR": "ex3", "EX|Team Magma vs Team Aqua|MA": "ex4", "EX|Hidden Legends|HL": "ex5", "EX|FireRed & LeafGreen|RG": "ex6", "EX|Team Rocket Returns|TRR": "ex7", "EX|Deoxys|DX": "ex8", "EX|Emerald|EM": "ex9", "EX|Unseen Forces|UF": "ex10", "EX|Delta Species|DS": "ex11", "EX|Legend Maker|LM": "ex12", "EX|Holon Phantoms|HP": "ex13", "EX|Crystal Guardians|CG": "ex14", "EX|Dragon Frontiers|DF": "ex15", "EX|Power Keepers|PK": "ex16", "NP|Nintendo Black Star Promos|PR-NP": "np",
+    "POP|POP Series 1|—": "pop1", "POP|POP Series 2|—": "pop2", "POP|POP Series 3|—": "pop3", "POP|POP Series 4|—": "pop4", "POP|POP Series 5|—": "pop5", "POP|POP Series 6|—": "pop6", "POP|POP Series 7|—": "pop7", "POP|POP Series 8|—": "pop8", "POP|POP Series 9|—": "pop9",
     "Diamond & Pearl|Diamond & Pearl|DP": "dp1", "Diamond & Pearl|Mysterious Treasures|MT": "dp2", "Diamond & Pearl|Secret Wonders|SW": "dp3", "Diamond & Pearl|Great Encounters|GE": "dp4", "Diamond & Pearl|Majestic Dawn|MD": "dp5", "Diamond & Pearl|Legends Awakened|LA": "dp6", "Diamond & Pearl|Stormfront|SF": "dp7", "Diamond & Pearl|DP Black Star Promos|PR-DPP": "dpp",
     "Platinum|Platinum|PL": "pl1", "Platinum|Rising Rivals|RR": "pl2", "Platinum|Supreme Victors|SV": "pl3", "Platinum|Arceus|AR": "pl4",
     "HeartGold & SoulSilver|HeartGold & SoulSilver|HS": "hgss1", "HeartGold & SoulSilver|HS—Unleashed|UL": "hgss2", "HeartGold & SoulSilver|HS—Undaunted|UD": "hgss3", "HeartGold & SoulSilver|HS—Triumphant|TM": "hgss4", "HeartGold & SoulSilver|Call of Legends|CL": "col1", "HeartGold & SoulSilver|HGSS Black Star Promos|PR-HS": "hsp",
@@ -59,7 +63,7 @@ def norm_num(value: Any) -> str:
 
 def num_candidates(value: Any) -> list[str]:
     raw = str(value or "").strip()
-    out = [raw, raw.upper(), raw.lower()]
+    out = [raw]
     n = norm_num(raw)
     if n:
         out.extend([n, n.zfill(2), n.zfill(3)])
@@ -72,7 +76,15 @@ def card_key(card: dict[str, Any]) -> str:
 
 def tcg_set_id(card: dict[str, Any]) -> str:
     exact = f"{card.get('series','')}|{card.get('set','')}|{card.get('abbr','')}"
-    return POKEMON_TCG_IMAGE_SET_IDS.get(exact, "")
+    by_set = f"{card.get('series','')}|{card.get('set','')}|—"
+    if exact in POKEMON_TCG_IMAGE_SET_IDS:
+        return POKEMON_TCG_IMAGE_SET_IDS[exact]
+    if by_set in POKEMON_TCG_IMAGE_SET_IDS:
+        return POKEMON_TCG_IMAGE_SET_IDS[by_set]
+    # Laatste fallback: zelfde serie en set, ongeacht afkorting.
+    prefix = f"{card.get('series','')}|{card.get('set','')}|"
+    matches = [v for k, v in POKEMON_TCG_IMAGE_SET_IDS.items() if k.startswith(prefix)]
+    return matches[0] if matches else ""
 
 
 def image_candidates(card: dict[str, Any]) -> list[str]:
@@ -80,18 +92,18 @@ def image_candidates(card: dict[str, Any]) -> list[str]:
     nums = num_candidates(card.get("num"))
     urls: list[str] = []
 
-    # Limitless is very useful for newer and Japanese/translated dataset naming.
-    if abbr:
-        for n in nums:
-            urls.append(f"https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/{abbr}/{abbr}_{n}_R_EN_LG.png")
-            urls.append(f"https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/{abbr}/{abbr}_{n}_EN_LG.png")
-
-    # Pokémon TCG image CDN for many official English sets.
+    # 1) Eerst officiële Pokémon TCG image CDN. Die geeft veel minder placeholders/kaartachterkanten.
     set_id = tcg_set_id(card)
     if set_id:
         for n in nums:
             urls.append(f"https://images.pokemontcg.io/{set_id}/{n}_hires.png")
             urls.append(f"https://images.pokemontcg.io/{set_id}/{n}.png")
+
+    # 2) Daarna Limitless als fallback. Eerst normale kaart, reverse pas daarna.
+    if abbr and abbr not in {"", "—"}:
+        for n in nums:
+            urls.append(f"https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/{abbr}/{abbr}_{n}_EN_LG.png")
+            urls.append(f"https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/{abbr}/{abbr}_{n}_R_EN_LG.png")
 
     return unique(urls)
 
@@ -99,7 +111,7 @@ def image_candidates(card: dict[str, Any]) -> list[str]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--force", action="store_true", help="ignored; kept for GitHub workflow symmetry")
-    args = parser.parse_args()
+    parser.parse_args()
 
     if not DATA_PATH.exists():
         raise SystemExit(f"{DATA_PATH.name} niet gevonden")
@@ -111,7 +123,8 @@ def main() -> int:
 
     mapping: dict[str, Any] = {}
     total_candidates = 0
-    by_source = {"limitless": 0, "pokemontcg": 0}
+    by_source = {"pokemontcg": 0, "limitless": 0}
+    first_source = {"pokemontcg": 0, "limitless": 0}
 
     for card in cards:
         if not isinstance(card, dict):
@@ -121,8 +134,12 @@ def main() -> int:
             continue
         key = card_key(card)
         total_candidates += len(cands)
-        by_source["limitless"] += sum("limitlesstcg" in u for u in cands)
         by_source["pokemontcg"] += sum("images.pokemontcg.io" in u for u in cands)
+        by_source["limitless"] += sum("limitlesstcg" in u for u in cands)
+        if cands[0].startswith("https://images.pokemontcg.io"):
+            first_source["pokemontcg"] += 1
+        elif "limitlesstcg" in cands[0]:
+            first_source["limitless"] += 1
         mapping[key] = {
             "name": card.get("name"),
             "series": card.get("series"),
@@ -130,17 +147,17 @@ def main() -> int:
             "abbr": card.get("abbr"),
             "num": card.get("num"),
             "bestUrl": cands[0],
-            "candidates": cands[:8],
-            "limitlessPage": f"https://limitlesstcg.com/cards/{safe_code(card.get('abbr'))}/{norm_num(card.get('num'))}" if safe_code(card.get('abbr')) and norm_num(card.get('num')) else "",
+            "candidates": cands[:10],
+            "limitlessPage": f"https://limitlesstcg.com/cards/{abbr}/{norm_num(card.get('num'))}" if (abbr := safe_code(card.get("abbr"))) and norm_num(card.get("num")) else "",
         }
 
     out = {
-        "source": "Automatische kandidaten: Limitless + Pokémon TCG image CDN",
+        "source": "Automatische kandidaten: eerst Pokémon TCG image CDN, daarna Limitless fallback",
         "updatedAt": datetime.now(timezone.utc).isoformat(),
         "totalCards": len(cards),
         "cardsWithImageCandidates": len(mapping),
         "totalCandidateUrls": total_candidates,
-        "format": "image-map-candidates-v1",
+        "format": "image-map-candidates-v2",
         "images": mapping,
     }
     debug = {
@@ -148,7 +165,8 @@ def main() -> int:
         "totalCards": len(cards),
         "cardsWithImageCandidates": len(mapping),
         "bySourceCandidateUrls": by_source,
-        "note": "URLs zijn kandidaat-links. De app probeert automatisch de volgende kandidaat als de eerste niet laadt.",
+        "firstCandidateSource": first_source,
+        "note": "V2 zet Pokémon TCG image CDN eerst om Limitless-placeholders/kaartachterkanten te vermijden. POP sets zijn toegevoegd.",
     }
 
     OUT_PATH.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
