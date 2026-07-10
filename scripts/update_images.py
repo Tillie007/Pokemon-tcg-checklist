@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 """
 Maak automatisch pokemon_image_map.json met kandidaat-afbeeldingen per kaart.
-Deze versie zet de officiële Pokémon TCG image-CDN eerst waar mogelijk.
-Limitless blijft fallback, omdat die soms een kaartachterkant/placeholder teruggeeft.
+Deze stap verandert geen collectiegegevens en raakt prices.json niet aan.
+
+Belangrijk: sommige Limitless-links geven een Pokémon-kaartachterkant terug bij
+oude/onbekende sets. Daarom gebruiken we Limitless alleen nog als fallback voor
+moderne setcodes waar die bron bruikbaar is. Voor oude sets gebruiken we eerst
+de officiële Pokémon TCG image CDN.
 """
 from __future__ import annotations
 
@@ -17,16 +21,17 @@ DATA_PATH = ROOT / "pokemon_cards_data.json"
 OUT_PATH = ROOT / "pokemon_image_map.json"
 DEBUG_PATH = ROOT / "pokemon_image_debug.json"
 
-# Primaire bron: https://images.pokemontcg.io/{set_id}/{number}_hires.png
-# Eerst exact op serie|set|afkorting, daarna fallback op serie|set.
+# Mapping naar officiële Pokémon TCG image CDN set-id's.
+# Sleutelvorm: "serie|set|afkorting". Daarnaast gebruikt de functie tcg_set_id
+# ook een fallback op alleen "serie|set", zodat bv. "N4 / CM N4" toch Neo Destiny vindt.
 POKEMON_TCG_IMAGE_SET_IDS = {
     "Base|Base|BS": "base1", "Base|Jungle|JU": "base2", "Base|Fossil|FO": "base3", "Base|Base Set 2|B2": "base4", "Base|Team Rocket|TR": "base5", "Other|Legendary Collection|LC": "base6", "Base|Wizards Black Star Promos|PR": "basep",
     "Gym|Gym Heroes|G1": "gym1", "Gym|Gym Challenge|G2": "gym2", "Neo|Neo Genesis|N1": "neo1", "Neo|Neo Discovery|N2": "neo2", "Neo|Neo Revelation|N3": "neo3", "Neo|Neo Destiny|N4": "neo4", "Other|Southern Islands|—": "si1",
     "E-Card|Expedition Base Set|EX": "ecard1", "E-Card|Aquapolis|AQ": "ecard2", "E-Card|Skyridge|SK": "ecard3",
     "EX|Ruby & Sapphire|RS": "ex1", "EX|Sandstorm|SS": "ex2", "EX|Dragon|DR": "ex3", "EX|Team Magma vs Team Aqua|MA": "ex4", "EX|Hidden Legends|HL": "ex5", "EX|FireRed & LeafGreen|RG": "ex6", "EX|Team Rocket Returns|TRR": "ex7", "EX|Deoxys|DX": "ex8", "EX|Emerald|EM": "ex9", "EX|Unseen Forces|UF": "ex10", "EX|Delta Species|DS": "ex11", "EX|Legend Maker|LM": "ex12", "EX|Holon Phantoms|HP": "ex13", "EX|Crystal Guardians|CG": "ex14", "EX|Dragon Frontiers|DF": "ex15", "EX|Power Keepers|PK": "ex16", "NP|Nintendo Black Star Promos|PR-NP": "np",
-    "POP|POP Series 1|—": "pop1", "POP|POP Series 2|—": "pop2", "POP|POP Series 3|—": "pop3", "POP|POP Series 4|—": "pop4", "POP|POP Series 5|—": "pop5", "POP|POP Series 6|—": "pop6", "POP|POP Series 7|—": "pop7", "POP|POP Series 8|—": "pop8", "POP|POP Series 9|—": "pop9",
     "Diamond & Pearl|Diamond & Pearl|DP": "dp1", "Diamond & Pearl|Mysterious Treasures|MT": "dp2", "Diamond & Pearl|Secret Wonders|SW": "dp3", "Diamond & Pearl|Great Encounters|GE": "dp4", "Diamond & Pearl|Majestic Dawn|MD": "dp5", "Diamond & Pearl|Legends Awakened|LA": "dp6", "Diamond & Pearl|Stormfront|SF": "dp7", "Diamond & Pearl|DP Black Star Promos|PR-DPP": "dpp",
     "Platinum|Platinum|PL": "pl1", "Platinum|Rising Rivals|RR": "pl2", "Platinum|Supreme Victors|SV": "pl3", "Platinum|Arceus|AR": "pl4",
+    "POP|POP Series 1|—": "pop1", "POP|POP Series 2|—": "pop2", "POP|POP Series 3|—": "pop3", "POP|POP Series 4|—": "pop4", "POP|POP Series 5|—": "pop5", "POP|POP Series 6|—": "pop6", "POP|POP Series 7|—": "pop7", "POP|POP Series 8|—": "pop8", "POP|POP Series 9|—": "pop9",
     "HeartGold & SoulSilver|HeartGold & SoulSilver|HS": "hgss1", "HeartGold & SoulSilver|HS—Unleashed|UL": "hgss2", "HeartGold & SoulSilver|HS—Undaunted|UD": "hgss3", "HeartGold & SoulSilver|HS—Triumphant|TM": "hgss4", "HeartGold & SoulSilver|Call of Legends|CL": "col1", "HeartGold & SoulSilver|HGSS Black Star Promos|PR-HS": "hsp",
     "Black & White|Black & White|BLW": "bw1", "Black & White|Emerging Powers|EPO": "bw2", "Black & White|Noble Victories|NVI": "bw3", "Black & White|Next Destinies|NXD": "bw4", "Black & White|Dark Explorers|DEX": "bw5", "Black & White|Dragons Exalted|DRX": "bw6", "Black & White|Dragon Vault|DRV": "dv1", "Black & White|Boundaries Crossed|BCR": "bw7", "Black & White|Plasma Storm|PLS": "bw8", "Black & White|Plasma Freeze|PLF": "bw9", "Black & White|Plasma Blast|PLB": "bw10", "Black & White|Legendary Treasures|LTR": "bw11", "Black & White|BW Black Star Promos|PR-BLW": "bwp",
     "XY|Kalos Starter Set|KSS": "xy0", "XY|XY|XY": "xy1", "XY|Flashfire|FLF": "xy2", "XY|Furious Fists|FFI": "xy3", "XY|Phantom Forces|PHF": "xy4", "XY|Primal Clash|PRC": "xy5", "XY|Double Crisis|DCR": "dc1", "XY|Roaring Skies|ROS": "xy6", "XY|Ancient Origins|AOR": "xy7", "XY|BREAKthrough|BKT": "xy8", "XY|BREAKpoint|BKP": "xy9", "XY|Generations|GEN": "g1", "XY|Fates Collide|FCO": "xy10", "XY|Steam Siege|STS": "xy11", "XY|Evolutions|EVO": "xy12", "XY|XY Black Star Promos|PR-XY": "xyp",
@@ -35,6 +40,10 @@ POKEMON_TCG_IMAGE_SET_IDS = {
     "Scarlet & Violet|Scarlet & Violet|SVI": "sv1", "Scarlet & Violet|Scarlet & Violet Energies|SVE": "sve", "Scarlet & Violet|Scarlet & Violet Black Star Promos|PR-SV": "svp", "Scarlet & Violet|Paldea Evolved|PAL": "sv2", "Scarlet & Violet|Obsidian Flames|OBF": "sv3", "Scarlet & Violet|151|MEW": "sv3pt5", "Scarlet & Violet|Paradox Rift|PAR": "sv4", "Scarlet & Violet|Paldean Fates|PAF": "sv4pt5", "Scarlet & Violet|Temporal Forces|TEF": "sv5", "Scarlet & Violet|Twilight Masquerade|TWM": "sv6", "Scarlet & Violet|Shrouded Fable|SFA": "sv6pt5", "Scarlet & Violet|Stellar Crown|SCR": "sv7", "Scarlet & Violet|Surging Sparks|SSP": "sv8", "Scarlet & Violet|Prismatic Evolutions|PRE": "sv8pt5", "Scarlet & Violet|Journey Together|JTG": "sv9", "Scarlet & Violet|Destined Rivals|DRI": "sv10",
     "Mega Evolution|Mega Evolution|MEG": "me1", "Mega Evolution|Ascended Heroes|ASC": "me2pt5", "Mega Evolution|Perfect Order|POR": "me3", "Mega Evolution|Chaos Rising|CRI": "me4",
 }
+
+# Deze reeksen mogen Limitless als fallback gebruiken. Voor oude sets gaf Limitless
+# te vaak een kaartachterkant terug; die sluiten we bewust uit.
+LIMITLESS_ALLOWED_SERIES = {"Sword & Shield", "Scarlet & Violet", "Mega Evolution"}
 
 
 def unique(values: list[str]) -> list[str]:
@@ -49,7 +58,8 @@ def unique(values: list[str]) -> list[str]:
 
 
 def safe_code(value: Any) -> str:
-    return "".join(ch for ch in str(value or "").upper() if ch.isalnum())
+    cleaned = "".join(ch for ch in str(value or "").upper() if ch.isalnum())
+    return "" if cleaned in {"", "—", "CM"} else cleaned
 
 
 def norm_num(value: Any) -> str:
@@ -63,10 +73,11 @@ def norm_num(value: Any) -> str:
 
 def num_candidates(value: Any) -> list[str]:
     raw = str(value or "").strip()
-    out = [raw]
     n = norm_num(raw)
+    out: list[str] = []
     if n:
         out.extend([n, n.zfill(2), n.zfill(3)])
+    out.extend([raw, raw.upper(), raw.lower()])
     return unique(out)
 
 
@@ -75,37 +86,41 @@ def card_key(card: dict[str, Any]) -> str:
 
 
 def tcg_set_id(card: dict[str, Any]) -> str:
-    exact = f"{card.get('series','')}|{card.get('set','')}|{card.get('abbr','')}"
-    by_set = f"{card.get('series','')}|{card.get('set','')}|—"
+    series = str(card.get("series", ""))
+    set_name = str(card.get("set", ""))
+    abbr = str(card.get("abbr", ""))
+    exact = f"{series}|{set_name}|{abbr}"
     if exact in POKEMON_TCG_IMAGE_SET_IDS:
         return POKEMON_TCG_IMAGE_SET_IDS[exact]
-    if by_set in POKEMON_TCG_IMAGE_SET_IDS:
-        return POKEMON_TCG_IMAGE_SET_IDS[by_set]
-    # Laatste fallback: zelfde serie en set, ongeacht afkorting.
-    prefix = f"{card.get('series','')}|{card.get('set','')}|"
+    # Fallback: zelfde serie en set, ongeacht afkorting. Dit lost bv. 'N4 / CM N4' op.
+    prefix = f"{series}|{set_name}|"
     matches = [v for k, v in POKEMON_TCG_IMAGE_SET_IDS.items() if k.startswith(prefix)]
     return matches[0] if matches else ""
 
 
-def image_candidates(card: dict[str, Any]) -> list[str]:
+def image_candidates(card: dict[str, Any]) -> tuple[list[str], dict[str, int]]:
     abbr = safe_code(card.get("abbr"))
     nums = num_candidates(card.get("num"))
     urls: list[str] = []
+    counts = {"pokemontcg": 0, "limitless": 0}
 
-    # 1) Eerst officiële Pokémon TCG image CDN. Die geeft veel minder placeholders/kaartachterkanten.
+    # 1) Officiële Pokémon TCG image CDN. Dit is de veiligste bron voor oudere Engelse sets.
     set_id = tcg_set_id(card)
     if set_id:
         for n in nums:
             urls.append(f"https://images.pokemontcg.io/{set_id}/{n}_hires.png")
             urls.append(f"https://images.pokemontcg.io/{set_id}/{n}.png")
+        counts["pokemontcg"] = len(urls)
 
-    # 2) Daarna Limitless als fallback. Eerst normale kaart, reverse pas daarna.
-    if abbr and abbr not in {"", "—"}:
+    # 2) Limitless alleen voor moderne reeksen. Niet voor Neo/POP/Base/EX/... omdat dat te vaak kaartachterkanten gaf.
+    if abbr and str(card.get("series", "")) in LIMITLESS_ALLOWED_SERIES:
+        before = len(urls)
         for n in nums:
             urls.append(f"https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/{abbr}/{abbr}_{n}_EN_LG.png")
             urls.append(f"https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/{abbr}/{abbr}_{n}_R_EN_LG.png")
+        counts["limitless"] = len(urls) - before
 
-    return unique(urls)
+    return unique(urls), counts
 
 
 def main() -> int:
@@ -124,22 +139,21 @@ def main() -> int:
     mapping: dict[str, Any] = {}
     total_candidates = 0
     by_source = {"pokemontcg": 0, "limitless": 0}
-    first_source = {"pokemontcg": 0, "limitless": 0}
+    no_candidates = 0
 
     for card in cards:
         if not isinstance(card, dict):
             continue
-        cands = image_candidates(card)
+        cands, counts = image_candidates(card)
         if not cands:
+            no_candidates += 1
             continue
         key = card_key(card)
         total_candidates += len(cands)
-        by_source["pokemontcg"] += sum("images.pokemontcg.io" in u for u in cands)
-        by_source["limitless"] += sum("limitlesstcg" in u for u in cands)
-        if cands[0].startswith("https://images.pokemontcg.io"):
-            first_source["pokemontcg"] += 1
-        elif "limitlesstcg" in cands[0]:
-            first_source["limitless"] += 1
+        by_source["pokemontcg"] += counts.get("pokemontcg", 0)
+        by_source["limitless"] += counts.get("limitless", 0)
+        abbr = safe_code(card.get("abbr"))
+        n = norm_num(card.get("num"))
         mapping[key] = {
             "name": card.get("name"),
             "series": card.get("series"),
@@ -148,25 +162,26 @@ def main() -> int:
             "num": card.get("num"),
             "bestUrl": cands[0],
             "candidates": cands[:10],
-            "limitlessPage": f"https://limitlesstcg.com/cards/{abbr}/{norm_num(card.get('num'))}" if (abbr := safe_code(card.get("abbr"))) and norm_num(card.get("num")) else "",
+            "limitlessPage": f"https://limitlesstcg.com/cards/{abbr}/{n}" if abbr and n else "",
         }
 
     out = {
-        "source": "Automatische kandidaten: eerst Pokémon TCG image CDN, daarna Limitless fallback",
+        "source": "Automatische kandidaten: Pokémon TCG image CDN eerst; Limitless alleen moderne fallback",
         "updatedAt": datetime.now(timezone.utc).isoformat(),
         "totalCards": len(cards),
         "cardsWithImageCandidates": len(mapping),
+        "cardsWithoutImageCandidates": no_candidates,
         "totalCandidateUrls": total_candidates,
-        "format": "image-map-candidates-v2",
+        "format": "image-map-candidates-v2-no-cardback-fallback",
         "images": mapping,
     }
     debug = {
         "updatedAt": out["updatedAt"],
         "totalCards": len(cards),
         "cardsWithImageCandidates": len(mapping),
+        "cardsWithoutImageCandidates": no_candidates,
         "bySourceCandidateUrls": by_source,
-        "firstCandidateSource": first_source,
-        "note": "V2 zet Pokémon TCG image CDN eerst om Limitless-placeholders/kaartachterkanten te vermijden. POP sets zijn toegevoegd.",
+        "note": "Pokémon TCG image CDN staat eerst. Limitless wordt niet meer gebruikt voor oude reeksen zoals Neo en POP, omdat dat kaartachterkanten kon tonen.",
     }
 
     OUT_PATH.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
