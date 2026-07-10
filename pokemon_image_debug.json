@@ -1,14 +1,11 @@
 {
-  "updatedAt": "2026-07-10T12:29:40.622455+00:00",
+  "updatedAt": "2026-07-10T12:39:53.547574+00:00",
   "totalCards": 20324,
-  "cardsWithImageCandidates": 20128,
+  "cardsWithImageCandidates": 20114,
+  "cardsWithoutImageCandidates": 210,
   "bySourceCandidateUrls": {
-    "pokemontcg": 66140,
-    "limitless": 66958
+    "pokemontcg": 69394,
+    "limitless": 25736
   },
-  "firstCandidateSource": {
-    "pokemontcg": 19639,
-    "limitless": 489
-  },
-  "note": "V2 zet Pokémon TCG image CDN eerst om Limitless-placeholders/kaartachterkanten te vermijden. POP sets zijn toegevoegd."
+  "note": "Pokémon TCG image CDN staat eerst. Limitless wordt niet meer gebruikt voor oude reeksen zoals Neo en POP, omdat dat kaartachterkanten kon tonen."
 }
