@@ -1333,6 +1333,40 @@ function inferredPokemonTcgImageCandidates(card) {
   });
   return uniqueNonEmpty(urls);
 }
+
+function safeLimitlessCode(value) {
+  return String(value || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+}
+function limitlessNumberCandidates(num) {
+  const raw = String(num || '').trim();
+  if (!raw) return [];
+  const out = [raw, raw.toUpperCase(), raw.toLowerCase()];
+  if (/^0*\d+$/.test(raw)) {
+    const n = String(parseInt(raw, 10));
+    out.push(n);
+    out.push(n.padStart(2, '0'));
+    out.push(n.padStart(3, '0'));
+  }
+  return uniqueNonEmpty(out);
+}
+function inferredLimitlessImageCandidates(card) {
+  const ab = safeLimitlessCode(card.abbr || cardmarketCodeFor(card));
+  if (!ab) return [];
+  const nums = limitlessNumberCandidates(card.num);
+  const urls = [];
+  nums.forEach(n => {
+    const safe = encodeURIComponent(n);
+    urls.push(`https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/${ab}/${ab}_${safe}_R_EN_LG.png`);
+    urls.push(`https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/${ab}/${ab}_${safe}_EN_LG.png`);
+  });
+  return uniqueNonEmpty(urls);
+}
+function limitlessCardUrl(card) {
+  const ab = safeLimitlessCode(card.abbr || cardmarketCodeFor(card));
+  const n = normalizedImageNumber(card.num) || String(card.num || '').trim();
+  return ab && n ? `https://limitlesstcg.com/cards/${encodeURIComponent(ab)}/${encodeURIComponent(n)}` : '';
+}
+
 function imageCandidatesFor(card) {
   const d = detailsFor(card) || {};
   const p = priceFor(card) || {};
@@ -1343,6 +1377,7 @@ function imageCandidatesFor(card) {
     p.imageURL,
     p.cardImage,
     card.imageUrl,
+    ...inferredLimitlessImageCandidates(card),
     ...inferredPkmnCardsImageCandidates(card),
     ...inferredPokemonTcgImageCandidates(card)
   ]);
@@ -1361,7 +1396,7 @@ function tryNextCardImage(img) {
       img.src = next;
     } else {
       const wrap = img.closest('.card-preview');
-      if (wrap) wrap.innerHTML = '<div class="placeholder"><b>Geen automatische afbeelding gevonden</b><span>Gebruik de PkmnCards-knop in de details om de juiste kaartpagina te openen, of plak hieronder zelf een afbeeldingslink.</span></div>';
+      if (wrap) wrap.innerHTML = '<div class="placeholder"><b>Geen automatische afbeelding gevonden</b><span>Gebruik de PkmnCards/Limitless-knop in de details of plak hieronder zelf een afbeeldingslink.</span></div>';
     }
   } catch(e) {
     img.style.display = 'none';
@@ -2120,8 +2155,8 @@ function openCardModal(card) {
   el('modalTitle').textContent = `${card.name} ${card.num ? '(' + card.num + ')' : ''}`;
   el('modalSubtitle').textContent = `${card.series} — ${card.set} — ${card.abbr}${cardmarketCodeFor(card) ? ' / CM ' + cardmarketCodeFor(card) : ''}`;
   const imgHtml = imageUrl
-    ? `<img id="detailCardImage" src="${escapeHtml(imageUrl)}" data-fallbacks="${escapeHtml(encodeURIComponent(JSON.stringify(imageFallbacks)))}" onerror="tryNextCardImage(this)" alt="${escapeHtml(card.name)}" loading="lazy"><div class="image-help">Afbeelding automatisch gezocht via Pokémon TCG-data en PkmnCards. Klopt ze niet? Gebruik de PkmnCards-knop of plak hieronder zelf de juiste afbeeldingslink.</div>`
-    : `<div class="placeholder"><b>Geen automatische afbeelding gevonden</b><span>Gebruik de PkmnCards-knop in de details om de juiste kaartpagina te openen, of plak hieronder zelf een afbeeldingslink.</span></div>`;
+    ? `<img id="detailCardImage" src="${escapeHtml(imageUrl)}" data-fallbacks="${escapeHtml(encodeURIComponent(JSON.stringify(imageFallbacks)))}" onerror="tryNextCardImage(this)" alt="${escapeHtml(card.name)}" loading="lazy"><div class="image-help">Afbeelding automatisch gezocht via Limitless, PkmnCards en Pokémon TCG-data. Klopt ze niet? Gebruik de PkmnCards-knop of plak hieronder zelf de juiste afbeeldingslink.</div>`
+    : `<div class="placeholder"><b>Geen automatische afbeelding gevonden</b><span>Gebruik de PkmnCards/Limitless-knop in de details of plak hieronder zelf een afbeeldingslink.</span></div>`;
   el('modalBody').innerHTML = `
     <div class="detail-grid">
       <div class="card-preview">${imgHtml}</div>
@@ -2153,6 +2188,7 @@ function openCardModal(card) {
           <a class="linkbutton market-button secondary" href="${escapeHtml(cardmarketSearchUrl(card))}" target="_blank" rel="noopener noreferrer">Zoek alternatief op Cardmarket</a>
           <a class="linkbutton pkmn-button" href="${escapeHtml(pkmnCardsCardUrl(card))}" target="_blank" rel="noopener noreferrer">Bekijk op PkmnCards</a>
           <a class="linkbutton pkmn-button" href="${escapeHtml(pkmnCardsSearchUrl(card))}" target="_blank" rel="noopener noreferrer">Zoek afbeelding op PkmnCards</a>
+          ${limitlessCardUrl(card) ? `<a class="linkbutton pkmn-button" href="${escapeHtml(limitlessCardUrl(card))}" target="_blank" rel="noopener noreferrer">Bekijk op Limitless</a>` : ''}
         </div>
         <h3 style="margin:14px 0 6px;">Mijn versie van deze kaart</h3>
         <div class="detail-edit-grid">
