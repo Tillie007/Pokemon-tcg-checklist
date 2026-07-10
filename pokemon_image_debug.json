@@ -1,0 +1,10 @@
+{
+  "updatedAt": "2026-07-10T11:39:49.328561+00:00",
+  "totalCards": 20324,
+  "cardsWithImageCandidates": 19975,
+  "bySourceCandidateUrls": {
+    "limitless": 70212,
+    "pokemontcg": 68620
+  },
+  "note": "URLs zijn kandidaat-links. De app probeert automatisch de volgende kandidaat als de eerste niet laadt."
+}
