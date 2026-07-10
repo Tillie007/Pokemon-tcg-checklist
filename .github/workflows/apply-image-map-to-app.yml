@@ -1,0 +1,29 @@
+name: Apply image map to app
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Patch app to use pokemon_image_map.json
+        run: python scripts/apply_image_map_to_app.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "Geen wijzigingen nodig."
+          else
+            git add index.html service-worker.js
+            git commit -m "Gebruik automatische afbeeldingsmap in app"
+            git push
+          fi
