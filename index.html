@@ -777,6 +777,52 @@ body.modal-open { overflow: hidden; }
   .modal-card { height: 100dvh; max-height: 100dvh; }
 }
 
+
+
+/* Stap 5B - compact portfolio-tab, geen groot blok bovenaan */
+.sidebar .portfolio-box { display: none !important; }
+.portfolio-quick-card .side-card-body { display:grid; gap:10px; }
+.portfolio-mini-stats { display:grid; grid-template-columns: 1fr 1fr; gap:8px; }
+.portfolio-mini-stat { border:1px solid #dbeafe; background:linear-gradient(180deg,#fff,#f8fbff); border-radius:14px; padding:10px; }
+.portfolio-mini-stat b { display:block; font-size:17px; color:#0f3f8f; line-height:1.1; }
+.portfolio-mini-stat span { display:block; color:#64748b; font-size:11px; margin-top:3px; }
+.portfolio-open-btn { width:100%; justify-content:center; }
+.portfolio-modal-card { width:min(1120px, 96vw); max-height: 92vh; }
+.portfolio-dashboard { display:grid; gap:16px; }
+.portfolio-hero { display:flex; justify-content:space-between; gap:14px; align-items:flex-start; padding:16px; border-radius:18px; background:linear-gradient(135deg,#0f3f8f,#2257d6 55%,#0f766e); color:#fff; box-shadow:0 10px 26px rgba(15,63,143,.18); }
+.portfolio-hero h3 { margin:0 0 4px; font-size:23px; }
+.portfolio-hero p { margin:0; opacity:.9; }
+.portfolio-hero-value { text-align:right; min-width:180px; }
+.portfolio-hero-value b { display:block; font-size:30px; line-height:1; }
+.portfolio-hero-value span { font-size:12px; opacity:.85; }
+.portfolio-metrics { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:10px; }
+.portfolio-metric { border:1px solid #dbe5f1; border-radius:16px; background:#fff; padding:13px; box-shadow:0 6px 18px rgba(31,74,150,.04); }
+.portfolio-metric b { display:block; color:#0f3f8f; font-size:20px; }
+.portfolio-metric span { display:block; color:#64748b; font-size:12px; margin-top:3px; }
+.portfolio-two-col { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.portfolio-section { border:1px solid #dbe5f1; border-radius:18px; background:#fff; padding:14px; min-width:0; }
+.portfolio-section h3 { margin:0 0 10px; color:#0f2754; font-size:17px; }
+.portfolio-table { width:100%; border-collapse:separate; border-spacing:0 7px; font-size:13px; }
+.portfolio-table th { text-align:left; color:#64748b; font-size:11px; text-transform:uppercase; letter-spacing:.03em; padding:0 8px; }
+.portfolio-table td { background:#f8fbff; border-top:1px solid #e4ebf5; border-bottom:1px solid #e4ebf5; padding:9px 8px; vertical-align:middle; }
+.portfolio-table td:first-child { border-left:1px solid #e4ebf5; border-radius:12px 0 0 12px; }
+.portfolio-table td:last-child { border-right:1px solid #e4ebf5; border-radius:0 12px 12px 0; text-align:right; font-weight:800; color:#0f3f8f; }
+.portfolio-table button { padding:5px 8px; border-radius:999px; font-size:12px; }
+.set-value-row { display:grid; grid-template-columns: 1fr auto; gap:10px; align-items:center; padding:9px 0; border-bottom:1px solid #eef3fb; cursor:pointer; }
+.set-value-row:last-child { border-bottom:0; }
+.set-value-row:hover { background:#f8fbff; border-radius:10px; padding-left:8px; padding-right:8px; }
+.set-value-bar { height:8px; border-radius:999px; background:#e7eef8; overflow:hidden; margin-top:5px; }
+.set-value-bar > i { display:block; height:100%; border-radius:999px; background:linear-gradient(90deg,#2563eb,#0f766e); }
+.portfolio-warning-list { display:grid; gap:8px; }
+.portfolio-warning-item { padding:10px; border-radius:14px; background:#fff7ed; border:1px solid #fed7aa; color:#9a3412; }
+.portfolio-warning-item b { color:#7c2d12; }
+.portfolio-empty { color:#64748b; background:#f8fbff; border:1px dashed #cbd5e1; border-radius:14px; padding:14px; }
+@media (max-width: 900px) {
+  .portfolio-metrics, .portfolio-two-col { grid-template-columns:1fr; }
+  .portfolio-hero { display:block; }
+  .portfolio-hero-value { text-align:left; margin-top:12px; }
+}
+
 </style>
 </head>
 <body>
@@ -886,14 +932,16 @@ body.modal-open { overflow: hidden; }
       </div>
     </div>
 
-    <div class="portfolio-box">
-      <b>Portfolio-overzicht</b><br>
-      <span class="smallnote">Gebaseerd op kaarten die je aanvinkt als “heb ik”. Aankoopprijs en aantal kan je per kaart invullen in het detailvenster.</span>
-      <div class="portfolio-stats" id="portfolioSummaryCards"></div>
-      <h3>Topkaarten in bezit</h3>
-      <div class="portfolio-list" id="portfolioTopCards"><span class="smallnote">Nog geen kaarten aangeduid.</span></div>
-      <h3>Waarde per set</h3>
-      <div class="portfolio-list" id="portfolioSetValues"><span class="smallnote">Nog geen setwaarde.</span></div>
+    <div class="side-card portfolio-quick-card">
+      <div class="side-card-head"><b>Portfolio</b><span>analyse</span></div>
+      <div class="side-card-body">
+        <div class="portfolio-mini-stats">
+          <div class="portfolio-mini-stat"><b id="portfolioMiniValue">€0,00</b><span>waarde bezit</span></div>
+          <div class="portfolio-mini-stat"><b id="portfolioMiniCount">0</b><span>in bezit</span></div>
+        </div>
+        <button id="openPortfolioBtn" class="primary portfolio-open-btn">Open portfolio</button>
+        <span class="smallnote">Bekijk topkaarten, waarde per set en kaarten zonder prijs in één overzicht.</span>
+      </div>
     </div>
 
     <h3 style="font-size:16px; margin:16px 0 8px;">Setsnelkoppelingen</h3>
@@ -961,6 +1009,7 @@ body.modal-open { overflow: hidden; }
         </select>
       </div>
       <div class="button-row" style="margin:0;">
+        <button class="primary" id="openPortfolioTopBtn">Portfolio</button>
         <button class="green" id="markFilteredOwnedBtn">Huidige filter: heb ik</button>
         <button id="markFilteredMissingBtn">Huidige filter: nog nodig</button>
         <button id="printBtn">Print huidige filter</button>
@@ -1000,6 +1049,19 @@ body.modal-open { overflow: hidden; }
       <button id="closeModalBtn" class="close-x" aria-label="Sluiten">×</button>
     </div>
     <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<div id="portfolioModal" class="modal-backdrop" aria-hidden="true">
+  <div class="modal-card portfolio-modal-card" role="dialog" aria-modal="true" aria-labelledby="portfolioModalTitle">
+    <div class="modal-head">
+      <div>
+        <h2 id="portfolioModalTitle">Portfolio</h2>
+        <div class="smallnote">Waarde, topkaarten en setanalyse van je huidige collectie.</div>
+      </div>
+      <button id="closePortfolioModalBtn" class="close-x" aria-label="Sluiten">×</button>
+    </div>
+    <div class="modal-body" id="portfolioModalBody"></div>
   </div>
 </div>
 
@@ -2258,6 +2320,124 @@ function sortFiltered(mode) {
   });
 }
 
+
+function collectPortfolioData() {
+  const ownedCards = cards.filter(c => isOwned(c));
+  const pricedOwned = ownedCards.filter(c => Number.isFinite(numericCardPrice(c)));
+  const unpricedOwned = ownedCards.filter(c => !Number.isFinite(numericCardPrice(c)));
+  const totalValue = ownedCards.reduce((sum,c)=>sum + ownedCardValue(c),0);
+  const totalQty = ownedCards.reduce((sum,c)=>sum + detailQuantity(c),0);
+  const purchaseEntries = ownedCards.filter(c => Number.isFinite(detailPurchasePrice(c)));
+  const totalPurchase = purchaseEntries.reduce((sum,c)=>sum + detailPurchasePrice(c) * detailQuantity(c),0);
+  const profit = purchaseEntries.length ? totalValue - totalPurchase : NaN;
+  const bySet = new Map();
+  ownedCards.forEach(c => {
+    const key = `${c.series}|||${c.set}|||${c.abbr}`;
+    if (!bySet.has(key)) bySet.set(key, { key, series:c.series, set:c.set, abbr:c.abbr, value:0, ownedUnique:0, qty:0, priced:0, total:(sets.find(s=>s.series===c.series && s.set===c.set && s.abbr===c.abbr)||{}).count || 0 });
+    const obj = bySet.get(key);
+    obj.ownedUnique += 1;
+    obj.qty += detailQuantity(c);
+    obj.value += ownedCardValue(c);
+    if (Number.isFinite(numericCardPrice(c))) obj.priced += 1;
+  });
+  return { ownedCards, pricedOwned, unpricedOwned, totalValue, totalQty, totalPurchase, profit, bySet:[...bySet.values()] };
+}
+function updatePortfolioMini() {
+  const v = el('portfolioMiniValue');
+  const c = el('portfolioMiniCount');
+  if (!v && !c) return;
+  const data = collectPortfolioData();
+  if (v) v.textContent = formatMoney(data.totalValue, 'EUR');
+  if (c) c.textContent = data.ownedCards.length.toLocaleString('nl-BE');
+}
+function portfolioMetric(label, value, cls='') {
+  return `<div class="portfolio-metric"><b class="${cls}">${escapeHtml(value)}</b><span>${escapeHtml(label)}</span></div>`;
+}
+function renderPortfolioModalContent() {
+  const data = collectPortfolioData();
+  const profitClass = Number.isFinite(data.profit) && data.profit >= 0 ? 'profit-positive' : 'profit-negative';
+  const topCards = data.pricedOwned.slice().sort((a,b)=>ownedCardValue(b)-ownedCardValue(a)).slice(0,10);
+  const topSets = data.bySet.slice().sort((a,b)=>b.value-a.value).slice(0,10);
+  const maxSetValue = Math.max(1, ...topSets.map(s=>s.value));
+  const unpriced = data.unpricedOwned.slice(0,8);
+  const topRows = topCards.length ? topCards.map((c,i)=>`
+    <tr>
+      <td>${i+1}</td>
+      <td><b>${escapeHtml(c.name)}</b><br><span class="smallnote">${escapeHtml(c.set)} · ${escapeHtml(c.num)} · aantal ${detailQuantity(c)}</span></td>
+      <td><button data-portfolio-detail="${escapeHtml(c.key)}">Detail</button></td>
+      <td>${escapeHtml(formatMoney(ownedCardValue(c),'EUR'))}</td>
+    </tr>`).join('') : `<tr><td colspan="4"><div class="portfolio-empty">Vink eerst kaarten aan met prijs om je topkaarten te zien.</div></td></tr>`;
+  const setRows = topSets.length ? topSets.map(s=>{
+    const pct = Math.max(2, Math.round(s.value / maxSetValue * 100));
+    return `<div class="set-value-row" data-portfolio-set="${escapeHtml(s.key)}">
+      <div><b>${escapeHtml(s.set)} <span class="badge">${escapeHtml(s.abbr)}</span></b><br><span class="smallnote">${s.ownedUnique.toLocaleString('nl-BE')} unieke kaarten · ${s.qty.toLocaleString('nl-BE')} totaal · ${s.priced.toLocaleString('nl-BE')} met prijs</span><div class="set-value-bar"><i style="width:${pct}%"></i></div></div>
+      <div><b>${escapeHtml(formatMoney(s.value,'EUR'))}</b></div>
+    </div>`;
+  }).join('') : `<div class="portfolio-empty">Nog geen setwaarde. Vink kaarten aan of haal prijzen op.</div>`;
+  const unpricedHtml = unpriced.length ? unpriced.map(c=>`<div class="portfolio-warning-item"><b>${escapeHtml(c.name)}</b> <span class="badge">${escapeHtml(c.num)}</span><br><span>${escapeHtml(c.set)} · ${escapeHtml(c.abbr)}</span></div>`).join('') : `<div class="portfolio-empty">Alle kaarten in bezit hebben momenteel een prijs of je hebt nog geen kaarten zonder prijs aangeduid.</div>`;
+  return `
+    <div class="portfolio-dashboard">
+      <div class="portfolio-hero">
+        <div>
+          <h3>Collectiewaarde</h3>
+          <p>Gebaseerd op de kaarten die je hebt aangevinkt en de laatste ingeladen Cardmarket-prijzen.</p>
+        </div>
+        <div class="portfolio-hero-value"><b>${escapeHtml(formatMoney(data.totalValue,'EUR'))}</b><span>${data.ownedCards.length.toLocaleString('nl-BE')} unieke kaarten · ${data.totalQty.toLocaleString('nl-BE')} stuks</span></div>
+      </div>
+      <div class="portfolio-metrics">
+        ${portfolioMetric('kaarten in bezit', data.ownedCards.length.toLocaleString('nl-BE'))}
+        ${portfolioMetric('kaarten met prijs', data.pricedOwned.length.toLocaleString('nl-BE'))}
+        ${portfolioMetric('aankoopwaarde ingevuld', data.totalPurchase ? formatMoney(data.totalPurchase,'EUR') : '—')}
+        ${portfolioMetric('winst / verlies', Number.isFinite(data.profit) ? formatMoney(data.profit,'EUR') : '—', profitClass)}
+      </div>
+      <div class="portfolio-two-col">
+        <section class="portfolio-section">
+          <h3>Top 10 duurste kaarten in bezit</h3>
+          <table class="portfolio-table"><thead><tr><th>#</th><th>Kaart</th><th></th><th>Waarde</th></tr></thead><tbody>${topRows}</tbody></table>
+        </section>
+        <section class="portfolio-section">
+          <h3>Waarde per set</h3>
+          ${setRows}
+        </section>
+      </div>
+      <section class="portfolio-section">
+        <h3>Kaarten in bezit zonder prijs</h3>
+        <p class="smallnote">Handig om later te controleren of er nog Cardmarket-koppelingen ontbreken voor kaarten die jij écht hebt.</p>
+        <div class="portfolio-warning-list">${unpricedHtml}</div>
+      </section>
+    </div>`;
+}
+function openPortfolioModal() {
+  const modal = el('portfolioModal');
+  const body = el('portfolioModalBody');
+  if (!modal || !body) return;
+  body.innerHTML = renderPortfolioModalContent();
+  body.querySelectorAll('[data-portfolio-detail]').forEach(btn => btn.addEventListener('click', () => {
+    const card = cardsByKey[btn.dataset.portfolioDetail];
+    closePortfolioModal(false);
+    if (card) openCardModal(card);
+  }));
+  body.querySelectorAll('[data-portfolio-set]').forEach(row => row.addEventListener('click', () => {
+    const [ser] = row.dataset.portfolioSet.split('|||');
+    seriesFilter.value = ser;
+    updateSetFilter();
+    setFilter.value = row.dataset.portfolioSet;
+    applyFilters(true);
+    closePortfolioModal(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }));
+  document.body.classList.add('modal-open');
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
+}
+function closePortfolioModal(removeBodyClass=true) {
+  const modal = el('portfolioModal');
+  if (!modal) return;
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+  if (removeBodyClass) document.body.classList.remove('modal-open');
+}
+
 function render() {
   renderStats();
   renderTable();
@@ -2282,6 +2462,7 @@ function renderStats() {
   el('filteredSummary').textContent = `${filtered.length.toLocaleString('nl-BE')} kaarten gevonden`;
   el('filteredDetails').textContent = ` — ${fOwned.toLocaleString('nl-BE')} in bezit, ${fMissing.toLocaleString('nl-BE')} nog nodig`;
   renderPortfolio();
+  updatePortfolioMini();
 }
 function renderPortfolio() {
   const summary = el('portfolioSummaryCards');
@@ -2699,6 +2880,10 @@ el('exportJsonBtn').addEventListener('click', exportJson);
 el('exportCsvBtn').addEventListener('click', exportCsv);
 el('exportWordBtn').addEventListener('click', exportWord);
 el('printBtn').addEventListener('click', printCurrent);
+const openPortfolioBtn = el('openPortfolioBtn');
+if (openPortfolioBtn) openPortfolioBtn.addEventListener('click', openPortfolioModal);
+const openPortfolioTopBtn = el('openPortfolioTopBtn');
+if (openPortfolioTopBtn) openPortfolioTopBtn.addEventListener('click', openPortfolioModal);
 el('resetBtn').addEventListener('click', () => {
   if (confirm('Alle aangevinkte kaarten wissen? Dit kan je alleen herstellen met een backup.')) {
     owned = {};
@@ -2752,7 +2937,11 @@ const closeBtn = el('closeModalBtn');
 if (closeBtn) closeBtn.addEventListener('click', closeCardModal);
 const cardModal = el('cardModal');
 if (cardModal) cardModal.addEventListener('click', (ev) => { if (ev.target === cardModal) closeCardModal(); });
-document.addEventListener('keydown', ev => { if (ev.key === 'Escape') closeCardModal(); });
+const closePortfolioBtn = el('closePortfolioModalBtn');
+if (closePortfolioBtn) closePortfolioBtn.addEventListener('click', () => closePortfolioModal());
+const portfolioModal = el('portfolioModal');
+if (portfolioModal) portfolioModal.addEventListener('click', (ev) => { if (ev.target === portfolioModal) closePortfolioModal(); });
+document.addEventListener('keydown', ev => { if (ev.key === 'Escape') { closeCardModal(); closePortfolioModal(); } });
 
 initSyncUi();
 initFilters();
