@@ -1,10 +1,14 @@
 {
-  "updatedAt": "2026-07-10T11:39:49.328561+00:00",
+  "updatedAt": "2026-07-10T12:29:40.622455+00:00",
   "totalCards": 20324,
-  "cardsWithImageCandidates": 19975,
+  "cardsWithImageCandidates": 20128,
   "bySourceCandidateUrls": {
-    "limitless": 70212,
-    "pokemontcg": 68620
+    "pokemontcg": 66140,
+    "limitless": 66958
   },
-  "note": "URLs zijn kandidaat-links. De app probeert automatisch de volgende kandidaat als de eerste niet laadt."
+  "firstCandidateSource": {
+    "pokemontcg": 19639,
+    "limitless": 489
+  },
+  "note": "V2 zet Pokémon TCG image CDN eerst om Limitless-placeholders/kaartachterkanten te vermijden. POP sets zijn toegevoegd."
 }
