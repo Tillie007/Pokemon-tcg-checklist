@@ -1075,6 +1075,7 @@ const PRICE_STORAGE_KEY = 'pokemon_tcg_prices_v1';
 const PRICE_ENDPOINT_KEY = 'pokemon_tcg_price_endpoint_v1';
 const PRICE_AUTO_KEY = 'pokemon_tcg_price_auto_v1';
 const DEFAULT_PRICE_ENDPOINT = 'prices.json';
+const IMAGE_MAP_ENDPOINT = 'pokemon_image_map.json';
 const PRICE_LAST_UPDATE_KEY = 'pokemon_tcg_price_last_update_v1';
 const PRICE_HISTORY_STORAGE_KEY = 'pokemon_tcg_price_history_v1';
 const CARD_DETAILS_STORAGE_KEY = 'pokemon_tcg_card_details_v1';
@@ -1085,6 +1086,7 @@ let owned = loadOwned();
 let prices = loadPrices();
 let priceHistory = loadPriceHistory();
 let cardDetails = loadCardDetails();
+let imageMap = {};
 let priceAutoUpdate = localStorage.getItem(PRICE_AUTO_KEY) !== '0';
 let filtered = [];
 let currentPage = 1;
@@ -1367,6 +1369,34 @@ function limitlessCardUrl(card) {
   return ab && n ? `https://limitlesstcg.com/cards/${encodeURIComponent(ab)}/${encodeURIComponent(n)}` : '';
 }
 
+function imageMapEntryFor(card) {
+  if (!card || !imageMap) return null;
+  return imageMap[card.key] || imageMap[`${card.series}|${card.set}|${card.abbr}|${card.num}|${card.name}`] || null;
+}
+function mappedImageCandidatesFor(card) {
+  const entry = imageMapEntryFor(card);
+  if (!entry) return [];
+  if (typeof entry === 'string') return [entry];
+  return uniqueNonEmpty([entry.bestUrl, entry.url, entry.imageUrl, ...(Array.isArray(entry.candidates) ? entry.candidates : [])]);
+}
+async function loadImageMap() {
+  try {
+    const res = await fetch(IMAGE_MAP_ENDPOINT + '?v=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) {
+      console.warn('pokemon_image_map.json niet gevonden of nog niet aangemaakt. De app gebruikt kandidaatlinks als fallback.');
+      return 0;
+    }
+    const payload = await res.json();
+    imageMap = payload.images || payload.data || payload || {};
+    const count = Object.keys(imageMap).length;
+    console.info('Afbeeldingsmap geladen:', count, 'kaarten');
+    return count;
+  } catch(e) {
+    console.warn('Afbeeldingsmap laden mislukt. De app gebruikt kandidaatlinks als fallback.', e);
+    return 0;
+  }
+}
+
 function imageCandidatesFor(card) {
   const d = detailsFor(card) || {};
   const p = priceFor(card) || {};
@@ -1377,6 +1407,7 @@ function imageCandidatesFor(card) {
     p.imageURL,
     p.cardImage,
     card.imageUrl,
+    ...mappedImageCandidatesFor(card),
     ...inferredLimitlessImageCandidates(card),
     ...inferredPkmnCardsImageCandidates(card),
     ...inferredPokemonTcgImageCandidates(card)
@@ -2155,7 +2186,7 @@ function openCardModal(card) {
   el('modalTitle').textContent = `${card.name} ${card.num ? '(' + card.num + ')' : ''}`;
   el('modalSubtitle').textContent = `${card.series} — ${card.set} — ${card.abbr}${cardmarketCodeFor(card) ? ' / CM ' + cardmarketCodeFor(card) : ''}`;
   const imgHtml = imageUrl
-    ? `<img id="detailCardImage" src="${escapeHtml(imageUrl)}" data-fallbacks="${escapeHtml(encodeURIComponent(JSON.stringify(imageFallbacks)))}" onerror="tryNextCardImage(this)" alt="${escapeHtml(card.name)}" loading="lazy"><div class="image-help">Afbeelding automatisch gezocht via Limitless, PkmnCards en Pokémon TCG-data. Klopt ze niet? Gebruik de PkmnCards-knop of plak hieronder zelf de juiste afbeeldingslink.</div>`
+    ? `<img id="detailCardImage" src="${escapeHtml(imageUrl)}" data-fallbacks="${escapeHtml(encodeURIComponent(JSON.stringify(imageFallbacks)))}" onerror="tryNextCardImage(this)" alt="${escapeHtml(card.name)}" loading="lazy"><div class="image-help">Afbeelding automatisch gezocht via de afbeeldingsmap, Limitless, PkmnCards en Pokémon TCG-data. Klopt ze niet? Gebruik de PkmnCards-knop of plak hieronder zelf de juiste afbeeldingslink.</div>`
     : `<div class="placeholder"><b>Geen automatische afbeelding gevonden</b><span>Gebruik de PkmnCards/Limitless-knop in de details of plak hieronder zelf een afbeeldingslink.</span></div>`;
   el('modalBody').innerHTML = `
     <div class="detail-grid">
@@ -2981,6 +3012,7 @@ document.addEventListener('keydown', ev => { if (ev.key === 'Escape') { closeCar
 
 initSyncUi();
 initFilters();
+loadImageMap();
 applyFilters(true);
 maybeAutoUpdatePrices();
 </script>
