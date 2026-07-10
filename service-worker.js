@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pokemon-tcg-checklist-step6-images-api-v1';
+const CACHE_NAME = 'pokemon-tcg-checklist-step5b-portfolio-modal-v1';
 self.addEventListener('install', event => {
   self.skipWaiting();
 });
