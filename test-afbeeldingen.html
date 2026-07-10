@@ -3,225 +3,131 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pokémon TCG – test kaartafbeeldingen</title>
+  <title>Pokémon TCG – test kaartafbeeldingen v2</title>
   <style>
-    :root{
-      --bg:#0f172a;--panel:#111c34;--card:#17213b;--muted:#94a3b8;--text:#e5e7eb;--line:rgba(148,163,184,.22);
-      --accent:#facc15;--accent2:#38bdf8;--good:#22c55e;--warn:#f97316;--bad:#ef4444;--white:#fff;
-      --shadow:0 20px 60px rgba(0,0,0,.28);--radius:22px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at 20% 0%,#1e3a8a 0,#0f172a 34%,#07111f 100%);color:var(--text);min-height:100vh}
-    header{position:sticky;top:0;z-index:5;background:rgba(15,23,42,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-    .top{max-width:1220px;margin:0 auto;padding:18px 20px;display:flex;gap:16px;align-items:center;justify-content:space-between}
+    :root{--bg:#0f172a;--panel:#111c34;--card:#17213b;--muted:#94a3b8;--text:#e5e7eb;--line:rgba(148,163,184,.22);--accent:#facc15;--accent2:#38bdf8;--good:#22c55e;--warn:#f97316;--bad:#ef4444;--shadow:0 20px 60px rgba(0,0,0,.28);--radius:22px;}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at 20% 0%,#1e3a8a 0,#0f172a 34%,#07111f 100%);color:var(--text);min-height:100vh}
+    header{position:sticky;top:0;z-index:5;background:rgba(15,23,42,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)} .top{max-width:1240px;margin:0 auto;padding:18px 20px;display:flex;gap:16px;align-items:center;justify-content:space-between}
     h1{font-size:22px;margin:0;letter-spacing:-.02em}.sub{font-size:13px;color:var(--muted);margin-top:4px}.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.06);font-size:13px;color:#dbeafe}
-    main{max-width:1220px;margin:0 auto;padding:22px 20px 46px;display:grid;grid-template-columns:360px 1fr;gap:18px}
-    .panel{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-    .panel h2{font-size:15px;margin:0 0 10px}.inner{padding:16px}.hint{color:var(--muted);font-size:13px;line-height:1.45}.small{font-size:12px;color:var(--muted)}
+    main{max-width:1240px;margin:0 auto;padding:22px 20px 46px;display:grid;grid-template-columns:360px 1fr;gap:18px}.panel{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}.panel h2{font-size:15px;margin:0 0 10px}.inner{padding:16px}.hint{color:var(--muted);font-size:13px;line-height:1.45}.small{font-size:12px;color:var(--muted)}
     input,select,button,textarea{font:inherit} input,select,textarea{width:100%;background:#0b1220;border:1px solid var(--line);border-radius:14px;color:var(--text);padding:11px 12px;outline:none} input:focus,select:focus,textarea:focus{border-color:rgba(56,189,248,.75);box-shadow:0 0 0 3px rgba(56,189,248,.12)}
-    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.row{display:flex;gap:10px;align-items:center}.stack{display:grid;gap:12px}.btn{border:0;border-radius:14px;background:linear-gradient(135deg,#facc15,#f97316);color:#111827;font-weight:800;padding:11px 13px;cursor:pointer}.btn.secondary{background:rgba(255,255,255,.08);border:1px solid var(--line);color:var(--text)}.btn.blue{background:linear-gradient(135deg,#38bdf8,#2563eb);color:#06111f}.btn.good{background:linear-gradient(135deg,#86efac,#22c55e);color:#06240f}.btn:disabled{opacity:.5;cursor:not-allowed}
-    .list{max-height:540px;overflow:auto;border-top:1px solid var(--line)}.item{padding:12px 14px;border-bottom:1px solid var(--line);cursor:pointer}.item:hover{background:rgba(255,255,255,.06)}.item.active{background:rgba(56,189,248,.13);border-left:4px solid var(--accent2);padding-left:10px}.item b{display:block}.meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.tag{font-size:11px;border:1px solid var(--line);background:rgba(255,255,255,.06);border-radius:999px;padding:4px 8px;color:#cbd5e1}
-    .detail{display:grid;grid-template-columns:280px 1fr;gap:18px}.cardPreview{background:#0b1220;border:1px solid var(--line);border-radius:22px;min-height:380px;display:flex;align-items:center;justify-content:center;overflow:hidden}.cardPreview img{width:100%;height:auto;display:block}.placeholder{color:var(--muted);text-align:center;padding:24px}.candidateGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-top:14px}.candidate{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:18px;overflow:hidden}.candidate img{width:100%;display:block;background:#0b1220}.candBody{padding:10px}.candBody b{font-size:13px}.candBody .small{margin:5px 0 10px}.status{white-space:pre-wrap;background:#07111f;border:1px solid var(--line);border-radius:14px;padding:10px;color:#cbd5e1;max-height:140px;overflow:auto}
-    .notice{border:1px solid rgba(250,204,21,.35);background:rgba(250,204,21,.09);border-radius:16px;padding:12px;color:#fde68a;font-size:13px;line-height:1.45}.ok{color:#86efac}.warn{color:#fdba74}.bad{color:#fca5a5}.kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#0b1220;border:1px solid var(--line);padding:2px 6px;border-radius:7px;color:#f8fafc}
-    @media(max-width:900px){main{grid-template-columns:1fr}.detail{grid-template-columns:1fr}.cardPreview{max-width:280px;margin:auto}.top{align-items:flex-start;flex-direction:column}.grid2{grid-template-columns:1fr}}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.stack{display:grid;gap:12px}.btn{border:0;border-radius:14px;background:linear-gradient(135deg,#facc15,#f97316);color:#111827;font-weight:800;padding:11px 13px;cursor:pointer;text-decoration:none;text-align:center}.btn.secondary{background:rgba(255,255,255,.08);border:1px solid var(--line);color:var(--text)}.btn.blue{background:linear-gradient(135deg,#38bdf8,#2563eb);color:#06111f}.btn.good{background:linear-gradient(135deg,#86efac,#22c55e);color:#06240f}.btn:disabled{opacity:.5;cursor:not-allowed}
+    .list{max-height:560px;overflow:auto;border-top:1px solid var(--line)}.item{padding:12px 14px;border-bottom:1px solid var(--line);cursor:pointer}.item:hover{background:rgba(255,255,255,.06)}.item.active{background:rgba(56,189,248,.13);border-left:4px solid var(--accent2);padding-left:10px}.item b{display:block}.meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.tag{font-size:11px;border:1px solid var(--line);background:rgba(255,255,255,.06);border-radius:999px;padding:4px 8px;color:#cbd5e1}.tag.ok{border-color:rgba(34,197,94,.5);color:#bbf7d0}.tag.warn{border-color:rgba(249,115,22,.55);color:#fed7aa}
+    .detail{display:grid;grid-template-columns:300px 1fr;gap:18px}.cardPreview{background:#0b1220;border:1px solid var(--line);border-radius:22px;min-height:420px;display:flex;align-items:center;justify-content:center;overflow:hidden}.cardPreview img{width:100%;height:auto;display:block}.placeholder{color:var(--muted);text-align:center;padding:24px}.candidateGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-top:14px}.candidate{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:18px;overflow:hidden}.candidate img{width:100%;display:block;background:#0b1220}.candBody{padding:10px}.candBody b{font-size:13px}.candBody .small{margin:5px 0 10px}.status{white-space:pre-wrap;background:#07111f;border:1px solid var(--line);border-radius:14px;padding:10px;color:#cbd5e1;max-height:190px;overflow:auto}
+    .notice{border:1px solid rgba(250,204,21,.35);background:rgba(250,204,21,.09);border-radius:16px;padding:12px;color:#fde68a;font-size:13px;line-height:1.45}.kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#0b1220;border:1px solid var(--line);padding:2px 6px;border-radius:7px;color:#f8fafc}.bad{color:#fca5a5}.oktxt{color:#86efac}.muted{color:var(--muted)}
+    @media(max-width:900px){main{grid-template-columns:1fr}.detail{grid-template-columns:1fr}.cardPreview{max-width:300px;margin:auto}.top{align-items:flex-start;flex-direction:column}.grid2{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-<header><div class="top"><div><h1>Test kaartafbeeldingen</h1><div class="sub">Veilige testpagina — verandert je hoofdapp niet.</div></div><div class="pill">Bron: Pokémon TCG API + PkmnCards fallback</div></div></header>
+<header><div class="top"><div><h1>Test kaartafbeeldingen v2</h1><div class="sub">Veilige testpagina — verandert je hoofdapp niet.</div></div><div class="pill">Bronnen: Limitless + Pokémon TCG API + PkmnCards zoeklink</div></div></header>
 <main>
   <section class="panel">
     <div class="inner stack">
-      <div class="notice">Upload deze pagina als <span class="kbd">test-afbeeldingen.html</span> in je GitHub-hoofdmap. Zo testen we afbeeldingen zonder je werkende app stuk te maken.</div>
-      <div>
-        <h2>Zoeken in je kaartlijst</h2>
-        <input id="search" placeholder="Zoek kaart, set, afkorting of nummer… bv Charizard OBF 223" />
-      </div>
-      <div class="grid2">
-        <select id="seriesFilter"><option value="">Alle series</option></select>
-        <select id="setFilter"><option value="">Alle sets</option></select>
-      </div>
-      <div class="row">
-        <button class="btn blue" id="reloadBtn">Kaartdata laden</button>
-        <button class="btn secondary" id="clearBtn">Cache wissen</button>
-      </div>
-      <div class="row">
-        <button class="btn good" id="exportBtn">Afbeeldingen exporteren</button>
-      </div>
+      <div class="notice">Deze versie test nu ook <b>Limitless</b>. Voor moderne sets zoals CRI werkt dat vaak beter dan alleen Pokémon TCG API.</div>
+      <div><h2>Zoeken in je kaartlijst</h2><input id="search" placeholder="Zoek kaart, set, afkorting of nummer… bv Vulpix CRI 008" /></div>
+      <div class="grid2"><select id="seriesFilter"><option value="">Alle series</option></select><select id="setFilter"><option value="">Alle sets</option></select></div>
+      <div class="row"><button class="btn blue" id="reloadBtn">Kaartdata laden</button><button class="btn secondary" id="clearBtn">Cache wissen</button></div>
+      <div class="row"><button class="btn good" id="exportBtn">Afbeeldingen exporteren</button></div>
       <div class="hint" id="count">Nog geen kaartdata geladen.</div>
-    </div>
-    <div class="list" id="list"></div>
+    </div><div class="list" id="list"></div>
   </section>
-
-  <section class="panel">
-    <div class="inner stack">
-      <div class="detail">
-        <div>
-          <div class="cardPreview" id="preview"><div class="placeholder">Kies links een kaart en test de afbeelding.</div></div>
-        </div>
-        <div class="stack">
-          <div>
-            <h2 id="title">Geen kaart geselecteerd</h2>
-            <div class="meta" id="selectedMeta"></div>
-          </div>
-          <div class="row">
-            <button class="btn blue" id="findApiBtn" disabled>Zoek afbeelding via Pokémon TCG API</button>
-            <button class="btn secondary" id="pkmnBtn" disabled>Open PkmnCards zoekopdracht</button>
-          </div>
-          <div class="stack">
-            <label class="small">Eigen afbeeldingslink testen/opslaan</label>
-            <input id="manualUrl" placeholder="Plak hier een directe afbeelding-url…" />
-            <button class="btn secondary" id="saveManualBtn" disabled>Gebruik deze link</button>
-          </div>
-          <div class="status" id="status">Wacht op selectie…</div>
-        </div>
-      </div>
-      <div>
-        <h2>Kandidaten</h2>
-        <div class="hint">Kies alleen een afbeelding als die duidelijk klopt. Later kunnen we deze logica veilig in de hoofdapp verwerken.</div>
-        <div class="candidateGrid" id="candidates"></div>
-      </div>
-    </div>
-  </section>
+  <section class="panel"><div class="inner stack"><div class="detail"><div><div class="cardPreview" id="preview"><div class="placeholder">Kies links een kaart en test de afbeelding.</div></div></div><div class="stack"><div><h2 id="title">Geen kaart geselecteerd</h2><div class="meta" id="selectedMeta"></div></div><div class="row"><button class="btn blue" id="findBtn" disabled>Zoek afbeelding automatisch</button><button class="btn secondary" id="pkmnBtn" disabled>Open PkmnCards zoekopdracht</button><button class="btn secondary" id="limitlessBtn" disabled>Open Limitless</button></div><div class="stack"><label class="small">Eigen afbeeldingslink testen/opslaan</label><input id="manualUrl" placeholder="Plak hier een directe afbeelding-url…" /><button class="btn secondary" id="saveManualBtn" disabled>Gebruik deze link</button></div><div class="status" id="status">Wacht op selectie…</div></div></div><div><h2>Kandidaten</h2><div class="hint">Kies alleen een afbeelding als die duidelijk klopt. De gekozen links kan je exporteren en later veilig in je hoofdapp verwerken.</div><div class="candidateGrid" id="candidates"></div></div></div></section>
 </main>
 <script>
 (() => {
   const DATA_URL = 'pokemon_cards_data.json';
-  const CACHE_KEY = 'pokemon_tcg_image_overrides_v1';
-  let cards = [], sets = [], selected = null, imageCache = loadCache();
+  const CACHE_KEY = 'pokemon_tcg_image_overrides_v2';
+  let cards = [], selected = null, imageCache = loadCache();
   const $ = id => document.getElementById(id);
   const norm = s => String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
   const stripZeros = s => String(s||'').replace(/^0+(?=\d)/,'');
+  const pad3 = s => String(stripZeros(s)||s||'').padStart(3,'0');
+  const safeCode = s => String(s||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+  const API_SET = {
+    BS:'base1',JU:'base2',FO:'base3',B2:'base4',TR:'base5',G1:'gym1',G2:'gym2',N1:'neo1',N2:'neo2',N3:'neo3',N4:'neo4',EX:'ecard1',AQ:'ecard2',SK:'ecard3',
+    RS:'ex1',SS:'ex2',DR:'ex3',MA:'ex4',HL:'ex5',RG:'ex6',TRR:'ex7',DX:'ex8',EM:'ex9',UF:'ex10',DS:'ex11',LM:'ex12',HP:'ex13',CG:'ex14',DF:'ex15',PK:'ex16',
+    DP:'dp1',MT:'dp2',SW:'dp3',GE:'dp4',MD:'dp5',LA:'dp6',SF:'dp7',PL:'pl1',RR:'pl2',SV:'pl3',AR:'pl4',
+    HS:'hgss1',UL:'hgss2',UD:'hgss3',TM:'hgss4',CL:'col1',
+    BLW:'bw1',EPO:'bw2',NVI:'bw3',NXD:'bw4',DEX:'bw5',DRX:'bw6',DRV:'dv1',BCR:'bw7',PLS:'bw8',PLF:'bw9',PLB:'bw10',LTR:'bw11',
+    XY:'xy1',FLF:'xy2',FFI:'xy3',PHF:'xy4',PRC:'xy5',DCR:'dc1',ROS:'xy6',AOR:'xy7',BKT:'xy8',BKP:'xy9',GEN:'g1',FCO:'xy10',STS:'xy11',EVO:'xy12',
+    SUM:'sm1',GRI:'sm2',BUS:'sm3',SLG:'sm35',CIN:'sm4',UPR:'sm5',FLI:'sm6',CES:'sm7',DRM:'sm75',LOT:'sm8',TEU:'sm9',DET:'det1',UNB:'sm10',UNM:'sm11',HIF:'sm115',CEC:'sm12',
+    SSH:'swsh1',RCL:'swsh2',DAA:'swsh3',CPA:'swsh35',VIV:'swsh4',SHF:'swsh45',BST:'swsh5',CRE:'swsh6',EVS:'swsh7',CEL:'cel25',FST:'swsh8',BRS:'swsh9',ASR:'swsh10',PGO:'pgo',LOR:'swsh11',SIT:'swsh12',CRZ:'swsh12pt5',
+    SVI:'sv1',PAL:'sv2',OBF:'sv3',MEW:'sv3pt5',PAR:'sv4',PAF:'sv4pt5',TEF:'sv5',TWM:'sv6',SFA:'sv6pt5',SCR:'sv7',SSP:'sv8',PRE:'sv8pt5',JTG:'sv9',DRI:'sv10'
+  };
   function log(msg){ $('status').textContent = msg; }
   function loadCache(){ try{return JSON.parse(localStorage.getItem(CACHE_KEY)||'{}')}catch{return {}} }
   function saveCache(){ localStorage.setItem(CACHE_KEY, JSON.stringify(imageCache)); }
   async function loadData(){
     log('Kaartdata laden…');
     const res = await fetch(DATA_URL + '?v=' + Date.now(), {cache:'no-store'});
-    if(!res.ok) throw new Error('pokemon_cards_data.json niet gevonden. Staat deze pagina in de hoofdmap van je GitHub-site?');
-    const data = await res.json();
-    cards = data.cards || [];
-    sets = data.sets || [];
-    fillFilters(); renderList();
-    log('Kaartdata geladen: ' + cards.length + ' kaarten.');
+    if(!res.ok) throw new Error('pokemon_cards_data.json niet gevonden. Staat deze pagina in de hoofdmap?');
+    const data = await res.json(); cards = data.cards || []; fillFilters(); renderList(); log('Kaartdata geladen: ' + cards.length + ' kaarten.');
   }
-  function fillFilters(){
-    const series = [...new Set(cards.map(c=>c.series).filter(Boolean))].sort();
-    $('seriesFilter').innerHTML = '<option value="">Alle series</option>' + series.map(s=>`<option>${escapeHtml(s)}</option>`).join('');
-    updateSetFilter();
-  }
-  function updateSetFilter(){
-    const ser = $('seriesFilter').value;
-    const setNames = [...new Set(cards.filter(c=>!ser||c.series===ser).map(c=>c.set).filter(Boolean))].sort();
-    $('setFilter').innerHTML = '<option value="">Alle sets</option>' + setNames.map(s=>`<option>${escapeHtml(s)}</option>`).join('');
-  }
-  function filtered(){
-    const q = norm($('search').value), ser=$('seriesFilter').value, set=$('setFilter').value;
-    let arr = cards.filter(c => (!ser||c.series===ser) && (!set||c.set===set));
-    if(q){
-      const terms=q.split(/\s+/).filter(Boolean);
-      arr = arr.filter(c => {
-        const hay = norm([c.name,c.set,c.series,c.abbr,c.num].join(' '));
-        return terms.every(t => hay.includes(t));
-      });
+  function fillFilters(){ const series = [...new Set(cards.map(c=>c.series).filter(Boolean))].sort(); $('seriesFilter').innerHTML = '<option value="">Alle series</option>' + series.map(s=>`<option>${esc(s)}</option>`).join(''); updateSetFilter(); }
+  function updateSetFilter(){ const ser = $('seriesFilter').value; const setNames = [...new Set(cards.filter(c=>!ser||c.series===ser).map(c=>c.set).filter(Boolean))].sort(); $('setFilter').innerHTML = '<option value="">Alle sets</option>' + setNames.map(s=>`<option>${esc(s)}</option>`).join(''); }
+  function filtered(){ const q=norm($('search').value),ser=$('seriesFilter').value,set=$('setFilter').value; let arr=cards.filter(c=>(!ser||c.series===ser)&&(!set||c.set===set)); if(q){const terms=q.split(/\s+/).filter(Boolean); arr=arr.filter(c=>{const hay=norm([c.name,c.set,c.series,c.abbr,c.num].join(' ')); return terms.every(t=>hay.includes(t));});} return arr.slice(0,300); }
+  function renderList(){ const arr=filtered(); $('count').textContent = `${arr.length} resultaten getoond${cards.length?' van '+cards.length+' kaarten':''}. Opgeslagen afbeeldingen: ${Object.keys(imageCache).length}.`; $('list').innerHTML = arr.map(c=>`<div class="item ${selected&&selected.key===c.key?'active':''}" data-key="${attr(c.key)}"><b>${esc(c.name)}</b><div class="meta"><span class="tag">${esc(c.abbr||'—')}</span><span class="tag">${esc(c.num||'—')}</span><span class="tag">${esc(c.set||'—')}</span>${imageCache[c.key]?'<span class="tag ok">afbeelding opgeslagen</span>':''}</div></div>`).join('') || '<div class="inner hint">Geen resultaten.</div>'; }
+  function selectCard(key){ selected=cards.find(c=>c.key===key); if(!selected)return; $('title').textContent=selected.name; $('selectedMeta').innerHTML=`<span class="tag">${esc(selected.series)}</span><span class="tag">${esc(selected.set)}</span><span class="tag">${esc(selected.abbr)}</span><span class="tag">#${esc(selected.num)}</span>`; ['findBtn','pkmnBtn','limitlessBtn','saveManualBtn'].forEach(id=>$(id).disabled=false); $('candidates').innerHTML=''; $('manualUrl').value=''; const cached=imageCache[selected.key]; if(cached){setPreview(cached.large||cached.small||cached.url); log('Opgeslagen afbeelding geladen.');} else { $('preview').innerHTML='<div class="placeholder">Nog geen afbeelding gekozen voor deze kaart.</div>'; log('Klik op “Zoek afbeelding automatisch”.'); } renderList(); }
+  function setPreview(url){ $('preview').innerHTML = url ? `<img src="${attr(url)}" alt="kaartafbeelding" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder bad&quot;>Afbeelding kon niet laden.</div>'">` : '<div class="placeholder">Geen afbeelding.</div>'; }
+  function pkmnSearchUrl(card){ return 'https://pkmncards.com/?s=' + encodeURIComponent([card.name, card.abbr, card.num].filter(Boolean).join(' ')); }
+  function limitlessPageUrl(card){ return 'https://limitlesstcg.com/cards/' + encodeURIComponent(safeCode(card.abbr)) + '/' + encodeURIComponent(stripZeros(card.num)||card.num); }
+  function directImageCandidates(card){
+    const ab=safeCode(card.abbr), n=stripZeros(card.num), p=pad3(card.num), out=[];
+    if(ab && n){
+      out.push({source:'Limitless direct', label:`${ab}_${p}_R_EN_LG`, url:`https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/${ab}/${ab}_${p}_R_EN_LG.png`});
+      out.push({source:'Limitless direct', label:`${ab}_${p}_EN_LG`, url:`https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/${ab}/${ab}_${p}_EN_LG.png`});
+      out.push({source:'Limitless direct', label:`${ab}_${n}_R_EN_LG`, url:`https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/${ab}/${ab}_${n}_R_EN_LG.png`});
     }
-    return arr.slice(0,300);
+    const apiSet = API_SET[ab];
+    if(apiSet && n){
+      out.push({source:'PokémonTCG image direct', label:`${apiSet}/${n}_hires`, url:`https://images.pokemontcg.io/${apiSet}/${n}_hires.png`});
+      out.push({source:'PokémonTCG image direct', label:`${apiSet}/${n}`, url:`https://images.pokemontcg.io/${apiSet}/${n}.png`});
+      if(String(card.num)!==String(n)) out.push({source:'PokémonTCG image direct', label:`${apiSet}/${card.num}_hires`, url:`https://images.pokemontcg.io/${apiSet}/${card.num}_hires.png`});
+    }
+    return out;
   }
-  function renderList(){
-    const arr = filtered();
-    $('count').textContent = `${arr.length} resultaten getoond${cards.length ? ' van ' + cards.length + ' kaarten' : ''}. Opgeslagen afbeeldingen: ${Object.keys(imageCache).length}.`;
-    $('list').innerHTML = arr.map(c=>`<div class="item ${selected&&selected.key===c.key?'active':''}" data-key="${attr(c.key)}"><b>${escapeHtml(c.name)}</b><div class="meta"><span class="tag">${escapeHtml(c.abbr||'—')}</span><span class="tag">${escapeHtml(c.num||'—')}</span><span class="tag">${escapeHtml(c.set||'—')}</span>${imageCache[c.key]?'<span class="tag ok">afbeelding opgeslagen</span>':''}</div></div>`).join('') || '<div class="inner hint">Geen resultaten.</div>';
-  }
-  function selectCard(key){
-    selected = cards.find(c=>c.key===key); if(!selected) return;
-    $('title').textContent = selected.name;
-    $('selectedMeta').innerHTML = `<span class="tag">${escapeHtml(selected.series)}</span><span class="tag">${escapeHtml(selected.set)}</span><span class="tag">${escapeHtml(selected.abbr)}</span><span class="tag">#${escapeHtml(selected.num)}</span>`;
-    $('findApiBtn').disabled = false; $('pkmnBtn').disabled=false; $('saveManualBtn').disabled=false;
-    $('candidates').innerHTML=''; $('manualUrl').value='';
-    const cached = imageCache[selected.key];
-    if(cached){ setPreview(cached.large || cached.small || cached.url); log('Opgeslagen afbeelding geladen uit lokale testcache.'); }
-    else { $('preview').innerHTML='<div class="placeholder">Nog geen afbeelding gekozen voor deze kaart.</div>'; log('Klaar om afbeelding te zoeken.'); }
-    renderList();
-  }
-  function setPreview(url){
-    if(!url){ $('preview').innerHTML='<div class="placeholder">Geen afbeelding.</div>'; return; }
-    $('preview').innerHTML=`<img src="${attr(url)}" alt="kaartafbeelding" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder bad&quot;>Afbeelding kon niet laden.</div>'">`;
-  }
-  function buildPkmnSearchUrl(card){
-    return 'https://pkmncards.com/?s=' + encodeURIComponent([card.name, card.abbr, card.num].filter(Boolean).join(' '));
-  }
-  function escapeQuery(s){ return String(s||'').replace(/"/g,'\\"'); }
+  function escapeLucene(s){ return String(s||'').replace(/([+\-!(){}\[\]^"~*?:\\/])/g,'\\$1'); }
   function apiQueries(card){
-    const name = escapeQuery(card.name);
-    const n0 = String(card.num||'');
-    const n = stripZeros(n0);
-    const setName = escapeQuery(card.set);
-    const queries = [];
-    if(name && n0) queries.push(`name:"${name}" number:"${escapeQuery(n0)}"`);
-    if(name && n && n!==n0) queries.push(`name:"${name}" number:"${escapeQuery(n)}"`);
-    if(name && setName) queries.push(`name:"${name}" set.name:"${setName}"`);
-    if(name) queries.push(`name:"${name}"`);
-    return [...new Set(queries)];
+    const name = '"' + escapeLucene(card.name) + '"'; const raw=String(card.num||''), n=stripZeros(raw), ab=safeCode(card.abbr); const qs=[];
+    if(ab && n) qs.push(`set.ptcgoCode:${ab} number:${n}`);
+    if(ab && raw && raw!==n) qs.push(`set.ptcgoCode:${ab} number:${raw}`);
+    if(card.name && n) qs.push(`name:${name} number:${n}`);
+    if(card.name && raw && raw!==n) qs.push(`name:${name} number:${raw}`);
+    if(card.name) qs.push(`name:${name}`);
+    return [...new Set(qs)];
   }
-  function scoreCandidate(card, cand){
-    let score = 0;
-    if(norm(cand.name) === norm(card.name)) score += 80;
-    else if(norm(cand.name).startsWith(norm(card.name))) score += 55;
-    if(String(cand.number||'') === String(card.num||'')) score += 55;
-    if(stripZeros(cand.number||'') === stripZeros(card.num||'')) score += 45;
-    if(norm(cand.set?.name).includes(norm(card.set)) || norm(card.set).includes(norm(cand.set?.name))) score += 40;
-    if(norm(cand.set?.series) === norm(card.series)) score += 20;
-    if(norm(cand.set?.ptcgoCode) === norm(card.abbr)) score += 20;
-    return score;
-  }
-  async function findApi(){
-    if(!selected) return;
-    $('candidates').innerHTML='';
-    const queries = apiQueries(selected);
-    log('Zoeken via Pokémon TCG API…\n' + queries.join('\n'));
-    const seen = new Map();
+  function scoreCandidate(card,c){ let score=0; if(norm(c.name)===norm(card.name)) score+=80; else if(norm(c.name).startsWith(norm(card.name))) score+=55; if(String(c.number||'')===String(card.num||'')) score+=55; if(stripZeros(c.number||'')===stripZeros(card.num||'')) score+=45; if(norm(c.set?.name).includes(norm(card.set))||norm(card.set).includes(norm(c.set?.name))) score+=40; if(norm(c.set?.ptcgoCode)===norm(card.abbr)) score+=30; return score; }
+  function imgWorks(url, timeout=4500){ return new Promise(resolve=>{ const img=new Image(); let done=false; const finish=v=>{ if(done)return; done=true; resolve(v); }; img.onload=()=>finish({ok:true,w:img.naturalWidth,h:img.naturalHeight,url}); img.onerror=()=>finish({ok:false,url}); img.src=url; setTimeout(()=>finish({ok:false,timeout:true,url}), timeout); }); }
+  async function findAll(){
+    if(!selected)return; $('candidates').innerHTML=''; let messages=[]; const final=[];
+    log('Directe afbeeldingslinks testen…');
+    for(const cand of directImageCandidates(selected)){
+      const res = await imgWorks(cand.url);
+      if(res.ok){ final.push({...cand, width:res.w, height:res.h}); messages.push('OK: '+cand.source+' · '+cand.label); }
+      else messages.push('Geen beeld: '+cand.label);
+    }
+    log(messages.join('\n') + '\n\nPokémon TCG API zoeken…');
+    const seen = new Map(); const queries=apiQueries(selected);
     for(const q of queries){
       try{
-        const url = 'https://api.pokemontcg.io/v2/cards?q=' + encodeURIComponent(q) + '&pageSize=20';
-        const res = await fetch(url);
-        if(!res.ok) throw new Error('API status ' + res.status);
-        const json = await res.json();
-        (json.data||[]).forEach(c=>seen.set(c.id,c));
-        if(seen.size >= 15) break;
-      }catch(e){ console.warn(e); }
+        const url='https://api.pokemontcg.io/v2/cards?q='+encodeURIComponent(q)+'&pageSize=20';
+        const res=await fetch(url); if(!res.ok){ messages.push('API fout '+res.status+' voor '+q); continue; }
+        const json=await res.json(); (json.data||[]).forEach(c=>seen.set(c.id,c)); messages.push('API '+q+' → '+(json.data||[]).length+' resultaten');
+      }catch(e){ messages.push('API fout voor '+q+': '+e.message); }
+      if(seen.size>=30) break;
     }
-    const cands = [...seen.values()].map(c=>({raw:c, score:scoreCandidate(selected,c)})).sort((a,b)=>b.score-a.score).slice(0,12);
-    if(!cands.length){ log('Geen API-kandidaten gevonden. Probeer PkmnCards zoekopdracht of plak handmatig een afbeeldingslink.'); return; }
-    $('candidates').innerHTML = cands.map(({raw:c,score}) => `
-      <div class="candidate">
-        <img src="${attr(c.images?.small || c.images?.large || '')}" alt="${attr(c.name)}">
-        <div class="candBody">
-          <b>${escapeHtml(c.name)}</b>
-          <div class="small">${escapeHtml(c.set?.name||'')} · #${escapeHtml(c.number||'—')} · score ${score}</div>
-          <button class="btn good" data-apiid="${attr(c.id)}">Gebruik</button>
-          <a class="btn secondary" style="display:inline-block;text-decoration:none;margin-top:8px" href="${attr(c.images?.large||c.images?.small||'#')}" target="_blank" rel="noopener">Open groot</a>
-        </div>
-      </div>`).join('');
-    $('candidates').querySelectorAll('button[data-apiid]').forEach(btn=>btn.addEventListener('click',()=>{
-      const cand = cands.find(x=>x.raw.id===btn.dataset.apiid)?.raw;
-      if(!cand) return;
-      imageCache[selected.key] = {source:'pokemontcg.io', apiId:cand.id, name:cand.name, set:cand.set?.name, number:cand.number, small:cand.images?.small, large:cand.images?.large, savedAt:new Date().toISOString()};
-      saveCache(); setPreview(cand.images?.large || cand.images?.small); renderList();
-      log('Afbeelding opgeslagen in lokale testcache. Exporteren kan via de knop links.');
-    }));
-    log(`${cands.length} kandidaat-afbeeldingen gevonden. Kies alleen als de kaart klopt.`);
+    [...seen.values()].map(c=>({raw:c,score:scoreCandidate(selected,c)})).sort((a,b)=>b.score-a.score).slice(0,10).forEach(({raw:c,score})=>{ if(c.images?.large||c.images?.small) final.push({source:'Pokémon TCG API', label:`${c.name} · ${c.set?.name||''} #${c.number||''} · score ${score}`, url:c.images.large||c.images.small, small:c.images.small, apiId:c.id, score}); });
+    renderCandidates(final); log(messages.join('\n') + `\n\n${final.length} kandidaat-afbeeldingen gevonden.` + (!final.length ? '\nGebruik dan de PkmnCards/Limitless knop of plak een link handmatig.' : ''));
   }
-  function exportCache(){
-    const blob = new Blob([JSON.stringify(imageCache,null,2)],{type:'application/json'});
-    const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='pokemon_image_overrides.json'; a.click(); URL.revokeObjectURL(a.href);
+  function renderCandidates(cands){
+    if(!cands.length){ $('candidates').innerHTML='<div class="hint">Geen automatische kandidaten gevonden.</div>'; return; }
+    const unique=[]; const seen=new Set(); for(const c of cands){ const u=c.url; if(!u||seen.has(u)) continue; seen.add(u); unique.push(c); }
+    $('candidates').innerHTML = unique.map((c,i)=>`<div class="candidate"><img src="${attr(c.small||c.url)}" alt="${attr(c.label)}"><div class="candBody"><b>${esc(c.source)}</b><div class="small">${esc(c.label||'')} ${c.width?'· '+c.width+'×'+c.height:''}</div><button class="btn good" data-i="${i}">Gebruik</button><a class="btn secondary" style="display:inline-block;text-decoration:none;margin-top:8px" href="${attr(c.url)}" target="_blank" rel="noopener">Open groot</a></div></div>`).join('');
+    $('candidates').querySelectorAll('button[data-i]').forEach(btn=>btn.addEventListener('click',()=>{ const c=unique[Number(btn.dataset.i)]; imageCache[selected.key]={source:c.source,label:c.label,url:c.url,large:c.url,small:c.small||c.url,savedAt:new Date().toISOString()}; saveCache(); setPreview(c.url); renderList(); log('Afbeelding opgeslagen in lokale testcache. Gebruik “Afbeeldingen exporteren” om deze later mee te nemen.'); }));
   }
-  function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
-  function attr(s){return escapeHtml(s);}
-  $('reloadBtn').addEventListener('click',()=>loadData().catch(e=>log('Fout: '+e.message)));
-  $('search').addEventListener('input',renderList); $('seriesFilter').addEventListener('change',()=>{updateSetFilter();renderList();}); $('setFilter').addEventListener('change',renderList);
-  $('list').addEventListener('click',e=>{const el=e.target.closest('.item'); if(el) selectCard(el.dataset.key);});
-  $('findApiBtn').addEventListener('click',findApi); $('pkmnBtn').addEventListener('click',()=>{if(selected) window.open(buildPkmnSearchUrl(selected),'_blank','noopener')});
-  $('saveManualBtn').addEventListener('click',()=>{const url=$('manualUrl').value.trim(); if(!selected||!url)return; imageCache[selected.key]={source:'manual',url,large:url,small:url,savedAt:new Date().toISOString()}; saveCache(); setPreview(url); renderList(); log('Eigen afbeeldingslink opgeslagen in lokale testcache.');});
-  $('exportBtn').addEventListener('click',exportCache); $('clearBtn').addEventListener('click',()=>{if(confirm('Alle lokaal geteste afbeeldingen wissen?')){imageCache={};saveCache();renderList(); if(selected)selectCard(selected.key);}});
+  function exportCache(){ const blob=new Blob([JSON.stringify(imageCache,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='pokemon_image_overrides.json'; a.click(); URL.revokeObjectURL(a.href); }
+  function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));} function attr(s){return esc(s);}
+  $('reloadBtn').addEventListener('click',()=>loadData().catch(e=>log('Fout: '+e.message))); $('search').addEventListener('input',renderList); $('seriesFilter').addEventListener('change',()=>{updateSetFilter();renderList();}); $('setFilter').addEventListener('change',renderList); $('list').addEventListener('click',e=>{const el=e.target.closest('.item'); if(el) selectCard(el.dataset.key);}); $('findBtn').addEventListener('click',findAll); $('pkmnBtn').addEventListener('click',()=>{if(selected) window.open(pkmnSearchUrl(selected),'_blank','noopener')}); $('limitlessBtn').addEventListener('click',()=>{if(selected) window.open(limitlessPageUrl(selected),'_blank','noopener')}); $('saveManualBtn').addEventListener('click',()=>{const url=$('manualUrl').value.trim(); if(!selected||!url)return; imageCache[selected.key]={source:'manual',url,large:url,small:url,savedAt:new Date().toISOString()}; saveCache(); setPreview(url); renderList(); log('Eigen afbeeldingslink opgeslagen.');}); $('exportBtn').addEventListener('click',exportCache); $('clearBtn').addEventListener('click',()=>{if(confirm('Alle lokaal geteste afbeeldingen wissen?')){imageCache={};saveCache();renderList(); if(selected)selectCard(selected.key);}});
   loadData().catch(e=>log('Fout bij laden: '+e.message));
 })();
 </script>
