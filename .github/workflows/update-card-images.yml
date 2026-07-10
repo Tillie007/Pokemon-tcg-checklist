@@ -1,0 +1,30 @@
+name: Update card images
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 5 * * 1'
+
+permissions:
+  contents: write
+
+jobs:
+  update-card-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate image map
+        run: python scripts/update_images.py
+
+      - name: Commit updated image map
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Update Pokemon card image map'
+          file_pattern: pokemon_image_map.json pokemon_image_debug.json
