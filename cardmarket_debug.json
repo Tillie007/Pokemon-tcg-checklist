@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-07-14T10:26:50.824496+00:00",
-  "productRows": 70983,
+  "updatedAt": "2026-07-15T10:31:01.176854+00:00",
+  "productRows": 70985,
   "priceRows": 75967,
-  "usableProducts": 70983,
+  "usableProducts": 70985,
   "priceMapIds": 75967,
-  "matchedCards": 11270,
-  "pricedCards": 11269,
+  "matchedCards": 11269,
+  "pricedCards": 11268,
   "samplePriceKeys": [
     [
       "idProduct",
@@ -104,10 +104,10 @@
   "priceCacheSizeChars": 14925784,
   "priceCacheFirst500Chars": "{\"version\":1,\"createdAt\":\"2026-07-14T02:44:29+0200\",\"priceGuides\":[{\"idProduct\":271439,\"idCategory\":52,\"avg\":549.95,\"low\":85,\"trend\":383.38,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":3.93,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"idProduct\":271440,\"idCategory\":53,\"avg\":2103,\"low\":16500,\"trend\":2239.24,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":178.28,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"i",
   "matchTypes": {
-    "mapped-expansion+unique-prefix-name": 9634,
+    "mapped-expansion+unique-prefix-name": 9633,
     "unmatched": 8244,
     "mapped-expansion+unique-name": 1636,
-    "ambiguous-prefix-name-in-expansion": 618,
+    "ambiguous-prefix-name-in-expansion": 619,
     "ambiguous-name-in-expansion": 192
   },
   "setMappingCandidates": "cardmarket_set_mapping_candidates.csv",
