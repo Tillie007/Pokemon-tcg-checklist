@@ -1,0 +1,116 @@
+{
+  "updatedAt": "2026-07-20T12:42:06.671384+00:00",
+  "set": {
+    "series": "Mega Evolution",
+    "set": "Pitch Black",
+    "abbr": "PBL",
+    "count": 120
+  },
+  "addedCards": 120,
+  "removedExistingCards": 0,
+  "failures": [],
+  "firstCards": [
+    {
+      "key": "Mega Evolution|Pitch Black|PBL|001|Tropius",
+      "series": "Mega Evolution",
+      "set": "Pitch Black",
+      "abbr": "PBL",
+      "num": "001",
+      "name": "Tropius",
+      "rarity": "Onbekend",
+      "type": "Onbekend"
+    },
+    {
+      "key": "Mega Evolution|Pitch Black|PBL|002|Grubbin",
+      "series": "Mega Evolution",
+      "set": "Pitch Black",
+      "abbr": "PBL",
+      "num": "002",
+      "name": "Grubbin",
+      "rarity": "Onbekend",
+      "type": "Onbekend"
+    },
+    {
+      "key": "Mega Evolution|Pitch Black|PBL|003|Fomantis",
+      "series": "Mega Evolution",
+      "set": "Pitch Black",
+      "abbr": "PBL",
+      "num": "003",
+      "name": "Fomantis",
+      "rarity": "Onbekend",
+      "type": "Onbekend"
+    },
+    {
+      "key": "Mega Evolution|Pitch Black|PBL|004|Lurantis ex",
+      "series": "Mega Evolution",
+      "set": "Pitch Black",
+      "abbr": "PBL",
+      "num": "004",
+      "name": "Lurantis ex",
+      "rarity": "Onbekend",
+      "type": "Onbekend"
+    },
+    {
+      "key": "Mega Evolution|Pitch Black|PBL|005|Poltchageist",
+      "series": "Mega Evolution",
+      "set": "Pitch Black",
+      "abbr": "PBL",
+      "num": "005",
+      "name": "Poltchageist",
+      "rarity": "Onbekend",
+      "type": "Onbekend"
+    }
+  ],
+  "lastCards": [
+    {
+      "key": "Mega Evolution|Pitch Black|PBL|116|Mega Darkrai ex",
+      "series": "Mega Evolution",
+      "set": "Pitch Black",
+      "abbr": "PBL",
+      "num": "116",
+      "name": "Mega Darkrai ex",
+      "rarity": "Onbekend",
+      "type": "Onbekend"
+    },
+    {
+      "key": "Mega Evolution|Pitch Black|PBL|117|Morpeko ex",
+      "series": "Mega Evolution",
+      "set": "Pitch Black",
+      "abbr": "PBL",
+      "num": "117",
+      "name": "Morpeko ex",
+      "rarity": "Onbekend",
+      "type": "Onbekend"
+    },
+    {
+      "key": "Mega Evolution|Pitch Black|PBL|118|Gladion's Final Battle",
+      "series": "Mega Evolution",
+      "set": "Pitch Black",
+      "abbr": "PBL",
+      "num": "118",
+      "name": "Gladion's Final Battle",
+      "rarity": "Onbekend",
+      "type": "Onbekend"
+    },
+    {
+      "key": "Mega Evolution|Pitch Black|PBL|119|Gwynn",
+      "series": "Mega Evolution",
+      "set": "Pitch Black",
+      "abbr": "PBL",
+      "num": "119",
+      "name": "Gwynn",
+      "rarity": "Onbekend",
+      "type": "Onbekend"
+    },
+    {
+      "key": "Mega Evolution|Pitch Black|PBL|120|Mega Darkrai ex",
+      "series": "Mega Evolution",
+      "set": "Pitch Black",
+      "abbr": "PBL",
+      "num": "120",
+      "name": "Mega Darkrai ex",
+      "rarity": "Onbekend",
+      "type": "Onbekend"
+    }
+  ]
+}
