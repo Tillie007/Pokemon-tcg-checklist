@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-07-13T13:35:46.357338+00:00",
-  "totalCards": 20324,
-  "cardsWithImageCandidates": 20114,
+  "updatedAt": "2026-07-20T12:46:33.954937+00:00",
+  "totalCards": 20444,
+  "cardsWithImageCandidates": 20234,
   "cardsWithoutImageCandidates": 210,
   "bySourceCandidateUrls": {
     "pokemontcg": 69394,
-    "limitless": 25736
+    "limitless": 26192
   },
   "note": "Pokémon TCG image CDN staat eerst. Limitless wordt niet meer gebruikt voor oude reeksen zoals Neo en POP, omdat dat kaartachterkanten kon tonen."
 }
