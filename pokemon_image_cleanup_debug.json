@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-07-20T13:17:39.280687+00:00",
-  "rule": "Geen Limitless-kandidaten voor Chaos Rising / CRI",
+  "updatedAt": "2026-07-20T13:36:06.936238+00:00",
+  "rule": "Geen automatische afbeeldingskandidaten voor Chaos Rising / CRI",
   "cleanedCards": 122,
-  "removedUrls": 442,
-  "emptiedCards": 0,
+  "removedUrls": 902,
+  "emptiedCards": 122,
   "examples": [
     {
       "key": "Mega Evolution|Chaos Rising|CRI|001|Weedle",
@@ -11,8 +11,8 @@
       "set": "Chaos Rising",
       "abbr": "CRI",
       "num": "001",
-      "removedUrls": 4,
-      "remainingCandidates": 6
+      "removedUrls": 10,
+      "remainingCandidates": 0
     },
     {
       "key": "Mega Evolution|Chaos Rising|CRI|002|Kakuna",
@@ -20,8 +20,8 @@
       "set": "Chaos Rising",
       "abbr": "CRI",
       "num": "002",
-      "removedUrls": 4,
-      "remainingCandidates": 6
+      "removedUrls": 10,
+      "remainingCandidates": 0
     },
     {
       "key": "Mega Evolution|Chaos Rising|CRI|003|Beedrill ex",
@@ -29,8 +29,8 @@
       "set": "Chaos Rising",
       "abbr": "CRI",
       "num": "003",
-      "removedUrls": 4,
-      "remainingCandidates": 6
+      "removedUrls": 10,
+      "remainingCandidates": 0
     },
     {
       "key": "Mega Evolution|Chaos Rising|CRI|004|Carnivine",
@@ -38,8 +38,8 @@
       "set": "Chaos Rising",
       "abbr": "CRI",
       "num": "004",
-      "removedUrls": 4,
-      "remainingCandidates": 6
+      "removedUrls": 10,
+      "remainingCandidates": 0
     },
     {
       "key": "Mega Evolution|Chaos Rising|CRI|005|Chespin",
@@ -47,8 +47,8 @@
       "set": "Chaos Rising",
       "abbr": "CRI",
       "num": "005",
-      "removedUrls": 4,
-      "remainingCandidates": 6
+      "removedUrls": 10,
+      "remainingCandidates": 0
     },
     {
       "key": "Mega Evolution|Chaos Rising|CRI|006|Quilladin",
@@ -56,8 +56,8 @@
       "set": "Chaos Rising",
       "abbr": "CRI",
       "num": "006",
-      "removedUrls": 4,
-      "remainingCandidates": 6
+      "removedUrls": 10,
+      "remainingCandidates": 0
     },
     {
       "key": "Mega Evolution|Chaos Rising|CRI|007|Chesnaught",
@@ -65,8 +65,8 @@
       "set": "Chaos Rising",
       "abbr": "CRI",
       "num": "007",
-      "removedUrls": 4,
-      "remainingCandidates": 6
+      "removedUrls": 10,
+      "remainingCandidates": 0
     },
     {
       "key": "Mega Evolution|Chaos Rising|CRI|008|Vulpix",
@@ -74,8 +74,8 @@
       "set": "Chaos Rising",
       "abbr": "CRI",
       "num": "008",
-      "removedUrls": 4,
-      "remainingCandidates": 6
+      "removedUrls": 10,
+      "remainingCandidates": 0
     },
     {
       "key": "Mega Evolution|Chaos Rising|CRI|009|Ninetales",
@@ -83,8 +83,8 @@
       "set": "Chaos Rising",
       "abbr": "CRI",
       "num": "009",
-      "removedUrls": 4,
-      "remainingCandidates": 6
+      "removedUrls": 10,
+      "remainingCandidates": 0
     },
     {
       "key": "Mega Evolution|Chaos Rising|CRI|010|Ho-Oh",
@@ -92,8 +92,8 @@
       "set": "Chaos Rising",
       "abbr": "CRI",
       "num": "010",
-      "removedUrls": 4,
-      "remainingCandidates": 4
+      "removedUrls": 8,
+      "remainingCandidates": 0
     }
   ]
 }
