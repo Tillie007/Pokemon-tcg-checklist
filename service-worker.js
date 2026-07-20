@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pokemon-tcg-checklist-step6c-image-map-v1';
+const CACHE_NAME = 'pokemon-tcg-checklist-step6d-pitchblack-chaosfix-v1';
 self.addEventListener('install', event => {
   self.skipWaiting();
 });
