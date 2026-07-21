@@ -1,4 +1,5 @@
 ﻿serie;set;appAfkorting;cardmarketExpansionId;cardmarketSetcode;cardmarketSetnaam;methode;score;overlap;gekoppeldeKaarten
+Mega Evolution;Pitch Black;PBL;;;;;;;0
 Mega Evolution;Chaos Rising;CRI;6517;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 3; score 0.1237; overlap 11; appUniek 87; cmUniek 90; cmProducten 122";55
 Mega Evolution;Perfect Order;POR;6443;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2283; overlap 21; appUniek 92; cmUniek 92; cmProducten 125";62
 Mega Evolution;Ascended Heroes;ASC;6395;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1647; overlap 37; appUniek 224; cmUniek 225; cmProducten 296";159
