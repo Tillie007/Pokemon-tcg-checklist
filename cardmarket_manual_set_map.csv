@@ -1,6 +1,6 @@
 ﻿serie;set;appAfkorting;cardmarketExpansionId;cardmarketSetcode;cardmarketSetnaam;opmerking
 Mega Evolution;Pitch Black;PBL;6569;;;"handmatig toegevoegd: sterke kandidaat uit cardmarket_set_mapping_candidates; score 0.1591; overlap 14; cmProducten 120"
-Mega Evolution;Chaos Rising;CRI;6596;;;"handmatig aangepast: sterkste kandidaat uit cardmarket_set_mapping_candidates; rang 1; score 0.132; overlap 10; cmProducten 74; vorige mapping 6517 gaf te veel ontbrekende prijzen"
+Mega Evolution;Chaos Rising;CRI;6517;;;"teruggezet na test: expansionId 6596 gaf slechter resultaat; 6517 koppelde meer Chaos Rising-kaarten en blijft voorlopig de veiligere mapping"
 Mega Evolution;Perfect Order;POR;6443;;;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2283; overlap 21; appUniek 92; cmUniek 92; cmProducten 125"
 Mega Evolution;Ascended Heroes;ASC;6395;;;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1647; overlap 37; appUniek 224; cmUniek 225; cmProducten 296"
 Mega Evolution;Phantasmal Flames;PFL;6299;;;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.1224; overlap 12; appUniek 98; cmUniek 98; cmProducten 130"
