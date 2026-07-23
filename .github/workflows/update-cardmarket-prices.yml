@@ -24,6 +24,9 @@ jobs:
       - name: Pitch Black-prijsmapping controleren
         run: python scripts/ensure_pitch_black_price_map.py
 
+      - name: Chaos Rising-prijsmapping controleren
+        run: python scripts/ensure_chaos_rising_price_map.py
+
       - name: Cardmarket-prijzen bijwerken
         run: python scripts/update_prices.py --force
 
