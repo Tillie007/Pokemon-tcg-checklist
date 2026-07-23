@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pokémon TCG Checklist — Controle</title>
+<style>
+:root{--bg:#f5f7fb;--panel:#fff;--text:#172033;--muted:#607089;--border:#d7e1ef;--blue:#2856a3;--green:#128044;--red:#b42318;--yellow:#ffcb05;}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
+header{padding:22px 28px;background:linear-gradient(135deg,#2856a3,#163c7a);color:white;border-bottom:6px solid var(--yellow)}
+header h1{margin:0 0 6px;font-size:26px} header p{margin:0;color:rgba(255,255,255,.86)}
+main{padding:18px;max-width:1400px;margin:auto}.panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;box-shadow:0 8px 24px rgba(15,40,80,.08);padding:16px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{border:1px solid var(--border);border-radius:14px;padding:14px;background:#f8fbff}.stat b{display:block;font-size:26px;color:#0b367c}.stat span{font-size:13px;color:var(--muted)}
+.controls{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:10px;align-items:end}label{display:block;font-size:13px;font-weight:700;margin:0 0 5px;color:#36445a}input,select,button{width:100%;border:1px solid #c9d7eb;border-radius:12px;padding:10px 12px;font-size:14px;background:white}button{cursor:pointer;font-weight:700;color:#12376f}button.primary{background:var(--blue);border-color:var(--blue);color:white}button:hover{background:#eef4ff}button.primary:hover{background:#173f82}
+.small{font-size:12px;color:var(--muted);line-height:1.45}.ok{color:var(--green);font-weight:700}.bad{color:var(--red);font-weight:700}.warn{color:#9a6700;font-weight:700}.badge{display:inline-block;border:1px solid #cbd8ea;border-radius:999px;background:#f8fbff;padding:3px 8px;font-size:12px;white-space:nowrap}
+.tablewrap{overflow:auto;max-height:62vh;border:1px solid var(--border);border-radius:14px}table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 10px;border-bottom:1px solid #e6edf7;text-align:left;vertical-align:middle}th{position:sticky;top:0;background:#eaf1f9;z-index:2;color:#1f2f48;font-size:13px}tr:hover td{background:#f8fbff}.num{text-align:right;font-variant-numeric:tabular-nums}.setrow{cursor:pointer}.setrow.active td{background:#e9f7ef!important}.muted{color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:900px){.grid,.controls,.two{grid-template-columns:1fr}.tablewrap{max-height:none}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Controle prijzen & afbeeldingen</h1>
+  <p>Deze pagina verandert je collectie niet. Ze toont waar nog prijzen of kaartafbeeldingen ontbreken.</p>
+</header>
+<main>
+  <section class="panel">
+    <div class="grid">
+      <div class="stat"><b id="statCards">—</b><span>kaarten in kaartdata</span></div>
+      <div class="stat"><b id="statPrices">—</b><span>kaarten met prijs gevonden</span></div>
+      <div class="stat"><b id="statImages">—</b><span>kaarten met afbeeldingskandidaat</span></div>
+      <div class="stat"><b id="statSets">—</b><span>sets in controle</span></div>
+    </div>
+    <p class="small" id="status">Data laden...</p>
+  </section>
+
+  <section class="panel">
+    <div class="controls">
+      <div><label>Zoeken</label><input id="q" type="search" placeholder="bv. Pitch Black, PBL, Chespin, Misty's Vitality..." /></div>
+      <div><label>Set</label><select id="setFilter"><option value="">Alle sets</option></select></div>
+      <div><label>Probleem</label><select id="issueFilter"><option value="all">Alles</option><option value="missingPrice">Zonder prijs</option><option value="missingImage">Zonder afbeelding</option><option value="missingBoth">Zonder prijs én afbeelding</option></select></div>
+      <div><label>Export</label><button id="exportBtn" class="primary">Export CSV</button></div>
+    </div>
+  </section>
+
+  <section class="two">
+    <div class="panel">
+      <h2 style="margin-top:0">Sets met meeste ontbrekende prijzen</h2>
+      <div class="tablewrap" style="max-height:320px"><table><thead><tr><th>Set</th><th class="num">kaarten</th><th class="num">zonder prijs</th><th class="num">zonder afbeelding</th></tr></thead><tbody id="setBody"></tbody></table></div>
+    </div>
+    <div class="panel">
+      <h2 style="margin-top:0">Uitleg</h2>
+      <p class="small">Gebruik deze pagina als werklijst. Bij nieuwe sets is <b>zonder prijs</b> normaal: Cardmarket gebruikt soms andere namen of heeft nog niet elke kaart bruikbaar in de publieke bestanden.</p>
+      <p class="small">Bij afbeeldingen is het beter dat een kaart <b>geen afbeelding</b> toont dan fout de Pokémon-achterkant. De export helpt om later gericht fixes toe te voegen.</p>
+      <p class="small">Tip: klik in de settabel op een set om alleen die set te bekijken.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 style="margin-top:0">Kaarten</h2>
+    <div class="small" id="resultCount">—</div>
+    <div class="tablewrap"><table><thead><tr><th>Serie</th><th>Set</th><th>Afkorting</th><th>Nr.</th><th>Naam</th><th>Prijs</th><th>Afbeelding</th></tr></thead><tbody id="cardBody"></tbody></table></div>
+  </section>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+let cards = [], priceIndex = new Map(), imageIndex = new Map(), filtered = [];
+
+function keyOf(c){ return c.key || [c.series,c.set,c.abbr,c.num,c.name].join('|'); }
+function setKey(c){ return [c.series||'',c.set||'',c.abbr||''].join('|'); }
+function norm(s){ return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim(); }
+function possibleKeys(c){
+  const num = String(c.num||'').replace(/^0+(?=\d)/,'');
+  return [keyOf(c), [c.series,c.set,c.abbr,c.num,c.name].join('|'), [c.series,c.set,c.abbr,num,c.name].join('|'), [c.abbr,c.num,c.name].join('|'), [c.abbr,num,c.name].join('|')].filter(Boolean);
+}
+async function fetchJson(path){ const res = await fetch(path + '?v=' + Date.now(), {cache:'reload'}); if(!res.ok) throw new Error(path + ' niet gevonden'); return await res.json(); }
+function buildPriceIndex(data){
+  const idx = new Map();
+  const containers = [data?.prices, data?.cards, data?.priceMap, data?.data, data].filter(Boolean);
+  for(const obj of containers){
+    if(Array.isArray(obj)){
+      for(const item of obj){
+        if(!item || typeof item !== 'object') continue;
+        const k = item.key || item.cardKey || item.appKey || item.id || item.card_id;
+        if(k) idx.set(String(k), item);
+      }
+    } else if(typeof obj === 'object') {
+      for(const [k,v] of Object.entries(obj)){
+        if(v && typeof v === 'object') idx.set(String(k), v);
+      }
+    }
+  }
+  return idx;
+}
+function buildImageIndex(data){
+  const idx = new Map();
+  const images = data?.images || data?.cards || data || {};
+  if(images && typeof images === 'object') for(const [k,v] of Object.entries(images)) idx.set(String(k), v);
+  return idx;
+}
+function hasPrice(c){
+  for(const k of possibleKeys(c)){
+    const p = priceIndex.get(k);
+    if(!p) continue;
+    const values = [p.price,p.trend,p.trendPrice,p.avg,p.average,p.avg30,p.low,p.value,p.current,p.currentPrice];
+    if(values.some(v => v !== undefined && v !== null && String(v).trim() !== '' && String(v).trim() !== '—')) return true;
+  }
+  return false;
+}
+function hasImage(c){
+  for(const k of possibleKeys(c)){
+    const im = imageIndex.get(k);
+    if(!im) continue;
+    if(typeof im === 'string' && im.trim()) return true;
+    if(im.bestUrl || im.url || im.image || im.large || (Array.isArray(im.candidates) && im.candidates.length)) return true;
+  }
+  return false;
+}
+function priceLabel(c){ return hasPrice(c) ? '<span class="ok">prijs</span>' : '<span class="bad">geen prijs</span>'; }
+function imageLabel(c){ return hasImage(c) ? '<span class="ok">afbeelding</span>' : '<span class="warn">geen afbeelding</span>'; }
+function computeSetStats(){
+  const map = new Map();
+  for(const c of cards){
+    const k = setKey(c);
+    if(!map.has(k)) map.set(k,{series:c.series||'',set:c.set||'',abbr:c.abbr||'',total:0,missingPrice:0,missingImage:0});
+    const s = map.get(k); s.total++; if(!hasPrice(c)) s.missingPrice++; if(!hasImage(c)) s.missingImage++;
+  }
+  return [...map.values()].sort((a,b)=> b.missingPrice-a.missingPrice || b.missingImage-a.missingImage || a.set.localeCompare(b.set));
+}
+function renderSets(){
+  const body = $('setBody'); body.innerHTML = '';
+  for(const s of computeSetStats().slice(0,80)){
+    const tr = document.createElement('tr'); tr.className = 'setrow'; tr.dataset.key = [s.series,s.set,s.abbr].join('|');
+    tr.innerHTML = `<td><b>${s.set}</b><br><span class="muted">${s.series} · ${s.abbr}</span></td><td class="num">${s.total}</td><td class="num bad">${s.missingPrice}</td><td class="num warn">${s.missingImage}</td>`;
+    tr.onclick = () => { $('setFilter').value = tr.dataset.key; applyFilters(); };
+    body.appendChild(tr);
+  }
+}
+function fillSetFilter(){
+  const sel = $('setFilter');
+  const sets = [...new Map(cards.map(c => [setKey(c), c])).entries()].map(([k,c])=>({k, label:`${c.set} (${c.abbr || '—'})`})).sort((a,b)=>a.label.localeCompare(b.label));
+  for(const s of sets){ const opt = document.createElement('option'); opt.value=s.k; opt.textContent=s.label; sel.appendChild(opt); }
+}
+function applyFilters(){
+  const q = norm($('q').value); const sf = $('setFilter').value; const issue = $('issueFilter').value;
+  filtered = cards.filter(c => {
+    if(sf && setKey(c)!==sf) return false;
+    if(q && !norm([c.series,c.set,c.abbr,c.num,c.name].join(' ')).includes(q)) return false;
+    const p = hasPrice(c), im = hasImage(c);
+    if(issue==='missingPrice' && p) return false;
+    if(issue==='missingImage' && im) return false;
+    if(issue==='missingBoth' && (p || im)) return false;
+    return true;
+  });
+  renderCards();
+}
+function renderCards(){
+  $('resultCount').textContent = `${filtered.length} kaarten gevonden`;
+  const body = $('cardBody'); body.innerHTML = '';
+  for(const c of filtered.slice(0,1000)){
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${c.series||''}</td><td>${c.set||''}</td><td><span class="badge">${c.abbr||'—'}</span></td><td><b>${c.num||''}</b></td><td>${c.name||''}</td><td>${priceLabel(c)}</td><td>${imageLabel(c)}</td>`;
+    body.appendChild(tr);
+  }
+  if(filtered.length > 1000){ const tr = document.createElement('tr'); tr.innerHTML = `<td colspan="7" class="small">Alleen eerste 1000 rijen getoond. Gebruik zoek/filter of exporteer CSV.</td>`; body.appendChild(tr); }
+}
+function exportCsv(){
+  const rows = [['serie','set','afkorting','nummer','naam','heeftPrijs','heeftAfbeelding']];
+  for(const c of filtered) rows.push([c.series,c.set,c.abbr,c.num,c.name,hasPrice(c)?'ja':'nee',hasImage(c)?'ja':'nee']);
+  const csv = rows.map(r => r.map(v => '"'+String(v??'').replaceAll('"','""')+'"').join(';')).join('\n');
+  const blob = new Blob([csv], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'pokemon_controle_export.csv'; a.click(); URL.revokeObjectURL(a.href);
+}
+async function init(){
+  try{
+    const [cardData, priceData, imageData] = await Promise.all([fetchJson('pokemon_cards_data.json'), fetchJson('prices.json').catch(()=>({})), fetchJson('pokemon_image_map.json').catch(()=>({}))]);
+    cards = Array.isArray(cardData) ? cardData : (cardData.cards || []);
+    priceIndex = buildPriceIndex(priceData); imageIndex = buildImageIndex(imageData);
+    const priced = cards.filter(hasPrice).length, imaged = cards.filter(hasImage).length;
+    $('statCards').textContent = cards.length.toLocaleString('nl-BE'); $('statPrices').textContent = priced.toLocaleString('nl-BE'); $('statImages').textContent = imaged.toLocaleString('nl-BE'); $('statSets').textContent = new Set(cards.map(setKey)).size.toLocaleString('nl-BE');
+    $('status').innerHTML = `Geladen. Prijsbestand bevat <b>${priceIndex.size.toLocaleString('nl-BE')}</b> prijsrecords. Afbeeldingsmap bevat <b>${imageIndex.size.toLocaleString('nl-BE')}</b> records.`;
+    fillSetFilter(); renderSets(); applyFilters();
+  }catch(err){ $('status').innerHTML = '<span class="bad">Fout bij laden:</span> ' + err.message; console.error(err); }
+}
+$('q').addEventListener('input', applyFilters); $('setFilter').addEventListener('change', applyFilters); $('issueFilter').addEventListener('change', applyFilters); $('exportBtn').addEventListener('click', exportCsv);
+init();
+</script>
+</body>
+</html>
