@@ -1,0 +1,28 @@
+name: Sync card data to app
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-card-data-to-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Sync embedded card data into index
+        run: python scripts/sync_card_data_into_index.py
+
+      - name: Commit synced app data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Sync card data into app'
+          file_pattern: index.html sync_card_data_debug.json
