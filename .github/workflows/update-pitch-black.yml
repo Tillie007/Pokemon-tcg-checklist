@@ -21,8 +21,11 @@ jobs:
       - name: Add Pitch Black set
         run: python scripts/update_pitch_black.py
 
+      - name: Sync card data into app
+        run: python scripts/sync_card_data_into_index.py
+
       - name: Commit updated card data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'Add Pitch Black card data'
-          file_pattern: pokemon_cards_data.json pitch_black_debug.json
+          file_pattern: pokemon_cards_data.json pitch_black_debug.json index.html sync_card_data_debug.json
