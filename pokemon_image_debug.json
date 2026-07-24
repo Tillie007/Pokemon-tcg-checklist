@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-07-24T10:23:37.670126+00:00",
+  "updatedAt": "2026-07-24T10:40:43.343179+00:00",
   "totalCards": 20444,
-  "cardsWithImageCandidates": 20234,
-  "cardsWithoutImageCandidates": 210,
+  "cardsWithImageCandidates": 20444,
+  "cardsWithoutImageCandidates": 0,
   "bySourceCandidateUrls": {
-    "pokemontcg": 69394,
+    "pokemontcg": 70532,
     "limitless": 26192
   },
-  "note": "Pokémon TCG image CDN staat eerst. Limitless wordt niet meer gebruikt voor oude reeksen zoals Neo en POP, omdat dat kaartachterkanten kon tonen."
+  "note": "Pokémon TCG image CDN staat eerst. Speciale sets zoals McDonald's, Rumble, Best of Game, Futsal en EX Trainer Kits zijn nu toegevoegd."
 }
