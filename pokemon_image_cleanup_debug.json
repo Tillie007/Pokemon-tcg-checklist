@@ -1,99 +1,120 @@
 {
-  "updatedAt": "2026-07-20T13:36:06.936238+00:00",
-  "rule": "Geen automatische afbeeldingskandidaten voor Chaos Rising / CRI",
-  "cleanedCards": 122,
-  "removedUrls": 902,
-  "emptiedCards": 122,
+  "updatedAt": "2026-07-24T07:08:36.023034+00:00",
+  "rule": "Chaos Rising en Pitch Black gebruiken uitsluitend veilige Limitless _R_EN_LG-afbeeldingen",
+  "improvedCards": 242,
+  "removedUnsafeUrlsApprox": 900,
+  "sets": [
+    "Mega Evolution | Chaos Rising | CRI",
+    "Mega Evolution | Pitch Black | PBL"
+  ],
   "examples": [
     {
-      "key": "Mega Evolution|Chaos Rising|CRI|001|Weedle",
-      "name": "Weedle",
-      "set": "Chaos Rising",
-      "abbr": "CRI",
+      "key": "Mega Evolution|Pitch Black|PBL|001|Tropius",
+      "name": "Tropius",
+      "set": "Pitch Black",
+      "abbr": "PBL",
       "num": "001",
-      "removedUrls": 10,
-      "remainingCandidates": 0
+      "oldCandidates": 6,
+      "newBestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/PBL/PBL_001_R_EN_LG.png"
     },
     {
-      "key": "Mega Evolution|Chaos Rising|CRI|002|Kakuna",
-      "name": "Kakuna",
-      "set": "Chaos Rising",
-      "abbr": "CRI",
+      "key": "Mega Evolution|Pitch Black|PBL|002|Grubbin",
+      "name": "Grubbin",
+      "set": "Pitch Black",
+      "abbr": "PBL",
       "num": "002",
-      "removedUrls": 10,
-      "remainingCandidates": 0
+      "oldCandidates": 6,
+      "newBestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/PBL/PBL_002_R_EN_LG.png"
     },
     {
-      "key": "Mega Evolution|Chaos Rising|CRI|003|Beedrill ex",
-      "name": "Beedrill ex",
-      "set": "Chaos Rising",
-      "abbr": "CRI",
+      "key": "Mega Evolution|Pitch Black|PBL|003|Fomantis",
+      "name": "Fomantis",
+      "set": "Pitch Black",
+      "abbr": "PBL",
       "num": "003",
-      "removedUrls": 10,
-      "remainingCandidates": 0
+      "oldCandidates": 6,
+      "newBestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/PBL/PBL_003_R_EN_LG.png"
     },
     {
-      "key": "Mega Evolution|Chaos Rising|CRI|004|Carnivine",
-      "name": "Carnivine",
-      "set": "Chaos Rising",
-      "abbr": "CRI",
+      "key": "Mega Evolution|Pitch Black|PBL|004|Lurantis ex",
+      "name": "Lurantis ex",
+      "set": "Pitch Black",
+      "abbr": "PBL",
       "num": "004",
-      "removedUrls": 10,
-      "remainingCandidates": 0
+      "oldCandidates": 6,
+      "newBestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/PBL/PBL_004_R_EN_LG.png"
     },
     {
-      "key": "Mega Evolution|Chaos Rising|CRI|005|Chespin",
-      "name": "Chespin",
-      "set": "Chaos Rising",
-      "abbr": "CRI",
+      "key": "Mega Evolution|Pitch Black|PBL|005|Poltchageist",
+      "name": "Poltchageist",
+      "set": "Pitch Black",
+      "abbr": "PBL",
       "num": "005",
-      "removedUrls": 10,
-      "remainingCandidates": 0
+      "oldCandidates": 6,
+      "newBestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/PBL/PBL_005_R_EN_LG.png"
     },
     {
-      "key": "Mega Evolution|Chaos Rising|CRI|006|Quilladin",
-      "name": "Quilladin",
-      "set": "Chaos Rising",
-      "abbr": "CRI",
+      "key": "Mega Evolution|Pitch Black|PBL|006|Sinistcha",
+      "name": "Sinistcha",
+      "set": "Pitch Black",
+      "abbr": "PBL",
       "num": "006",
-      "removedUrls": 10,
-      "remainingCandidates": 0
+      "oldCandidates": 6,
+      "newBestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/PBL/PBL_006_R_EN_LG.png"
     },
     {
-      "key": "Mega Evolution|Chaos Rising|CRI|007|Chesnaught",
-      "name": "Chesnaught",
-      "set": "Chaos Rising",
-      "abbr": "CRI",
+      "key": "Mega Evolution|Pitch Black|PBL|007|Heatran",
+      "name": "Heatran",
+      "set": "Pitch Black",
+      "abbr": "PBL",
       "num": "007",
-      "removedUrls": 10,
-      "remainingCandidates": 0
+      "oldCandidates": 6,
+      "newBestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/PBL/PBL_007_R_EN_LG.png"
     },
     {
-      "key": "Mega Evolution|Chaos Rising|CRI|008|Vulpix",
-      "name": "Vulpix",
-      "set": "Chaos Rising",
-      "abbr": "CRI",
+      "key": "Mega Evolution|Pitch Black|PBL|008|Mega Delphox ex",
+      "name": "Mega Delphox ex",
+      "set": "Pitch Black",
+      "abbr": "PBL",
       "num": "008",
-      "removedUrls": 10,
-      "remainingCandidates": 0
+      "oldCandidates": 6,
+      "newBestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/PBL/PBL_008_R_EN_LG.png"
     },
     {
-      "key": "Mega Evolution|Chaos Rising|CRI|009|Ninetales",
-      "name": "Ninetales",
-      "set": "Chaos Rising",
-      "abbr": "CRI",
+      "key": "Mega Evolution|Pitch Black|PBL|009|Sizzlipede",
+      "name": "Sizzlipede",
+      "set": "Pitch Black",
+      "abbr": "PBL",
       "num": "009",
-      "removedUrls": 10,
-      "remainingCandidates": 0
+      "oldCandidates": 6,
+      "newBestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/PBL/PBL_009_R_EN_LG.png"
     },
     {
-      "key": "Mega Evolution|Chaos Rising|CRI|010|Ho-Oh",
-      "name": "Ho-Oh",
-      "set": "Chaos Rising",
-      "abbr": "CRI",
+      "key": "Mega Evolution|Pitch Black|PBL|010|Centiskorch",
+      "name": "Centiskorch",
+      "set": "Pitch Black",
+      "abbr": "PBL",
       "num": "010",
-      "removedUrls": 8,
-      "remainingCandidates": 0
+      "oldCandidates": 4,
+      "newBestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/PBL/PBL_010_R_EN_LG.png"
+    },
+    {
+      "key": "Mega Evolution|Pitch Black|PBL|011|Charcadet",
+      "name": "Charcadet",
+      "set": "Pitch Black",
+      "abbr": "PBL",
+      "num": "011",
+      "oldCandidates": 4,
+      "newBestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/PBL/PBL_011_R_EN_LG.png"
+    },
+    {
+      "key": "Mega Evolution|Pitch Black|PBL|012|Armarouge",
+      "name": "Armarouge",
+      "set": "Pitch Black",
+      "abbr": "PBL",
+      "num": "012",
+      "oldCandidates": 4,
+      "newBestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/PBL/PBL_012_R_EN_LG.png"
     }
   ]
 }
