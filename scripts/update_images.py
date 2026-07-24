@@ -5,8 +5,8 @@ Deze stap verandert geen collectiegegevens en raakt prices.json niet aan.
 
 Belangrijk: sommige Limitless-links geven een Pokémon-kaartachterkant terug bij
 oude/onbekende sets. Daarom gebruiken we Limitless alleen nog als fallback voor
-moderne setcodes waar die bron bruikbaar is. Voor oude sets gebruiken we eerst
-de officiële Pokémon TCG image CDN.
+moderne setcodes waar die bron bruikbaar is. Voor oude en speciale sets gebruiken
+we eerst de officiële Pokémon TCG image CDN.
 """
 from __future__ import annotations
 
@@ -27,8 +27,11 @@ DEBUG_PATH = ROOT / "pokemon_image_debug.json"
 POKEMON_TCG_IMAGE_SET_IDS = {
     "Base|Base|BS": "base1", "Base|Jungle|JU": "base2", "Base|Fossil|FO": "base3", "Base|Base Set 2|B2": "base4", "Base|Team Rocket|TR": "base5", "Other|Legendary Collection|LC": "base6", "Base|Wizards Black Star Promos|PR": "basep",
     "Gym|Gym Heroes|G1": "gym1", "Gym|Gym Challenge|G2": "gym2", "Neo|Neo Genesis|N1": "neo1", "Neo|Neo Discovery|N2": "neo2", "Neo|Neo Revelation|N3": "neo3", "Neo|Neo Destiny|N4": "neo4", "Other|Southern Islands|—": "si1",
+    "Other|Best of Game|BP": "bp", "Other|Pokémon Rumble|—": "ru1", "Other|Pokémon Futsal Collection|FUT20": "fut20",
+    "Other|McDonald's Collection 2011|—": "mcd11", "Other|McDonald's Collection 2012|—": "mcd12", "Other|McDonald's Collection 2013|—": "mcd13", "Other|McDonald's Collection 2014|—": "mcd14", "Other|McDonald's Collection 2015|—": "mcd15", "Other|McDonald's Collection 2016|—": "mcd16", "Other|McDonald's Collection 2017|—": "mcd17", "Other|McDonald's Collection 2018|—": "mcd18", "Other|McDonald's Collection 2019|—": "mcd19", "Other|McDonald's Collection 2021|—": "mcd21", "Other|McDonald's Collection 2022|—": "mcd22",
     "E-Card|Expedition Base Set|EX": "ecard1", "E-Card|Aquapolis|AQ": "ecard2", "E-Card|Skyridge|SK": "ecard3",
     "EX|Ruby & Sapphire|RS": "ex1", "EX|Sandstorm|SS": "ex2", "EX|Dragon|DR": "ex3", "EX|Team Magma vs Team Aqua|MA": "ex4", "EX|Hidden Legends|HL": "ex5", "EX|FireRed & LeafGreen|RG": "ex6", "EX|Team Rocket Returns|TRR": "ex7", "EX|Deoxys|DX": "ex8", "EX|Emerald|EM": "ex9", "EX|Unseen Forces|UF": "ex10", "EX|Delta Species|DS": "ex11", "EX|Legend Maker|LM": "ex12", "EX|Holon Phantoms|HP": "ex13", "EX|Crystal Guardians|CG": "ex14", "EX|Dragon Frontiers|DF": "ex15", "EX|Power Keepers|PK": "ex16", "NP|Nintendo Black Star Promos|PR-NP": "np",
+    "EX|EX Trainer Kit Latias|—": "tk1a", "EX|EX Trainer Kit Latios|—": "tk1b", "EX|EX Trainer Kit 2 Plusle|—": "tk2a", "EX|EX Trainer Kit 2 Minun|—": "tk2b",
     "Diamond & Pearl|Diamond & Pearl|DP": "dp1", "Diamond & Pearl|Mysterious Treasures|MT": "dp2", "Diamond & Pearl|Secret Wonders|SW": "dp3", "Diamond & Pearl|Great Encounters|GE": "dp4", "Diamond & Pearl|Majestic Dawn|MD": "dp5", "Diamond & Pearl|Legends Awakened|LA": "dp6", "Diamond & Pearl|Stormfront|SF": "dp7", "Diamond & Pearl|DP Black Star Promos|PR-DPP": "dpp",
     "Platinum|Platinum|PL": "pl1", "Platinum|Rising Rivals|RR": "pl2", "Platinum|Supreme Victors|SV": "pl3", "Platinum|Arceus|AR": "pl4",
     "POP|POP Series 1|—": "pop1", "POP|POP Series 2|—": "pop2", "POP|POP Series 3|—": "pop3", "POP|POP Series 4|—": "pop4", "POP|POP Series 5|—": "pop5", "POP|POP Series 6|—": "pop6", "POP|POP Series 7|—": "pop7", "POP|POP Series 8|—": "pop8", "POP|POP Series 9|—": "pop9",
@@ -172,7 +175,7 @@ def main() -> int:
         "cardsWithImageCandidates": len(mapping),
         "cardsWithoutImageCandidates": no_candidates,
         "totalCandidateUrls": total_candidates,
-        "format": "image-map-candidates-v2-no-cardback-fallback",
+        "format": "image-map-candidates-v3-special-sets",
         "images": mapping,
     }
     debug = {
@@ -181,7 +184,7 @@ def main() -> int:
         "cardsWithImageCandidates": len(mapping),
         "cardsWithoutImageCandidates": no_candidates,
         "bySourceCandidateUrls": by_source,
-        "note": "Pokémon TCG image CDN staat eerst. Limitless wordt niet meer gebruikt voor oude reeksen zoals Neo en POP, omdat dat kaartachterkanten kon tonen.",
+        "note": "Pokémon TCG image CDN staat eerst. Speciale sets zoals McDonald's, Rumble, Best of Game, Futsal en EX Trainer Kits zijn nu toegevoegd.",
     }
 
     OUT_PATH.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
