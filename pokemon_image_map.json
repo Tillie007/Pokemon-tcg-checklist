@@ -1,6 +1,6 @@
 {
   "source": "Automatische kandidaten: Pokémon TCG image CDN eerst; Limitless alleen moderne fallback",
-  "updatedAt": "2026-07-24T10:40:43.343179+00:00",
+  "updatedAt": "2026-07-27T13:59:32.013397+00:00",
   "totalCards": 20444,
   "cardsWithImageCandidates": 20444,
   "cardsWithoutImageCandidates": 0,
@@ -320527,7 +320527,7 @@
     }
   },
   "cleanup": {
-    "updatedAt": "2026-07-24T10:40:43.741350+00:00",
+    "updatedAt": "2026-07-27T13:59:32.396530+00:00",
     "rule": "Chaos Rising en Pitch Black gebruiken uitsluitend veilige Limitless _R_EN_LG-afbeeldingen",
     "improvedCards": 242,
     "removedUnsafeUrlsApprox": 900,
