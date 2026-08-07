@@ -145,9 +145,9 @@ EX;EX Trainer Kit 2 Plusle;—;1627;;;manual-set-map;manual;"v2: automatisch gek
 EX;EX Trainer Kit 2 Minun;—;1627;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2947; overlap 5; appUniek 12; cmUniek 21; cmProducten 24";9
 EX;Legend Maker;LM;1550;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.0968; overlap 9; appUniek 93; cmUniek 93; cmProducten 96";90
 EX;Delta Species;DS;1549;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1587; overlap 17; appUniek 96; cmUniek 114; cmProducten 115";85
-EX;Unseen Forces;UF;1548;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 4; score 0.1418; overlap 19; appUniek 118; cmUniek 144; cmProducten 146";116
+EX;Unseen Forces;UF;1548;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 4; score 0.1418; overlap 19; appUniek 118; cmUniek 144; cmProducten 146";115
 EX;Emerald;EM;1547;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.1825; overlap 19; appUniek 99; cmUniek 107; cmProducten 112";88
-EX;Deoxys;DX;1546;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1155; overlap 12; appUniek 97; cmUniek 108; cmProducten 110";87
+EX;Deoxys;DX;1546;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1155; overlap 12; appUniek 97; cmUniek 108; cmProducten 110";86
 EX;Team Rocket Returns;TRR;1545;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.1295; overlap 14; appUniek 103; cmUniek 111; cmProducten 112";95
 EX;FireRed & LeafGreen;RG;1544;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1401; overlap 16; appUniek 111; cmUniek 116; cmProducten 116";104
 EX;Hidden Legends;HL;5864;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1008; overlap 9; appUniek 93; cmUniek 83; cmProducten 83";76
