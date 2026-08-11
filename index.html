@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
 <!-- iPhone/PWA instellingen -->
-<meta name="theme-color" content="#2856a3" />
+<meta name="theme-color" content="#f4f5f1" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -823,6 +823,280 @@ body.modal-open { overflow: hidden; }
   .portfolio-hero-value { text-align:left; margin-top:12px; }
 }
 
+/* 2026 mobiele herbouw — rustige collectie-app geïnspireerd door moderne TCG-apps */
+:root {
+  --app-bg: #f4f5f1;
+  --app-surface: #ffffff;
+  --app-ink: #17231d;
+  --app-muted: #738078;
+  --app-line: #e3e8e3;
+  --app-accent: #28785c;
+  --app-accent-dark: #174c3b;
+  --app-accent-soft: #e6f3ed;
+  --app-warm: #f4cb58;
+  --app-radius: 22px;
+  --app-shadow: 0 14px 38px rgba(26, 58, 44, .08);
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  background: var(--app-bg);
+  color: var(--app-ink);
+}
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px clamp(18px, 4vw, 46px);
+  background: rgba(255,255,255,.92);
+  border: 0;
+  border-bottom: 1px solid var(--app-line);
+  box-shadow: none;
+  color: var(--app-ink);
+}
+.app-header::after { display: none; }
+.app-header-brand { display: flex; align-items: center; gap: 12px; position: relative; z-index: 1; }
+.app-header-icon { width: 46px; height: 46px; border-radius: 14px; box-shadow: 0 7px 18px rgba(23,76,59,.14); }
+.app-header-kicker { display: block; margin-bottom: 2px; color: var(--app-accent); font-size: 11px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+.app-header h1 { margin: 0; color: var(--app-ink); font-size: clamp(22px, 2.5vw, 30px); letter-spacing: -.035em; }
+.app-header p { max-width: 520px; color: var(--app-muted); text-align: right; font-size: 14px; }
+.app { grid-template-columns: minmax(300px, 350px) minmax(0, 1fr); max-width: 1600px; margin: 0 auto; padding: 22px; gap: 18px; }
+.panel { border-color: var(--app-line); border-radius: var(--app-radius); box-shadow: var(--app-shadow); }
+.sidebar { background: var(--app-surface); border: 1px solid var(--app-line); }
+.sidebar-hero {
+  background: radial-gradient(circle at 90% 5%, rgba(244,203,88,.32), transparent 34%), linear-gradient(145deg, #174c3b, #28785c 72%, #3c9677);
+  border-radius: var(--app-radius) var(--app-radius) 0 0;
+}
+.sidebar > .progressbar div { background: linear-gradient(90deg, var(--app-warm), #75c397); }
+.sidebar .stat b, .portfolio-mini-stat b { color: var(--app-accent-dark); }
+.side-card, .portfolio-quick-card { border-color: var(--app-line); box-shadow: 0 8px 24px rgba(26,58,44,.055); }
+.side-card-head { background: linear-gradient(135deg, #fbfcfa, #f0f5f1); border-color: var(--app-line); }
+.side-card-head b { color: var(--app-accent-dark); }
+button.primary { background: var(--app-accent); border-color: var(--app-accent); }
+button.primary:hover { background: var(--app-accent-dark); }
+.main { background: var(--app-surface); }
+.mobile-only, .mobile-view-heading, .mobile-home-continue, .bottom-nav { display: none; }
+.set-links-title { font-size: 16px; margin: 16px 0 8px; }
+.mobile-card-cell { display: none; }
+.set-card-image { display: none; }
+.set-card-copy { padding: 10px; }
+.set-card-copy small { display: block; color: var(--app-muted); font-size: 10px; }
+.set-card-copy b { display: block; margin: 3px 0 5px; color: var(--app-accent-dark); }
+.set-card-meta { display: flex; justify-content: space-between; gap: 8px; color: var(--app-muted); font-size: 11px; }
+.set-progress-track { height: 5px; margin-top: 6px; overflow: hidden; border-radius: 999px; background: #e8ede9; }
+.set-progress-track i { display: block; height: 100%; border-radius: inherit; background: var(--app-accent); }
+.image-placeholder { color: var(--app-muted); font-size: 11px; text-align: center; }
+
+@media (max-width: 900px) {
+  body { padding-bottom: calc(86px + env(safe-area-inset-bottom)); background: var(--app-bg); }
+  .pwa-install-banner { margin: 10px 14px 0; border-radius: 16px; box-shadow: none; }
+  .app-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    min-height: 68px;
+    padding: max(10px, env(safe-area-inset-top)) 16px 10px;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(18px);
+  }
+  .app-header-icon { width: 42px; height: 42px; border-radius: 13px; }
+  .app-header-kicker { font-size: 9px; }
+  .app-header h1 { font-size: 19px; }
+  .app-header p { display: none; }
+  .app {
+    display: block;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 14px 14px 24px;
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+    position: static;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .main { width: 100%; border: 0; border-radius: 0; background: transparent; box-shadow: none; overflow: visible; }
+  .app[data-active-tab="collection"] .sidebar { display: none; }
+  .app:not([data-active-tab="collection"]) .main { display: none; }
+  .app[data-active-tab="home"] .sidebar > [data-mobile-section]:not([data-mobile-section="home"]),
+  .app[data-active-tab="sets"] .sidebar > [data-mobile-section]:not([data-mobile-section="sets"]),
+  .app[data-active-tab="more"] .sidebar > [data-mobile-section]:not([data-mobile-section="more"]) { display: none !important; }
+  .mobile-view-heading { display: block; margin: 2px 2px 16px; }
+  .mobile-view-heading[data-mobile-section="more"] { order: -10; }
+  .mobile-view-heading > span { color: var(--app-accent); font-size: 11px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+  .mobile-view-heading h2 { margin: 3px 0 5px; color: var(--app-ink); font-size: 30px; letter-spacing: -.045em; }
+  .mobile-view-heading p { margin: 0; color: var(--app-muted); font-size: 14px; line-height: 1.45; }
+
+  /* Overzicht */
+  .sidebar-hero[data-mobile-section="home"] {
+    min-height: 164px;
+    padding: 22px;
+    border-radius: 26px;
+    box-shadow: 0 18px 36px rgba(23,76,59,.2);
+    background: radial-gradient(circle at 88% 8%, rgba(244,203,88,.65), transparent 27%), radial-gradient(circle at 84% 82%, rgba(255,255,255,.12), transparent 28%), linear-gradient(145deg, #153f31, #28785c 74%, #3b9476);
+  }
+  .sidebar-hero .hero-kicker { color: #d8efe5; font-size: 10px; }
+  .sidebar-hero h2 { margin: 8px 0 6px !important; max-width: 250px; font-size: 27px !important; letter-spacing: -.04em; }
+  .sidebar-hero p { max-width: 245px; font-size: 13px; }
+  .sidebar > .progressbar[data-mobile-section="home"] { width: calc(100% - 34px); height: 9px; margin: -18px auto 0; position: relative; z-index: 2; border: 3px solid rgba(255,255,255,.85); background: rgba(255,255,255,.32); box-sizing: content-box; }
+  .sidebar .stat-grid[data-mobile-section="home"] { grid-template-columns: 1fr 1fr; gap: 10px; padding: 0; margin: 20px 0 14px; }
+  .sidebar .stat { min-height: 92px; padding: 15px; border: 1px solid var(--app-line); border-radius: 20px; box-shadow: 0 7px 20px rgba(26,58,44,.055); }
+  .sidebar .stat::after { height: 0; }
+  .sidebar .stat b { font-size: 24px; }
+  .sidebar .stat span { font-size: 11px; line-height: 1.25; }
+  .sidebar .stat:nth-child(4), .sidebar .stat:nth-child(6) { display: none; }
+  .portfolio-quick-card[data-mobile-section="home"] { margin: 0 0 20px; overflow: hidden; border: 0; border-radius: 26px; background: linear-gradient(150deg, #101b16, #1b352a); box-shadow: 0 16px 35px rgba(16,27,22,.17); }
+  .portfolio-quick-card .side-card-head { padding: 17px 18px 2px; border: 0; background: transparent; }
+  .portfolio-quick-card .side-card-head b { color: #fff; font-size: 15px; }
+  .portfolio-quick-card .side-card-head span { color: #a7b8ae; }
+  .portfolio-quick-card .side-card-body { padding: 13px 18px 18px; }
+  .portfolio-mini-stats { grid-template-columns: 1fr auto; align-items: end; gap: 10px; }
+  .portfolio-mini-stat { padding: 0; border: 0; border-radius: 0; background: transparent; }
+  .portfolio-mini-stat b { color: #fff; font-size: 30px; letter-spacing: -.045em; }
+  .portfolio-mini-stat span { color: #9eafa5; }
+  .portfolio-mini-stat + .portfolio-mini-stat { text-align: right; }
+  .portfolio-mini-stat + .portfolio-mini-stat b { color: var(--app-warm); font-size: 20px; }
+  .portfolio-quick-card .portfolio-open-btn { width: auto; margin-top: 16px; padding: 10px 15px; background: #fff; border-color: #fff; color: #163d30; }
+  .portfolio-quick-card .smallnote { display: none; }
+  .mobile-home-continue { display: block; margin: 2px 0 8px; }
+  .mobile-section-head { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+  .mobile-section-head span { color: var(--app-accent); font-size: 10px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+  .mobile-section-head h3 { margin: 3px 0 0; color: var(--app-ink); font-size: 21px; letter-spacing: -.035em; }
+  .text-button { min-height: 36px; padding: 8px 2px; border: 0; background: transparent; color: var(--app-accent); }
+  .mobile-set-highlights { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(210px, 78%); gap: 11px; overflow-x: auto; padding: 2px 2px 10px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .mobile-set-highlights::-webkit-scrollbar { display: none; }
+  .highlight-set { scroll-snap-align: start; display: grid; grid-template-columns: 72px 1fr; gap: 12px; min-height: 112px; padding: 12px; border: 1px solid var(--app-line); border-radius: 20px; background: #fff; box-shadow: 0 8px 22px rgba(26,58,44,.05); cursor: pointer; }
+  .highlight-set-image { width: 72px; height: 90px; display: grid; place-items: center; overflow: hidden; border-radius: 12px; background: linear-gradient(145deg, #edf4ef, #dce9e1); }
+  .highlight-set-image img { width: 100%; height: 100%; object-fit: cover; }
+  .highlight-set-copy { min-width: 0; align-self: center; }
+  .highlight-set-copy small { display: block; color: var(--app-accent); font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .highlight-set-copy b { display: -webkit-box; margin: 4px 0 6px; overflow: hidden; color: var(--app-ink); font-size: 14px; line-height: 1.25; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .highlight-set-copy span { color: var(--app-muted); font-size: 11px; }
+  .highlight-progress, .set-progress-track { height: 6px; margin-top: 8px; overflow: hidden; border-radius: 999px; background: #e8ede9; }
+  .highlight-progress i, .set-progress-track i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--app-accent), #69bd91); }
+
+  /* Sets */
+  .set-links-title { display: none !important; }
+  .sidebar .setlist[data-mobile-section="sets"] { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; max-height: none; margin: 0; padding: 0 0 16px; overflow: visible; border: 0; background: transparent; box-shadow: none; }
+  .setitem {
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--app-line) !important;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(26,58,44,.045);
+  }
+  .setitem:hover { padding: 0; background: #fff; }
+  .set-card-image { aspect-ratio: 1.45 / 1; overflow: hidden; display: grid; place-items: center; background: radial-gradient(circle at 80% 20%, rgba(244,203,88,.42), transparent 28%), linear-gradient(145deg, #e9f3ed, #d6e8dd); }
+  .set-card-image img { width: auto; height: 112%; object-fit: contain; transform: translateY(10%) rotate(4deg); filter: drop-shadow(0 9px 9px rgba(23,76,59,.16)); }
+  .set-card-copy { padding: 12px; }
+  .set-card-copy small { display: block; overflow: hidden; color: var(--app-accent); font-size: 9px; font-weight: 850; letter-spacing: .07em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+  .set-card-copy b { display: -webkit-box; min-height: 35px; margin: 4px 0; overflow: hidden; color: var(--app-ink); font-size: 14px; line-height: 1.25; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .set-card-meta { display: flex; justify-content: space-between; gap: 6px; color: var(--app-muted); font-size: 10px; }
+  .set-card-meta strong { color: var(--app-accent-dark); }
+
+  /* Kaarten */
+  .collection-heading { margin: 2px 2px 14px; }
+  .toolbar { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; padding: 0; border: 0; background: transparent; }
+  .toolbar > div:first-child { grid-column: 1 / -1; }
+  .toolbar label { margin: 0 0 5px; color: var(--app-muted); font-size: 10px; letter-spacing: .04em; text-transform: uppercase; }
+  .toolbar input[type="search"] { height: 50px; padding: 0 16px 0 44px; border: 1px solid var(--app-line); border-radius: 17px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23738078' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-4-4'/%3E%3C/svg%3E") no-repeat 15px center / 20px; box-shadow: 0 7px 20px rgba(26,58,44,.045); }
+  .toolbar select { min-height: 46px; padding: 10px 12px; border-color: var(--app-line); border-radius: 15px; background-color: #fff; font-size: 13px; }
+  .statusline { margin-top: 12px; padding: 10px 2px 12px; border: 0; background: transparent; }
+  .statusline > div:first-child { width: 100%; }
+  .statusline #filteredSummary { color: var(--app-ink); font-size: 14px; }
+  .statusline #filteredDetails { display: block; margin-top: 2px; }
+  .statusline > .button-row { display: none; }
+  .pagination { width: 100%; justify-content: space-between; }
+  .pagination button { width: auto; min-height: 38px; padding: 8px 12px; }
+  .pagination #pageSizeSelect { display: none; }
+  .tablewrap { overflow: visible; background: transparent; }
+  #cardsTable, #cardsTable tbody { display: block; width: 100%; }
+  #cardsTable thead { display: none; }
+  #cardsBody { display: grid !important; grid-template-columns: 1fr 1fr; gap: 12px; }
+  #cardsBody tr { display: block; min-width: 0; overflow: hidden; border: 1px solid var(--app-line); border-radius: 19px; background: #fff; box-shadow: 0 8px 24px rgba(26,58,44,.05); }
+  #cardsBody tr.owned { border-color: #8fc9aa; box-shadow: 0 0 0 2px rgba(40,120,92,.08), 0 8px 24px rgba(26,58,44,.05); }
+  #cardsBody td { display: none; padding: 0; border: 0; background: transparent; }
+  #cardsBody td.mobile-card-cell { display: block; }
+  .mobile-card-shell { position: relative; }
+  .mobile-card-open { display: block; width: 100%; padding: 0; border: 0; border-radius: 0; background: transparent; text-align: left; }
+  .mobile-card-open:hover { background: transparent; box-shadow: none; transform: none; }
+  .mobile-card-image { position: relative; display: grid; place-items: center; aspect-ratio: .72 / 1; overflow: hidden; background: radial-gradient(circle at 20% 10%, rgba(244,203,88,.36), transparent 30%), linear-gradient(145deg, #edf4ef, #dbe9e0); }
+  .mobile-card-image img { width: 100%; height: 100%; object-fit: cover; }
+  .mobile-card-image .image-placeholder { padding: 16px; color: var(--app-muted); text-align: center; font-size: 11px; }
+  .mobile-owned-toggle { position: absolute; right: 9px; top: 9px; display: grid; place-items: center; width: 36px; height: 36px; border: 2px solid rgba(255,255,255,.92); border-radius: 50%; background: rgba(255,255,255,.9); box-shadow: 0 5px 14px rgba(10,30,20,.18); color: var(--app-muted); font-size: 21px; }
+  tr.owned .mobile-owned-toggle { background: var(--app-accent); color: #fff; }
+  .mobile-card-copy { display: block; padding: 11px 11px 12px; }
+  .mobile-card-copy small { display: block; overflow: hidden; color: var(--app-accent); font-size: 9px; font-weight: 800; letter-spacing: .06em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+  .mobile-card-copy b { display: block; min-height: 34px; margin: 4px 0 7px; overflow: hidden; color: var(--app-ink); font-size: 13px; line-height: 1.28; text-overflow: ellipsis; }
+  .mobile-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 7px; color: var(--app-muted); font-size: 10px; }
+  .mobile-card-price { color: var(--app-accent-dark); font-size: 13px; font-weight: 850; }
+
+  /* Meer */
+  .sidebar > [data-mobile-section="more"].side-card,
+  .sidebar > [data-mobile-section="more"].pricebox { width: 100%; margin: 0 0 12px; border: 0; border-radius: 22px; background: transparent; box-shadow: none; }
+  .sidebar > [data-mobile-section="more"].pricebox > .side-card { margin: 0; }
+  .sidebar > [data-mobile-section="more"] .side-card { border-radius: 22px; background: #fff; box-shadow: 0 8px 24px rgba(26,58,44,.05); }
+  .sidebar > [data-mobile-section="more"] .side-card-head { padding: 15px 16px; background: #f8faf8; }
+  .sidebar > [data-mobile-section="more"] .side-card-body { padding: 14px 16px 16px; }
+  .price-quick > label[for="priceEndpointInput"], #priceEndpointInput { display: none; }
+  .compact-actions { grid-template-columns: 1fr 1fr; }
+  .compact-actions button, .compact-actions .filebutton { width: 100%; min-height: 44px; }
+  .syncbox input { min-height: 46px; border-color: var(--app-line); border-radius: 14px; }
+
+  /* Onderste navigatie */
+  .bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    min-height: calc(70px + env(safe-area-inset-bottom));
+    padding: 7px 8px max(7px, env(safe-area-inset-bottom));
+    border-top: 1px solid rgba(220,228,222,.9);
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 -9px 28px rgba(23,52,40,.08);
+  }
+  .bottom-nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 0; min-height: 54px; padding: 4px 2px; border: 0; border-radius: 14px; background: transparent; color: #88928c; font-size: 10px; font-weight: 750; }
+  .bottom-nav-item:hover { background: transparent; box-shadow: none; transform: none; }
+  .bottom-nav-item svg { width: 22px; height: 22px; fill: currentColor; }
+  .bottom-nav-item.active { color: var(--app-accent); }
+  .bottom-nav-primary { position: relative; }
+  .bottom-nav-primary-icon { display: grid; place-items: center; width: 43px; height: 43px; margin-top: -22px; border: 4px solid #fff; border-radius: 50%; background: var(--app-accent); box-shadow: 0 8px 18px rgba(40,120,92,.28); color: #fff; }
+  .bottom-nav-primary-icon svg { width: 21px; height: 21px; }
+  .bottom-nav-primary.active .bottom-nav-primary-icon { background: var(--app-accent-dark); }
+
+  /* Details */
+  .modal-backdrop { padding: 0; }
+  .modal-card { width: 100%; height: 100dvh; max-height: 100dvh; border-radius: 0; }
+  .modal-head { padding: max(16px, env(safe-area-inset-top)) 16px 14px; background: linear-gradient(145deg, #174c3b, #28785c); }
+  .modal-head h2 { font-size: 20px; }
+  .modal-body { padding: 16px 14px calc(28px + env(safe-area-inset-bottom)); background: var(--app-bg); }
+  .card-preview { max-width: 290px; border: 0; border-radius: 22px; box-shadow: none; background: transparent; }
+  .detail-price-grid { grid-template-columns: 1fr 1fr; }
+  .detail-price-card { border-color: var(--app-line); border-radius: 16px; }
+}
+
+@media (max-width: 390px) {
+  .app { padding-left: 11px; padding-right: 11px; }
+  #cardsBody { gap: 9px; }
+  .sidebar .setlist[data-mobile-section="sets"] { gap: 9px; }
+  .mobile-card-copy { padding: 9px; }
+  .mobile-card-copy b { font-size: 12px; }
+}
+
 </style>
 </head>
 <body>
@@ -844,19 +1118,25 @@ body.modal-open { overflow: hidden; }
   <span class="small">Open deze pagina in Safari, tik op delen of “Meer” en kies <b>Zet op beginscherm</b>. Schakel daarna <b>Open als webapp</b> in.</span>
 </div>
 
-<header>
-  <h1>Pokémon TCG Collectie Pro</h1>
-  <p>Je persoonlijke Pokémon TCG collectie met marktwaarde, kaartdetails, afbeelding, prijsgeschiedenis en portfolio-overzicht. Cardmarket open je vanaf nu vanuit het detailmenu van elke kaart.</p>
-</header>
-<div class="app">
-  <aside class="panel sidebar">
-    <div class="sidebar-hero">
-      <div class="hero-kicker">Collectie dashboard</div>
-      <h2>Mijn voortgang</h2>
-      <p>Waarde, prijzen en setvoortgang in één overzicht.</p>
+<header class="app-header">
+  <div class="app-header-brand">
+    <img src="icons/icon-192.png" alt="" class="app-header-icon">
+    <div>
+      <span class="app-header-kicker">Mijn verzameling</span>
+      <h1>Pokémon TCG Collectie</h1>
     </div>
-    <div class="progressbar"><div id="totalProgress"></div></div>
-    <div class="stat-grid">
+  </div>
+  <p>Bekijk je sets, vul je collectie aan en volg de waarde van je kaarten.</p>
+</header>
+<div class="app" id="appShell" data-active-tab="home">
+  <aside class="panel sidebar">
+    <div class="sidebar-hero" data-mobile-section="home">
+      <div class="hero-kicker">Collectie dashboard</div>
+      <h2>Welkom terug, Tim</h2>
+      <p>Je collectie en waarde in één duidelijk overzicht.</p>
+    </div>
+    <div class="progressbar" data-mobile-section="home"><div id="totalProgress"></div></div>
+    <div class="stat-grid" data-mobile-section="home">
       <div class="stat"><b id="ownedCount">0</b><span>kaarten in bezit</span></div>
       <div class="stat"><b id="missingCount">0</b><span>nog nodig</span></div>
       <div class="stat"><b id="setCount">173</b><span>sets</span></div>
@@ -865,7 +1145,7 @@ body.modal-open { overflow: hidden; }
       <div class="stat"><b id="pricedCount">0</b><span>kaarten met prijs</span></div>
     </div>
 
-    <div class="side-card">
+    <div class="side-card" data-mobile-section="more">
       <div class="side-card-head"><b>Acties</b><span>backup & export</span></div>
       <div class="side-card-body">
         <div class="compact-actions">
@@ -884,7 +1164,7 @@ body.modal-open { overflow: hidden; }
       </div>
     </div>
 
-    <div class="pricebox compact-price">
+    <div class="pricebox compact-price" data-mobile-section="more">
       <div class="side-card">
         <div class="side-card-head"><b>Cardmarket prijzen</b><span id="priceMiniStatus">prijzenbestand</span></div>
         <div class="side-card-body price-quick">
@@ -911,7 +1191,7 @@ body.modal-open { overflow: hidden; }
     </div>
 
 
-    <div class="side-card syncbox">
+    <div class="side-card syncbox" data-mobile-section="more">
       <div class="side-card-head"><b>Cloud-sync</b><span id="syncMiniStatus">Supabase</span></div>
       <div class="side-card-body sync-quick">
         <label for="syncCollectionIdInput">Collectie-ID</label>
@@ -932,7 +1212,7 @@ body.modal-open { overflow: hidden; }
       </div>
     </div>
 
-    <div class="side-card portfolio-quick-card">
+    <div class="side-card portfolio-quick-card" data-mobile-section="home">
       <div class="side-card-head"><b>Portfolio</b><span>analyse</span></div>
       <div class="side-card-body">
         <div class="portfolio-mini-stats">
@@ -944,11 +1224,38 @@ body.modal-open { overflow: hidden; }
       </div>
     </div>
 
-    <h3 style="font-size:16px; margin:16px 0 8px;">Setsnelkoppelingen</h3>
-    <div class="setlist" id="setProgressList"></div>
+    <section class="mobile-home-continue" data-mobile-section="home" aria-labelledby="continueTitle">
+      <div class="mobile-section-head">
+        <div>
+          <span>Je verzameling</span>
+          <h3 id="continueTitle">Verder verzamelen</h3>
+        </div>
+        <button type="button" class="text-button" data-nav-target="sets">Alle sets</button>
+      </div>
+      <div id="mobileSetHighlights" class="mobile-set-highlights"></div>
+    </section>
+
+    <div class="mobile-view-heading" data-mobile-section="sets">
+      <span>Alle uitbreidingen</span>
+      <h2>Sets</h2>
+      <p>Kies een set om meteen te zien welke kaarten je nog mist.</p>
+    </div>
+    <h3 class="set-links-title" data-mobile-section="sets">Setsnelkoppelingen</h3>
+    <div class="setlist" id="setProgressList" data-mobile-section="sets"></div>
+
+    <div class="mobile-view-heading" data-mobile-section="more">
+      <span>Beheer</span>
+      <h2>Meer</h2>
+      <p>Synchronisatie, prijzen, back-ups en exports.</p>
+    </div>
   </aside>
 
   <main class="panel main">
+    <div class="mobile-view-heading collection-heading">
+      <span>Checklist</span>
+      <h2>Kaarten</h2>
+      <p>Zoek een kaart en tik op het vinkje om ze aan je collectie toe te voegen.</p>
+    </div>
     <div class="toolbar">
       <div>
         <label for="searchInput">Zoeken</label>
@@ -1020,6 +1327,7 @@ body.modal-open { overflow: hidden; }
       <table id="cardsTable">
         <thead>
           <tr>
+            <th class="mobile-only">Kaart</th>
             <th class="checkboxcell">Heb ik</th>
             <th>Serie</th>
             <th>Set</th>
@@ -1037,6 +1345,25 @@ body.modal-open { overflow: hidden; }
     </div>
   </main>
 </div>
+
+<nav class="bottom-nav" aria-label="Hoofdnavigatie">
+  <button type="button" class="bottom-nav-item active" data-nav-target="home" aria-current="page">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.8 12 3l9 7.8v9.7a.5.5 0 0 1-.5.5h-5.7v-6.2H9.2V21H3.5a.5.5 0 0 1-.5-.5z"/></svg>
+    <span>Overzicht</span>
+  </button>
+  <button type="button" class="bottom-nav-item" data-nav-target="sets">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h11.5A2.5 2.5 0 0 1 19 6v14.5H7A2 2 0 0 1 5 18.5zm2 2v11.2c.3-.1.7-.2 1-.2h9V6a.5.5 0 0 0-.5-.5z"/></svg>
+    <span>Sets</span>
+  </button>
+  <button type="button" class="bottom-nav-item bottom-nav-primary" data-nav-target="collection">
+    <span class="bottom-nav-primary-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 0 4.1 11.55L19.05 20 20.5 18.55l-4.45-4.45A6.5 6.5 0 0 0 10.5 4m0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9"/></svg></span>
+    <span>Kaarten</span>
+  </button>
+  <button type="button" class="bottom-nav-item" data-nav-target="more">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m0 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m0 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/></svg>
+    <span>Meer</span>
+  </button>
+</nav>
 
 
 <div id="cardModal" class="modal-backdrop" aria-hidden="true">
@@ -1070,6 +1397,12 @@ const DATA = {"sets":[{"series":"Mega Evolution","set":"Pitch Black","abbr":"PBL
 const cards = DATA.cards;
 const cardsByKey = Object.fromEntries(cards.map(c => [c.key, c]));
 const sets = DATA.sets;
+const cardsBySet = new Map();
+cards.forEach(card => {
+  const setKey = `${card.series}|||${card.set}|||${card.abbr}`;
+  if (!cardsBySet.has(setKey)) cardsBySet.set(setKey, []);
+  cardsBySet.get(setKey).push(card);
+});
 const STORAGE_KEY = 'pokemon_tcg_owned_cards_v1';
 const PRICE_STORAGE_KEY = 'pokemon_tcg_prices_v1';
 const PRICE_ENDPOINT_KEY = 'pokemon_tcg_price_endpoint_v1';
@@ -1099,6 +1432,14 @@ const statusFilter = el('statusFilter');
 const priceFilter = el('priceFilter');
 const sortSelect = el('sortSelect');
 const pageSizeSelect = el('pageSizeSelect');
+
+if (pageSizeSelect && window.matchMedia('(max-width: 900px)').matches) {
+  const mobilePageOption = document.createElement('option');
+  mobilePageOption.value = '50';
+  mobilePageOption.textContent = '50 per pagina';
+  pageSizeSelect.prepend(mobilePageOption);
+  pageSizeSelect.value = '50';
+}
 
 function loadOwned() {
   try {
@@ -1432,6 +1773,21 @@ function tryNextCardImage(img) {
   } catch(e) {
     img.style.display = 'none';
   }
+}
+
+function tryNextCollectionImage(img) {
+  try {
+    const raw = img.getAttribute('data-fallbacks') || '';
+    const list = raw ? JSON.parse(decodeURIComponent(raw)) : [];
+    const next = list.shift();
+    if (next) {
+      img.setAttribute('data-fallbacks', encodeURIComponent(JSON.stringify(list)));
+      img.src = next;
+      return;
+    }
+  } catch(e) {}
+  const wrap = img.closest('.mobile-card-image, .set-card-image, .highlight-set-image');
+  if (wrap) wrap.innerHTML = '<span class="image-placeholder">Geen afbeelding</span>';
 }
 function rarityFor(card) {
   const p = priceFor(card) || {};
@@ -2587,7 +2943,30 @@ function renderTable() {
   shown.forEach(card => {
     const tr = document.createElement('tr');
     if (isOwned(card)) tr.className = 'owned';
+    const cardImages = imageCandidatesFor(card);
+    const cardImage = cardImages[0] || '';
+    const cardImageFallbacks = cardImages.slice(1);
+    const mobileImageHtml = cardImage
+      ? `<img src="${escapeHtml(cardImage)}" data-fallbacks="${escapeHtml(encodeURIComponent(JSON.stringify(cardImageFallbacks)))}" onerror="tryNextCollectionImage(this)" alt="${escapeHtml(card.name)}" loading="lazy">`
+      : '<span class="image-placeholder">Geen afbeelding</span>';
+    const mobilePrice = numericCardPrice(card);
     tr.innerHTML = `
+      <td class="mobile-card-cell">
+        <div class="mobile-card-shell">
+          <button type="button" class="mobile-card-open" data-detail-key="${escapeHtml(card.key)}" aria-label="Open ${escapeHtml(card.name)}">
+            <span class="mobile-card-image">${mobileImageHtml}</span>
+            <span class="mobile-card-copy">
+              <small>${escapeHtml(card.set)} · ${escapeHtml(card.num)}</small>
+              <b>${escapeHtml(card.name)}</b>
+              <span class="mobile-card-bottom">
+                <span>${escapeHtml(variantLabel(card))}</span>
+                <span class="mobile-card-price">${escapeHtml(formatMoney(mobilePrice, (priceFor(card) || {}).currency || 'EUR'))}</span>
+              </span>
+            </span>
+          </button>
+          <button type="button" class="mobile-owned-toggle" data-owned-key="${escapeHtml(card.key)}" aria-label="${isOwned(card) ? 'Verwijder uit mijn collectie' : 'Voeg toe aan mijn collectie'}">${isOwned(card) ? '✓' : '+'}</button>
+        </div>
+      </td>
       <td class="checkboxcell"><input class="checkbig" type="checkbox" data-key="${escapeHtml(card.key)}" ${isOwned(card) ? 'checked' : ''}></td>
       <td>${escapeHtml(card.series)}</td>
       <td>${escapeHtml(card.set)}</td>
@@ -2618,6 +2997,17 @@ function renderTable() {
       if (card) openCardModal(card);
     });
   });
+  tbody.querySelectorAll('[data-owned-key]').forEach(btn => {
+    btn.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      const card = cardsByKey[ev.currentTarget.dataset.ownedKey];
+      if (!card) return;
+      setOwned(card, !isOwned(card));
+      saveOwned();
+      render();
+    });
+  });
   el('pageInfo').textContent = `Pagina ${currentPage} / ${totalPages}`;
   el('prevPageBtn').disabled = currentPage <= 1;
   el('nextPageBtn').disabled = currentPage >= totalPages;
@@ -2625,13 +3015,29 @@ function renderTable() {
 function renderSetProgress() {
   const list = el('setProgressList');
   let html = '';
-  sets.forEach(s => {
-    const setCards = cards.filter(c => c.series === s.series && c.set === s.set && c.abbr === s.abbr);
+  const setRows = sets.map(s => {
+    const value = `${s.series}|||${s.set}|||${s.abbr}`;
+    const setCards = cardsBySet.get(value) || [];
     const have = setCards.reduce((n,c)=>n+(isOwned(c)?1:0),0);
     const pct = setCards.length ? Math.round(have / setCards.length * 100) : 0;
-    const value = `${s.series}|||${s.set}|||${s.abbr}`;
     const cm = setCmCodeFor(s);
-    html += `<div class="setitem" data-setvalue="${escapeHtml(value)}"><b>${escapeHtml(s.set)} <span class="badge">${escapeHtml(s.abbr)}</span>${cm ? ' <span class="badge">CM ' + escapeHtml(cm) + '</span>' : ''}</b><span class="mini">${escapeHtml(s.series)} — ${have}/${setCards.length} (${pct}%)</span></div>`;
+    const coverCard = setCards.find(c => imageUrlFor(c)) || setCards[0] || null;
+    const coverCandidates = coverCard ? imageCandidatesFor(coverCard) : [];
+    const coverImage = coverCandidates[0] || '';
+    const coverFallbacks = coverCandidates.slice(1);
+    const imageHtml = coverImage
+      ? `<img src="${escapeHtml(coverImage)}" data-fallbacks="${escapeHtml(encodeURIComponent(JSON.stringify(coverFallbacks)))}" onerror="tryNextCollectionImage(this)" alt="" loading="lazy">`
+      : '<span class="image-placeholder">Geen afbeelding</span>';
+    html += `<div class="setitem" data-setvalue="${escapeHtml(value)}">
+      <div class="set-card-image">${imageHtml}</div>
+      <div class="set-card-copy">
+        <small>${escapeHtml(s.series)}${cm ? ' · CM ' + escapeHtml(cm) : ''}</small>
+        <b>${escapeHtml(s.set)}</b>
+        <div class="set-card-meta"><span>${have.toLocaleString('nl-BE')} / ${setCards.length.toLocaleString('nl-BE')}</span><strong>${pct}%</strong></div>
+        <div class="set-progress-track"><i style="width:${pct}%"></i></div>
+      </div>
+    </div>`;
+    return { s, setCards, have, pct, value, imageHtml };
   });
   list.innerHTML = html;
   list.querySelectorAll('.setitem').forEach(item => {
@@ -2641,9 +3047,37 @@ function renderSetProgress() {
       updateSetFilter();
       setFilter.value = item.dataset.setvalue;
       applyFilters(true);
+      navigateToTab('collection');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
+  renderMobileSetHighlights(setRows);
+}
+
+function renderMobileSetHighlights(setRows) {
+  const target = el('mobileSetHighlights');
+  if (!target) return;
+  const activeRows = setRows.filter(row => row.have > 0 && row.have < row.setCards.length);
+  const suggestedRows = setRows.filter(row => row.have === 0 && row.setCards.length);
+  const rows = [...activeRows, ...suggestedRows].slice(0, 8);
+  target.innerHTML = rows.map(row => `<article class="highlight-set" data-setvalue="${escapeHtml(row.value)}">
+    <div class="highlight-set-image">${row.imageHtml}</div>
+    <div class="highlight-set-copy">
+      <small>${escapeHtml(row.s.series)}</small>
+      <b>${escapeHtml(row.s.set)}</b>
+      <span>${row.have.toLocaleString('nl-BE')} van ${row.setCards.length.toLocaleString('nl-BE')} kaarten</span>
+      <div class="highlight-progress"><i style="width:${row.pct}%"></i></div>
+    </div>
+  </article>`).join('');
+  target.querySelectorAll('[data-setvalue]').forEach(item => item.addEventListener('click', () => {
+    const [ser] = item.dataset.setvalue.split('|||');
+    seriesFilter.value = ser;
+    updateSetFilter();
+    setFilter.value = item.dataset.setvalue;
+    applyFilters(true);
+    navigateToTab('collection');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }));
 }
 
 function markFiltered(value) {
@@ -3010,10 +3444,29 @@ const portfolioModal = el('portfolioModal');
 if (portfolioModal) portfolioModal.addEventListener('click', (ev) => { if (ev.target === portfolioModal) closePortfolioModal(); });
 document.addEventListener('keydown', ev => { if (ev.key === 'Escape') { closeCardModal(); closePortfolioModal(); } });
 
+function navigateToTab(tab) {
+  const shell = el('appShell');
+  const validTab = ['home', 'sets', 'collection', 'more'].includes(tab) ? tab : 'home';
+  if (shell) shell.dataset.activeTab = validTab;
+  document.querySelectorAll('.bottom-nav-item').forEach(item => {
+    const active = item.dataset.navTarget === validTab;
+    item.classList.toggle('active', active);
+    if (active) item.setAttribute('aria-current', 'page');
+    else item.removeAttribute('aria-current');
+  });
+}
+
+document.querySelectorAll('[data-nav-target]').forEach(item => {
+  item.addEventListener('click', () => {
+    navigateToTab(item.dataset.navTarget);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
 initSyncUi();
 initFilters();
-loadImageMap();
 applyFilters(true);
+loadImageMap().then(() => render());
 maybeAutoUpdatePrices();
 </script>
 

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pokemon-tcg-checklist-step6e-auto-refresh-v2';
+const CACHE_NAME = 'pokemon-tcg-checklist-mobile-redesign-v1';
 
 const FRESH_PATHS = new Set([
   '/Pokemon-tcg-checklist/',

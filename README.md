@@ -5,7 +5,7 @@ De Cardmarket-prijzen worden dagelijks bijgewerkt met GitHub Actions en opgeslag
 
 ## Wat zit hierin?
 
-- `index.html` – de app
+- `index.html` – de mobiele collectie-app met overzicht, sets, kaartengalerij en beheer
 - `manifest.webmanifest` – PWA-instellingen
 - `service-worker.js` – offline cache
 - `icons/` – app-iconen en startscherm
@@ -16,6 +16,17 @@ De Cardmarket-prijzen worden dagelijks bijgewerkt met GitHub Actions en opgeslag
 - `price_history.json` – lokale online prijshistoriek, opgebouwd per dag
 - `cardmarket_match_report.csv` – controlebestand voor gekoppelde/niet-gekoppelde kaarten
 - `cardmarket_setcodes.csv` – overzicht van Cardmarket-setcodes
+
+## Mobiele bediening
+
+De app gebruikt op iPhone en iPad vier duidelijke onderdelen onderaan het scherm:
+
+- **Overzicht** – collectievoortgang, waarde en sets om verder te verzamelen
+- **Sets** – alle uitbreidingen met voortgang per set
+- **Kaarten** – visuele checklist met zoeken en filters
+- **Meer** – synchronisatie, prijsupdate, back-up en export
+
+Op een computer blijft de uitgebreide tabelweergave beschikbaar.
 
 ## Belangrijk
 
