@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: Repository ophalen
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Python installeren
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.x"
 
@@ -26,6 +26,18 @@ jobs:
 
       - name: Chaos Rising-prijsmapping controleren
         run: python scripts/ensure_chaos_rising_price_map.py
+
+      - name: Prijsgeschiedenis-interface voorbereiden
+        run: |
+          if git apply --check scripts/compact_price_history_ui.patch; then
+            git apply scripts/compact_price_history_ui.patch
+            echo "Periodekeuze voor prijsgeschiedenis toegevoegd."
+          elif grep -q 'data-history-range' index.html; then
+            echo "Periodekeuze was al aanwezig."
+          else
+            echo "De prijsgeschiedenis-interface kon niet veilig worden bijgewerkt."
+            exit 1
+          fi
 
       - name: Cardmarket-prijzen bijwerken
         run: python scripts/update_prices.py --force
@@ -46,6 +58,10 @@ jobs:
               print("matchTypes:", data.get("matchTypes"))
           else:
               print("prices.json bestaat niet")
+
+          h = Path("price_history.json")
+          if h.exists():
+              print("priceHistoryMiB:", round(h.stat().st_size / (1024 * 1024), 2))
           PY
 
       - name: Gewijzigde prijsbestanden bewaren
@@ -53,7 +69,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add prices.json price_history.json cardmarket_debug.json cardmarket_match_report.csv cardmarket_setcodes.csv cardmarket_set_mapping_candidates.csv cardmarket_unmatched_by_set.csv cardmarket_manual_set_map.csv 2>/dev/null || true
+          git add index.html prices.json price_history.json cardmarket_debug.json cardmarket_match_report.csv cardmarket_setcodes.csv cardmarket_set_mapping_candidates.csv cardmarket_unmatched_by_set.csv cardmarket_manual_set_map.csv 2>/dev/null || true
 
           if [[ -n "$(git status --porcelain)" ]]; then
             git commit -m "Dagelijkse Cardmarket-prijzen bijwerken"
