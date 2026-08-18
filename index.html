@@ -317,6 +317,10 @@ input[type="text"], input[type="url"], textarea {
 .history-chart .dot { fill:#1d4ed8; stroke:#fff; stroke-width:2; }
 .history-summary { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:8px; margin:10px 0; }
 .history-summary .portfolio-stat b { font-size:15px; }
+.history-range { display:flex; align-items:center; gap:7px; flex-wrap:wrap; margin:10px 0; }
+.history-range button { width:auto !important; min-height:36px; padding:7px 12px; border-radius:999px; background:#f1f5f9; border-color:#d8e2ef; color:#475569; }
+.history-range button.active { background:var(--blue2); border-color:var(--blue2); color:#fff; box-shadow:0 5px 14px rgba(29,78,216,.18); }
+.history-range-note { color:var(--muted); font-size:11px; margin-left:3px; }
 .detail-actions .greenlink { background:#ecfdf3; border-color:#bbf7d0; color:#166534; }
 .detail-owned-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:10px 0; }
 .detail-owned-row label { display:flex; align-items:center; gap:8px; font-weight:700; color:#1f2937; }
@@ -1418,6 +1422,7 @@ const SUPABASE_ANON_KEY = 'sb_publishable_hOI52AyDcNgCmdHPA3br4g_DR1EIEmS';
 let owned = loadOwned();
 let prices = loadPrices();
 let priceHistory = loadPriceHistory();
+let detailHistoryRangeDays = 90;
 let cardDetails = loadCardDetails();
 let imageMap = {};
 let priceAutoUpdate = localStorage.getItem(PRICE_AUTO_KEY) !== '0';
@@ -1510,7 +1515,16 @@ function loadPriceHistory() {
   } catch(e) { return {}; }
 }
 function savePriceHistory() {
-  localStorage.setItem(PRICE_HISTORY_STORAGE_KEY, JSON.stringify(priceHistory));
+  try {
+    localStorage.setItem(PRICE_HISTORY_STORAGE_KEY, JSON.stringify(priceHistory));
+    return true;
+  } catch(e) {
+    // De volledige historiek kan groter zijn dan de iPhone-opslaglimiet.
+    // Ze blijft dan wel beschikbaar in het geheugen zolang de app open is.
+    console.warn('Prijshistoriek past niet in localStorage en blijft alleen voor deze sessie geladen.', e);
+    try { localStorage.removeItem(PRICE_HISTORY_STORAGE_KEY); } catch(_) {}
+    return false;
+  }
 }
 function loadCardDetails() {
   try {
@@ -2296,7 +2310,7 @@ function historyValueFor(row) {
 }
 function normalizeHistoryRow(row, key = '') {
   if (Array.isArray(row)) {
-    return { date: row[0] || key, price: row[1], trendPrice: row[2], avg30: row[3], lowPrice: row[4], currency: 'EUR' };
+    return { date: row[0] || key, price: row[1], trendPrice: row[2], avg30: row[3], lowPrice: row[4], foilTrendPrice: row[5], currency: 'EUR' };
   }
   if (row && typeof row === 'object') {
     return {
@@ -2333,7 +2347,7 @@ function historyRowsFor(card) {
   return rows
     .filter(r => Number.isFinite(historyValueFor(r)))
     .sort((a,b)=>String(b.date||'').localeCompare(String(a.date||'')))
-    .slice(0, 60);
+    .slice(0, 120);
 }
 function historyRowsAsc(card) {
   return historyRowsFor(card).slice().reverse();
@@ -2361,6 +2375,38 @@ function priceEvolutionPoints(card) {
   const byDate = new Map();
   rows.forEach(p => byDate.set(p.date, p));
   return [...byDate.values()].sort((a,b)=>a.date.localeCompare(b.date));
+}
+function historyPointsForRange(card, days = detailHistoryRangeDays) {
+  const points = priceEvolutionPoints(card);
+  if (!points.length || !Number.isFinite(days) || days <= 0) return points;
+  const last = points[points.length - 1];
+  const cutoff = new Date(last.date + 'T00:00:00Z');
+  cutoff.setUTCDate(cutoff.getUTCDate() - days + 1);
+  const cutoffStr = cutoff.toISOString().slice(0, 10);
+  const visible = points.filter(point => point.date >= cutoffStr);
+  return visible.length ? visible : points.slice(-1);
+}
+function renderHistoryRangeControls() {
+  const ranges = [[30, '1 maand'], [90, '3 maanden'], [180, '6 maanden'], [365, '1 jaar']];
+  return `<div class="history-range" role="group" aria-label="Periode prijsgeschiedenis">
+    ${ranges.map(([days, label]) => `<button type="button" class="${detailHistoryRangeDays === days ? 'active' : ''}" data-history-range="${days}" aria-pressed="${detailHistoryRangeDays === days ? 'true' : 'false'}">${label}</button>`).join('')}
+    <span class="history-range-note">60 dagen dagelijks, daarna wekelijks</span>
+  </div>`;
+}
+function bindHistoryRangeButtons(card) {
+  const controls = el('historyRangeControls');
+  if (!controls) return;
+  controls.querySelectorAll('[data-history-range]').forEach(button => {
+    button.addEventListener('click', () => {
+      detailHistoryRangeDays = Number(button.dataset.historyRange) || 90;
+      controls.innerHTML = renderHistoryRangeControls();
+      const summary = el('historySummaryContent');
+      const chart = el('historyChartContent');
+      if (summary) summary.innerHTML = renderHistorySummary(card);
+      if (chart) chart.innerHTML = renderHistoryChart(card);
+      bindHistoryRangeButtons(card);
+    });
+  });
 }
 function pointDaysBack(points, days) {
   if (!points.length) return null;
@@ -2455,34 +2501,32 @@ function renderDailyMovement(card) {
 }
 
 function renderHistorySummary(card) {
-  const rows = historyRowsAsc(card);
-  const values = rows.map(historyValueFor).filter(Number.isFinite);
-  const current = numericCardPrice(card);
-  if (!values.length && !Number.isFinite(current)) {
+  const points = historyPointsForRange(card);
+  const values = points.map(point => point.value).filter(Number.isFinite);
+  if (!values.length) {
     return '<div class="history-summary"><div class="portfolio-stat"><b>—</b><span>Nog geen prijshistoriek</span></div></div>';
   }
-  const all = values.length ? values : [current];
-  const min = Math.min(...all);
-  const max = Math.max(...all);
-  const first = values.length ? values[0] : current;
-  const last = Number.isFinite(current) ? current : (values.length ? values[values.length - 1] : NaN);
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const first = values[0];
+  const last = values[values.length - 1];
   const diff = Number.isFinite(first) && Number.isFinite(last) ? last - first : NaN;
   const diffClass = Number.isFinite(diff) && diff >= 0 ? 'profit-positive' : 'profit-negative';
   return `<div class="history-summary">
     <div class="portfolio-stat"><b>${escapeHtml(formatMoney(last, 'EUR'))}</b><span>laatste waarde</span></div>
     <div class="portfolio-stat"><b>${escapeHtml(formatMoney(min, 'EUR'))}</b><span>laagste punt</span></div>
     <div class="portfolio-stat"><b>${escapeHtml(formatMoney(max, 'EUR'))}</b><span>hoogste punt</span></div>
-    <div class="portfolio-stat"><b class="${diffClass}">${Number.isFinite(diff) ? escapeHtml(formatMoney(diff, 'EUR')) : '—'}</b><span>verschil sinds eerste punt</span></div>
+    <div class="portfolio-stat"><b class="${diffClass}">${Number.isFinite(diff) ? escapeHtml(formatMoney(diff, 'EUR')) : '—'}</b><span>verschil binnen periode</span></div>
   </div>`;
 }
 function renderHistoryChart(card) {
-  const rawPoints = priceEvolutionPoints(card).map((p, idx) => ({ idx, date: p.date || '', value: p.value, currency: p.currency || 'EUR' })).filter(p => Number.isFinite(p.value));
+  const rawPoints = historyPointsForRange(card).map((p, idx) => ({ idx, date: p.date || '', value: p.value, currency: p.currency || 'EUR' })).filter(p => Number.isFinite(p.value));
   const cur = currentPricePoint(card);
   if (!rawPoints.length && cur) rawPoints.push(cur);
   if (!rawPoints.length) {
     return '<div class="history-chart-wrap"><p class="smallnote">Nog geen prijsdata voor een grafiek.</p></div>';
   }
-  let points = rawPoints.slice(-60);
+  let points = rawPoints;
   let singlePoint = false;
   if (points.length === 1) {
     singlePoint = true;
@@ -2617,8 +2661,9 @@ function openCardModal(card) {
           <button id="saveDetailBtn" class="primary">Kaartdetails opslaan</button>
         </div>
         <h3 style="margin:16px 0 6px;">Prijsgeschiedenis</h3>
-        ${renderHistorySummary(card)}
-        ${renderHistoryChart(card)}
+        <div id="historyRangeControls">${renderHistoryRangeControls()}</div>
+        <div id="historySummaryContent">${renderHistorySummary(card)}</div>
+        <div id="historyChartContent">${renderHistoryChart(card)}</div>
         ${renderHistoryTable(card)}
       </div>
     </div>`;
@@ -2632,6 +2677,7 @@ function openCardModal(card) {
   if (variantSelect) variantSelect.value = d.variant || '';
   if (conditionSelect) conditionSelect.value = d.condition || '';
   if (noteInput) noteInput.value = d.note || '';
+  bindHistoryRangeButtons(card);
   const saveBtn = el('saveDetailBtn');
   if (saveBtn) saveBtn.addEventListener('click', () => {
     setDetailsFor(card, {
