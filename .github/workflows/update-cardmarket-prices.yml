@@ -1,6 +1,12 @@
 name: Update Cardmarket prijzen
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/update-cardmarket-prices.yml"
+      - "scripts/update_prices.py"
+      - "scripts/compact_price_history_ui.patch"
   schedule:
     - cron: "15 4 * * *"
   workflow_dispatch:
