@@ -75,7 +75,12 @@ FOIL_AVG7_FIELDS = ["Foil AVG7", "avg7-foil", "avg7Foil", "foilAvg7"]
 FOIL_AVG1_FIELDS = ["Foil AVG1", "avg1-foil", "avg1Foil", "foilAvg1"]
 FOIL_SELL_FIELDS = ["Foil Sell", "foilSell", "foilSellPrice", "avgFoilSell"]
 
-HISTORY_DAYS_TO_KEEP = 180
+# De app toont maximaal één jaar prijsgeschiedenis. De recente periode blijft
+# dagelijks; oudere punten worden per ISO-week samengevat. Zo groeit het
+# geschiedenisbestand niet elke dag onbeperkt door.
+HISTORY_DAILY_DAYS = 60
+HISTORY_DAYS_TO_KEEP = 365
+HISTORY_ROW_COLUMNS = ["date", "price", "trendPrice", "avg30", "lowPrice", "foilTrendPrice"]
 
 PRICE_GUIDE_COLUMNS = [
     "idProduct", "Avg. Sell Price", "Low Price", "Trend Price", "German Pro Low",
@@ -1148,7 +1153,7 @@ def find_product(
     return None, "unmatched", 0
 
 
-def load_history() -> Dict[str, List[Dict[str, str]]]:
+def load_history() -> Dict[str, List[Any]]:
     if not OUT_HISTORY.exists():
         return {}
     try:
@@ -1159,33 +1164,87 @@ def load_history() -> Dict[str, List[Dict[str, str]]]:
         return {}
 
 
-def update_history(existing: Dict[str, List[Dict[str, str]]], prices: List[Dict[str, Any]], today: str) -> Dict[str, List[Dict[str, str]]]:
-    cutoff = (dt.date.fromisoformat(today) - dt.timedelta(days=HISTORY_DAYS_TO_KEEP)).isoformat()
-    for p in prices:
-        key = p.get("key")
+def normalize_history_row(row: Any) -> Optional[List[str]]:
+    """Zet oude objectregels en nieuwe compacte arrays om naar één formaat."""
+    if isinstance(row, dict):
+        values = [row.get(column, "") for column in HISTORY_ROW_COLUMNS]
+    elif isinstance(row, (list, tuple)):
+        values = list(row[:len(HISTORY_ROW_COLUMNS)])
+        values.extend([""] * (len(HISTORY_ROW_COLUMNS) - len(values)))
+    else:
+        return None
+
+    compact = [str(value if value is not None else "") for value in values]
+    compact[0] = compact[0][:10]
+    try:
+        dt.date.fromisoformat(compact[0])
+    except ValueError:
+        return None
+
+    # Lege velden achteraan hoeven niet telkens opnieuw in JSON te staan.
+    while len(compact) > 2 and compact[-1] == "":
+        compact.pop()
+    return compact
+
+
+def compact_history_rows(rows: Iterable[Any], today: str) -> List[List[str]]:
+    today_date = dt.date.fromisoformat(today)
+    daily_cutoff = today_date - dt.timedelta(days=HISTORY_DAILY_DAYS - 1)
+    history_cutoff = today_date - dt.timedelta(days=HISTORY_DAYS_TO_KEEP - 1)
+
+    # De laatste regel voor een datum wint; zo vervangt een nieuwe run veilig
+    # een eventueel eerder punt van dezelfde dag.
+    by_date: Dict[str, List[str]] = {}
+    for raw_row in rows:
+        row = normalize_history_row(raw_row)
+        if not row:
+            continue
+        row_date = dt.date.fromisoformat(row[0])
+        if history_cutoff <= row_date <= today_date:
+            by_date[row[0]] = row
+
+    recent: List[List[str]] = []
+    weekly: Dict[Tuple[int, int], List[str]] = {}
+    for date_key, row in by_date.items():
+        row_date = dt.date.fromisoformat(date_key)
+        if row_date >= daily_cutoff:
+            recent.append(row)
+            continue
+        iso = row_date.isocalendar()
+        week_key = (iso.year, iso.week)
+        previous = weekly.get(week_key)
+        if previous is None or row[0] > previous[0]:
+            weekly[week_key] = row
+
+    compacted = recent + list(weekly.values())
+    compacted.sort(key=lambda row: row[0], reverse=True)
+    return compacted
+
+
+def update_history(existing: Dict[str, List[Any]], prices: List[Dict[str, Any]], today: str) -> Dict[str, List[List[str]]]:
+    pending: Dict[str, List[Any]] = {
+        str(key): list(rows) for key, rows in existing.items() if isinstance(rows, list)
+    }
+
+    for price in prices:
+        key = str(price.get("key", ""))
         if not key:
             continue
-        row = {
-            "date": today,
-            "price": str(p.get("price", "")),
-            "trendPrice": str(p.get("trendPrice", "")),
-            "avg30": str(p.get("avg30", "")),
-            "lowPrice": str(p.get("lowPrice", "")),
-            "foilTrendPrice": str(p.get("foilTrendPrice", "")),
-            "currency": str(p.get("currency", "EUR")),
-        }
-        rows = [r for r in existing.get(key, []) if isinstance(r, dict) and str(r.get("date", "")) >= cutoff and str(r.get("date", "")) != today]
-        rows.append(row)
-        rows.sort(key=lambda r: str(r.get("date", "")), reverse=True)
-        existing[key] = rows
+        pending.setdefault(key, []).append([
+            today,
+            str(price.get("price", "")),
+            str(price.get("trendPrice", "")),
+            str(price.get("avg30", "")),
+            str(price.get("lowPrice", "")),
+            str(price.get("foilTrendPrice", "")),
+        ])
 
-    for key in list(existing.keys()):
-        rows = [r for r in existing[key] if isinstance(r, dict) and str(r.get("date", "")) >= cutoff]
-        if rows:
-            existing[key] = rows
-        else:
-            del existing[key]
-    return existing
+    result: Dict[str, List[List[str]]] = {}
+    for key, rows in pending.items():
+        compacted = compact_history_rows(rows, today)
+        if compacted:
+            result[key] = compacted
+    return result
 
 
 def build(force: bool = False) -> None:
@@ -1334,8 +1393,22 @@ def build(force: bool = False) -> None:
     OUT_PRICES.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
     history = update_history(load_history(), output, today)
-    history_payload = {"source": "Cardmarket publieke bestanden", "updatedAt": now, "history": history}
-    OUT_HISTORY.write_text(json.dumps(history_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    history_payload = {
+        "source": "Cardmarket publieke bestanden",
+        "updatedAt": now,
+        "format": "compact-daily-weekly-v3",
+        "dailyDays": HISTORY_DAILY_DAYS,
+        "historyDays": HISTORY_DAYS_TO_KEEP,
+        "rowColumns": HISTORY_ROW_COLUMNS,
+        "history": history,
+    }
+    OUT_HISTORY.write_text(
+        json.dumps(history_payload, ensure_ascii=False, separators=(",", ":")),
+        encoding="utf-8",
+    )
+    history_points = sum(len(rows) for rows in history.values())
+    history_mb = OUT_HISTORY.stat().st_size / (1024 * 1024)
+    log(f"Prijshistoriek: {history_points:,} punten, {history_mb:.1f} MiB.".replace(",", "."))
 
     with OUT_REPORT.open("w", encoding="utf-8-sig", newline="") as f:
         writer = csv.writer(f, delimiter=";")
