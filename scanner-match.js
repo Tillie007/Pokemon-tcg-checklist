@@ -220,11 +220,12 @@
     const allText = `${topText}\n${bottomText}\n${fullText}`;
     const normalizedAll = normalizeText(allText);
     const explicitUnown = /(?:^|\s)unown(?:\s|$)/.test(normalizedAll);
-    const numberEvidence = [
-      ...extractNumberEvidence(bottomText, { allowLetter: explicitUnown }),
-      ...extractNumberEvidence(fullText, { allowLetter: explicitUnown })
-    ];
+    const numberEvidence = extractNumberEvidence(bottomText.trim() || fullText, { allowLetter: explicitUnown });
     const visualScores = (options && options.visualScores) || {};
+    const visualValues = Object.keys(visualScores)
+      .map(key => Number(visualScores[key]))
+      .filter(value => Number.isFinite(value));
+    const visualBest = visualValues.length ? Math.max(...visualValues) : 0;
     const limit = Math.max(1, Number((options && options.limit) || 40));
 
     const ranked = [];
@@ -232,30 +233,44 @@
       if (!card || !card.name) return;
       const unown = isUnownName(card.name);
       const nameTop = nameSimilarity(topText, card.name);
-      const nameFull = nameSimilarity(fullText, card.name) * 0.92;
+      // Tekst uit aanvallen kan toevallig ook een kaartnaam zijn (bv. "Will").
+      // De naamzone bovenaan krijgt daarom bewust meer gewicht dan de volledige OCR-tekst.
+      const nameFull = nameSimilarity(fullText, card.name) * 0.72;
       const nameScore = Math.max(nameTop, nameFull);
       if (unown && !explicitUnown && nameScore < 0.96) return;
 
       const number = bestNumberMatch(card.num, numberEvidence);
       const setScore = setSimilarity(allText, card);
+      const visualEvaluated = Object.prototype.hasOwnProperty.call(visualScores, card.key);
       const rawVisual = Number(visualScores[card.key]);
       const visualScore = Number.isFinite(rawVisual) ? clamp(rawVisual, 0, 1) : 0;
       const usefulVisual = visualScore >= 0.48 ? (visualScore - 0.48) / 0.52 : 0;
-      const onlyNumber = nameScore < 0.38 && number.value > 0 && setScore < 0.55 && usefulVisual < 0.55;
+      const visualRelative = visualEvaluated && visualBest >= 0.6
+        ? clamp((visualScore - (visualBest - 0.24)) / 0.24, 0, 1)
+        : usefulVisual;
+      let effectiveNumberScore = number.value;
+      if (visualEvaluated && visualBest >= 0.76) {
+        const visualGap = visualBest - visualScore;
+        if (visualGap >= 0.18) effectiveNumberScore *= 0.12;
+        else if (visualGap >= 0.09) effectiveNumberScore *= 0.45;
+      }
+      const onlyNumber = nameScore < 0.38 && effectiveNumberScore > 0 && setScore < 0.55 && visualRelative < 0.55;
 
-      let score = (nameScore * 60) + (number.value * 28) + (setScore * 12) + (usefulVisual * 24);
+      let score = (nameScore * 58) + (effectiveNumberScore * 26) + (setScore * 10) + (visualRelative * 42);
       if (nameScore >= 0.76 && number.value >= 0.82) score += 10;
       if (nameScore >= 0.84 && setScore >= 0.65) score += 5;
-      if (number.value >= 0.82 && usefulVisual >= 0.72) score += 6;
-      if (onlyNumber) score = Math.min(score, 44);
+      if (number.value >= 0.82 && visualRelative >= 0.72) score += 6;
+      if (nameScore >= 0.72 && visualRelative >= 0.78) score += 8;
+      if (visualEvaluated && visualBest >= 0.76 && (visualBest - visualScore) >= 0.18 && nameScore < 0.55) score -= 8;
+      if (onlyNumber) score = Math.min(score, visualEvaluated ? 30 : 42);
       if (unown && !explicitUnown) score = Math.min(score, 18);
       if (score < 18) return;
 
       const signals = [
         nameScore >= 0.55 ? 'name' : '',
-        number.value >= 0.62 ? 'number' : '',
+        effectiveNumberScore >= 0.62 ? 'number' : '',
         setScore >= 0.55 ? 'set' : '',
-        usefulVisual >= 0.55 ? 'visual' : ''
+        visualRelative >= 0.55 ? 'visual' : ''
       ].filter(Boolean);
 
       ranked.push({
@@ -263,10 +278,14 @@
         score: Math.round(score * 10) / 10,
         nameScore,
         numberScore: number.value,
+        effectiveNumberScore,
         numberEvidence: number.evidence,
         setScore,
         visualScore,
         usefulVisual,
+        visualRelative,
+        visualEvaluated,
+        visualBest,
         onlyNumber,
         signals
       });
@@ -285,10 +304,13 @@
     const gap = top.score - (second ? second.score : 0);
     const multiSignal = top.signals.length >= 2;
     const high = !top.onlyNumber && top.score >= 82 && gap >= 11 && multiSignal && (
-      top.nameScore >= 0.68 || (top.visualScore >= 0.84 && top.numberScore >= 0.82)
+      top.nameScore >= 0.68 || (top.visualRelative >= 0.9 && top.numberScore >= 0.82)
     );
     if (high) return { level: 'high', autoSelect: true, gap, label: 'Zeer betrouwbare match' };
-    if (!top.onlyNumber && top.score >= 56 && (top.nameScore >= 0.48 || top.visualScore >= 0.72)) {
+    if (!top.onlyNumber && (
+      (top.score >= 56 && (top.nameScore >= 0.48 || top.visualRelative >= 0.72)) ||
+      (top.score >= 40 && top.visualRelative >= 0.9)
+    )) {
       return { level: 'medium', autoSelect: false, gap, label: 'Waarschijnlijke match — controleer even' };
     }
     return { level: 'low', autoSelect: false, gap, label: 'Nog onvoldoende zekerheid' };
@@ -299,10 +321,10 @@
     const reasons = [];
     if (result.nameScore >= 0.75) reasons.push('naam herkend');
     else if (result.nameScore >= 0.48) reasons.push('naam lijkt erop');
-    if (result.numberScore >= 0.82 && result.numberEvidence) reasons.push(`kaartnummer ${result.numberEvidence.normalized}`);
-    else if (result.numberScore >= 0.6 && result.numberEvidence) reasons.push(`mogelijk nummer ${result.numberEvidence.normalized}`);
+    if (result.effectiveNumberScore >= 0.82 && result.numberEvidence) reasons.push(`kaartnummer ${result.numberEvidence.normalized}`);
+    else if (result.effectiveNumberScore >= 0.6 && result.numberEvidence) reasons.push(`mogelijk nummer ${result.numberEvidence.normalized}`);
     if (result.setScore >= 0.65) reasons.push('set herkend');
-    if (result.visualScore >= 0.78) reasons.push('afbeelding lijkt sterk');
+    if (result.visualScore >= 0.76 && result.visualRelative >= 0.72) reasons.push('afbeelding lijkt sterk');
     if (result.onlyNumber) return `Alleen kaartnummer ${result.numberEvidence ? result.numberEvidence.normalized : ''} gevonden`;
     return reasons.join(' · ') || 'zwakke overeenkomst';
   }

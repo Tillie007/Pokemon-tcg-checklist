@@ -7,6 +7,10 @@ const cards = [
   { key: 'audino', name: 'Audino', num: '124', set: 'Destined Rivals', series: 'Scarlet & Violet', abbr: 'DRI' },
   { key: 'klang', name: 'Klang', num: '124', set: 'Silver Tempest', series: 'Sword & Shield', abbr: 'SIT' },
   { key: 'moon', name: 'Roaring Moon ex', num: '124', set: 'Paradox Rift', series: 'Scarlet & Violet', abbr: 'PAR' },
+  { key: 'braixen-cri', name: 'Braixen', num: '012', set: 'Chaos Rising', series: 'Mega Evolution', abbr: 'CRI' },
+  { key: 'mothim-brs', name: 'Mothim', num: '011', set: 'Brilliant Stars', series: 'Sword & Shield', abbr: 'BRS' },
+  { key: 'ninetales-cri', name: 'Ninetales', num: '009', set: 'Chaos Rising', series: 'Mega Evolution', abbr: 'CRI' },
+  { key: 'quagsire-sv10', name: 'Quagsire', num: 'SV10', set: 'Hidden Fates Shiny Vault', series: 'Sun & Moon', abbr: 'HIF' },
   { key: 'uf-c', name: 'Unown', num: 'C', set: 'Unseen Forces', series: 'EX', abbr: 'UF' },
   { key: 'uf-e', name: 'Unown', num: 'E', set: 'Unseen Forces', series: 'EX', abbr: 'UF' },
   { key: 'dp-c', name: 'Unown [C]', num: '067', set: 'Diamond & Pearl', series: 'Diamond & Pearl', abbr: 'DP' }
@@ -60,6 +64,42 @@ test('OCR-verwarring in een breuk wordt als cijfers gelezen', () => {
   assert.equal(evidence[0].normalized, 'GG44');
   assert.equal(evidence[0].denominator, 'GG70');
   assert.equal(evidence[0].kind, 'fraction');
+});
+
+test('Braixen wint van Mothim wanneer OCR ten onrechte 011 leest', () => {
+  const ranked = match.rankCards(cards, {
+    topText: 'Braixen HP 100',
+    bottomText: '011',
+    fullText: 'Braixen Flamethrower 80'
+  }, {
+    visualScores: { 'braixen-cri': 0.94, 'mothim-brs': 0.69 }
+  });
+  assert.equal(ranked[0].card.key, 'braixen-cri');
+  assert.ok(ranked[0].visualRelative >= 0.9);
+});
+
+test('Ninetales wint van Quagsire wanneer OCR ten onrechte SV10 leest', () => {
+  const ranked = match.rankCards(cards, {
+    topText: 'Ninetale HP 120',
+    bottomText: 'SV10',
+    fullText: 'Ninetale Nine Tailed Transfer Will O Wisp'
+  }, {
+    visualScores: { 'ninetales-cri': 0.93, 'quagsire-sv10': 0.66 }
+  });
+  assert.equal(ranked[0].card.key, 'ninetales-cri');
+  assert.ok(ranked[0].nameScore >= 0.75);
+});
+
+test('een sterke afbeelding kan een fout gelezen nummer corrigeren zonder automatisch te kiezen', () => {
+  const ranked = match.rankCards(cards, {
+    topText: '',
+    bottomText: '011',
+    fullText: ''
+  }, {
+    visualScores: { 'braixen-cri': 0.94, 'mothim-brs': 0.7 }
+  });
+  assert.equal(ranked[0].card.key, 'braixen-cri');
+  assert.equal(match.confidenceFor(ranked).autoSelect, false);
 });
 
 console.log('Alle scannervergelijkingstests zijn geslaagd.');

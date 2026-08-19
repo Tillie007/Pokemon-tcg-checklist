@@ -10,7 +10,10 @@
   const CARD_ASPECT = 63 / 88;
   const ANALYSIS_INTERVAL_MS = 140;
   const AUTO_CAPTURE_SCORE = 1;
+  const SCANNER_VERSION = '2.1.0';
   const TESSERACT_URL = 'https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';
+  const IMAGE_FETCH_TIMEOUT_MS = 2400;
+  const visualFingerprintCache = new Map();
 
   const state = {
     open: false,
@@ -32,7 +35,9 @@
     variant: 'Normal',
     quantity: 1,
     batchCount: 0,
+    batchItems: [],
     ocrWorker: null,
+    ocrWarmPromise: null,
     toastTimer: 0
   };
 
@@ -69,6 +74,10 @@
           <h2>Kaartscanner</h2>
         </div>
         <div class="scanner-top-actions">
+          <button type="button" id="scannerBatchTop" class="scanner-icon-button scanner-batch-button" aria-label="Toegevoegde kaarten bekijken" hidden>
+            <svg viewBox="0 0 24 24"><path d="M5 7h10M5 12h10M5 17h7M18 14v6M15 17h6"/></svg>
+            <span id="scannerBatchBadge" class="scanner-batch-badge">0</span>
+          </button>
           <button type="button" id="scannerRetryTop" class="scanner-icon-button" aria-label="Opnieuw scannen" hidden>
             <svg viewBox="0 0 24 24"><path d="M4 4v6h6M20 20v-6h-6M5.4 15a7 7 0 0 0 11.8 2.2L20 14M4 10l2.8-3.2A7 7 0 0 1 18.6 9"/></svg>
           </button>
@@ -159,6 +168,19 @@
             </div>
           </div>
         </section>
+
+        <section id="scannerBatchScreen" class="scanner-screen" hidden>
+          <div class="scanner-batch-summary">
+            <div class="scanner-batch-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-9"/></svg></div>
+            <div id="scannerBatchCards" class="scanner-batch-cards" aria-hidden="true"></div>
+            <h3 id="scannerBatchTitle">Kaarten toegevoegd</h3>
+            <p id="scannerBatchText">Je kaarten staan veilig in je collectie.</p>
+            <div class="scanner-batch-actions">
+              <button type="button" id="scannerBatchContinue">${scannerIcon()}<span>Scan verder</span></button>
+              <button type="button" id="scannerBatchCollection" class="primary"><span>Bekijk collectie</span><b>›</b></button>
+            </div>
+          </div>
+        </section>
       </main>
       <div id="scannerToast" class="scanner-toast" role="status" aria-live="polite"></div>`;
     document.body.appendChild(section);
@@ -168,6 +190,7 @@
       cameraScreen: document.getElementById('scannerCameraScreen'),
       processingScreen: document.getElementById('scannerProcessingScreen'),
       resultsScreen: document.getElementById('scannerResultsScreen'),
+      batchScreen: document.getElementById('scannerBatchScreen'),
       video: document.getElementById('scannerVideo'),
       shell: document.getElementById('scannerCameraShell'),
       guide: document.getElementById('scannerCardGuide'),
@@ -181,6 +204,8 @@
       analysisCanvas: document.getElementById('scannerAnalysisCanvas'),
       manualCapture: document.getElementById('scannerManualCapture'),
       fileInput: document.getElementById('scannerFileInput'),
+      batchTop: document.getElementById('scannerBatchTop'),
+      batchBadge: document.getElementById('scannerBatchBadge'),
       retryTop: document.getElementById('scannerRetryTop'),
       processingImage: document.getElementById('scannerProcessingImage'),
       processingTitle: document.getElementById('scannerProcessingTitle'),
@@ -197,10 +222,14 @@
       selectedName: document.getElementById('scannerSelectedName'),
       selectedMeta: document.getElementById('scannerSelectedMeta'),
       qtyValue: document.getElementById('scannerQtyValue'),
+      batchCards: document.getElementById('scannerBatchCards'),
+      batchTitle: document.getElementById('scannerBatchTitle'),
+      batchText: document.getElementById('scannerBatchText'),
       toast: document.getElementById('scannerToast')
     };
 
     document.getElementById('scannerClose').addEventListener('click', closeScanner);
+    ui.batchTop.addEventListener('click', showBatchSummary);
     ui.retryTop.addEventListener('click', resetToCamera);
     ui.manualCapture.addEventListener('click', () => captureFromCamera(false));
     document.getElementById('scannerChoosePhoto').addEventListener('click', () => ui.fileInput.click());
@@ -209,6 +238,8 @@
     ui.refineInput.addEventListener('keydown', event => { if (event.key === 'Enter') refineCandidates(); });
     document.getElementById('scannerScanAgain').addEventListener('click', resetToCamera);
     document.getElementById('scannerFinish').addEventListener('click', closeScanner);
+    document.getElementById('scannerBatchContinue').addEventListener('click', resetToCamera);
+    document.getElementById('scannerBatchCollection').addEventListener('click', openCollectionFromScanner);
     document.getElementById('scannerQtyMinus').addEventListener('click', () => setQuantity(state.quantity - 1));
     document.getElementById('scannerQtyPlus').addEventListener('click', () => setQuantity(state.quantity + 1));
     document.getElementById('scannerSaveCard').addEventListener('click', saveSelectedCard);
@@ -252,7 +283,8 @@
     ui.cameraScreen.hidden = name !== 'camera';
     ui.processingScreen.hidden = name !== 'processing';
     ui.resultsScreen.hidden = name !== 'results';
-    ui.retryTop.hidden = name === 'camera';
+    ui.batchScreen.hidden = name !== 'batch';
+    ui.retryTop.hidden = name === 'camera' || name === 'batch';
   }
 
   async function openScanner() {
@@ -261,9 +293,13 @@
     state.operation += 1;
     state.quantity = 1;
     state.variant = 'Normal';
+    state.batchCount = 0;
+    state.batchItems = [];
     ui.root.hidden = false;
     document.body.classList.add('scanner-is-open');
+    updateBatchAction();
     showScreen('camera');
+    warmOcrWorker();
     await startCamera();
   }
 
@@ -430,7 +466,7 @@
   }
 
   function classifyFrame(metrics) {
-    const warmedUp = performance.now() - state.cameraStartedAt > 850;
+    const warmedUp = performance.now() - state.cameraStartedAt > 650;
     state.motionBaseline = (state.motionBaseline * .94) + (Math.min(metrics.motion || 0, 12) * .06);
     const motionLimit = Math.max(14, state.motionBaseline * 3.4);
     const lightLow = metrics.mean < 48;
@@ -461,9 +497,9 @@
     const metrics = frameMetrics(ui.analysisCanvas);
     const classification = classifyFrame(metrics);
 
-    if (classification.good) state.stability = Math.min(1, state.stability + .13);
-    else if (classification.moving) state.stability = Math.max(0, state.stability - .055);
-    else state.stability = Math.max(0, state.stability - .12);
+    if (classification.good) state.stability = Math.min(1, state.stability + .17);
+    else if (classification.moving) state.stability = Math.max(0, state.stability - .04);
+    else state.stability = Math.max(0, state.stability - .13);
 
     ui.lightMetric.textContent = metrics.mean < 48 ? 'Te donker' : metrics.mean > 224 ? 'Te fel' : 'Goed';
     ui.sharpMetric.textContent = metrics.sharpness >= 8.2 && metrics.contrast >= 24 ? 'Scherp' : 'Nog niet';
@@ -628,16 +664,32 @@
     showScreen('processing');
 
     try {
-      const evidence = await recognizeCard(canvas, operation);
+      let evidence = await recognizeCard(canvas, operation);
       if (!state.open || operation !== state.operation) return;
       state.evidence = evidence;
-      setProcessStatus('Kaarten worden vergeleken…', 'De combinatie van naam, nummer, set en afbeelding wordt gecontroleerd.', 70);
+      let ranked = Match.rankCards(appCards(), evidence, { limit: 120 });
 
-      let ranked = Match.rankCards(appCards(), evidence, { limit: 80 });
-      const visualLimit = ranked[0] && ranked[0].nameScore >= .55 ? 24 : 8;
-      const visualCandidates = ranked
-        .filter(row => row.score >= 30 && (row.nameScore >= .42 || !row.onlyNumber))
-        .slice(0, visualLimit);
+      if (!ranked[0] || ranked[0].nameScore < .55) {
+        setProcessStatus('Naam wordt extra gecontroleerd…', 'Alleen bij een onduidelijke naam volgt een korte tweede lezing.', 48);
+        const fallbackName = await recognizeCardName(canvas, operation);
+        if (!state.open || operation !== state.operation) return;
+        if (fallbackName.text) {
+          evidence = {
+            ...evidence,
+            topText: `${fallbackName.text}\n${evidence.topText || ''}`.trim(),
+            fullText: `${fallbackName.text}\n${evidence.fullText || ''}`.trim(),
+            topConfidence: Math.max(Number(evidence.topConfidence) || 0, fallbackName.confidence)
+          };
+          state.evidence = evidence;
+          ranked = Match.rankCards(appCards(), evidence, { limit: 120 });
+        }
+      }
+
+      setProcessStatus('Beste kaarten worden vergeleken…', 'Alleen de meest logische afbeeldingen worden nog gecontroleerd.', 62);
+      const textConfidence = Match.confidenceFor(ranked);
+      const trustedFraction = ranked[0] && ranked[0].numberEvidence && ranked[0].numberEvidence.kind === 'fraction';
+      const canSkipVisual = textConfidence.autoSelect && trustedFraction && Number(evidence.bottomConfidence || 0) >= 52;
+      const visualCandidates = canSkipVisual ? [] : selectVisualCandidates(ranked);
       let visualScores = {};
       if (visualCandidates.length) {
         visualScores = await compareCandidateImages(canvas, visualCandidates, operation);
@@ -687,26 +739,43 @@
 
   async function getOcrWorker(operation) {
     if (state.ocrWorker) return state.ocrWorker;
-    const Tesseract = await loadTesseract();
-    const worker = await Tesseract.createWorker('eng', 1, {
-      logger(message) {
-        if (operation !== state.operation || !message) return;
-        const base = message.status === 'recognizing text' ? 22 : 12;
-        const progress = base + Math.round((Number(message.progress) || 0) * 28);
-        ui.processFill.style.setProperty('--process-progress', `${Math.min(58, progress)}%`);
-      }
-    });
-    state.ocrWorker = worker;
-    return worker;
+    if (!state.ocrWarmPromise) {
+      state.ocrWarmPromise = (async () => {
+        const Tesseract = await loadTesseract();
+        const worker = await Tesseract.createWorker('eng', 1, {
+          logger(message) {
+            if (!state.processing || !message) return;
+            const base = message.status === 'recognizing text' ? 22 : 12;
+            const progress = base + Math.round((Number(message.progress) || 0) * 28);
+            ui.processFill.style.setProperty('--process-progress', `${Math.min(58, progress)}%`);
+          }
+        });
+        state.ocrWorker = worker;
+        return worker;
+      })();
+    }
+    try {
+      return await state.ocrWarmPromise;
+    } catch (error) {
+      state.ocrWarmPromise = null;
+      throw error;
+    }
   }
 
-  function makeOcrCrop(source, crop) {
+  function warmOcrWorker() {
+    if (state.ocrWorker || state.ocrWarmPromise) return;
+    getOcrWorker(state.operation).catch(error => {
+      console.info('OCR wordt pas bij de foto geladen.', error);
+    });
+  }
+
+  function makeOcrCrop(source, crop, targetWidth) {
     const canvas = document.createElement('canvas');
     const sourceX = Math.round(source.width * crop.x);
     const sourceY = Math.round(source.height * crop.y);
     const sourceWidth = Math.round(source.width * crop.width);
     const sourceHeight = Math.round(source.height * crop.height);
-    const scale = Math.min(2.2, 1280 / sourceWidth);
+    const scale = Math.min(2.2, Math.max(1, Number(targetWidth || 960) / sourceWidth));
     canvas.width = Math.max(1, Math.round(sourceWidth * scale));
     canvas.height = Math.max(1, Math.round(sourceHeight * scale));
     const context = canvas.getContext('2d', { willReadFrequently: true });
@@ -733,44 +802,100 @@
     return canvas;
   }
 
+  function makeFastOcrComposite(source) {
+    const nameCrop = makeOcrCrop(source, { x: .018, y: .012, width: .964, height: .13 }, 960);
+    const footerCrop = makeOcrCrop(source, { x: .018, y: .875, width: .964, height: .105 }, 960);
+    const gap = 28;
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.max(nameCrop.width, footerCrop.width);
+    canvas.height = nameCrop.height + gap + footerCrop.height;
+    const context = canvas.getContext('2d', { alpha: false });
+    context.fillStyle = '#fff';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(nameCrop, 0, 0);
+    context.drawImage(footerCrop, 0, nameCrop.height + gap);
+    return { canvas, dividerY: nameCrop.height + (gap / 2) };
+  }
+
+  function wordsForOcrRegion(words, predicate) {
+    return (words || [])
+      .filter(word => word && word.text && word.bbox && predicate((Number(word.bbox.y0) + Number(word.bbox.y1)) / 2))
+      .map(word => String(word.text).trim())
+      .filter(Boolean)
+      .join(' ');
+  }
+
+  function splitCompositeOcr(result, dividerY) {
+    const data = result && result.data || {};
+    const fullText = String(data.text || '').trim();
+    const words = Array.isArray(data.words) ? data.words : [];
+    let topText = wordsForOcrRegion(words, y => y < dividerY);
+    let bottomText = wordsForOcrRegion(words, y => y >= dividerY);
+    if (!topText) {
+      const lines = fullText.split(/\n+/).map(line => line.trim()).filter(Boolean);
+      const splitAt = Math.max(1, Math.min(2, Math.ceil(lines.length / 2)));
+      topText = lines.slice(0, splitAt).join(' ');
+      bottomText = bottomText || lines.slice(splitAt).join(' ');
+    }
+    return { topText, bottomText, fullText: `${topText}\n${bottomText}`.trim() || fullText };
+  }
+
   async function recognizeCard(canvas, operation) {
     const worker = await getOcrWorker(operation);
     if (operation !== state.operation) throw new Error('Scan geannuleerd.');
-    const topCrop = makeOcrCrop(canvas, { x: .025, y: .015, width: .95, height: .24 });
-    const bottomCrop = makeOcrCrop(canvas, { x: .015, y: .665, width: .97, height: .32 });
+    const composite = makeFastOcrComposite(canvas);
 
-    setProcessStatus('Kaartnaam wordt gelezen…', 'De bovenkant van de kaart wordt gecontroleerd.', 30);
+    setProcessStatus('Naam en nummer worden gelezen…', 'Een compacte scan controleert beide zones tegelijk.', 30);
     await worker.setParameters({ tessedit_pageseg_mode: '6', preserve_interword_spaces: '1' });
-    const topResult = await worker.recognize(topCrop);
+    const result = await worker.recognize(composite.canvas);
     if (operation !== state.operation) throw new Error('Scan geannuleerd.');
-
-    setProcessStatus('Kaartnummer wordt gelezen…', 'De onderkant en setinformatie worden gecontroleerd.', 50);
-    await worker.setParameters({ tessedit_pageseg_mode: '6', preserve_interword_spaces: '1' });
-    const bottomResult = await worker.recognize(bottomCrop);
-    const topText = String(topResult && topResult.data && topResult.data.text || '').trim();
-    const bottomText = String(bottomResult && bottomResult.data && bottomResult.data.text || '').trim();
+    const parsed = splitCompositeOcr(result, composite.dividerY);
+    const confidence = Number(result && result.data && result.data.confidence || 0);
     return {
-      topText,
-      bottomText,
-      fullText: `${topText}\n${bottomText}`,
-      topConfidence: Number(topResult && topResult.data && topResult.data.confidence || 0),
-      bottomConfidence: Number(bottomResult && bottomResult.data && bottomResult.data.confidence || 0)
+      topText: parsed.topText,
+      bottomText: parsed.bottomText,
+      fullText: parsed.fullText,
+      topConfidence: confidence,
+      bottomConfidence: confidence
     };
   }
 
-  function fingerprint(source) {
+  async function recognizeCardName(canvas, operation) {
+    const worker = await getOcrWorker(operation);
+    if (operation !== state.operation) throw new Error('Scan geannuleerd.');
+    const nameCrop = makeOcrCrop(canvas, { x: .025, y: .012, width: .95, height: .13 }, 1040);
+    await worker.setParameters({
+      tessedit_pageseg_mode: '7',
+      preserve_interword_spaces: '1',
+      tessedit_char_whitelist: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.'- "
+    });
+    let result;
+    try {
+      result = await worker.recognize(nameCrop);
+    } finally {
+      await worker.setParameters({ tessedit_char_whitelist: '', tessedit_pageseg_mode: '6' });
+    }
+    if (operation !== state.operation) throw new Error('Scan geannuleerd.');
+    return {
+      text: String(result && result.data && result.data.text || '').trim(),
+      confidence: Number(result && result.data && result.data.confidence || 0)
+    };
+  }
+
+  function fingerprintRegion(source, crop, width, height) {
     const canvas = document.createElement('canvas');
-    canvas.width = 18;
-    canvas.height = 25;
+    canvas.width = width;
+    canvas.height = height;
     const context = canvas.getContext('2d', { willReadFrequently: true });
     const sourceWidth = source.width || source.naturalWidth;
     const sourceHeight = source.height || source.naturalHeight;
-    const insetX = sourceWidth * .025;
-    const insetY = sourceHeight * .018;
-    context.drawImage(source, insetX, insetY, sourceWidth - (insetX * 2), sourceHeight - (insetY * 2), 0, 0, canvas.width, canvas.height);
+    const sourceX = sourceWidth * crop.x;
+    const sourceY = sourceHeight * crop.y;
+    context.drawImage(source, sourceX, sourceY, sourceWidth * crop.width, sourceHeight * crop.height, 0, 0, canvas.width, canvas.height);
     const data = context.getImageData(0, 0, canvas.width, canvas.height).data;
     const color = [];
     const light = [];
+    const channels = [[], [], []];
     let lightTotal = 0;
     for (let index = 0; index < data.length; index += 4) {
       const red = data[index];
@@ -778,28 +903,61 @@
       const blue = data[index + 2];
       const total = Math.max(24, red + green + blue);
       color.push(red / total, green / total, blue / total);
+      channels[0].push(red);
+      channels[1].push(green);
+      channels[2].push(blue);
       const luma = (red * .299) + (green * .587) + (blue * .114);
       light.push(luma);
       lightTotal += luma;
     }
     const mean = lightTotal / light.length;
     const deviation = Math.sqrt(light.reduce((total, value) => total + ((value - mean) ** 2), 0) / light.length) || 1;
-    return { color, light: light.map(value => (value - mean) / deviation) };
+    const channelStats = channels.map(values => {
+      const channelMean = values.reduce((total, value) => total + value, 0) / values.length;
+      const channelDeviation = Math.sqrt(values.reduce((total, value) => total + ((value - channelMean) ** 2), 0) / values.length) || 1;
+      return { mean: channelMean, deviation: channelDeviation };
+    });
+    const normalizedRgb = [];
+    for (let index = 0; index < channels[0].length; index += 1) {
+      for (let channel = 0; channel < 3; channel += 1) {
+        normalizedRgb.push((channels[channel][index] - channelStats[channel].mean) / channelStats[channel].deviation);
+      }
+    }
+    return { color, light: light.map(value => (value - mean) / deviation), normalizedRgb };
   }
 
-  function compareFingerprints(left, right) {
+  function fingerprint(source) {
+    return {
+      full: fingerprintRegion(source, { x: .025, y: .018, width: .95, height: .964 }, 24, 34),
+      art: fingerprintRegion(source, { x: .075, y: .115, width: .85, height: .39 }, 28, 14)
+    };
+  }
+
+  function compareFingerprintRegion(left, right) {
     if (!left || !right || left.light.length !== right.light.length) return 0;
     let lightDifference = 0;
     let colorDifference = 0;
+    let rgbDifference = 0;
     for (let index = 0; index < left.light.length; index += 1) {
       lightDifference += Math.min(3, Math.abs(left.light[index] - right.light[index])) / 3;
     }
     for (let index = 0; index < left.color.length; index += 1) {
       colorDifference += Math.min(.55, Math.abs(left.color[index] - right.color[index])) / .55;
     }
+    for (let index = 0; index < left.normalizedRgb.length; index += 1) {
+      rgbDifference += Math.min(3, Math.abs(left.normalizedRgb[index] - right.normalizedRgb[index])) / 3;
+    }
     lightDifference /= left.light.length;
     colorDifference /= left.color.length;
-    return Math.max(0, Math.min(1, 1 - ((lightDifference * .68) + (colorDifference * .32))));
+    rgbDifference /= left.normalizedRgb.length;
+    return Math.max(0, Math.min(1, 1 - ((lightDifference * .42) + (colorDifference * .23) + (rgbDifference * .35))));
+  }
+
+  function compareFingerprints(left, right) {
+    if (!left || !right || !left.full || !right.full) return 0;
+    const fullScore = compareFingerprintRegion(left.full, right.full);
+    const artScore = compareFingerprintRegion(left.art, right.art);
+    return (fullScore * .38) + (artScore * .62);
   }
 
   function getImageCandidates(card) {
@@ -816,45 +974,91 @@
   }
 
   async function loadImageForFingerprint(url) {
-    const response = await fetch(lightweightImageUrl(url), { mode: 'cors', cache: 'force-cache' });
-    if (!response.ok) throw new Error(`Afbeelding ${response.status}`);
-    const blob = await response.blob();
-    if ('createImageBitmap' in window) return window.createImageBitmap(blob);
-    return new Promise((resolve, reject) => {
-      const objectUrl = URL.createObjectURL(blob);
-      const image = new Image();
-      image.onload = () => { URL.revokeObjectURL(objectUrl); resolve(image); };
-      image.onerror = () => { URL.revokeObjectURL(objectUrl); reject(new Error('Afbeelding laden mislukt.')); };
-      image.src = objectUrl;
-    });
+    const controller = 'AbortController' in window ? new AbortController() : null;
+    const timeout = window.setTimeout(() => { if (controller) controller.abort(); }, IMAGE_FETCH_TIMEOUT_MS);
+    try {
+      const response = await fetch(lightweightImageUrl(url), {
+        mode: 'cors',
+        cache: 'force-cache',
+        signal: controller ? controller.signal : undefined
+      });
+      if (!response.ok) throw new Error(`Afbeelding ${response.status}`);
+      const blob = await response.blob();
+      if ('createImageBitmap' in window) return window.createImageBitmap(blob);
+      return await new Promise((resolve, reject) => {
+        const objectUrl = URL.createObjectURL(blob);
+        const image = new Image();
+        image.onload = () => { URL.revokeObjectURL(objectUrl); resolve(image); };
+        image.onerror = () => { URL.revokeObjectURL(objectUrl); reject(new Error('Afbeelding laden mislukt.')); };
+        image.src = objectUrl;
+      });
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  async function fingerprintForUrl(url) {
+    const key = lightweightImageUrl(url);
+    if (visualFingerprintCache.has(key)) return visualFingerprintCache.get(key);
+    const pending = (async () => {
+      const image = await loadImageForFingerprint(key);
+      try {
+        return fingerprint(image);
+      } finally {
+        if (typeof image.close === 'function') image.close();
+      }
+    })();
+    visualFingerprintCache.set(key, pending);
+    if (visualFingerprintCache.size > 96) {
+      const oldest = visualFingerprintCache.keys().next().value;
+      if (oldest && oldest !== key) visualFingerprintCache.delete(oldest);
+    }
+    try {
+      return await pending;
+    } catch (error) {
+      visualFingerprintCache.delete(key);
+      throw error;
+    }
   }
 
   async function visualScoreForCard(captureFingerprint, card) {
-    const candidates = getImageCandidates(card).slice(0, 2);
+    const candidates = [...new Set(getImageCandidates(card).map(lightweightImageUrl))].slice(0, 2);
     let best = 0;
     for (const url of candidates) {
       try {
-        const image = await loadImageForFingerprint(url);
-        best = Math.max(best, compareFingerprints(captureFingerprint, fingerprint(image)));
-        if (typeof image.close === 'function') image.close();
-        if (best >= .89) break;
+        best = Math.max(best, compareFingerprints(captureFingerprint, await fingerprintForUrl(url)));
+        // Kandidaten voor dezelfde kaart tonen vrijwel altijd exact dezelfde druk.
+        // Na de eerste werkende afbeelding is een tweede download dus alleen vertraging.
+        break;
       } catch (_) {}
     }
     return best;
+  }
+
+  function selectVisualCandidates(ranked) {
+    const rows = Array.isArray(ranked) ? ranked : [];
+    const top = rows[0];
+    if (!top) return [];
+    if (top.nameScore >= .55) {
+      const nameFloor = Math.max(.44, top.nameScore - .2);
+      const named = rows.filter(row => row.nameScore >= nameFloor);
+      if (named.length) return named.slice(0, 14);
+    }
+    return rows.filter(row => row.score >= 22).slice(0, 8);
   }
 
   async function compareCandidateImages(canvas, candidates, operation) {
     const captureFingerprint = fingerprint(canvas);
     const scores = {};
     let cursor = 0;
-    const workers = Array.from({ length: Math.min(3, candidates.length) }, async () => {
+    const workers = Array.from({ length: Math.min(4, candidates.length) }, async () => {
       while (cursor < candidates.length) {
         const index = cursor;
         cursor += 1;
         const row = candidates[index];
         scores[row.card.key] = await visualScoreForCard(captureFingerprint, row.card);
         if (operation === state.operation) {
-          const progress = 72 + Math.round(((index + 1) / candidates.length) * 22);
+          const progress = 64 + Math.round(((index + 1) / candidates.length) * 30);
           ui.processFill.style.setProperty('--process-progress', `${Math.min(94, progress)}%`);
         }
       }
@@ -974,10 +1178,13 @@
         score,
         nameScore: name.includes(query) ? 1 : Match.nameSimilarity(query, card.name),
         numberScore: number === Match.normalizeCardNumber(compactQuery) ? 1 : 0,
+        effectiveNumberScore: number === Match.normalizeCardNumber(compactQuery) ? 1 : 0,
         numberEvidence: number === Match.normalizeCardNumber(compactQuery) ? { normalized: number } : null,
         setScore: set.includes(query) || abbr === compactQuery ? 1 : 0,
         visualScore: 0,
         usefulVisual: 0,
+        visualRelative: 0,
+        visualEvaluated: false,
         onlyNumber: false,
         signals: ['manual']
       };
@@ -989,6 +1196,55 @@
     ui.resultTitle.textContent = results.length ? `${results.length} zoekresultaten` : 'Geen resultaat voor deze zoekterm';
     renderCandidateList();
     renderSelection();
+  }
+
+  function updateBatchAction() {
+    if (!ui.batchTop) return;
+    const count = state.batchItems.length;
+    ui.batchTop.hidden = count === 0;
+    ui.batchBadge.textContent = String(count);
+    ui.batchTop.setAttribute('aria-label', `${count} toegevoegde ${count === 1 ? 'kaart' : 'kaarten'} bekijken`);
+  }
+
+  function addCardToBatch(card, quantity) {
+    const existing = state.batchItems.find(item => item.card.key === card.key);
+    if (existing) existing.quantity += quantity;
+    else state.batchItems.push({ card, quantity, imageUrl: imageUrlForScanner(card) || state.captureUrl });
+    state.batchCount += quantity;
+    updateBatchAction();
+  }
+
+  function renderBatchSummary() {
+    const differentCards = state.batchItems.length;
+    const totalCards = state.batchCount;
+    const visibleCards = state.batchItems.slice(0, 3);
+    ui.batchCards.innerHTML = visibleCards.map((item, index) => {
+      const imageUrl = item.imageUrl || state.captureUrl;
+      return imageUrl
+        ? `<img src="${escapeHtml(imageUrl)}" alt="" style="--scanner-card-index:${index}" onerror="this.style.visibility='hidden'">`
+        : '';
+    }).join('');
+    ui.batchTitle.textContent = `${totalCards} ${totalCards === 1 ? 'kaart' : 'kaarten'} toegevoegd`;
+    const differentLabel = differentCards === 1 ? '1 kaart' : `${differentCards} verschillende kaarten`;
+    ui.batchText.textContent = `${differentLabel} uit deze scanronde. Alles staat in je collectie en gaat mee in je back-up en online synchronisatie.`;
+  }
+
+  function showBatchSummary() {
+    if (!state.batchItems.length) return;
+    state.operation += 1;
+    state.processing = false;
+    state.capturing = false;
+    stopCamera();
+    renderBatchSummary();
+    showScreen('batch');
+  }
+
+  function openCollectionFromScanner() {
+    closeScanner();
+    try {
+      if (typeof navigateToTab === 'function') navigateToTab('collection');
+    } catch (_) {}
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function saveSelectedCard() {
@@ -1013,10 +1269,10 @@
       } catch (_) {}
       try { if (typeof saveOwned === 'function') saveOwned(); } catch (_) {}
       try { if (typeof render === 'function') render(); } catch (_) {}
-      state.batchCount += state.quantity;
+      addCardToBatch(card, state.quantity);
       const variantLabel = state.variant === 'Normal' ? 'normaal' : state.variant === 'Reverse Holo' ? 'reverse' : 'holo';
       showToast(`${card.name} is toegevoegd (${variantLabel}, +${state.quantity}).`);
-      window.setTimeout(resetToCamera, 650);
+      window.setTimeout(resetToCamera, 420);
     } catch (error) {
       console.error('Kaart opslaan vanuit scanner mislukt:', error);
       showToast('Opslaan lukte niet. Probeer de kaart via de zoeklijst toe te voegen.');
@@ -1039,7 +1295,7 @@
       close: closeScanner,
       analyseFrameMetrics: frameMetricsIsolated,
       compareFingerprints,
-      version: '2.0.0'
+      version: SCANNER_VERSION
     };
   }
 

@@ -6,7 +6,7 @@ index d4b7a31..ea22aaf 100644
  }
  
  </style>
-+<link rel="stylesheet" href="scanner.css" />
++<link rel="stylesheet" href="scanner.css?v=2.1.0" />
  </head>
  <body>
  
@@ -14,8 +14,8 @@ index d4b7a31..ea22aaf 100644
  })();
  </script>
  
-+<script src="scanner-match.js"></script>
-+<script src="scanner.js"></script>
++<script src="scanner-match.js?v=2.1.0"></script>
++<script src="scanner.js?v=2.1.0"></script>
 +
  </body>
  </html>
