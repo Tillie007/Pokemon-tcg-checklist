@@ -44,6 +44,7 @@ body.scanner-is-open { overflow: hidden !important; }
   overscroll-behavior: contain;
 }
 .tcg-scanner * { box-sizing: border-box; }
+.tcg-scanner [hidden] { display: none !important; }
 .tcg-scanner button,
 .tcg-scanner input { font: inherit; }
 
