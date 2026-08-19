@@ -7,6 +7,11 @@ on:
       - ".github/workflows/update-cardmarket-prices.yml"
       - "scripts/update_prices.py"
       - "scripts/compact_price_history_ui.patch"
+      - "scripts/scanner_ui.patch"
+      - "scanner.css"
+      - "scanner-match.js"
+      - "scanner.js"
+      - "tests/scanner_match.test.js"
   schedule:
     - cron: "15 4 * * *"
   workflow_dispatch:
@@ -44,6 +49,21 @@ jobs:
             echo "De prijsgeschiedenis-interface kon niet veilig worden bijgewerkt."
             exit 1
           fi
+
+      - name: Kaartscanner-interface voorbereiden
+        run: |
+          if git apply --check scripts/scanner_ui.patch; then
+            git apply scripts/scanner_ui.patch
+            echo "Kaartscanner aan de app toegevoegd."
+          elif grep -q 'scanner.js' index.html; then
+            echo "Kaartscanner was al aanwezig."
+          else
+            echo "De kaartscanner kon niet veilig worden toegevoegd."
+            exit 1
+          fi
+
+      - name: Kaartvergelijking testen
+        run: node tests/scanner_match.test.js
 
       - name: Cardmarket-prijzen bijwerken
         run: python scripts/update_prices.py --force

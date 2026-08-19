@@ -1,0 +1,21 @@
+diff --git a/index.html b/index.html
+index d4b7a31..ea22aaf 100644
+--- a/index.html
++++ b/index.html
+@@ -1102,6 +1102,7 @@ button.primary:hover { background: var(--app-accent-dark); }
+ }
+ 
+ </style>
++<link rel="stylesheet" href="scanner.css" />
+ </head>
+ <body>
+ 
+@@ -3554,5 +3555,8 @@ maybeAutoUpdatePrices();
+ })();
+ </script>
+ 
++<script src="scanner-match.js"></script>
++<script src="scanner.js"></script>
++
+ </body>
+ </html>

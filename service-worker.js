@@ -1,8 +1,11 @@
-const CACHE_NAME = 'pokemon-tcg-checklist-mobile-redesign-v1';
+const CACHE_NAME = 'pokemon-tcg-checklist-scanner-v2';
 
 const FRESH_PATHS = new Set([
   '/Pokemon-tcg-checklist/',
   '/Pokemon-tcg-checklist/index.html',
+  '/Pokemon-tcg-checklist/scanner.css',
+  '/Pokemon-tcg-checklist/scanner-match.js',
+  '/Pokemon-tcg-checklist/scanner.js',
   '/Pokemon-tcg-checklist/pokemon_cards_data.json',
   '/Pokemon-tcg-checklist/pokemon_image_map.json',
   '/Pokemon-tcg-checklist/prices.json',
@@ -15,7 +18,7 @@ const FRESH_PATHS = new Set([
 function isFreshRequest(url) {
   if (url.origin !== self.location.origin) return false;
   if (FRESH_PATHS.has(url.pathname)) return true;
-  return url.pathname.endsWith('.json') || url.pathname.endsWith('.html');
+  return url.pathname.endsWith('.json') || url.pathname.endsWith('.html') || url.pathname.endsWith('.js') || url.pathname.endsWith('.css');
 }
 
 self.addEventListener('install', event => {
