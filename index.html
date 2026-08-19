@@ -1102,7 +1102,7 @@ button.primary:hover { background: var(--app-accent-dark); }
 }
 
 </style>
-<link rel="stylesheet" href="scanner.css" />
+<link rel="stylesheet" href="scanner.css?v=2.1.0" />
 </head>
 <body>
 
@@ -3525,7 +3525,9 @@ maybeAutoUpdatePrices();
 
   window.addEventListener('load', function(){
     if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-      navigator.serviceWorker.register('./service-worker.js').catch(function(err){
+      navigator.serviceWorker.register('./service-worker.js?v=3', { updateViaCache: 'none' }).then(function(registration){
+        registration.update().catch(function(){});
+      }).catch(function(err){
         console.warn('Service worker niet geregistreerd:', err);
       });
     }
@@ -3555,8 +3557,8 @@ maybeAutoUpdatePrices();
 })();
 </script>
 
-<script src="scanner-match.js"></script>
-<script src="scanner.js"></script>
+<script src="scanner-match.js?v=2.1.0"></script>
+<script src="scanner.js?v=2.1.0"></script>
 
 </body>
 </html>
