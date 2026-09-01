@@ -9,7 +9,7 @@ Scarlet & Violet | Black Bolt | BLK;164
 Scarlet & Violet | Scarlet & Violet | SVI;160
 Platinum | Supreme Victors | SV;153
 Black & White | Legendary Treasures | LTR;140
-Mega Evolution | Ascended Heroes | ASC;136
+Mega Evolution | Ascended Heroes | ASC;133
 XY | XY Black Star Promos | PR-XY;132
 Black & White | Dragons Exalted | DRX;128
 Scarlet & Violet | Surging Sparks | SSP;125
@@ -44,20 +44,20 @@ Sword & Shield | Fusion Strike | FST;79
 Sun & Moon | Burning Shadows | BUS;77
 Scarlet & Violet | 151 | MEW;76
 Sun & Moon | Forbidden Light | FLI;75
+Sword & Shield | Rebel Clash | RCL;74
 Sword & Shield | Brilliant Stars | BRS;73
 Sword & Shield | Shining Fates | SHF;73
-Sword & Shield | Rebel Clash | RCL;73
 Sun & Moon | Ultra Prism | UPR;73
 Sun & Moon | Guardians Rising | GRI;72
-Sun & Moon | Sun & Moon | SUM;71
 Sun & Moon | Hidden Fates | HIF;69
+Sun & Moon | Sun & Moon | SUM;69
 Sword & Shield | Vivid Voltage | VIV;68
-Mega Evolution | Chaos Rising | CRI;67
+Mega Evolution | Chaos Rising | CRI;64
 Base | Jungle | JU;64
 Scarlet & Violet | Prismatic Evolutions | PRE;63
-Mega Evolution | Perfect Order | POR;62
 Sword & Shield | Darkness Ablaze | DAA;62
-Mega Evolution | Pitch Black | PBL;60
+Mega Evolution | Perfect Order | POR;60
+Mega Evolution | Pitch Black | PBL;59
 Mega Evolution | Phantasmal Flames | PFL;58
 Scarlet & Violet | Journey Together | JTG;57
 XY | Fates Collide | FCO;55
@@ -67,13 +67,13 @@ Scarlet & Violet | Shrouded Fable | SFA;53
 XY | BREAKthrough | BKT;53
 XY | Ancient Origins | AOR;53
 XY | Roaring Skies | ROS;53
-HeartGold & SoulSilver | HeartGold & SoulSilver | HS;51
 EX | Ruby & Sapphire | RS;50
 Sword & Shield | Crown Zenith Galarian Gallery | CRZ;47
 EX | Team Magma vs Team Aqua | MA;47
 Sun & Moon | Dragon Majesty | DRM;46
 EX | Dragon | DR;46
 Black & White | Emerging Powers | EPO;45
+HeartGold & SoulSilver | HeartGold & SoulSilver | HS;43
 Gym | Gym Heroes | G1;43
 Black & White | Noble Victories | NVI;42
 Black & White | Plasma Storm | PLS;41
@@ -96,10 +96,10 @@ Sword & Shield | Lost Origin Trainer Gallery | LOR;30
 Black & White | Plasma Freeze | PLF;30
 EX | Unseen Forces | UF;30
 Base | Fossil | FO;30
+XY | Evolutions | EVO;29
 XY | Generations | GEN;29
 Black & White | Boundaries Crossed | BCR;29
 EX | Delta Species | DS;29
-XY | Evolutions | EVO;28
 XY | Furious Fists | FFI;28
 Sword & Shield | Astral Radiance Trainer Gallery | ASR;27
 XY | Steam Siege | STS;27
@@ -139,6 +139,7 @@ EX | Team Rocket Returns | TRR;16
 Base | Wizards Black Star Promos | PR;16
 Other | McDonald's Collection 2022 | —;15
 Diamond & Pearl | Diamond & Pearl | DP;14
+EX | FireRed & LeafGreen | RG;13
 Other | McDonald's Collection 2019 | —;12
 Other | McDonald's Collection 2018 | —;12
 Other | McDonald's Collection 2017 | —;12
@@ -147,16 +148,15 @@ Other | McDonald's Collection 2015 | —;12
 Other | McDonald's Collection 2014 | —;12
 Other | McDonald's Collection 2012 | —;12
 Other | McDonald's Collection 2011 | —;12
-EX | FireRed & LeafGreen | RG;12
 Diamond & Pearl | Great Encounters | GE;11
 Diamond & Pearl | Mysterious Treasures | MT;11
 Neo | Neo Revelation | N3;10
 Other | Best of Game | BP;9
 Sun & Moon | Hidden Fates Shiny Vault | HIF;9
 Black & White | Dragon Vault | DRV;9
+Other | Legendary Collection | LC;6
 Diamond & Pearl | Secret Wonders | SW;6
 Other | Pokémon Futsal Collection | FUT20;5
-Other | Legendary Collection | LC;5
 XY | Kalos Starter Set | KSS;5
 EX | EX Trainer Kit 2 Plusle | —;3
 EX | EX Trainer Kit 2 Minun | —;3
@@ -165,5 +165,5 @@ Sword & Shield | Celebrations: Classic Collection | CEL;2
 POP | POP Series 5 | —;2
 EX | EX Trainer Kit Latios | —;2
 EX | EX Trainer Kit Latias | —;2
+Base | Base Set 2 | B2;2
 EX | Power Keepers | PK;1
-Base | Base Set 2 | B2;1

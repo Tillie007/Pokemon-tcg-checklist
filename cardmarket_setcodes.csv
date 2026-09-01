@@ -1,8 +1,8 @@
 ﻿serie;set;appAfkorting;cardmarketExpansionId;cardmarketSetcode;cardmarketSetnaam;methode;score;overlap;gekoppeldeKaarten
-Mega Evolution;Pitch Black;PBL;6569;;;manual-set-map;manual;"handmatig toegevoegd: sterke kandidaat uit cardmarket_set_mapping_candidates; score 0.1591; overlap 14; cmProducten 120";60
-Mega Evolution;Chaos Rising;CRI;6517;;;manual-set-map;manual;"teruggezet na test: expansionId 6596 gaf slechter resultaat; 6517 koppelde meer Chaos Rising-kaarten en blijft voorlopig de veiligere mapping";55
-Mega Evolution;Perfect Order;POR;6443;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2283; overlap 21; appUniek 92; cmUniek 92; cmProducten 125";62
-Mega Evolution;Ascended Heroes;ASC;6395;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1647; overlap 37; appUniek 224; cmUniek 225; cmProducten 296";159
+Mega Evolution;Pitch Black;PBL;6569;;;manual-set-map;manual;"handmatig toegevoegd: sterke kandidaat uit cardmarket_set_mapping_candidates; score 0.1591; overlap 14; cmProducten 120";61
+Mega Evolution;Chaos Rising;CRI;6517;;;manual-set-map;manual;"teruggezet na test: expansionId 6596 gaf slechter resultaat; 6517 koppelde meer Chaos Rising-kaarten en blijft voorlopig de veiligere mapping";58
+Mega Evolution;Perfect Order;POR;6443;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2283; overlap 21; appUniek 92; cmUniek 92; cmProducten 125";64
+Mega Evolution;Ascended Heroes;ASC;6395;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1647; overlap 37; appUniek 224; cmUniek 225; cmProducten 296";162
 Mega Evolution;Phantasmal Flames;PFL;6299;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.1224; overlap 12; appUniek 98; cmUniek 98; cmProducten 130";72
 Mega Evolution;Mega Evolution;MEG;6209;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.163; overlap 22; appUniek 135; cmUniek 135; cmProducten 188";94
 Scarlet & Violet;White Flare;WHT;6135;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 4; score 0.092; overlap 8; appUniek 87; cmUniek 87; cmProducten 173";8
@@ -45,7 +45,7 @@ Sword & Shield;Shining Fates;SHF;;;;;;;0
 Sword & Shield;Vivid Voltage;VIV;3484;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1011; overlap 18; appUniek 171; cmUniek 182; cmProducten 222";135
 Sword & Shield;Champion's Path;CPA;3419;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2283; overlap 19; appUniek 70; cmUniek 92; cmProducten 102";60
 Sword & Shield;Darkness Ablaze;DAA;3199;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.0979; overlap 18; appUniek 178; cmUniek 187; cmProducten 227";139
-Sword & Shield;Rebel Clash;RCL;3143;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.104; overlap 19; appUniek 175; cmUniek 187; cmProducten 232";136
+Sword & Shield;Rebel Clash;RCL;3143;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.104; overlap 19; appUniek 175; cmUniek 187; cmProducten 232";135
 Sword & Shield;Sword & Shield;SSH;2921;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 3; score 0.1662; overlap 31; appUniek 161; cmUniek 203; cmProducten 258";107
 Sword & Shield;SWSH Black Star Promos;PR-SW;;;;;;;0
 Other;McDonald's Collection 2022;—;;;;;;;0
@@ -61,7 +61,7 @@ Other;McDonald's Collection 2012;—;;;;;;;0
 Other;McDonald's Collection 2011;—;;;;;;;0
 Other;Pokémon Rumble;—;;;;;;;0
 Other;Best of Game;BP;;;;;;;0
-Other;Legendary Collection;LC;1535;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1; overlap 11; appUniek 110; cmUniek 110; cmProducten 115";105
+Other;Legendary Collection;LC;1535;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1; overlap 11; appUniek 110; cmUniek 110; cmProducten 115";104
 Other;Southern Islands;—;;;;;;;0
 Sun & Moon;Cosmic Eclipse;CEC;2644;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1306; overlap 28; appUniek 203; cmUniek 221; cmProducten 285";150
 Sun & Moon;Hidden Fates Shiny Vault;HIF;2514;;;manual-set-map;manual;"v3: toegevoegd uit unmatched-analyse (possible); kandidaat rang 1; score 0.0712; overlap 10; app totaal 94; appUniek 93; cmUniek 182; cmProducten 186; advies bron: MOGELIJK - handmatig controleren";85
@@ -79,9 +79,9 @@ Sun & Moon;Crimson Invasion;CIN;1843;;;manual-set-map;manual;"v2: automatisch ge
 Sun & Moon;Shining Legends;SLG;1842;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1824; overlap 13; appUniek 70; cmUniek 72; cmProducten 91";60
 Sun & Moon;Burning Shadows;BUS;1824;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1627; overlap 23; appUniek 135; cmUniek 145; cmProducten 222";100
 Sun & Moon;Guardians Rising;GRI;1800;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1479; overlap 21; appUniek 135; cmUniek 146; cmProducten 242";108
-Sun & Moon;Sun & Moon;SUM;1745;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.2193; overlap 33; appUniek 146; cmUniek 153; cmProducten 235";102
+Sun & Moon;Sun & Moon;SUM;1745;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.2193; overlap 33; appUniek 146; cmUniek 153; cmProducten 235";104
 Sun & Moon;SM Black Star Promos;PR-SM;;;;;;;0
-XY;Evolutions;EVO;1742;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2643; overlap 28; appUniek 104; cmUniek 107; cmProducten 131";85
+XY;Evolutions;EVO;1742;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2643; overlap 28; appUniek 104; cmUniek 107; cmProducten 131";84
 XY;Steam Siege;STS;1716;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.0918; overlap 10; appUniek 107; cmUniek 110; cmProducten 143";89
 XY;Fates Collide;FCO;1706;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2297; overlap 26; appUniek 105; cmUniek 118; cmProducten 162";74
 XY;Generations;GEN;1693;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.2404; overlap 27; appUniek 111; cmUniek 113; cmProducten 143";88
@@ -114,7 +114,7 @@ HeartGold & SoulSilver;Call of Legends;CL;1570;;;manual-set-map;manual;"v2: over
 HeartGold & SoulSilver;HS—Triumphant;TM;1569;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.0876; overlap 9; appUniek 97; cmUniek 106; cmProducten 111";84
 HeartGold & SoulSilver;HS—Undaunted;UD;4265;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1131; overlap 9; appUniek 77; cmUniek 81; cmProducten 81";50
 HeartGold & SoulSilver;HS—Unleashed;UL;1567;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.153; overlap 14; appUniek 84; cmUniek 96; cmProducten 106";59
-HeartGold & SoulSilver;HeartGold & SoulSilver;HS;1566;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.2077; overlap 25; appUniek 114; cmUniek 124; cmProducten 141";73
+HeartGold & SoulSilver;HeartGold & SoulSilver;HS;1566;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.2077; overlap 25; appUniek 114; cmUniek 124; cmProducten 141";81
 HeartGold & SoulSilver;HGSS Black Star Promos;PR-HS;;;;;;;0
 Platinum;Arceus;AR;1565;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.0906; overlap 9; appUniek 82; cmUniek 111; cmProducten 114";57
 Platinum;Supreme Victors;SV;;;;;;;0
@@ -149,7 +149,7 @@ EX;Unseen Forces;UF;1548;;;manual-set-map;manual;"v2: override: betere setgroott
 EX;Emerald;EM;1547;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.1825; overlap 19; appUniek 99; cmUniek 107; cmProducten 112";88
 EX;Deoxys;DX;1546;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1155; overlap 12; appUniek 97; cmUniek 108; cmProducten 110";86
 EX;Team Rocket Returns;TRR;1545;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.1295; overlap 14; appUniek 103; cmUniek 111; cmProducten 112";95
-EX;FireRed & LeafGreen;RG;1544;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1401; overlap 16; appUniek 111; cmUniek 116; cmProducten 116";104
+EX;FireRed & LeafGreen;RG;1544;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1401; overlap 16; appUniek 111; cmUniek 116; cmProducten 116";103
 EX;Hidden Legends;HL;5864;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1008; overlap 9; appUniek 93; cmUniek 83; cmProducten 83";76
 EX;EX Trainer Kit Latios;—;1626;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2087; overlap 3; appUniek 10; cmUniek 18; cmProducten 20";8
 EX;EX Trainer Kit Latias;—;1626;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2087; overlap 3; appUniek 10; cmUniek 18; cmProducten 20";8
@@ -168,7 +168,7 @@ Neo;Neo Genesis;N1;1531;;;manual-set-map;manual;"v2: automatisch gekozen: overla
 Gym;Gym Challenge;G2;1530;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2615; overlap 33; appUniek 123; cmUniek 128; cmProducten 132";112
 Gym;Gym Heroes;G1;1529;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.3042; overlap 37; appUniek 111; cmUniek 128; cmProducten 133";89
 Base;Team Rocket;TR;1528;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.1818; overlap 12; appUniek 66; cmUniek 66; cmProducten 84";49
-Base;Base Set 2;B2;1527;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 3; score 0.2308; overlap 30; appUniek 130; cmUniek 130; cmProducten 130";129
+Base;Base Set 2;B2;1527;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 3; score 0.2308; overlap 30; appUniek 130; cmUniek 130; cmProducten 130";128
 Base;Fossil;FO;1526;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 1; score 0.1064; overlap 5; appUniek 47; cmUniek 47; cmProducten 63";32
 Base;Wizards Black Star Promos;PR;1607;;;manual-set-map;manual;"v3: toegevoegd uit unmatched-analyse (size-fit); kandidaat rang 1; score 0.0827; overlap 4; app totaal 53; appUniek 44; cmUniek 51; cmProducten 55; advies bron: zwak/alternatief";37
 Base;Jungle;JU;;;;;;;0
