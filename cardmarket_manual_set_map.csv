@@ -1,4 +1,7 @@
 ﻿serie;set;appAfkorting;cardmarketExpansionId;cardmarketSetcode;cardmarketSetnaam;opmerking
+Mega Evolution;30th Celebration;30C;6601;30C;30th Celebration;"Engelse Cardmarket-expansie: 191 producten (158 genummerd, 3 RGB en 30 Classic Collection)"
+Mega Evolution;30th Celebration: Classic Collection;30C;6601;30C;30th Celebration;"Classic Collection staat bij Cardmarket in dezelfde Engelse 30C-expansie"
+Mega Evolution;30th Celebration: Energy Collection;MEE;6324;MEE;Mega Evolution Energies;"30th Energy-artwork staat bij Cardmarket als MEE 009-016"
 Mega Evolution;Pitch Black;PBL;6569;;;"handmatig toegevoegd: sterke kandidaat uit cardmarket_set_mapping_candidates; score 0.1591; overlap 14; cmProducten 120"
 Mega Evolution;Chaos Rising;CRI;6517;;;"teruggezet na test: expansionId 6596 gaf slechter resultaat; 6517 koppelde meer Chaos Rising-kaarten en blijft voorlopig de veiligere mapping"
 Mega Evolution;Perfect Order;POR;6443;;;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2283; overlap 21; appUniek 92; cmUniek 92; cmProducten 125"

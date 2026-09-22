@@ -55,6 +55,42 @@ CACHE_DIR = ROOT_DIR / ".cache" / "cardmarket"
 PRODUCTS_URL = "https://downloads.s3.cardmarket.com/productCatalog/productList/products_singles_6.json"
 PRICE_GUIDE_URL = "https://downloads.s3.cardmarket.com/productCatalog/priceGuide/price_guide_6.json"
 
+# Cardmarket publiceert voor recente sets geen kaartnummer in het downloadbestand.
+# Voor 30th Celebration leggen we daarom de controleerbare product-ID's van de
+# speciale deelsets vast. De 158 gewone kaarten worden verderop veilig op naam
+# en volgorde binnen dezelfde Engelse expansie gekoppeld.
+THIRTIETH_EXPANSION_ID = "6601"
+THIRTIETH_ENERGY_EXPANSION_ID = "6324"
+THIRTIETH_MAIN_SET = "30th Celebration"
+THIRTIETH_CLASSIC_SET = "30th Celebration: Classic Collection"
+THIRTIETH_ENERGY_SET = "30th Celebration: Energy Collection"
+
+THIRTIETH_CLASSIC_KEYS = [
+    ("058", "Pikachu"), ("004", "Charizard"), ("018", "Misty"),
+    ("069", "Erika's Jigglypuff"), ("025", "Sneasel"), ("106", "Shining Celebi"),
+    ("149", "Lugia"), ("005", "Delcatty"), ("019", "Dark Tyranitar"),
+    ("108", "Scizor ex"), ("011", "Metagross δ"), ("106", "Palkia LV.X"),
+    ("043", "Uxie"), ("047", "Crobat G"), ("094", "Gengar"),
+    ("099", "Darkrai & Cresselia LEGEND"), ("100", "Darkrai & Cresselia LEGEND"),
+    ("101", "N"), ("085", "Rayquaza EX"), ("011", "Genesect EX"),
+    ("106", "M Gardevoir EX"), ("041", "Greninja BREAK"), ("089", "Solgaleo GX"),
+    ("057", "Buzzwole GX"), ("033", "Pikachu & Zekrom GX"), ("138", "Zacian V"),
+    ("050", "Raikou"), ("114", "Mew VMAX"), ("123", "Arceus VSTAR"),
+    ("203", "Magikarp"),
+]
+THIRTIETH_CLASSIC_PRODUCT_IDS = {
+    key: str(907939 + index) for index, key in enumerate(THIRTIETH_CLASSIC_KEYS)
+}
+THIRTIETH_RGB_PRODUCT_IDS = {
+    "R/RGB": "909509",
+    "G/RGB": "909510",
+    "B/RGB": "909511",
+}
+THIRTIETH_ENERGY_PRODUCT_IDS = {
+    "009": "909307", "010": "909308", "011": "909310", "012": "909312",
+    "013": "909313", "014": "909314", "015": "909315", "016": "909316",
+}
+
 # De publieke bestanden kunnen oude API-veldbenamingen of nieuwe JSON-velden gebruiken.
 PRICE_FIELDS = [
     "Trend Price", "trendPrice", "trend", "TREND", "priceTrend", "trend_price",
@@ -1089,12 +1125,103 @@ def build_price_map(price_rows: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any
     return by_id
 
 
+def build_30th_direct_product_map(
+    cards: List[Dict[str, Any]],
+    products: List[Dict[str, str]],
+) -> Dict[str, Dict[str, str]]:
+    """Koppel alle 199 Engelse jubileumkaarten aan stabiele Cardmarket-producten.
+
+    De publieke catalogus mist kaartnummers. Voor de 158 genummerde kaarten is
+    de combinatie van Engelse expansie, kaartnaam en catalogusvolgorde wel
+    eenduidig: groepen met dezelfde naam staan in kaartnummervolgorde. De 30
+    Classic-, drie RGB- en acht Energy-kaarten gebruiken gecontroleerde ID's.
+    Als de aantallen ooit niet meer kloppen, weigert deze functie die groep in
+    plaats van stil een mogelijk fout product te kiezen.
+    """
+    by_id = {str(product.get("idProduct", "")): product for product in products}
+    result: Dict[str, Dict[str, str]] = {}
+
+    def attach(card: Dict[str, Any], product_id: str, expected_expansion: str) -> None:
+        product = by_id.get(product_id)
+        key = str(card.get("key", ""))
+        if product is not None and key and str(product.get("idExpansion", "")) == expected_expansion:
+            result[key] = product
+
+    for card in cards:
+        set_name = str(card.get("set", ""))
+        num = str(card.get("num", ""))
+        name = str(card.get("name", ""))
+        if set_name == THIRTIETH_CLASSIC_SET:
+            product_id = THIRTIETH_CLASSIC_PRODUCT_IDS.get((num, name))
+            if product_id:
+                attach(card, product_id, THIRTIETH_EXPANSION_ID)
+        elif set_name == THIRTIETH_MAIN_SET and num in THIRTIETH_RGB_PRODUCT_IDS:
+            attach(card, THIRTIETH_RGB_PRODUCT_IDS[num], THIRTIETH_EXPANSION_ID)
+        elif set_name == THIRTIETH_ENERGY_SET and num in THIRTIETH_ENERGY_PRODUCT_IDS:
+            attach(card, THIRTIETH_ENERGY_PRODUCT_IDS[num], THIRTIETH_ENERGY_EXPANSION_ID)
+
+    excluded_ids = set(THIRTIETH_CLASSIC_PRODUCT_IDS.values()) | set(THIRTIETH_RGB_PRODUCT_IDS.values())
+    main_products = [
+        product for product in products
+        if str(product.get("idExpansion", "")) == THIRTIETH_EXPANSION_ID
+        and str(product.get("idProduct", "")) not in excluded_ids
+    ]
+    main_cards = [
+        card for card in cards
+        if card.get("series") == "Mega Evolution"
+        and card.get("set") == THIRTIETH_MAIN_SET
+        and str(card.get("num", "")).isdigit()
+    ]
+
+    cards_by_name: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+    for card in main_cards:
+        cards_by_name[norm_text(card.get("name", ""))].append(card)
+
+    direct_name_aliases = {"nidoran female": "nidoran f"}
+
+    if len(main_cards) != 158 or len(main_products) != 158:
+        return result
+
+    for name, name_cards in cards_by_name.items():
+        display_name = str(name_cards[0].get("name", ""))
+
+        def matches_name(product: Dict[str, str]) -> bool:
+            product_name = norm_text(product.get("normName", ""))
+            if product_name == name or product_name_starts_with_card(product_name, name):
+                return True
+            # Aanvalsnamen staan in de ruwe catalogus tussen blokhaken. Zo is
+            # Groudon [Break Ground] geen Groudon BREAK-variant.
+            raw_product_name = str(product.get("rawName", ""))
+            if raw_product_name.casefold().startswith(display_name.casefold() + " ["):
+                return True
+            alias = direct_name_aliases.get(name, "")
+            return bool(alias and (product_name == alias or product_name.startswith(alias + " ")))
+
+        candidates = [
+            product for product in main_products
+            if matches_name(product)
+        ]
+        if len(candidates) != len(name_cards):
+            continue
+        ordered_cards = sorted(name_cards, key=lambda card: int(str(card.get("num", "0"))))
+        ordered_products = sorted(candidates, key=lambda product: int(str(product.get("idProduct", "0"))))
+        for card, product in zip(ordered_cards, ordered_products):
+            result[str(card["key"])] = product
+
+    return result
+
+
 def find_product(
     card: Dict[str, Any],
     indexes: Dict[str, Dict[Tuple[str, str, str], List[Dict[str, str]]]],
     set_map: Dict[str, Dict[str, Any]],
     app_set_name_counts: Dict[str, Counter[str]],
+    direct_product_map: Optional[Dict[str, Dict[str, str]]] = None,
 ) -> Tuple[Optional[Dict[str, str]], str, int]:
+    direct = (direct_product_map or {}).get(str(card.get("key", "")))
+    if direct is not None:
+        return direct, "verified-30th-product", 1
+
     num = norm_num(card.get("num"))
     abbr = norm_compact(card.get("abbr"))
     set_name = norm_text(card.get("set"))
@@ -1293,6 +1420,8 @@ def build(force: bool = False) -> None:
     write_manual_set_map_template(sets)
     write_set_mapping_candidates(cards, sets, products, set_map)
     log(f"Automatisch/handmatig herkende Cardmarket expansions: {len(set_map)}/{len(sets)}")
+    direct_product_map = build_30th_direct_product_map(cards, products)
+    log(f"Gecontroleerde 30th-productkoppelingen: {len(direct_product_map)}/199")
 
     now_dt = dt.datetime.now(dt.timezone.utc)
     now = now_dt.isoformat()
@@ -1309,7 +1438,7 @@ def build(force: bool = False) -> None:
     match_type_counts: Counter[str] = Counter()
 
     for card in cards:
-        prod, match_type, cand_count = find_product(card, indexes, set_map, app_set_name_counts)
+        prod, match_type, cand_count = find_product(card, indexes, set_map, app_set_name_counts, direct_product_map)
         match_type_counts[match_type] += 1
         if not prod:
             report_rows.append([

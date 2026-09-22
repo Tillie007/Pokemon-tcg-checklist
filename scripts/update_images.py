@@ -48,6 +48,60 @@ POKEMON_TCG_IMAGE_SET_IDS = {
 # te vaak een kaartachterkant terug; die sluiten we bewust uit.
 LIMITLESS_ALLOWED_SERIES = {"Sword & Shield", "Scarlet & Violet", "Mega Evolution"}
 
+THIRTIETH_MAIN_SET = "30th Celebration"
+THIRTIETH_CLASSIC_SET = "30th Celebration: Classic Collection"
+THIRTIETH_ENERGY_SET = "30th Celebration: Energy Collection"
+
+THIRTIETH_RGB_IMAGES = {
+    "R/RGB": "tcgp-r-rgb-mew.jpg",
+    "G/RGB": "tcgp-g-rgb-mew.jpg",
+    "B/RGB": "tcgp-b-rgb-mew.jpg",
+}
+
+THIRTIETH_CLASSIC_IMAGES = {
+    ("058", "Pikachu"): "tcgp-classic-58-pikachu.jpg",
+    ("004", "Charizard"): "classic-004-charizard.png",
+    ("018", "Misty"): "tcgp-classic-18-misty.jpg",
+    ("069", "Erika's Jigglypuff"): "tcgp-classic-69-erika-s-jigglypuff.jpg",
+    ("025", "Sneasel"): "tcgp-classic-25-sneasel.jpg",
+    ("106", "Shining Celebi"): "tcgp-classic-106-shining-celebi.jpg",
+    ("149", "Lugia"): "classic-149-lugia.jpg",
+    ("005", "Delcatty"): "tcgp-classic-5-delcatty.jpg",
+    ("019", "Dark Tyranitar"): "tcgp-classic-19-dark-tyranitar.jpg",
+    ("108", "Scizor ex"): "tcgp-classic-108-scizor-ex.jpg",
+    ("011", "Metagross δ"): "tcgp-classic-11-metagross.jpg",
+    ("106", "Palkia LV.X"): "tcgp-classic-106-palkia.jpg",
+    ("043", "Uxie"): "tcgp-classic-43-uxie.jpg",
+    ("047", "Crobat G"): "tcgp-classic-47-crobat-g.jpg",
+    ("094", "Gengar"): "tcgp-classic-94-gengar.jpg",
+    ("099", "Darkrai & Cresselia LEGEND"): "tcgp-classic-99-darkrai-cresselia-legend.jpg",
+    ("100", "Darkrai & Cresselia LEGEND"): "tcgp-classic-100-darkrai-cresselia-legend.jpg",
+    ("101", "N"): "tcgp-classic-101-n.jpg",
+    ("085", "Rayquaza EX"): "tcgp-classic-85-rayquaza-ex.jpg",
+    ("011", "Genesect EX"): "tcgp-classic-11-genesect-ex.jpg",
+    ("106", "M Gardevoir EX"): "tcgp-classic-106-m-gardevoir-ex.jpg",
+    ("041", "Greninja BREAK"): "tcgp-classic-41-greninja-break.jpg",
+    ("089", "Solgaleo GX"): "tcgp-classic-89-solgaleo-gx.jpg",
+    ("057", "Buzzwole GX"): "tcgp-classic-57-buzzwole-gx.jpg",
+    ("033", "Pikachu & Zekrom GX"): "classic-033-pikachu-zekrom-gx.png",
+    ("138", "Zacian V"): "tcgp-classic-138-zacian-v.jpg",
+    ("050", "Raikou"): "tcgp-classic-50-raikou.jpg",
+    ("114", "Mew VMAX"): "tcgp-classic-114-mew-vmax.jpg",
+    ("123", "Arceus VSTAR"): "tcgp-classic-123-arceus-vstar.jpg",
+    ("203", "Magikarp"): "tcgp-classic-203-magikarp.jpg",
+}
+
+THIRTIETH_ENERGY_IMAGES = {
+    "009": (409558, "basic-grass-energy-mee-009-30th-celebration"),
+    "010": (409559, "basic-fire-energy-mee-010-30th-celebration"),
+    "011": (409560, "basic-water-energy-mee-011-30th-celebration"),
+    "012": (409561, "basic-lightning-energy-mee-012-30th-celebration"),
+    "013": (409562, "basic-psychic-energy-mee-013-30th-celebration"),
+    "014": (409563, "basic-fighting-energy-mee-014-30th-celebration"),
+    "015": (409564, "basic-darkness-energy-mee-015-30th-celebration"),
+    "016": (409565, "basic-metal-energy-mee-016-30th-celebration"),
+}
+
 
 def unique(values: list[str]) -> list[str]:
     seen: set[str] = set()
@@ -101,11 +155,49 @@ def tcg_set_id(card: dict[str, Any]) -> str:
     return matches[0] if matches else ""
 
 
+def special_image_candidates(card: dict[str, Any]) -> tuple[list[str], dict[str, int]]:
+    """Gerichte bronnen voor de 30th Celebration-deelverzamelingen."""
+    set_name = str(card.get("set", ""))
+    num = str(card.get("num", "")).strip()
+    name = str(card.get("name", "")).strip()
+    urls: list[str] = []
+    counts = {"tcgdex": 0, "chasesociety": 0, "cardtrader": 0}
+
+    if set_name == THIRTIETH_MAIN_SET and num.isdigit() and 1 <= int(num) <= 158:
+        number = f"{int(num):03d}"
+        urls.extend([
+            f"https://assets.tcgdex.net/en/me/30th/{number}/high.webp",
+            f"https://assets.tcgdex.net/en/me/30th/{number}/high.png",
+        ])
+        counts["tcgdex"] = 2
+    elif set_name == THIRTIETH_MAIN_SET and num in THIRTIETH_RGB_IMAGES:
+        urls.append(f"https://chasesociety.com/images/pokemon/cel30/{THIRTIETH_RGB_IMAGES[num]}")
+        counts["chasesociety"] = 1
+    elif set_name == THIRTIETH_CLASSIC_SET:
+        filename = THIRTIETH_CLASSIC_IMAGES.get((num, name))
+        if filename:
+            urls.append(f"https://chasesociety.com/images/pokemon/cel30/{filename}")
+            counts["chasesociety"] = 1
+    elif set_name == THIRTIETH_ENERGY_SET:
+        image = THIRTIETH_ENERGY_IMAGES.get(num)
+        if image:
+            image_id, slug = image
+            urls.append(f"https://www.cardtrader.com/uploads/blueprints/image/{image_id}/{image_id}-{slug}.webp")
+            counts["cardtrader"] = 1
+
+    return urls, counts
+
+
 def image_candidates(card: dict[str, Any]) -> tuple[list[str], dict[str, int]]:
     abbr = safe_code(card.get("abbr"))
     nums = num_candidates(card.get("num"))
     urls: list[str] = []
-    counts = {"pokemontcg": 0, "limitless": 0}
+    counts = {"tcgdex": 0, "chasesociety": 0, "cardtrader": 0, "pokemontcg": 0, "limitless": 0}
+
+    # 0) Nieuwe speciale set: bronnen met gecontroleerde, stabiele kaartlinks.
+    special_urls, special_counts = special_image_candidates(card)
+    urls.extend(special_urls)
+    counts.update(special_counts)
 
     # 1) Officiële Pokémon TCG image CDN. Dit is de veiligste bron voor oudere Engelse sets.
     set_id = tcg_set_id(card)
@@ -116,7 +208,10 @@ def image_candidates(card: dict[str, Any]) -> tuple[list[str], dict[str, int]]:
         counts["pokemontcg"] = len(urls)
 
     # 2) Limitless alleen voor moderne reeksen. Niet voor Neo/POP/Base/EX/... omdat dat te vaak kaartachterkanten gaf.
-    if abbr and str(card.get("series", "")) in LIMITLESS_ALLOWED_SERIES:
+    set_name = str(card.get("set", ""))
+    is_30th_special = set_name in {THIRTIETH_CLASSIC_SET, THIRTIETH_ENERGY_SET}
+    is_30th_rgb = set_name == THIRTIETH_MAIN_SET and str(card.get("num", "")) in THIRTIETH_RGB_IMAGES
+    if abbr and str(card.get("series", "")) in LIMITLESS_ALLOWED_SERIES and not is_30th_special and not is_30th_rgb:
         before = len(urls)
         for n in nums:
             urls.append(f"https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/{abbr}/{abbr}_{n}_EN_LG.png")
@@ -141,7 +236,7 @@ def main() -> int:
 
     mapping: dict[str, Any] = {}
     total_candidates = 0
-    by_source = {"pokemontcg": 0, "limitless": 0}
+    by_source = {"tcgdex": 0, "chasesociety": 0, "cardtrader": 0, "pokemontcg": 0, "limitless": 0}
     no_candidates = 0
 
     for card in cards:
@@ -153,8 +248,8 @@ def main() -> int:
             continue
         key = card_key(card)
         total_candidates += len(cands)
-        by_source["pokemontcg"] += counts.get("pokemontcg", 0)
-        by_source["limitless"] += counts.get("limitless", 0)
+        for source in by_source:
+            by_source[source] += counts.get(source, 0)
         abbr = safe_code(card.get("abbr"))
         n = norm_num(card.get("num"))
         mapping[key] = {
@@ -169,7 +264,7 @@ def main() -> int:
         }
 
     out = {
-        "source": "Automatische kandidaten: Pokémon TCG image CDN eerst; Limitless alleen moderne fallback",
+        "source": "Automatische kandidaten: speciale 30th-bronnen, Pokémon TCG image CDN en veilige moderne fallbacks",
         "updatedAt": datetime.now(timezone.utc).isoformat(),
         "totalCards": len(cards),
         "cardsWithImageCandidates": len(mapping),
@@ -184,7 +279,7 @@ def main() -> int:
         "cardsWithImageCandidates": len(mapping),
         "cardsWithoutImageCandidates": no_candidates,
         "bySourceCandidateUrls": by_source,
-        "note": "Pokémon TCG image CDN staat eerst. Speciale sets zoals McDonald's, Rumble, Best of Game, Futsal en EX Trainer Kits zijn nu toegevoegd.",
+        "note": "30th Celebration gebruikt TCGdex voor 001-158 en gecontroleerde bronnen voor RGB, Classic Collection en Energy Collection.",
     }
 
     OUT_PATH.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")

@@ -1,0 +1,82 @@
+name: Update 30th Celebration
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/update_30th_celebration.py'
+
+concurrency:
+  group: update-30th-celebration
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  update-30th-celebration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Add 30th Celebration sets
+        run: python scripts/update_30th_celebration.py
+
+      - name: Sync card data into app
+        run: python scripts/sync_card_data_into_index.py
+
+      - name: Refresh service-worker registration
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+          text, count = re.subn(
+              r"navigator\.serviceWorker\.register\('\./service-worker\.js(?:\?[^']*)?'(?:,\s*\{[^}]*\})?\)",
+              "navigator.serviceWorker.register('./service-worker.js?v=4', { updateViaCache: 'none' })",
+              text,
+              count=1,
+          )
+          if count != 1:
+              raise SystemExit('Service-workerregistratie niet exact één keer gevonden.')
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Generate image map
+        run: python scripts/update_images.py
+
+      - name: Clean unsafe image candidates
+        run: python scripts/clean_image_map.py
+
+      - name: Update Cardmarket prices
+        run: python scripts/update_prices.py --force
+
+      - name: Test scanner matching
+        run: node tests/scanner_match.test.js
+
+      - name: Test 30th Celebration data
+        run: python -m unittest tests/test_30th_celebration.py
+
+      - name: Commit complete 30th Celebration update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html pokemon_cards_data.json thirtieth_celebration_debug.json sync_card_data_debug.json
+          git add pokemon_image_map.json pokemon_image_debug.json pokemon_image_cleanup_debug.json
+          git add prices.json price_history.json cardmarket_debug.json cardmarket_match_report.csv
+          git add cardmarket_setcodes.csv cardmarket_set_mapping_candidates.csv cardmarket_unmatched_by_set.csv cardmarket_manual_set_map.csv 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "Geen wijzigingen nodig."
+          else
+            git commit -m "Publish 30th Celebration card data"
+            git push
+          fi

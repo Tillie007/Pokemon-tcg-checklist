@@ -12,6 +12,9 @@ on:
       - "scanner-match.js"
       - "scanner.js"
       - "service-worker.js"
+      - "pokemon_cards_data.json"
+      - "cardmarket_manual_set_map.csv"
+      - "scripts/update_30th_celebration.py"
       - "tests/scanner_match.test.js"
   schedule:
     - cron: "15 4 * * *"
@@ -22,6 +25,7 @@ permissions:
 
 jobs:
   update-prices:
+    if: github.event_name != 'push' || !contains(github.event.head_commit.message, '[30th-bootstrap]')
     runs-on: ubuntu-latest
 
     steps:
@@ -81,7 +85,7 @@ jobs:
               if count != 1:
                   raise SystemExit(f"Scannerbestand niet exact één keer gevonden: {pattern}")
 
-          registration = "navigator.serviceWorker.register('./service-worker.js?v=3', { updateViaCache: 'none' })"
+          registration = "navigator.serviceWorker.register('./service-worker.js?v=4', { updateViaCache: 'none' })"
           text, count = re.subn(
               r"navigator\.serviceWorker\.register\('\./service-worker\.js(?:\?[^']*)?'(?:,\s*\{[^}]*\})?\)",
               registration,
@@ -97,7 +101,7 @@ jobs:
                   1,
               )
           path.write_text(text, encoding="utf-8")
-          print("Scannerversie 2.1.0 en service-worker v3 ingesteld.")
+          print("Scannerversie 2.1.0 en service-worker v4 ingesteld.")
           PY
 
       - name: Kaartvergelijking testen

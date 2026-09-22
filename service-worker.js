@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pokemon-tcg-checklist-scanner-v3';
+const CACHE_NAME = 'pokemon-tcg-checklist-scanner-v4';
 
 const FRESH_PATHS = new Set([
   '/Pokemon-tcg-checklist/',
@@ -12,7 +12,8 @@ const FRESH_PATHS = new Set([
   '/Pokemon-tcg-checklist/price_history.json',
   '/Pokemon-tcg-checklist/pokemon_image_debug.json',
   '/Pokemon-tcg-checklist/pokemon_image_cleanup_debug.json',
-  '/Pokemon-tcg-checklist/pitch_black_debug.json'
+  '/Pokemon-tcg-checklist/pitch_black_debug.json',
+  '/Pokemon-tcg-checklist/thirtieth_celebration_debug.json'
 ]);
 
 function isFreshRequest(url) {
