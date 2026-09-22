@@ -1,0 +1,136 @@
+{
+  "updatedAt": "2026-09-22T10:25:32.715770+00:00",
+  "source": "https://api.tcgdex.net/v2/en/sets/30th",
+  "sets": [
+    {
+      "series": "Mega Evolution",
+      "set": "30th Celebration",
+      "abbr": "30C",
+      "count": 161
+    },
+    {
+      "series": "Mega Evolution",
+      "set": "30th Celebration: Classic Collection",
+      "abbr": "30C",
+      "count": 30
+    },
+    {
+      "series": "Mega Evolution",
+      "set": "30th Celebration: Energy Collection",
+      "abbr": "MEE",
+      "count": 8
+    }
+  ],
+  "addedCards": 199,
+  "breakdown": {
+    "mainAndRgb": 161,
+    "classic": 30,
+    "energy": 8
+  },
+  "removedExistingSets": 0,
+  "removedExistingCards": 0,
+  "firstCards": [
+    {
+      "key": "Mega Evolution|30th Celebration|30C|001|Exeggcute",
+      "series": "Mega Evolution",
+      "set": "30th Celebration",
+      "abbr": "30C",
+      "num": "001",
+      "name": "Exeggcute",
+      "rarity": "Common",
+      "type": "Common"
+    },
+    {
+      "key": "Mega Evolution|30th Celebration|30C|002|Alolan Exeggutor",
+      "series": "Mega Evolution",
+      "set": "30th Celebration",
+      "abbr": "30C",
+      "num": "002",
+      "name": "Alolan Exeggutor",
+      "rarity": "Common",
+      "type": "Common"
+    },
+    {
+      "key": "Mega Evolution|30th Celebration|30C|003|Volbeat",
+      "series": "Mega Evolution",
+      "set": "30th Celebration",
+      "abbr": "30C",
+      "num": "003",
+      "name": "Volbeat",
+      "rarity": "Common",
+      "type": "Common"
+    },
+    {
+      "key": "Mega Evolution|30th Celebration|30C|004|Illumise",
+      "series": "Mega Evolution",
+      "set": "30th Celebration",
+      "abbr": "30C",
+      "num": "004",
+      "name": "Illumise",
+      "rarity": "Common",
+      "type": "Common"
+    },
+    {
+      "key": "Mega Evolution|30th Celebration|30C|005|Tropius",
+      "series": "Mega Evolution",
+      "set": "30th Celebration",
+      "abbr": "30C",
+      "num": "005",
+      "name": "Tropius",
+      "rarity": "Common",
+      "type": "Common"
+    }
+  ],
+  "lastCards": [
+    {
+      "key": "Mega Evolution|30th Celebration: Energy Collection|MEE|012|Basic Lightning Energy",
+      "series": "Mega Evolution",
+      "set": "30th Celebration: Energy Collection",
+      "abbr": "MEE",
+      "num": "012",
+      "name": "Basic Lightning Energy",
+      "rarity": "Energy",
+      "type": "Energy"
+    },
+    {
+      "key": "Mega Evolution|30th Celebration: Energy Collection|MEE|013|Basic Psychic Energy",
+      "series": "Mega Evolution",
+      "set": "30th Celebration: Energy Collection",
+      "abbr": "MEE",
+      "num": "013",
+      "name": "Basic Psychic Energy",
+      "rarity": "Energy",
+      "type": "Energy"
+    },
+    {
+      "key": "Mega Evolution|30th Celebration: Energy Collection|MEE|014|Basic Fighting Energy",
+      "series": "Mega Evolution",
+      "set": "30th Celebration: Energy Collection",
+      "abbr": "MEE",
+      "num": "014",
+      "name": "Basic Fighting Energy",
+      "rarity": "Energy",
+      "type": "Energy"
+    },
+    {
+      "key": "Mega Evolution|30th Celebration: Energy Collection|MEE|015|Basic Darkness Energy",
+      "series": "Mega Evolution",
+      "set": "30th Celebration: Energy Collection",
+      "abbr": "MEE",
+      "num": "015",
+      "name": "Basic Darkness Energy",
+      "rarity": "Energy",
+      "type": "Energy"
+    },
+    {
+      "key": "Mega Evolution|30th Celebration: Energy Collection|MEE|016|Basic Metal Energy",
+      "series": "Mega Evolution",
+      "set": "30th Celebration: Energy Collection",
+      "abbr": "MEE",
+      "num": "016",
+      "name": "Basic Metal Energy",
+      "rarity": "Energy",
+      "type": "Energy"
+    }
+  ]
+}

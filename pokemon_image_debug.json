@@ -1,11 +1,14 @@
 {
-  "updatedAt": "2026-09-21T10:57:44.347528+00:00",
-  "totalCards": 20444,
-  "cardsWithImageCandidates": 20444,
+  "updatedAt": "2026-09-22T10:25:33.294101+00:00",
+  "totalCards": 20643,
+  "cardsWithImageCandidates": 20643,
   "cardsWithoutImageCandidates": 0,
   "bySourceCandidateUrls": {
+    "tcgdex": 316,
+    "chasesociety": 33,
+    "cardtrader": 8,
     "pokemontcg": 70532,
-    "limitless": 26192
+    "limitless": 26724
   },
-  "note": "Pokémon TCG image CDN staat eerst. Speciale sets zoals McDonald's, Rumble, Best of Game, Futsal en EX Trainer Kits zijn nu toegevoegd."
+  "note": "30th Celebration gebruikt TCGdex voor 001-158 en gecontroleerde bronnen voor RGB, Classic Collection en Energy Collection."
 }

@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-07-23T06:41:20.371477+00:00",
+  "updatedAt": "2026-09-22T10:25:32.944971+00:00",
   "changedIndex": true,
-  "oldCards": 20324,
-  "newCards": 20444,
-  "oldSets": 173,
-  "newSets": 174,
-  "oldHadPitchBlack": false,
+  "oldCards": 20444,
+  "newCards": 20643,
+  "oldSets": 174,
+  "newSets": 177,
+  "oldHadPitchBlack": true,
   "newHasPitchBlack": true,
-  "embeddedStart": 44984,
-  "embeddedEnd": 3842563
+  "embeddedStart": 67430,
+  "embeddedEnd": 3272601
 }
