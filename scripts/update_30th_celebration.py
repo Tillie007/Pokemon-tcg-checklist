@@ -29,6 +29,7 @@ ENERGY_SET = "30th Celebration: Energy Collection"
 MAIN_ABBR = "30C"
 ENERGY_ABBR = "MEE"
 TCGDEX_SET_URL = "https://api.tcgdex.net/v2/en/sets/30th"
+# Handmatige refresh-trigger voor kaartdata, afbeeldingen en prijzen: 2026-09-22.
 
 RGB_CARDS = [
     ("R/RGB", "Mew"),
