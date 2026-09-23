@@ -8,7 +8,7 @@ on:
       - 'scripts/update_30th_celebration.py'
 
 concurrency:
-  group: update-30th-celebration
+  group: pokemon-data-writes
   cancel-in-progress: false
 
 permissions:
@@ -42,7 +42,7 @@ jobs:
           text = path.read_text(encoding='utf-8')
           text, count = re.subn(
               r"navigator\.serviceWorker\.register\('\./service-worker\.js(?:\?[^']*)?'(?:,\s*\{[^}]*\})?\)",
-              "navigator.serviceWorker.register('./service-worker.js?v=4', { updateViaCache: 'none' })",
+              "navigator.serviceWorker.register('./service-worker.js?v=5', { updateViaCache: 'none' })",
               text,
               count=1,
           )
@@ -78,5 +78,16 @@ jobs:
             echo "Geen wijzigingen nodig."
           else
             git commit -m "Publish 30th Celebration card data"
-            git push
+            for attempt in 1 2 3; do
+              git fetch origin main
+              if git rebase origin/main && git push origin HEAD:main; then
+                echo "30th Celebration-update gepubliceerd."
+                exit 0
+              fi
+              git rebase --abort 2>/dev/null || true
+              echo "Push poging $attempt botste met een gelijktijdige update; opnieuw proberen..."
+              sleep $((attempt * 3))
+            done
+            echo "30th Celebration-update kon na 3 pogingen niet veilig gepubliceerd worden."
+            exit 1
           fi
