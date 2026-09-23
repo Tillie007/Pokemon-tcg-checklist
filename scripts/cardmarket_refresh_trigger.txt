@@ -1,0 +1,4 @@
+Cardmarket refresh trigger
+
+Purpose: touching this file starts the Cardmarket price workflow after a set refresh.
+Last requested refresh: 2026-09-23
