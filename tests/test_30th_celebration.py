@@ -68,8 +68,8 @@ class ThirtiethCelebrationTests(unittest.TestCase):
         index = (ROOT / "index.html").read_text(encoding="utf-8")
         worker = (ROOT / "service-worker.js").read_text(encoding="utf-8")
         self.assertIn('"set":"30th Celebration"', index)
-        self.assertIn("service-worker.js?v=4", index)
-        self.assertIn("pokemon-tcg-checklist-scanner-v4", worker)
+        self.assertIn("service-worker.js?v=5", index)
+        self.assertIn("pokemon-tcg-checklist-scanner-v5", worker)
 
 
 if __name__ == "__main__":
