@@ -141,7 +141,23 @@ jobs:
 
           if [[ -n "$(git status --porcelain)" ]]; then
             git commit -m "Dagelijkse Cardmarket-prijzen bijwerken"
-            git push
+
+            # Een andere workflow (bv. de 30th Celebration-update) kan intussen
+            # naar main gepusht hebben. Herbaseer dan eerst zodat beide updates
+            # behouden blijven in plaats van met een ref-lock fout te stoppen.
+            for attempt in 1 2 3; do
+              git fetch origin main
+              if git rebase origin/main && git push origin HEAD:main; then
+                echo "Prijsupdate gepubliceerd."
+                exit 0
+              fi
+              git rebase --abort 2>/dev/null || true
+              echo "Push poging $attempt botste met een gelijktijdige update; opnieuw proberen..."
+              sleep $((attempt * 3))
+            done
+
+            echo "Prijsupdate kon na 3 pogingen niet veilig gepubliceerd worden."
+            exit 1
           else
             echo "Geen wijzigingen in prijsbestanden."
           fi
