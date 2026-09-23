@@ -6,6 +6,7 @@ on:
     paths:
       - ".github/workflows/update-cardmarket-prices.yml"
       - "scripts/update_prices.py"
+      - "scripts/cardmarket_refresh_trigger.txt"
       - "scripts/compact_price_history_ui.patch"
       - "scripts/scanner_ui.patch"
       - "scanner.css"
