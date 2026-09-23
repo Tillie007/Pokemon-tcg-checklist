@@ -22,7 +22,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: update-cardmarket-prices
+  group: pokemon-data-writes
   cancel-in-progress: false
 
 permissions:
