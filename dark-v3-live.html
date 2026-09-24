@@ -111,14 +111,17 @@ let PRICE_MAP=new Map();
 let CURRENT_SET=null;
 let ACTIVE_SERIES='Alles';
 const OWNED_KEY='pokemon_tcg_owned_cards_v1';
+let OWNED={};
+let HAVE_COUNTS=new Map();
 
 function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function slug(v){return String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’']/g,'').replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')}
 function readOwned(){try{return JSON.parse(localStorage.getItem(OWNED_KEY)||'{}')||{}}catch(e){return{}}}
 function qty(v){if(typeof v==='number')return v;if(typeof v==='boolean')return v?1:0;if(v&&typeof v==='object')return Number(v.qty??v.count??v.owned??1)||0;return Number(v)||0}
-function ownedQty(card){return qty(readOwned()[card.key])}
-function setOwnedQty(card,n){const owned=readOwned();if(n>0)owned[card.key]={qty:n};else delete owned[card.key];localStorage.setItem(OWNED_KEY,JSON.stringify(owned))}
-function setHave(series,name){let n=0;for(const c of CARDS){if(c.series===series&&c.set===name&&ownedQty(c)>0)n++}return n}
+function ownedQty(card){return qty(OWNED[card.key])}
+function rebuildHaveCounts(){HAVE_COUNTS=new Map();for(const c of CARDS){if(ownedQty(c)>0){const k=c.series+'|||'+c.set;HAVE_COUNTS.set(k,(HAVE_COUNTS.get(k)||0)+1)}}}
+function setOwnedQty(card,n){if(n>0)OWNED[card.key]={qty:n};else delete OWNED[card.key];localStorage.setItem(OWNED_KEY,JSON.stringify(OWNED));rebuildHaveCounts()}
+function setHave(series,name){return HAVE_COUNTS.get(series+'|||'+name)||0}
 function priceFor(card){return PRICE_MAP.get(card.key)||null}
 function money(n,currency='EUR'){const x=Number(n);if(!Number.isFinite(x))return '—';try{return new Intl.NumberFormat('nl-BE',{style:'currency',currency:currency||'EUR',maximumFractionDigits:2}).format(x)}catch(e){return '€ '+x.toFixed(2).replace('.',',')}}
 function imageEntry(card){return IMAGE_MAP[card.key]||null}
@@ -265,6 +268,8 @@ async function loadRealDatabase(){
   ]);
   CARDS=Array.isArray(data.cards)?data.cards:[];
   SETS=(Array.isArray(data.sets)?data.sets:[]).map(s=>({series:s.series,name:s.set,code:s.abbr,total:Number(s.count)||0}));
+  OWNED=readOwned();
+  rebuildHaveCounts();
   IMAGE_MAP=images.images||{};
   PRICE_MAP=new Map((prices.prices||[]).map(p=>[p.key,p]));
   renderSeriesChips();renderSets();renderHomeSets();
