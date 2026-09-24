@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070a10">
+<title>Pokémon TCG Dark V2 Preview</title>
+<style>
+:root{--bg:#070a10;--panel:#0f151f;--line:#202a3a;--text:#f5f7fb;--muted:#8d98aa;--blue:#2f80ff;--green:#35d78b}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}body{min-height:100vh}
+.app{max-width:1180px;margin:auto;padding:28px 22px 110px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}.top h1{margin:0;font-size:34px;letter-spacing:-.04em}.top p{margin:6px 0 0;color:var(--muted)}
+.badge{padding:9px 12px;border:1px solid #274063;border-radius:999px;background:#0d1725;color:#74a8ff;font-size:12px;font-weight:800}
+.layout{display:grid;grid-template-columns:1.05fr .95fr;gap:22px}
+.hero{border:1px solid var(--line);border-radius:28px;background:radial-gradient(circle at 90% 0,rgba(47,128,255,.28),transparent 34%),linear-gradient(145deg,#151d29,#0b1018);padding:28px;min-height:270px}
+.hero small{color:#72a7ff;font-weight:900;letter-spacing:.11em;text-transform:uppercase}.hero h2{font-size:31px;margin:9px 0 12px}.hero .value{font-size:49px;font-weight:900;letter-spacing:-.05em;margin-top:28px}.hero .sub{color:var(--green);font-weight:800}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}.stat{border:1px solid var(--line);border-radius:20px;background:#0e141e;padding:18px}.stat span{display:block;color:var(--muted);font-size:12px}.stat b{display:block;margin-top:5px;font-size:24px}
+.section{margin-top:24px}.section-head{display:flex;justify-content:space-between;align-items:end;margin:0 2px 12px}.section-head small{display:block;color:#4d8cff;font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.section-head h3{margin:4px 0 0;font-size:22px}
+.sets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.set{overflow:hidden;border:1px solid var(--line);border-radius:23px;background:#0f151f;cursor:pointer;transition:.18s}.set:hover{transform:translateY(-2px);border-color:#3c67a2}
+.logo-zone{height:180px;display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(circle at 15% 12%,rgba(67,151,255,.2),transparent 28%),radial-gradient(circle at 84% 72%,rgba(38,208,124,.13),transparent 34%),linear-gradient(145deg,#182333,#090e15)}
+.logo-zone:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 48px rgba(0,0,0,.45);pointer-events:none}.logo-zone img{position:relative;z-index:1;max-width:84%;max-height:70%;object-fit:contain;filter:drop-shadow(0 12px 15px rgba(0,0,0,.58))}
+.fallback{display:none;font-family:Impact,"Arial Black",sans-serif;font-size:28px;text-align:center;text-transform:uppercase;text-shadow:0 3px 0 #0b1120,0 7px 16px #000}.logo-zone.failed .fallback{display:block}.logo-zone.failed img{display:none}
+.set-copy{padding:15px 16px 17px}.series{color:#6d8fbe;font-size:10px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.set-name{font-size:16px;font-weight:850;margin:5px 0 9px}.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.bar{height:6px;background:#202a39;border-radius:99px;margin-top:10px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,#2f80ff,#48a2ff);border-radius:inherit}
+.cards{display:grid;grid-auto-flow:column;grid-auto-columns:132px;gap:10px;overflow:auto;padding:2px 2px 8px;scrollbar-width:none}.cards::-webkit-scrollbar{display:none}.card{overflow:hidden;border:1px solid var(--line);border-radius:17px;background:#0e141e}.card img{display:block;width:100%;aspect-ratio:.716/1;object-fit:cover;background:#111925}.card div{padding:9px 10px 11px}.card small{color:#6c8fbd}.card b{display:block;font-size:11px;margin-top:3px;line-height:1.25}
+.mobile-nav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));z-index:20;width:min(610px,calc(100% - 24px));height:78px;padding:8px;border:1px solid #283448;border-radius:30px;background:rgba(14,19,28,.95);backdrop-filter:blur(16px);display:none;grid-template-columns:1fr 1fr 1.2fr 1fr 1fr}.nav{border:0;background:transparent;color:#8793a5;font-size:11px;font-weight:800}.nav.active{color:white}.scan{width:62px;height:62px;border-radius:50%;margin:-22px auto 0;background:#2f80ff;color:#fff;display:grid;place-items:center;font-size:24px;box-shadow:0 0 0 7px #172337}
+.note{margin-top:18px;padding:13px 15px;border:1px dashed #2a3b55;border-radius:16px;color:#8fa0b8;font-size:12px}
+@media(max-width:760px){
+ .app{padding:18px 14px 108px}.top{align-items:flex-start}.top h1{font-size:27px}.top p{font-size:13px}.badge{font-size:10px}
+ .layout{display:block}.hero{min-height:0;padding:22px;border-radius:23px}.hero h2{font-size:27px}.hero .value{font-size:42px}
+ .sets{grid-template-columns:1fr;gap:12px}.logo-zone{height:188px}.logo-zone img{max-width:88%;max-height:72%}
+ .mobile-nav{display:grid}.section{margin-top:22px}
+}
+</style>
+</head>
+<body>
+<main class="app">
+  <div class="top">
+    <div><h1>Pokémon TCG Collectie</h1><p>Dark V2 · eerste publieke test met echte setlogo's</p></div>
+    <span class="badge">PREVIEW</span>
+  </div>
+  <div class="layout">
+    <section>
+      <div class="hero">
+        <small>Mijn collectie</small>
+        <h2>Overzicht</h2>
+        <div class="value">€ 1.284,63</div>
+        <div class="sub">↗ actuele geschatte Cardmarket-waarde</div>
+        <div class="stats">
+          <div class="stat"><span>Unieke kaarten</span><b>428</b></div>
+          <div class="stat"><span>Uitbreidingen</span><b>37</b></div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-head"><div><small>Uit je collectie</small><h3>Kaarten</h3></div></div>
+        <div class="cards">
+          <article class="card"><img src="https://images.pokemontcg.io/rsv10pt5/116.png" alt=""><div><small>White Flare</small><b>Tarragon</b></div></article>
+          <article class="card"><img src="https://images.pokemontcg.io/sv8/238.png" alt=""><div><small>Surging Sparks</small><b>Pikachu ex</b></div></article>
+          <article class="card"><img src="https://images.pokemontcg.io/swsh12pt5/147.png" alt=""><div><small>Crown Zenith</small><b>Friends in Sinnoh</b></div></article>
+          <article class="card"><img src="https://images.pokemontcg.io/sv3/223.png" alt=""><div><small>Obsidian Flames</small><b>Charizard ex</b></div></article>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="section-head"><div><small>Set-identiteit eerst</small><h3>Uitbreidingen</h3></div><span class="badge">echte logo's</span></div>
+      <div class="sets">
+        <article class="set"><div class="logo-zone"><img src="https://images.pokemontcg.io/rsv10pt5/logo.png" alt="White Flare" onerror="this.parentElement.classList.add('failed')"><span class="fallback">White Flare</span></div><div class="set-copy"><div class="series">Scarlet & Violet</div><div class="set-name">White Flare</div><div class="meta"><span>61 / 173 kaarten</span><strong>35%</strong></div><div class="bar"><i style="width:35%"></i></div></div></article>
+        <article class="set"><div class="logo-zone"><img src="https://pokesymbols.com/images/tcg/sets/logos/perfect-order.png" alt="Perfect Order" onerror="this.parentElement.classList.add('failed')"><span class="fallback">Perfect Order</span></div><div class="set-copy"><div class="series">Mega Evolution</div><div class="set-name">Perfect Order</div><div class="meta"><span>18 / 124 kaarten</span><strong>15%</strong></div><div class="bar"><i style="width:15%"></i></div></div></article>
+        <article class="set"><div class="logo-zone"><img src="https://images.pokemontcg.io/sv8/logo.png" alt="Surging Sparks" onerror="this.parentElement.classList.add('failed')"><span class="fallback">Surging Sparks</span></div><div class="set-copy"><div class="series">Scarlet & Violet</div><div class="set-name">Surging Sparks</div><div class="meta"><span>121 / 252 kaarten</span><strong>48%</strong></div><div class="bar"><i style="width:48%"></i></div></div></article>
+        <article class="set"><div class="logo-zone"><img src="https://images.pokemontcg.io/swsh12pt5/logo.png" alt="Crown Zenith" onerror="this.parentElement.classList.add('failed')"><span class="fallback">Crown Zenith</span></div><div class="set-copy"><div class="series">Sword & Shield</div><div class="set-name">Crown Zenith</div><div class="meta"><span>92 / 160 kaarten</span><strong>58%</strong></div><div class="bar"><i style="width:58%"></i></div></div></article>
+        <article class="set"><div class="logo-zone"><img src="https://images.pokemontcg.io/sv3/logo.png" alt="Obsidian Flames" onerror="this.parentElement.classList.add('failed')"><span class="fallback">Obsidian Flames</span></div><div class="set-copy"><div class="series">Scarlet & Violet</div><div class="set-name">Obsidian Flames</div><div class="meta"><span>88 / 230 kaarten</span><strong>38%</strong></div><div class="bar"><i style="width:38%"></i></div></div></article>
+        <article class="set"><div class="logo-zone"><img src="https://images.pokemontcg.io/sv3pt5/logo.png" alt="151" onerror="this.parentElement.classList.add('failed')"><span class="fallback">151</span></div><div class="set-copy"><div class="series">Scarlet & Violet</div><div class="set-name">151</div><div class="meta"><span>103 / 207 kaarten</span><strong>50%</strong></div><div class="bar"><i style="width:50%"></i></div></div></article>
+      </div>
+      <div class="note">Deze pagina is alleen de publieke V2-preview. Je huidige live collectie-app blijft ongewijzigd terwijl we de stijl verder afwerken.</div>
+    </section>
+  </div>
+</main>
+<nav class="mobile-nav">
+  <button class="nav active">▦<br>Overzicht</button>
+  <button class="nav">▱<br>Sets</button>
+  <button class="nav"><span class="scan">⌗</span></button>
+  <button class="nav">⌕<br>Zoeken</button>
+  <button class="nav">▣<br>Collectie</button>
+</nav>
+</body></html>
