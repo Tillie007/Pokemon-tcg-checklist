@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070a10"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Pokémon TCG Collectie — Dark</title>
+<link rel="stylesheet" href="scanner.css">
+<style>
+:root{--bg:#070a10;--panel:#0e131d;--panel2:#111827;--line:#202a3a;--text:#f5f7fb;--muted:#8d98aa;--blue:#2f80ff;--green:#26d07c;--red:#ff5d67;--nav:rgba(9,13,20,.94)}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}body{min-height:100vh}
+button,input{font:inherit}.app{max-width:520px;margin:auto;min-height:100vh;padding:calc(18px + env(safe-area-inset-top)) 18px calc(110px + env(safe-area-inset-bottom))}
+.view{display:none}.view.active{display:block}.kicker{font-size:12px;letter-spacing:1.7px;color:#4d8cff;font-weight:800;text-transform:uppercase}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.top h1{font-size:34px;line-height:1;margin:7px 0 0;letter-spacing:-1.3px}.gear{width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:var(--panel);color:#aeb8c7;font-size:20px}
+.hero{background:radial-gradient(circle at 86% 0,#173f84 0,transparent 46%),linear-gradient(145deg,#101a2b,#0c111a 66%);border:1px solid #1d2d48;border-radius:23px;padding:20px;box-shadow:0 18px 45px #0008;margin-bottom:14px}.hero small{color:#aeb7c7}.hero .value{font-size:38px;font-weight:800;margin:5px 0}.gain{color:var(--green);font-size:13px;font-weight:700}.spark{height:42px;margin-top:8px;width:100%}.spark path{fill:none;stroke:#2f80ff;stroke-width:3;stroke-linecap:round}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{background:linear-gradient(145deg,#101722,#0d121b);border:1px solid var(--line);border-radius:18px;padding:15px;min-height:93px}.metric .ico{font-size:18px;color:#76a8ff}.metric b{display:block;font-size:23px;margin:7px 0 2px}.metric span{font-size:12px;color:var(--muted)}
+.search{width:100%;border:1px solid var(--line);background:#0d131d;color:white;border-radius:14px;padding:13px 15px;outline:none}.chips{display:flex;gap:8px;overflow:auto;margin:14px -18px 15px;padding:0 18px;scrollbar-width:none}.chip{white-space:nowrap;border:1px solid var(--line);background:#0e141e;color:#9da8b9;padding:9px 13px;border-radius:999px;font-size:13px}.chip.active{background:#276fe9;border-color:#276fe9;color:#fff}
+.set-card{display:flex;align-items:center;gap:13px;background:linear-gradient(145deg,#101722,#0c1119);border:1px solid var(--line);border-radius:18px;padding:13px;margin-bottom:10px}.set-logo{width:84px;height:55px;border-radius:11px;background:#171f2c;display:grid;place-items:center;overflow:hidden;flex:none}.set-logo img{width:100%;height:100%;object-fit:cover}.set-logo b{font-size:11px;text-align:center;padding:4px}.set-info{min-width:0;flex:1}.set-info b{display:block;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.set-info span{font-size:12px;color:var(--muted)}.progress{height:5px;background:#1a2230;border-radius:5px;margin-top:8px;overflow:hidden}.progress i{display:block;height:100%;background:var(--blue);border-radius:5px}.set-count{color:var(--muted);font-size:12px}
+.section-title{display:flex;justify-content:space-between;align-items:end;margin:22px 0 10px}.section-title h2{font-size:19px;margin:0}.section-title span{color:var(--muted);font-size:12px}
+.collection-card{background:linear-gradient(145deg,#101722,#0c1119);border:1px solid var(--line);border-radius:20px;padding:16px;margin-bottom:12px}.collection-head{display:flex;justify-content:space-between;align-items:center}.collection-head h3{margin:0;font-size:17px}.collection-head strong{font-size:18px}.minirow{display:flex;gap:14px;margin-top:8px;color:var(--muted);font-size:12px}
+.card-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}.poke-card{background:#0f151f;border:1px solid var(--line);border-radius:16px;padding:10px;overflow:hidden}.poke-card img{width:100%;aspect-ratio:63/88;object-fit:cover;border-radius:9px;background:#171d27}.poke-card b{display:block;font-size:13px;margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.poke-card span{font-size:11px;color:var(--muted)}.poke-card em{display:block;font-style:normal;color:var(--green);font-weight:700;margin-top:5px;font-size:13px}
+.empty{padding:38px 10px;text-align:center;color:var(--muted)}
+.bottom-nav{position:fixed;z-index:20;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);height:calc(78px + env(safe-area-inset-bottom));padding:9px 12px env(safe-area-inset-bottom);background:var(--nav);backdrop-filter:blur(18px);border-top:1px solid #1b2330;display:grid;grid-template-columns:1fr 1fr 1.2fr 1fr 1fr;align-items:start}.navbtn{border:0;background:none;color:#687487;font-size:10px;padding:5px 2px}.navbtn i{display:block;font-style:normal;font-size:20px;height:27px}.navbtn.active{color:#4d8cff}.scanbtn{margin-top:-28px}.scanbtn i{width:58px;height:58px;border-radius:19px;background:linear-gradient(145deg,#3d8bff,#1d62e8);display:grid;place-items:center;color:white;margin:auto;box-shadow:0 8px 24px #1d62e866;font-size:27px}.scanbtn span{display:block;margin-top:3px}
+.loading{position:fixed;inset:0;background:#070a10;z-index:99;display:grid;place-items:center;text-align:center}.loading.hide{display:none}.loader{width:38px;height:38px;border:3px solid #1d2735;border-top-color:#2f80ff;border-radius:50%;animation:spin .8s linear infinite;margin:auto}@keyframes spin{to{transform:rotate(360deg)}}.loading p{color:var(--muted);font-size:13px}
+.quickadd{display:flex;gap:8px;margin:12px 0}.quickadd input{flex:1}.results{max-height:55vh;overflow:auto}.result{display:flex;gap:11px;align-items:center;border-bottom:1px solid #182130;padding:10px 2px}.result img{width:48px;height:67px;object-fit:cover;border-radius:6px;background:#151b25}.result div{flex:1;min-width:0}.result b{display:block;font-size:14px}.result span{font-size:11px;color:var(--muted)}.add{border:0;border-radius:10px;background:#236fe8;color:white;padding:8px 11px;font-weight:700}
+.tcg-scanner{z-index:80!important;background:#070a10!important}
+@media(min-width:700px){body{background:#05070b}.app{border-left:1px solid #111823;border-right:1px solid #111823}}
+</style>
+</head>
+<body>
+<div id="loading" class="loading"><div><div class="loader"></div><p>Je Pokémon-collectie wordt geladen…</p></div></div>
+<main class="app">
+<section id="overview" class="view active">
+ <div class="top"><div><div class="kicker">Mijn collectie</div><h1>Overzicht</h1></div><button class="gear" onclick="alert('Instellingen komen in de volgende update.')">⚙</button></div>
+ <div class="hero"><small>Totale collectiewaarde</small><div class="value" id="totalValue">€0,00</div><div class="gain">↗ Actuele Cardmarket-waarde</div><svg class="spark" viewBox="0 0 320 42"><path d="M2 34 C35 30,48 38,75 28 S120 31,143 22 S185 28,207 16 S252 20,318 5"/></svg></div>
+ <div class="grid">
+  <div class="metric"><div class="ico">▣</div><b id="uniqueCount">0</b><span>Unieke kaarten</span></div>
+  <div class="metric"><div class="ico">▤</div><b id="copyCount">0</b><span>Exemplaren</span></div>
+  <div class="metric"><div class="ico">✓</div><b id="completeCount">0</b><span>Voltooide sets</span></div>
+  <div class="metric"><div class="ico">↗</div><b id="portfolioValue">€0,00</b><span>Portfolio</span></div>
+  <div class="metric"><div class="ico">♡</div><b id="favoriteCount">0</b><span>Favorieten</span></div>
+  <div class="metric"><div class="ico">☆</div><b id="wishlistCount">0</b><span>Zoeklijst</span></div>
+  <div class="metric"><div class="ico">▱</div><b id="duplicateCount">0</b><span>Duplicaten</span></div>
+  <div class="metric"><div class="ico">⇄</div><b id="tradeCount">0</b><span>Te ruilen</span></div>
+ </div>
+</section>
+<section id="sets" class="view">
+ <div class="top"><div><div class="kicker">Alle reeksen</div><h1>Uitbreidingen</h1></div><div class="set-count"><b id="setTotal">0</b> uitbreidingen</div></div>
+ <input id="setSearch" class="search" type="search" placeholder="Zoek een uitbreiding…">
+ <div id="seriesChips" class="chips"></div><div id="setList"></div>
+</section>
+<section id="search" class="view">
+ <div class="top"><div><div class="kicker">Kaarten</div><h1>Zoeken</h1></div></div>
+ <input id="cardSearch" class="search" type="search" placeholder="Naam, set of kaartnummer…">
+ <div id="searchResults" class="results"></div>
+</section>
+<section id="collection" class="view">
+ <div class="top"><div><div class="kicker">Mijn kaarten</div><h1>Collectie</h1></div></div>
+ <div class="hero"><small>Portfolio</small><div class="value" id="collectionValue">€0,00</div><div class="gain" id="collectionSummary">0 kaarten in collectie</div></div>
+ <div class="section-title"><h2>Waarde per uitbreiding</h2><span id="ownedSetsCount">0 sets</span></div><div id="collectionSets"></div>
+ <div class="section-title"><h2>Waardevolste kaarten</h2><span>Cardmarket</span></div><div id="topCards" class="card-list"></div>
+</section>
+</main>
+<nav class="bottom-nav">
+ <button class="navbtn active" data-view="overview"><i>⌂</i><span>Overzicht</span></button>
+ <button class="navbtn" data-view="sets"><i>▦</i><span>Sets</span></button>
+ <button id="scannerLauncher" class="navbtn scanbtn"><i>⌗</i><span>Scanner</span></button>
+ <button class="navbtn" data-view="search"><i>⌕</i><span>Zoeken</span></button>
+ <button class="navbtn" data-view="collection"><i>▣</i><span>Collectie</span></button>
+</nav>
+<script>
+var DATA={cards:[],sets:[]},cards=[],sets=[],prices={},imageMap={},owned={},cardDetails={};
+const STORAGE_KEY='pokemon_tcg_owned_cards_v1',DETAIL_KEY='pokemon_tcg_card_details_v1',META_KEY='pokemon_tcg_dark_meta_v1';
+const euro=n=>new Intl.NumberFormat('nl-BE',{style:'currency',currency:'EUR'}).format(Number(n)||0);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function loadLocal(){try{owned=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')||{}}catch(e){owned={}}try{cardDetails=JSON.parse(localStorage.getItem(DETAIL_KEY)||'{}')||{}}catch(e){cardDetails={}}}
+function saveOwned(){localStorage.setItem(STORAGE_KEY,JSON.stringify(owned))}
+function detailsFor(c){return cardDetails[c.key]||{}}
+function setDetailsFor(c,d){cardDetails[c.key]=Object.assign({},detailsFor(c),d||{});localStorage.setItem(DETAIL_KEY,JSON.stringify(cardDetails))}
+function setOwned(c,v){if(v)owned[c.key]=true;else delete owned[c.key];saveOwned()}
+function quantity(c){return Math.max(1,Number(detailsFor(c).quantity)||1)}
+function pnum(v){if(v==null)return 0;if(typeof v==='number')return v;return Number(String(v).replace(',','.').replace(/[^0-9.-]/g,''))||0}
+function priceFor(c){return prices[c.key]||null}
+function choosePrice(p){if(!p)return 0;for(const k of ['price','trendPrice','avg30','lowPrice','foilTrendPrice','foilAvg30']){const n=pnum(p[k]);if(n>0)return n}return 0}
+function imageCandidatesFor(c){const m=imageMap[c.key]||{};return [...new Set([m.bestUrl,m.url,...(m.candidates||[]).map(x=>typeof x==='string'?x:(x&&x.url))].filter(Boolean))}
+function imageFor(c){return imageCandidatesFor(c)[0]||''}
+function render(){renderStats();renderCollection();renderSets()}
+function renderStats(){const ownedCards=cards.filter(c=>owned[c.key]);let copies=0,value=0,dupes=0;ownedCards.forEach(c=>{const q=quantity(c);copies+=q;dupes+=Math.max(0,q-1);value+=choosePrice(priceFor(c))*q});const bySet=new Map();sets.forEach(s=>bySet.set(s.series+'|'+s.set+'|'+s.abbr,{total:s.count||0,got:0}));ownedCards.forEach(c=>{const x=bySet.get(c.series+'|'+c.set+'|'+c.abbr);if(x)x.got++});const complete=[...bySet.values()].filter(x=>x.total&&x.got>=x.total).length;document.getElementById('uniqueCount').textContent=ownedCards.length;document.getElementById('copyCount').textContent=copies;document.getElementById('duplicateCount').textContent=dupes;document.getElementById('completeCount').textContent=complete;['totalValue','portfolioValue','collectionValue'].forEach(id=>document.getElementById(id).textContent=euro(value));document.getElementById('collectionSummary').textContent=copies+' exemplaren · '+ownedCards.length+' unieke kaarten';let meta={};try{meta=JSON.parse(localStorage.getItem(META_KEY)||'{}')}catch(e){};document.getElementById('favoriteCount').textContent=(meta.favorites||[]).length;document.getElementById('wishlistCount').textContent=(meta.wishlist||[]).length;document.getElementById('tradeCount').textContent=Object.values(meta.trade||{}).reduce((a,b)=>a+(Number(b)||0),0)}
+function ownedCountSet(s){return cards.filter(c=>c.series===s.series&&c.set===s.set&&c.abbr===s.abbr&&owned[c.key]).length}
+let activeSeries='Alles';
+function renderChips(){const series=['Alles',...new Set(sets.map(s=>s.series))];document.getElementById('seriesChips').innerHTML=series.map(s=>'<button class="chip '+(s===activeSeries?'active':'')+'" onclick="activeSeries='+JSON.stringify('__SERIES__').replace('__SERIES__','\''+esc(s).replace(/'/g,"\\'")+'\'')+';renderChips();renderSets()">'+esc(s)+'</button>').join('')}
+function renderSets(){const el=document.getElementById('setList');if(!el)return;const q=(document.getElementById('setSearch')?.value||'').toLowerCase();const rows=sets.filter(s=>(activeSeries==='Alles'||s.series===activeSeries)&&(!q||(s.set+' '+s.series+' '+s.abbr).toLowerCase().includes(q)));document.getElementById('setTotal').textContent=sets.length;el.innerHTML=rows.map(s=>{const got=ownedCountSet(s),pct=s.count?Math.min(100,got/s.count*100):0;const first=cards.find(c=>c.series===s.series&&c.set===s.set&&c.abbr===s.abbr);const img=first?imageFor(first):'';return '<div class="set-card"><div class="set-logo">'+(img?'<img src="'+esc(img)+'" loading="lazy">':'<b>'+esc(s.abbr||s.set)+'</b>')+'</div><div class="set-info"><b>'+esc(s.set)+'</b><span>'+esc(s.series)+' · '+esc(s.abbr)+'</span><div class="progress"><i style="width:'+pct+'%"></i></div></div><div class="set-count">'+got+'/'+(s.count||0)+'</div></div>'}).join('')||'<div class="empty">Geen uitbreidingen gevonden.</div>'}
+function renderCollection(){if(!cards.length)return;const groups=new Map();cards.filter(c=>owned[c.key]).forEach(c=>{const k=c.series+'|'+c.set+'|'+c.abbr;if(!groups.has(k))groups.set(k,{set:c.set,series:c.series,abbr:c.abbr,cards:[],value:0});const g=groups.get(k);g.cards.push(c);g.value+=choosePrice(priceFor(c))*quantity(c)});const arr=[...groups.values()].sort((a,b)=>b.value-a.value);document.getElementById('ownedSetsCount').textContent=arr.length+' sets';document.getElementById('collectionSets').innerHTML=arr.map(g=>'<div class="collection-card"><div class="collection-head"><h3>'+esc(g.set)+'</h3><strong>'+euro(g.value)+'</strong></div><div class="minirow"><span>'+g.cards.length+' uniek</span><span>'+g.cards.reduce((a,c)=>a+quantity(c),0)+' exemplaren</span><span>'+esc(g.abbr)+'</span></div></div>').join('')||'<div class="empty">Scan of zoek je eerste kaart om je collectie op te bouwen.</div>';const top=cards.filter(c=>owned[c.key]).sort((a,b)=>choosePrice(priceFor(b))-choosePrice(priceFor(a))).slice(0,6);document.getElementById('topCards').innerHTML=top.map(c=>'<div class="poke-card">'+(imageFor(c)?'<img src="'+esc(imageFor(c))+'" loading="lazy">':'<div style="aspect-ratio:63/88"></div>')+'<b>'+esc(c.name)+'</b><span>'+esc(c.set)+' · #'+esc(c.num)+'</span><em>'+euro(choosePrice(priceFor(c)))+'</em></div>').join('')}
+function renderSearch(){const q=(document.getElementById('cardSearch').value||'').trim().toLowerCase(),el=document.getElementById('searchResults');if(q.length<2){el.innerHTML='<div class="empty">Typ minstens 2 letters of een kaartnummer.</div>';return}const found=cards.filter(c=>(c.name+' '+c.set+' '+c.abbr+' '+c.num).toLowerCase().includes(q)).slice(0,80);el.innerHTML=found.map(c=>'<div class="result">'+(imageFor(c)?'<img src="'+esc(imageFor(c))+'" loading="lazy">':'<div style="width:48px"></div>')+'<div><b>'+esc(c.name)+'</b><span>'+esc(c.set)+' · '+esc(c.abbr)+' #'+esc(c.num)+' · '+euro(choosePrice(priceFor(c)))+'</span></div><button class="add" onclick="addCard('+JSON.stringify(c.key).replace(/"/g,'&quot;')+')">'+(owned[c.key]?'✓':'+')+'</button></div>').join('')||'<div class="empty">Geen kaarten gevonden.</div>'}
+function addCard(key){const c=cards.find(x=>x.key===key);if(!c)return;const old=owned[key]?quantity(c):0;setOwned(c,true);setDetailsFor(c,{quantity:old+1});render();renderSearch()}
+function nav(view){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id===view));document.querySelectorAll('.navbtn[data-view]').forEach(x=>x.classList.toggle('active',x.dataset.view===view));window.scrollTo(0,0);if(view==='collection')renderCollection()}
+document.querySelectorAll('.navbtn[data-view]').forEach(b=>b.onclick=()=>nav(b.dataset.view));document.getElementById('setSearch').oninput=renderSets;document.getElementById('cardSearch').oninput=renderSearch;
+async function boot(){loadLocal();try{const d=await fetch('pokemon_cards_data.json',{cache:'no-cache'}).then(r=>r.json());DATA=d;cards=d.cards||[];sets=d.sets||[];window.DATA=DATA;renderChips();render();document.getElementById('loading').classList.add('hide');Promise.all([fetch('prices.json').then(r=>r.json()).catch(()=>({})),fetch('pokemon_image_map.json').then(r=>r.json()).catch(()=>({}))]).then(([p,i])=>{prices=p.prices||p||{};imageMap=i.images||i||{};render();renderSearch()})}catch(e){document.querySelector('#loading p').textContent='Laden mislukt. Vernieuw de pagina.';console.error(e)}}
+document.getElementById('scannerLauncher').onclick=()=>{if(window.PokemonCardScanner)window.PokemonCardScanner.open();else alert('Scanner wordt nog geladen…')};
+boot();
+</script>
+<script src="scanner-match.js"></script><script src="scanner.js"></script>
+</body></html>
