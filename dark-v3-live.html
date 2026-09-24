@@ -60,6 +60,14 @@
   .scanner-circle svg{width:32px;height:32px}
 }
 
+
+/* Real database set/logo fallbacks */
+.set-logo{position:relative}
+.set-logo-fallback{display:grid;place-items:center;width:100%;height:100%;padding:8px;color:#eef3fb;font-weight:900;font-size:13px;line-height:1.05;text-align:center;text-transform:uppercase;letter-spacing:-.02em;text-shadow:0 2px 9px rgba(0,0,0,.75)}
+.set-logo img[data-failed="1"]{display:none}
+.card-tile{position:relative}
+.card-price-badge{position:absolute;left:7px;bottom:7px;z-index:3;padding:4px 7px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:rgba(7,10,16,.82);backdrop-filter:blur(8px);color:#fff;font-size:10px;font-weight:850}
+
 </style>
 </head>
 <body>
@@ -96,30 +104,175 @@
 </div>
 <nav class="bottom-nav" id="bottomNav"><button class="nav-btn active" data-go="overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg><span>Overzicht</span></button><button class="nav-btn" data-go="sets"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 5-9 5-9-5 9-5z"></path><path d="M3 12l9 5 9-5"></path><path d="M3 17l9 5 9-5"></path></svg><span>Sets</span></button><button class="nav-btn scanner-nav" data-go="scanner"><span class="scanner-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4"></path><path d="M15 3h4a2 2 0 0 1 2 2v4"></path><path d="M21 15v4a2 2 0 0 1-2 2h-4"></path><path d="M3 15v4a2 2 0 0 0 2 2h4"></path><path d="M8 12h8"></path></svg></span></button><button class="nav-btn" data-go="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg><span>Zoeken</span></button><button class="nav-btn" data-go="portfolio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path><path d="M7 15h3"></path></svg><span>Collectie</span></button></nav>
 <script>
-const SETS=[
- {series:'Mega Evolution',name:'Pitch Black',code:'PBL',have:0,total:120,logo:'https://pokesymbols.com/images/tcg/sets/logos/pitch-black.png'},
- {series:'Mega Evolution',name:'Chaos Rising',code:'CRI',have:3,total:122,logo:'https://pokesymbols.com/images/tcg/sets/logos/chaos-rising.png'},
- {series:'Mega Evolution',name:'Perfect Order',code:'POR',have:0,total:124,logo:'https://pokesymbols.com/images/tcg/sets/logos/perfect-order.png'},
- {series:'Mega Evolution',name:'Ascended Heroes',code:'ASC',have:0,total:295,logo:'https://pokesymbols.com/images/tcg/sets/logos/ascended-heroes.png'},
- {series:'Scarlet & Violet',name:'Prismatic Evolutions',code:'PRE',have:0,total:180,logo:'https://images.pokemontcg.io/sv8pt5/logo.png'},
- {series:'Scarlet & Violet',name:'Surging Sparks',code:'SSP',have:0,total:252,logo:'https://images.pokemontcg.io/sv8/logo.png'},
- {series:'Scarlet & Violet',name:'Stellar Crown',code:'SCR',have:0,total:175,logo:'https://images.pokemontcg.io/sv7/logo.png'},
- {series:'Scarlet & Violet',name:'Shrouded Fable',code:'SFA',have:0,total:99,logo:'https://images.pokemontcg.io/sv6pt5/logo.png'},
- {series:'Scarlet & Violet',name:'Twilight Masquerade',code:'TWM',have:0,total:226,logo:'https://images.pokemontcg.io/sv6/logo.png'},
- {series:'Scarlet & Violet',name:'Temporal Forces',code:'TEF',have:0,total:218,logo:'https://images.pokemontcg.io/sv5/logo.png'}
-];
-function setCard(s){const p=Math.round((s.have/s.total)*100);return `<article class="set-card" data-set="${encodeURIComponent(s.name)}"><div class="set-logo"><img src="${s.logo}" alt="${s.name}" onerror="this.style.opacity=.2"></div><div class="set-copy"><div class="series">${s.series}</div><div class="set-title">${s.name}</div><div class="set-mid"><span>${s.have} / ${s.total} kaarten</span><div class="set-right"><b class="pct">${p}%</b><span class="code">${s.code}</span></div></div><div class="progress"><i style="width:${p}%"></i></div></div></article>`}
-const setList=document.getElementById('setList');const homeSets=document.getElementById('homeSets');
-function renderSets(q=''){const rows=SETS.filter(s=>(s.name+' '+s.series+' '+s.code).toLowerCase().includes(q.toLowerCase()));setList.innerHTML=rows.map(setCard).join('');bindSetCards();}
-homeSets.innerHTML='<div class="set-list">'+SETS.slice(0,3).map(setCard).join('')+'</div>';renderSets();
-function show(name,writeHash=true){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.dataset.screen===name));const navState=name==='setdetail'?'sets':(name==='portfolio'?'portfolio':name);document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.go===navState));document.getElementById('bottomNav').classList.toggle('hidden',name==='scanner');if(writeHash&&location.hash!=='#'+name)history.pushState(null,'','#'+name);scrollTo(0,0)}
-function bindSetCards(){document.querySelectorAll('[data-set]').forEach(el=>{el.onclick=()=>{const s=SETS.find(x=>x.name===decodeURIComponent(el.dataset.set));if(!s)return;document.getElementById('detailLogo').src=s.logo;document.getElementById('detailSeries').textContent=s.series;document.getElementById('detailCode').textContent=s.code;document.getElementById('detailCount').textContent=s.have+'/'+s.total;document.getElementById('detailPct').textContent=Math.round((s.have/s.total)*100)+'%';document.getElementById('detailScans').textContent=s.total;show('setdetail')}})}bindSetCards();
-document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();show(el.dataset.go)}));
-document.getElementById('setSearch').addEventListener('input',e=>renderSets(e.target.value));
-document.querySelectorAll('.chip').forEach(ch=>ch.addEventListener('click',()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));ch.classList.add('active');const series=ch.textContent.trim();const rows=series==='Alles'?SETS:SETS.filter(s=>s.series===series);setList.innerHTML=rows.map(setCard).join('');bindSetCards()}));
-document.querySelectorAll('.segmented button').forEach(btn=>btn.addEventListener('click',()=>{btn.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}));
-document.querySelectorAll('.ranges button').forEach(btn=>btn.addEventListener('click',()=>{btn.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}));
-document.querySelectorAll('.plus').forEach(btn=>btn.addEventListener('click',()=>{btn.textContent=btn.textContent==='✓'?'+':'✓'}));
-const initial=(location.hash||'').replace('#','');if(initial&&document.querySelector('[data-screen=\"'+initial+'\"]'))show(initial,false);window.addEventListener('hashchange',()=>{const n=(location.hash||'').replace('#','');if(n&&document.querySelector('[data-screen=\"'+n+'\"]'))show(n,false)});
+let SETS=[];
+let CARDS=[];
+let IMAGE_MAP={};
+let PRICE_MAP=new Map();
+let CURRENT_SET=null;
+let ACTIVE_SERIES='Alles';
+const OWNED_KEY='pokemon_tcg_owned_cards_v1';
+
+function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function slug(v){return String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’']/g,'').replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')}
+function readOwned(){try{return JSON.parse(localStorage.getItem(OWNED_KEY)||'{}')||{}}catch(e){return{}}}
+function qty(v){if(typeof v==='number')return v;if(typeof v==='boolean')return v?1:0;if(v&&typeof v==='object')return Number(v.qty??v.count??v.owned??1)||0;return Number(v)||0}
+function ownedQty(card){return qty(readOwned()[card.key])}
+function setOwnedQty(card,n){const owned=readOwned();if(n>0)owned[card.key]={qty:n};else delete owned[card.key];localStorage.setItem(OWNED_KEY,JSON.stringify(owned))}
+function setHave(series,name){let n=0;for(const c of CARDS){if(c.series===series&&c.set===name&&ownedQty(c)>0)n++}return n}
+function priceFor(card){return PRICE_MAP.get(card.key)||null}
+function money(n,currency='EUR'){const x=Number(n);if(!Number.isFinite(x))return '—';try{return new Intl.NumberFormat('nl-BE',{style:'currency',currency:currency||'EUR',maximumFractionDigits:2}).format(x)}catch(e){return '€ '+x.toFixed(2).replace('.',',')}}
+function imageEntry(card){return IMAGE_MAP[card.key]||null}
+function cardImage(card){const e=imageEntry(card);return (e&&e.bestUrl)||''}
+
+function logoCandidates(s){
+  const known={
+    '30th Celebration':'https://pokesymbols.com/images/tcg/sets/logos/30th-celebration.png',
+    'Pitch Black':'https://pokesymbols.com/images/tcg/sets/logos/pitch-black.png',
+    'Chaos Rising':'https://pokesymbols.com/images/tcg/sets/logos/chaos-rising.png',
+    'Perfect Order':'https://pokesymbols.com/images/tcg/sets/logos/perfect-order.png',
+    'Ascended Heroes':'https://pokesymbols.com/images/tcg/sets/logos/ascended-heroes.png',
+    'Phantasmal Flames':'https://pokesymbols.com/images/tcg/sets/logos/phantasmal-flames.png',
+    'Mega Evolution':'https://pokesymbols.com/images/tcg/sets/logos/mega-evolution.png',
+    'White Flare':'https://images.pokemontcg.io/rsv10pt5/logo.png',
+    'Black Bolt':'https://images.pokemontcg.io/zsv10pt5/logo.png',
+    'Destined Rivals':'https://images.pokemontcg.io/sv10/logo.png',
+    'Journey Together':'https://images.pokemontcg.io/sv9/logo.png',
+    'Prismatic Evolutions':'https://images.pokemontcg.io/sv8pt5/logo.png',
+    'Surging Sparks':'https://images.pokemontcg.io/sv8/logo.png',
+    'Stellar Crown':'https://images.pokemontcg.io/sv7/logo.png',
+    'Shrouded Fable':'https://images.pokemontcg.io/sv6pt5/logo.png',
+    'Twilight Masquerade':'https://images.pokemontcg.io/sv6/logo.png',
+    'Temporal Forces':'https://images.pokemontcg.io/sv5/logo.png',
+    'Paldean Fates':'https://images.pokemontcg.io/sv4pt5/logo.png',
+    'Paradox Rift':'https://images.pokemontcg.io/sv4/logo.png',
+    '151':'https://images.pokemontcg.io/sv3pt5/logo.png',
+    'Obsidian Flames':'https://images.pokemontcg.io/sv3/logo.png',
+    'Paldea Evolved':'https://images.pokemontcg.io/sv2/logo.png',
+    'Scarlet & Violet':'https://images.pokemontcg.io/sv1/logo.png',
+    'Crown Zenith':'https://images.pokemontcg.io/swsh12pt5/logo.png',
+    'Silver Tempest':'https://images.pokemontcg.io/swsh12/logo.png',
+    'Lost Origin':'https://images.pokemontcg.io/swsh11/logo.png',
+    'Pokémon GO':'https://images.pokemontcg.io/pgo/logo.png',
+    'Astral Radiance':'https://images.pokemontcg.io/swsh10/logo.png',
+    'Brilliant Stars':'https://images.pokemontcg.io/swsh9/logo.png',
+    'Fusion Strike':'https://images.pokemontcg.io/swsh8/logo.png',
+    'Celebrations':'https://images.pokemontcg.io/cel25/logo.png',
+    'Evolving Skies':'https://images.pokemontcg.io/swsh7/logo.png',
+    'Chilling Reign':'https://images.pokemontcg.io/swsh6/logo.png',
+    'Battle Styles':'https://images.pokemontcg.io/swsh5/logo.png',
+    'Shining Fates':'https://images.pokemontcg.io/swsh45/logo.png',
+    'Vivid Voltage':'https://images.pokemontcg.io/swsh4/logo.png',
+    'Champion’s Path':'https://images.pokemontcg.io/swsh35/logo.png',
+    "Champion's Path":'https://images.pokemontcg.io/swsh35/logo.png',
+    'Darkness Ablaze':'https://images.pokemontcg.io/swsh3/logo.png',
+    'Rebel Clash':'https://images.pokemontcg.io/swsh2/logo.png',
+    'Sword & Shield':'https://images.pokemontcg.io/swsh1/logo.png'
+  };
+  return [known[s.name], 'https://pokesymbols.com/images/tcg/sets/logos/'+slug(s.name)+'.png'].filter(Boolean);
+}
+function tryNextLogo(img){
+  let list=[];try{list=JSON.parse(decodeURIComponent(img.dataset.fallbacks||''))||[]}catch(e){}
+  const next=list.shift();
+  if(next){img.dataset.fallbacks=encodeURIComponent(JSON.stringify(list));img.src=next;return}
+  img.dataset.failed='1';
+  const f=img.parentElement.querySelector('.set-logo-fallback');if(f)f.style.display='grid';
+}
+function logoHtml(s){
+  const urls=logoCandidates(s), first=urls.shift()||'';
+  if(!first)return '<div class="set-logo-fallback">'+esc(s.code||s.name)+'</div>';
+  return '<img src="'+esc(first)+'" data-fallbacks="'+esc(encodeURIComponent(JSON.stringify(urls)))+'" alt="'+esc(s.name)+'" onerror="tryNextLogo(this)"><div class="set-logo-fallback" style="display:none">'+esc(s.code||s.name)+'</div>';
+}
+function setCard(s){
+  const have=setHave(s.series,s.name), p=s.total?Math.round(have/s.total*100):0;
+  return '<article class="set-card" data-set="'+esc(encodeURIComponent(s.name))+'" data-series="'+esc(encodeURIComponent(s.series))+'"><div class="set-logo">'+logoHtml(s)+'</div><div class="set-copy"><div class="series">'+esc(s.series)+'</div><div class="set-title">'+esc(s.name)+'</div><div class="set-mid"><span>'+have+' / '+s.total+' kaarten</span><div class="set-right"><b class="pct">'+p+'%</b><span class="code">'+esc(s.code)+'</span></div></div><div class="progress"><i style="width:'+p+'%"></i></div></div></article>';
+}
+function filteredSets(q=''){
+  const needle=String(q||'').trim().toLowerCase();
+  return SETS.filter(s=>(ACTIVE_SERIES==='Alles'||s.series===ACTIVE_SERIES)&&(!needle||(s.name+' '+s.series+' '+s.code).toLowerCase().includes(needle)));
+}
+function renderSeriesChips(){
+  const holder=document.querySelector('.chips'); if(!holder)return;
+  const series=['Alles',...new Set(SETS.map(s=>s.series))];
+  holder.innerHTML=series.map(x=>'<button class="chip '+(x===ACTIVE_SERIES?'active':'')+'" data-series="'+esc(x)+'">'+esc(x)+'</button>').join('');
+  holder.querySelectorAll('.chip').forEach(btn=>btn.addEventListener('click',()=>{ACTIVE_SERIES=btn.dataset.series||'Alles';renderSeriesChips();renderSets(document.getElementById('setSearch').value)}));
+}
+function renderSets(q=''){
+  const rows=filteredSets(q);
+  const list=document.getElementById('setList');
+  if(list)list.innerHTML=rows.map(setCard).join('');
+  const count=document.querySelector('.set-count');if(count)count.textContent=rows.length+' uitbreidingen';
+  bindSetCards();
+}
+function renderHomeSets(){
+  const home=document.getElementById('homeSets');if(!home)return;
+  let names=['Pitch Black','Chaos Rising','Perfect Order'];
+  let rows=names.map(n=>SETS.find(s=>s.name===n)).filter(Boolean);
+  if(rows.length<3)rows=SETS.slice(0,3);
+  home.innerHTML='<div class="set-list">'+rows.map(setCard).join('')+'</div>';
+  bindSetCards();
+}
+function renderDetailCards(s){
+  const grid=document.querySelector('[data-screen="setdetail"] .cards-grid');if(!grid)return;
+  const rows=CARDS.filter(c=>c.series===s.series&&c.set===s.name).slice(0,60);
+  grid.innerHTML=rows.map(c=>{
+    const img=cardImage(c);
+    const p=priceFor(c);
+    const price=p?Number(p.price||p.trendPrice||0):0;
+    const owned=ownedQty(c)>0;
+    return '<div class="card-tile" data-card-key="'+esc(c.key)+'">'+
+      (img?'<img src="'+esc(img)+'" alt="'+esc(c.name)+'" loading="lazy">':'<div class="set-logo-fallback">'+esc(c.num)+'</div>')+
+      (price?'<span class="card-price-badge">'+esc(money(price,(p&&p.currency)||'EUR'))+'</span>':'')+
+      '<button class="plus" data-add="'+esc(c.key)+'">'+(owned?'✓':'+')+'</button></div>';
+  }).join('');
+  grid.querySelectorAll('[data-add]').forEach(btn=>btn.addEventListener('click',e=>{e.stopPropagation();const c=CARDS.find(x=>x.key===btn.dataset.add);if(!c)return;const now=ownedQty(c)>0;setOwnedQty(c,now?0:1);btn.textContent=now?'+':'✓';refreshSetCounts()}));
+}
+function openSet(series,name){
+  const s=SETS.find(x=>x.name===name&&x.series===series)||SETS.find(x=>x.name===name); if(!s)return;
+  CURRENT_SET=s;
+  const logoBox=document.querySelector('.detail-logo-box'); if(logoBox)logoBox.innerHTML=logoHtml(s);
+  document.getElementById('detailSeries').textContent=s.series;
+  document.getElementById('detailCode').textContent=s.code;
+  const have=setHave(s.series,s.name);
+  document.getElementById('detailCount').textContent=have+'/'+s.total;
+  document.getElementById('detailPct').textContent=(s.total?Math.round(have/s.total*100):0)+'%';
+  document.getElementById('detailScans').textContent=s.total;
+  renderDetailCards(s);
+  show('setdetail');
+}
+function bindSetCards(){
+  document.querySelectorAll('[data-set]').forEach(el=>{el.onclick=()=>openSet(decodeURIComponent(el.dataset.series||''),decodeURIComponent(el.dataset.set||''))});
+}
+function refreshSetCounts(){renderHomeSets();renderSets(document.getElementById('setSearch')?.value||'');if(CURRENT_SET)openSet(CURRENT_SET.series,CURRENT_SET.name)}
+function show(name,writeHash=true){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.dataset.screen===name));
+  const navState=name==='setdetail'?'sets':(name==='portfolio'?'portfolio':name);
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.go===navState));
+  document.getElementById('bottomNav').classList.toggle('hidden',name==='scanner');
+  if(writeHash&&location.hash!=='#'+name)history.pushState(null,'','#'+name);
+  scrollTo(0,0);
+}
+function bindStaticControls(){
+  document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();show(el.dataset.go)}));
+  document.getElementById('setSearch')?.addEventListener('input',e=>renderSets(e.target.value));
+  document.querySelectorAll('.segmented button').forEach(btn=>btn.addEventListener('click',()=>{btn.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}));
+  document.querySelectorAll('.ranges button').forEach(btn=>btn.addEventListener('click',()=>{btn.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}));
+}
+async function loadRealDatabase(){
+  const [data,images,prices]=await Promise.all([
+    fetch('pokemon_cards_data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()),
+    fetch('pokemon_image_map.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).catch(()=>({images:{}})),
+    fetch('prices.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).catch(()=>({prices:[]}))
+  ]);
+  CARDS=Array.isArray(data.cards)?data.cards:[];
+  SETS=(Array.isArray(data.sets)?data.sets:[]).map(s=>({series:s.series,name:s.set,code:s.abbr,total:Number(s.count)||0}));
+  IMAGE_MAP=images.images||{};
+  PRICE_MAP=new Map((prices.prices||[]).map(p=>[p.key,p]));
+  renderSeriesChips();renderSets();renderHomeSets();
+}
+bindStaticControls();
+const initial=(location.hash||'').replace('#','');
+if(initial&&document.querySelector('[data-screen="'+initial+'"]'))show(initial,false);
+window.addEventListener('hashchange',()=>{const n=(location.hash||'').replace('#','');if(n&&document.querySelector('[data-screen="'+n+'"]'))show(n,false)});
+loadRealDatabase().catch(err=>{console.error(err);const count=document.querySelector('.set-count');if(count)count.textContent='Setdata kon niet geladen worden';});
 </script>
 </body></html>
