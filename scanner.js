@@ -1333,8 +1333,154 @@
     }
   }
 
+
+  // === DARK VALUSAUR V2 — IMAGE RICH ===
+  function v2ImageCandidates(card) {
+    try {
+      if (typeof imageCandidatesFor === 'function') return imageCandidatesFor(card) || [];
+    } catch (_) {}
+    try { return getImageCandidates(card) || []; } catch (_) { return []; }
+  }
+
+  function v2CardValue(card) {
+    let price = 0;
+    let quantity = 1;
+    try { if (typeof numericCardPrice === 'function') price = Number(numericCardPrice(card)) || 0; } catch (_) {}
+    try { if (typeof detailQuantity === 'function') quantity = Number(detailQuantity(card)) || 1; } catch (_) {}
+    return price * quantity;
+  }
+
+  function v2Money(value) {
+    try { if (typeof formatMoney === 'function') return formatMoney(value, 'EUR'); } catch (_) {}
+    return new Intl.NumberFormat('nl-BE',{style:'currency',currency:'EUR'}).format(Number(value)||0);
+  }
+
+  function buildDarkV2CardGallery() {
+    const portfolio = document.querySelector('.portfolio-quick-card[data-mobile-section="home"]');
+    if (!portfolio) return;
+    let section = document.querySelector('.v2-card-showcase');
+    if (!section) {
+      section = document.createElement('section');
+      section.className = 'v2-card-showcase';
+      section.dataset.mobileSection = 'home';
+      const continueSection = document.querySelector('.mobile-home-continue[data-mobile-section="home"]');
+      if (continueSection && continueSection.parentNode) continueSection.parentNode.insertBefore(section, continueSection);
+      else portfolio.insertAdjacentElement('afterend', section);
+    }
+
+    let source = [];
+    try {
+      const allCards = typeof cards !== 'undefined' && Array.isArray(cards) ? cards : [];
+      const ownedCards = allCards.filter(card => {
+        try { return typeof isOwned === 'function' ? isOwned(card) : false; } catch (_) { return false; }
+      });
+      source = ownedCards
+        .filter(card => v2ImageCandidates(card)[0])
+        .sort((a,b) => v2CardValue(b) - v2CardValue(a));
+
+      if (source.length < 10) {
+        const used = new Set(source.map(card => card.key));
+        allCards.forEach(card => {
+          if (source.length >= 10 || used.has(card.key) || !v2ImageCandidates(card)[0]) return;
+          used.add(card.key);
+          source.push(card);
+        });
+      }
+    } catch (_) {}
+
+    const rows = source.slice(0, 10);
+    const ownedCount = rows.filter(card => {
+      try { return typeof isOwned === 'function' ? isOwned(card) : false; } catch (_) { return false; }
+    }).length;
+    const title = ownedCount ? 'Waardevolste kaarten' : 'Kaarten ontdekken';
+    const kicker = ownedCount ? 'Uit je collectie' : 'Visuele collectie';
+
+    if (!rows.length) {
+      section.innerHTML = '<div class="v2-section-head"><div><small>Visuele collectie</small><h3>Kaarten</h3></div></div><div class="v2-empty-gallery">Kaartafbeeldingen verschijnen hier zodra de afbeeldingsdata geladen is.</div>';
+      return;
+    }
+
+    section.innerHTML = `
+      <div class="v2-section-head">
+        <div><small>${escapeHtml(kicker)}</small><h3>${escapeHtml(title)}</h3></div>
+        <span>${rows.length} kaarten</span>
+      </div>
+      <div class="v2-card-strip">
+        ${rows.map((card,index) => {
+          const candidates = v2ImageCandidates(card);
+          const imageUrl = candidates[0] || '';
+          const fallbacks = candidates.slice(1);
+          let ownedCard = false;
+          try { ownedCard = typeof isOwned === 'function' ? isOwned(card) : false; } catch (_) {}
+          const value = v2CardValue(card);
+          return `<article class="v2-card-tile" data-v2-card-key="${escapeHtml(card.key)}">
+            <div class="v2-card-art">
+              <img src="${escapeHtml(imageUrl)}" data-fallbacks="${escapeHtml(encodeURIComponent(JSON.stringify(fallbacks)))}" onerror="if(typeof tryNextCollectionImage==='function')tryNextCollectionImage(this);else this.style.visibility='hidden'" alt="${escapeHtml(card.name)}" loading="lazy">
+              <span class="v2-card-rank">${index + 1}</span>
+            </div>
+            <div class="v2-card-copy">
+              <small>${escapeHtml(card.set || '')} · #${escapeHtml(card.num || '')}</small>
+              <b>${escapeHtml(card.name || '')}</b>
+              <div class="v2-card-value"><span>${ownedCard ? 'In collectie' : 'Bekijk kaart'}</span><strong>${value > 0 ? escapeHtml(v2Money(value)) : ''}</strong></div>
+            </div>
+          </article>`;
+        }).join('')}
+      </div>`;
+
+    section.querySelectorAll('[data-v2-card-key]').forEach(tile => tile.addEventListener('click', () => {
+      try {
+        const key = tile.dataset.v2CardKey;
+        const card = typeof cardsByKey !== 'undefined' && cardsByKey ? cardsByKey[key] : (typeof cards !== 'undefined' ? cards.find(c => c.key === key) : null);
+        if (card && typeof openCardModal === 'function') openCardModal(card);
+      } catch (_) {}
+    }));
+  }
+
+  function enhanceDarkV2PortfolioImages() {
+    document.querySelectorAll('.portfolio-row[data-detail-key]').forEach(row => {
+      if (row.classList.contains('v2-image-row')) return;
+      let card = null;
+      try {
+        const key = row.dataset.detailKey;
+        card = typeof cardsByKey !== 'undefined' && cardsByKey ? cardsByKey[key] : (typeof cards !== 'undefined' ? cards.find(c => c.key === key) : null);
+      } catch (_) {}
+      if (!card) return;
+      const imageUrl = v2ImageCandidates(card)[0];
+      if (!imageUrl) return;
+      const img = document.createElement('img');
+      img.className = 'v2-portfolio-thumb';
+      img.src = imageUrl;
+      img.alt = '';
+      img.loading = 'lazy';
+      row.prepend(img);
+      row.classList.add('v2-image-row');
+    });
+  }
+
+  function applyDarkValusaurV2() {
+    document.documentElement.classList.add('dark-valusaur-v2');
+    buildDarkV2CardGallery();
+    enhanceDarkV2PortfolioImages();
+
+    const count = document.getElementById('portfolioMiniCount');
+    if (count && !count.dataset.v2Observed) {
+      count.dataset.v2Observed = '1';
+      new MutationObserver(() => {
+        buildDarkV2CardGallery();
+        enhanceDarkV2PortfolioImages();
+      }).observe(count,{childList:true,characterData:true,subtree:true});
+    }
+
+    const modalBody = document.getElementById('portfolioModalBody');
+    if (modalBody && !modalBody.dataset.v2Observed) {
+      modalBody.dataset.v2Observed = '1';
+      new MutationObserver(() => enhanceDarkV2PortfolioImages()).observe(modalBody,{childList:true,subtree:true});
+    }
+  }
+
   function init() {
     applyDarkValusaurV1();
+    applyDarkValusaurV2();
     buildScanner();
     addLaunchers();
     window.PokemonCardScanner = {
