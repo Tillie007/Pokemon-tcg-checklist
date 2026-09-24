@@ -1578,3 +1578,48 @@ tr.owned .mobile-owned-toggle {
     overflow-wrap:anywhere;
   }
 }
+
+
+/* === DARK VALUSAUR V2.3 — REAL SET LOGOS === */
+.v2-set-logo-img {
+  position:relative;
+  z-index:2;
+  display:block;
+  width:min(88%,310px);
+  max-height:70%;
+  object-fit:contain;
+  filter:drop-shadow(0 10px 12px rgba(0,0,0,.52));
+}
+.v2-set-logo-fallback {
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.v2-set-wordmark.has-real-logo .v2-set-logo-fallback { display:none; }
+.v2-set-wordmark.has-real-logo .v2-set-series {
+  position:absolute;
+  left:10px;
+  bottom:8px;
+  max-width:58%;
+  margin:0;
+  text-align:left;
+}
+@media (max-width:900px) {
+  .highlight-set-image .v2-set-logo-img {
+    width:min(88%,330px);
+    max-height:72%;
+  }
+  .set-card-image .v2-set-logo-img {
+    width:86%;
+    max-height:67%;
+  }
+}
+@media (min-width:901px) {
+  .set-card-image .v2-set-logo-img {
+    width:88%;
+    max-height:64%;
+  }
+}
