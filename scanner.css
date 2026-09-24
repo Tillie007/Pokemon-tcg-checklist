@@ -1333,3 +1333,67 @@ tr.owned .mobile-owned-toggle {
     aspect-ratio: .716 / 1 !important;
   }
 }
+
+
+/* === DARK VALUSAUR V2.1 — SET COLLAGES === */
+.v2-set-collage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 8%, rgba(47,128,255,.30), transparent 34%),
+    linear-gradient(145deg,#121b27,#0a1018);
+}
+.v2-set-collage img {
+  position: absolute;
+  width: 54%;
+  height: 76%;
+  object-fit: cover;
+  border-radius: 7px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.38);
+  transform-origin: 50% 90%;
+}
+.v2-set-collage img:nth-child(1) {
+  z-index: 3;
+  left: 23%;
+  top: 10%;
+  transform: rotate(-2deg);
+}
+.v2-set-collage img:nth-child(2) {
+  z-index: 2;
+  left: 4%;
+  top: 17%;
+  transform: rotate(-11deg);
+  opacity: .90;
+}
+.v2-set-collage img:nth-child(3) {
+  z-index: 1;
+  right: 4%;
+  top: 17%;
+  transform: rotate(11deg);
+  opacity: .90;
+}
+.v2-set-collage-badge {
+  position: absolute;
+  z-index: 5;
+  right: 8px;
+  bottom: 8px;
+  padding: 5px 8px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 999px;
+  background: rgba(7,10,16,.78);
+  backdrop-filter: blur(10px);
+  color: #dce7f8;
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: .04em;
+}
+@media (max-width:900px) {
+  .highlight-set-image .v2-set-collage { min-height: 188px; }
+  .set-card-image .v2-set-collage { min-height: 150px; }
+}
+@media (min-width:901px) {
+  .set-card-image .v2-set-collage { min-height: 118px; }
+}
