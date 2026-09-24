@@ -62,7 +62,7 @@ button,input{font:inherit}.app{max-width:520px;margin:auto;min-height:100vh;padd
 <nav class="bottom-nav">
  <button class="navbtn active" data-view="overview"><i>⌂</i><span>Overzicht</span></button>
  <button class="navbtn" data-view="sets"><i>▦</i><span>Sets</span></button>
- <button id="scannerLauncher" class="navbtn scanbtn"><i>⌗</i><span>Scanner</span></button>
+ <button id="openScannerMobile" class="navbtn scanbtn"><i>⌗</i><span>Scanner</span></button>
  <button class="navbtn" data-view="search"><i>⌕</i><span>Zoeken</span></button>
  <button class="navbtn" data-view="collection"><i>▣</i><span>Collectie</span></button>
 </nav>
@@ -93,8 +93,8 @@ function renderSearch(){const q=(document.getElementById('cardSearch').value||''
 function addCard(key){const c=cards.find(x=>x.key===key);if(!c)return;const old=owned[key]?quantity(c):0;setOwned(c,true);setDetailsFor(c,{quantity:old+1});render();renderSearch()}
 function nav(view){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id===view));document.querySelectorAll('.navbtn[data-view]').forEach(x=>x.classList.toggle('active',x.dataset.view===view));window.scrollTo(0,0);if(view==='collection')renderCollection()}
 document.querySelectorAll('.navbtn[data-view]').forEach(b=>b.onclick=()=>nav(b.dataset.view));document.getElementById('setSearch').oninput=renderSets;document.getElementById('cardSearch').oninput=renderSearch;
-async function boot(){loadLocal();try{const d=await fetch('pokemon_cards_data.json',{cache:'no-cache'}).then(r=>r.json());DATA=d;cards=d.cards||[];sets=d.sets||[];window.DATA=DATA;renderChips();render();document.getElementById('loading').classList.add('hide');Promise.all([fetch('prices.json').then(r=>r.json()).catch(()=>({})),fetch('pokemon_image_map.json').then(r=>r.json()).catch(()=>({}))]).then(([p,i])=>{prices=p.prices||p||{};imageMap=i.images||i||{};render();renderSearch()})}catch(e){document.querySelector('#loading p').textContent='Laden mislukt. Vernieuw de pagina.';console.error(e)}}
-document.getElementById('scannerLauncher').onclick=()=>{if(window.PokemonCardScanner)window.PokemonCardScanner.open();else alert('Scanner wordt nog geladen…')};
+async function boot(){loadLocal();try{const d=await fetch('pokemon_cards_data.json',{cache:'no-cache'}).then(r=>r.json());DATA=d;cards=d.cards||[];sets=d.sets||[];window.DATA=DATA;renderChips();render();document.getElementById('loading').classList.add('hide');Promise.all([fetch('prices.json').then(r=>r.json()).catch(()=>({})),fetch('pokemon_image_map.json').then(r=>r.json()).catch(()=>({}))]).then(([p,i])=>{prices=Array.isArray(p.prices)?Object.fromEntries(p.prices.map(x=>[x.key,x])):(p.prices||p||{});imageMap=i.images||i||{};render();renderSearch()})}catch(e){document.querySelector('#loading p').textContent='Laden mislukt. Vernieuw de pagina.';console.error(e)}}
+document.getElementById('openScannerMobile').onclick=()=>{if(window.PokemonCardScanner)window.PokemonCardScanner.open();else alert('Scanner wordt nog geladen…')};
 boot();
 </script>
 <script src="scanner-match.js"></script><script src="scanner.js"></script>
