@@ -1550,3 +1550,31 @@ tr.owned .mobile-owned-toggle {
   .set-card-image .v2-set-pokemon { font-size:6px; }
   .set-card-image .v2-set-series { font-size:6px; }
 }
+
+
+/* V2.2 readability pass */
+@media (max-width:900px) {
+  .mobile-set-highlights {
+    grid-auto-columns:minmax(220px,72%) !important;
+  }
+  .highlight-set-image .v2-set-logo-text {
+    max-width:90%;
+    font-size:clamp(22px,7vw,31px);
+    line-height:.92;
+    overflow-wrap:anywhere;
+  }
+}
+@media (min-width:901px) {
+  .setitem {
+    grid-template-columns:118px minmax(0,1fr) !important;
+  }
+  .set-card-image {
+    width:118px !important;
+  }
+  .set-card-image .v2-set-logo-text {
+    max-width:92%;
+    font-size:16px;
+    line-height:.95;
+    overflow-wrap:anywhere;
+  }
+}
