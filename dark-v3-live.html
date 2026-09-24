@@ -113,6 +113,8 @@ let ACTIVE_SERIES='Alles';
 const OWNED_KEY='pokemon_tcg_owned_cards_v1';
 let OWNED={};
 let HAVE_COUNTS=new Map();
+let TCG_PRICE_CACHE={};
+let USD_EUR_RATE=null;
 
 function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function slug(v){return String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’']/g,'').replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')}
@@ -214,6 +216,93 @@ function renderHomeSets(){
   home.innerHTML='<div class="set-list">'+rows.map(setCard).join('')+'</div>';
   bindSetCards();
 }
+
+function loadTcgCache(){try{TCG_PRICE_CACHE=JSON.parse(localStorage.getItem('pokemon_tcg_tcgplayer_cache_v1')||'{}')||{}}catch(e){TCG_PRICE_CACHE={}}}
+function saveTcgCache(){try{localStorage.setItem('pokemon_tcg_tcgplayer_cache_v1',JSON.stringify(TCG_PRICE_CACHE))}catch(e){}}
+function tcgdexCardId(card){
+  const e=imageEntry(card)||{};
+  const urls=[e.bestUrl].concat(Array.isArray(e.candidates)?e.candidates:[]).filter(Boolean);
+  for(const raw of urls){
+    const u=String(raw);
+    if(!u.includes('assets.tcgdex.net/en/'))continue;
+    const parts=u.split('/');
+    const i=parts.indexOf('en');
+    if(i>=0 && parts.length>i+4){
+      const setId=parts[i+2];
+      const localId=parts[i+3];
+      if(setId&&localId)return setId+'-'+localId;
+    }
+  }
+  return '';
+}
+function marketFromTcgPricing(data){
+  const root=data&&data.pricing&&(data.pricing.tcgplayer||data.pricing.tcgPlayer);
+  if(!root||typeof root!=='object')return null;
+  const order=['normal','holofoil','reverseHolofoil','reverse-holofoil','unlimited','unlimited-holofoil','1stEdition','1st-edition','1stEditionHolofoil'];
+  for(const k of order){
+    const v=root[k];
+    if(v&&typeof v==='object'){
+      const n=Number(v.marketPrice!=null?v.marketPrice:v.market);
+      if(Number.isFinite(n)&&n>0)return {usd:n,variant:k};
+    }
+  }
+  for(const k of Object.keys(root)){
+    const v=root[k];
+    if(v&&typeof v==='object'){
+      const n=Number(v.marketPrice!=null?v.marketPrice:v.market);
+      if(Number.isFinite(n)&&n>0)return {usd:n,variant:k};
+    }
+  }
+  return null;
+}
+async function getUsdEurRate(){
+  if(USD_EUR_RATE)return USD_EUR_RATE;
+  try{
+    const cached=JSON.parse(localStorage.getItem('pokemon_tcg_usd_eur_v1')||'null');
+    if(cached&&Date.now()-Number(cached.at||0)<86400000&&Number(cached.rate)>0){USD_EUR_RATE=Number(cached.rate);return USD_EUR_RATE}
+  }catch(e){}
+  try{
+    const x=await fetch('https://api.frankfurter.app/latest?from=USD&to=EUR').then(r=>r.json());
+    const rate=Number(x&&x.rates&&x.rates.EUR);
+    if(rate>0){USD_EUR_RATE=rate;localStorage.setItem('pokemon_tcg_usd_eur_v1',JSON.stringify({rate:rate,at:Date.now()}));return rate}
+  }catch(e){}
+  return null;
+}
+async function fetchTcgMarket(card){
+  const id=tcgdexCardId(card);
+  if(!id)return null;
+  const cached=TCG_PRICE_CACHE[id];
+  if(cached&&Date.now()-Number(cached.at||0)<86400000)return cached;
+  try{
+    const response=await fetch('https://api.tcgdex.net/v2/en/cards/'+encodeURIComponent(id));
+    if(!response.ok)return null;
+    const data=await response.json();
+    const m=marketFromTcgPricing(data);
+    if(!m)return null;
+    const rate=await getUsdEurRate();
+    const out={usd:m.usd,eur:rate?m.usd*rate:null,variant:m.variant,at:Date.now(),source:'TCGplayer via TCGdex'};
+    TCG_PRICE_CACHE[id]=out;
+    saveTcgCache();
+    return out;
+  }catch(e){return null}
+}
+async function hydrateTcgPrices(cards){
+  const queue=cards.slice(0,24);
+  const worker=async()=>{while(queue.length){
+    const card=queue.shift();
+    if(!card)break;
+    const p=await fetchTcgMarket(card);
+    if(!p)continue;
+    const badge=Array.from(document.querySelectorAll('[data-price-key]')).find(el=>el.dataset.priceKey===card.key);
+    if(badge){
+      badge.textContent=p.eur!=null?money(p.eur,'EUR'):money(p.usd,'USD');
+      badge.title='TCGplayer market · '+p.variant+' · via TCGdex';
+      badge.dataset.source='tcgplayer';
+      badge.style.display='inline-block';
+    }
+  }};
+  await Promise.all([worker(),worker(),worker(),worker()]);
+}
 function renderDetailCards(s){
   const grid=document.querySelector('[data-screen="setdetail"] .cards-grid');if(!grid)return;
   const rows=CARDS.filter(c=>c.series===s.series&&c.set===s.name).slice(0,60);
@@ -224,9 +313,10 @@ function renderDetailCards(s){
     const owned=ownedQty(c)>0;
     return '<div class="card-tile" data-card-key="'+esc(c.key)+'">'+
       (img?'<img src="'+esc(img)+'" alt="'+esc(c.name)+'" loading="lazy">':'<div class="set-logo-fallback">'+esc(c.num)+'</div>')+
-      (price?'<span class="card-price-badge">'+esc(money(price,(p&&p.currency)||'EUR'))+'</span>':'')+
+      (price?'<span class="card-price-badge" data-price-key="'+esc(c.key)+'" title="Cardmarket fallback">'+esc(money(price,(p&&p.currency)||'EUR'))+'</span>':'<span class="card-price-badge" data-price-key="'+esc(c.key)+'" style="display:none"></span>')+
       '<button class="plus" data-add="'+esc(c.key)+'">'+(owned?'✓':'+')+'</button></div>';
   }).join('');
+  hydrateTcgPrices(rows);
   grid.querySelectorAll('[data-add]').forEach(btn=>btn.addEventListener('click',e=>{e.stopPropagation();const c=CARDS.find(x=>x.key===btn.dataset.add);if(!c)return;const now=ownedQty(c)>0;setOwnedQty(c,now?0:1);btn.textContent=now?'+':'✓';refreshSetCounts()}));
 }
 function openSet(series,name){
@@ -274,6 +364,7 @@ async function loadRealDatabase(){
   PRICE_MAP=new Map((prices.prices||[]).map(p=>[p.key,p]));
   renderSeriesChips();renderSets();renderHomeSets();
 }
+loadTcgCache();
 bindStaticControls();
 const initial=(location.hash||'').replace('#','');
 if(initial&&document.querySelector('[data-screen="'+initial+'"]'))show(initial,false);
