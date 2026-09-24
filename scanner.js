@@ -1483,14 +1483,65 @@
     return ['blue','violet','emerald','sunset'][Math.abs(hash) % 4];
   }
 
+  function v2SetLogoCandidates(setName) {
+    const name = String(setName || '').trim();
+    const slug = name.toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .replace(/[’']/g,'')
+      .replace(/&/g,'and')
+      .replace(/[^a-z0-9]+/g,'-')
+      .replace(/^-+|-+$/g,'');
+    const known = {
+      'White Flare': ['https://images.pokemontcg.io/rsv10pt5/logo.png'],
+      'Surging Sparks': ['https://images.pokemontcg.io/sv8/logo.png'],
+      'Crown Zenith': ['https://images.pokemontcg.io/swsh12pt5/logo.png'],
+      'Obsidian Flames': ['https://images.pokemontcg.io/sv3/logo.png'],
+      '151': ['https://images.pokemontcg.io/sv3pt5/logo.png'],
+      'Scarlet & Violet 151': ['https://images.pokemontcg.io/sv3pt5/logo.png'],
+      'Paldea Evolved': ['https://images.pokemontcg.io/sv2/logo.png'],
+      'Paradox Rift': ['https://images.pokemontcg.io/sv4/logo.png'],
+      'Temporal Forces': ['https://images.pokemontcg.io/sv5/logo.png'],
+      'Twilight Masquerade': ['https://images.pokemontcg.io/sv6/logo.png'],
+      'Stellar Crown': ['https://images.pokemontcg.io/sv7/logo.png'],
+      'Journey Together': ['https://images.pokemontcg.io/sv9/logo.png'],
+      'Destined Rivals': ['https://images.pokemontcg.io/sv10/logo.png'],
+      'Perfect Order': ['https://pokesymbols.com/images/tcg/sets/logos/perfect-order.png']
+    };
+    return [...(known[name] || []), `https://pokesymbols.com/images/tcg/sets/logos/${slug}.png`]
+      .filter((url,index,arr) => url && arr.indexOf(url) === index);
+  }
+
+  function v2TryNextSetLogo(img) {
+    try {
+      const raw = img.getAttribute('data-fallbacks') || '';
+      const list = raw ? JSON.parse(decodeURIComponent(raw)) : [];
+      const next = list.shift();
+      if (next) {
+        img.setAttribute('data-fallbacks', encodeURIComponent(JSON.stringify(list)));
+        img.src = next;
+        return;
+      }
+    } catch (_) {}
+    img.style.display = 'none';
+    const wrap = img.closest('.v2-set-wordmark');
+    if (wrap) wrap.classList.remove('has-real-logo');
+  }
+
   function v2SetWordmarkHtml(value) {
     const meta = v2SetIdentity(value);
     const theme = v2SetTheme(meta.setName);
     const code = meta.abbr ? meta.abbr.toUpperCase() : 'TCG';
+    const logoCandidates = v2SetLogoCandidates(meta.setName);
+    const logo = logoCandidates[0] || '';
+    const fallbacks = logoCandidates.slice(1);
+    const logoHtml = logo ? `<img class="v2-set-logo-img" src="${escapeHtml(logo)}" data-fallbacks="${escapeHtml(encodeURIComponent(JSON.stringify(fallbacks)))}" onload="this.closest('.v2-set-wordmark').classList.add('has-real-logo')" onerror="v2TryNextSetLogo(this)" alt="${escapeHtml(meta.setName)} logo" loading="lazy">` : '';
     return `<div class="v2-set-wordmark v2-set-theme-${theme}" aria-label="${escapeHtml(meta.setName)}">
       <span class="v2-set-shine" aria-hidden="true"></span>
-      <span class="v2-set-pokemon">POKÉMON TCG</span>
-      <strong class="v2-set-logo-text">${escapeHtml(meta.setName)}</strong>
+      ${logoHtml}
+      <div class="v2-set-logo-fallback">
+        <span class="v2-set-pokemon">POKÉMON TCG</span>
+        <strong class="v2-set-logo-text">${escapeHtml(meta.setName)}</strong>
+      </div>
       <span class="v2-set-series">${escapeHtml(meta.series || 'Uitbreiding')}</span>
       <span class="v2-set-code">${escapeHtml(code)}</span>
     </div>`;
