@@ -1457,10 +1457,54 @@
     });
   }
 
+
+  function v2CardsForSetValue(value) {
+    const bits = String(value || '').split('|||');
+    const series = bits[0] || '';
+    const setName = bits[1] || '';
+    const allCards = typeof cards !== 'undefined' && Array.isArray(cards) ? cards : [];
+    const matching = allCards.filter(card => {
+      const sameSeries = !series || card.series === series;
+      const sameSet = !setName || card.set === setName;
+      return sameSeries && sameSet && v2ImageCandidates(card)[0];
+    });
+    matching.sort((a,b) => {
+      let ao = 0, bo = 0;
+      try { ao = typeof isOwned === 'function' && isOwned(a) ? 1 : 0; } catch (_) {}
+      try { bo = typeof isOwned === 'function' && isOwned(b) ? 1 : 0; } catch (_) {}
+      if (bo !== ao) return bo - ao;
+      return v2CardValue(b) - v2CardValue(a);
+    });
+    return matching.slice(0,3);
+  }
+
+  function v2CollageHtml(value) {
+    const rows = v2CardsForSetValue(value);
+    if (!rows.length) return '';
+    return `<div class="v2-set-collage">${rows.map(card => {
+      const candidates = v2ImageCandidates(card);
+      const src = candidates[0] || '';
+      const fallbacks = candidates.slice(1);
+      return `<img src="${escapeHtml(src)}" data-fallbacks="${escapeHtml(encodeURIComponent(JSON.stringify(fallbacks)))}" onerror="if(typeof tryNextCollectionImage==='function')tryNextCollectionImage(this);else this.style.display='none'" alt="" loading="lazy">`;
+    }).join('')}<span class="v2-set-collage-badge">${rows.length} kaarten</span></div>`;
+  }
+
+  function enhanceDarkV2SetCollages() {
+    document.querySelectorAll('.highlight-set[data-setvalue], .setitem[data-setvalue]').forEach(item => {
+      const host = item.querySelector('.highlight-set-image, .set-card-image');
+      if (!host || host.dataset.v2Collage === '1') return;
+      const html = v2CollageHtml(item.dataset.setvalue);
+      if (!html) return;
+      host.innerHTML = html;
+      host.dataset.v2Collage = '1';
+    });
+  }
+
   function applyDarkValusaurV2() {
     document.documentElement.classList.add('dark-valusaur-v2');
     buildDarkV2CardGallery();
     enhanceDarkV2PortfolioImages();
+    enhanceDarkV2SetCollages();
 
     const count = document.getElementById('portfolioMiniCount');
     if (count && !count.dataset.v2Observed) {
@@ -1468,6 +1512,7 @@
       new MutationObserver(() => {
         buildDarkV2CardGallery();
         enhanceDarkV2PortfolioImages();
+        enhanceDarkV2SetCollages();
       }).observe(count,{childList:true,characterData:true,subtree:true});
     }
 
