@@ -1458,45 +1458,62 @@
   }
 
 
-  function v2CardsForSetValue(value) {
+  function v2SetIdentity(value) {
     const bits = String(value || '').split('|||');
     const series = bits[0] || '';
-    const setName = bits[1] || '';
+    const setName = bits[1] || 'Pokémon TCG';
     const allCards = typeof cards !== 'undefined' && Array.isArray(cards) ? cards : [];
-    const matching = allCards.filter(card => {
-      const sameSeries = !series || card.series === series;
-      const sameSet = !setName || card.set === setName;
-      return sameSeries && sameSet && v2ImageCandidates(card)[0];
-    });
-    matching.sort((a,b) => {
-      let ao = 0, bo = 0;
-      try { ao = typeof isOwned === 'function' && isOwned(a) ? 1 : 0; } catch (_) {}
-      try { bo = typeof isOwned === 'function' && isOwned(b) ? 1 : 0; } catch (_) {}
-      if (bo !== ao) return bo - ao;
-      return v2CardValue(b) - v2CardValue(a);
-    });
-    return matching.slice(0,3);
+    const sample = allCards.find(card => (!series || card.series === series) && (!setName || card.set === setName));
+    const abbr = sample && sample.abbr ? sample.abbr : '';
+    return { series, setName, abbr };
   }
 
-  function v2CollageHtml(value) {
-    const rows = v2CardsForSetValue(value);
-    if (!rows.length) return '';
-    return `<div class="v2-set-collage">${rows.map(card => {
-      const candidates = v2ImageCandidates(card);
-      const src = candidates[0] || '';
-      const fallbacks = candidates.slice(1);
-      return `<img src="${escapeHtml(src)}" data-fallbacks="${escapeHtml(encodeURIComponent(JSON.stringify(fallbacks)))}" onerror="if(typeof tryNextCollectionImage==='function')tryNextCollectionImage(this);else this.style.display='none'" alt="" loading="lazy">`;
-    }).join('')}<span class="v2-set-collage-badge">${rows.length} kaarten</span></div>`;
+  function v2SetTheme(setName) {
+    const name = String(setName || '').toLowerCase();
+    if (/30th|celebration|anniversary/.test(name)) return 'celebration';
+    if (/surging|spark|voltage|lightning|thunder/.test(name)) return 'electric';
+    if (/obsidian|flame|fire|inferno|blaze/.test(name)) return 'fire';
+    if (/crown|zenith|brilliant|gold/.test(name)) return 'royal';
+    if (/prismatic|stellar|crystal|shining|radiant/.test(name)) return 'prism';
+    if (/151|kanto|classic/.test(name)) return 'classic';
+    if (/twilight|phantom|shadow|dark|night/.test(name)) return 'shadow';
+    if (/paldea|evolving|fusion|journey|adventure/.test(name)) return 'aqua';
+    let hash = 0;
+    for (let i=0;i<name.length;i++) hash = ((hash << 5) - hash + name.charCodeAt(i)) | 0;
+    return ['blue','violet','emerald','sunset'][Math.abs(hash) % 4];
+  }
+
+  function v2SetWordmarkHtml(value) {
+    const meta = v2SetIdentity(value);
+    const theme = v2SetTheme(meta.setName);
+    const code = meta.abbr ? meta.abbr.toUpperCase() : 'TCG';
+    return `<div class="v2-set-wordmark v2-set-theme-${theme}" aria-label="${escapeHtml(meta.setName)}">
+      <span class="v2-set-shine" aria-hidden="true"></span>
+      <span class="v2-set-pokemon">POKÉMON TCG</span>
+      <strong class="v2-set-logo-text">${escapeHtml(meta.setName)}</strong>
+      <span class="v2-set-series">${escapeHtml(meta.series || 'Uitbreiding')}</span>
+      <span class="v2-set-code">${escapeHtml(code)}</span>
+    </div>`;
   }
 
   function enhanceDarkV2SetCollages() {
     document.querySelectorAll('.highlight-set[data-setvalue], .setitem[data-setvalue]').forEach(item => {
       const host = item.querySelector('.highlight-set-image, .set-card-image');
-      if (!host || host.dataset.v2Collage === '1') return;
-      const html = v2CollageHtml(item.dataset.setvalue);
-      if (!html) return;
-      host.innerHTML = html;
-      host.dataset.v2Collage = '1';
+      if (!host) return;
+      const value = item.dataset.setvalue || '';
+      if (host.dataset.v2WordmarkValue === value) return;
+      host.innerHTML = v2SetWordmarkHtml(value);
+      host.dataset.v2WordmarkValue = value;
+      delete host.dataset.v2Collage;
+    });
+  }
+
+  function observeDarkV2Sets() {
+    ['mobileSetHighlights','setProgressList'].forEach(id => {
+      const target = document.getElementById(id);
+      if (!target || target.dataset.v2SetObserved) return;
+      target.dataset.v2SetObserved = '1';
+      new MutationObserver(() => enhanceDarkV2SetCollages()).observe(target,{childList:true,subtree:true});
     });
   }
 
@@ -1505,6 +1522,7 @@
     buildDarkV2CardGallery();
     enhanceDarkV2PortfolioImages();
     enhanceDarkV2SetCollages();
+    observeDarkV2Sets();
 
     const count = document.getElementById('portfolioMiniCount');
     if (count && !count.dataset.v2Observed) {
