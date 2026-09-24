@@ -1287,7 +1287,54 @@
     state.toastTimer = window.setTimeout(() => ui.toast.classList.remove('show'), 2400);
   }
 
+  // === DARK VALUSAUR V1 ===
+  function applyDarkValusaurV1() {
+    document.documentElement.classList.add('dark-valusaur-v1');
+
+    const theme = document.querySelector('meta[name="theme-color"]');
+    if (theme) theme.setAttribute('content', '#070a10');
+
+    const hero = document.querySelector('.sidebar-hero[data-mobile-section="home"]');
+    if (hero) {
+      const kicker = hero.querySelector('.hero-kicker');
+      const title = hero.querySelector('h2');
+      const copy = hero.querySelector('p');
+      if (kicker) kicker.textContent = 'Mijn collectie';
+      if (title) title.textContent = 'Overzicht';
+      if (copy) copy.textContent = 'Je collectie, waarde en voortgang in één overzicht.';
+    }
+
+    const portfolio = document.querySelector('.portfolio-quick-card[data-mobile-section="home"]');
+    if (portfolio) {
+      const label = portfolio.querySelector('.side-card-head b');
+      const meta = portfolio.querySelector('.side-card-head span');
+      const valueLabel = portfolio.querySelector('.portfolio-mini-stat:first-child span');
+      const countLabel = portfolio.querySelector('.portfolio-mini-stat + .portfolio-mini-stat span');
+      if (label) label.textContent = 'Totale collectiewaarde';
+      if (meta) meta.textContent = 'Cardmarket';
+      if (valueLabel) valueLabel.textContent = 'Actuele geschatte waarde';
+      if (countLabel) countLabel.textContent = 'kaarten in bezit';
+    }
+
+    const setsHeading = document.querySelector('.mobile-view-heading[data-mobile-section="sets"]');
+    if (setsHeading) {
+      const kicker = setsHeading.querySelector('span');
+      const title = setsHeading.querySelector('h2');
+      const copy = setsHeading.querySelector('p');
+      if (kicker) kicker.textContent = 'Alle reeksen';
+      if (title) title.textContent = 'Uitbreidingen';
+      if (copy) copy.textContent = 'Bekijk je voortgang en kies een uitbreiding om verder te verzamelen.';
+    }
+
+    const collectionHeading = document.querySelector('.collection-heading');
+    if (collectionHeading) {
+      const title = collectionHeading.querySelector('h2, h1');
+      if (title && /collectie|kaarten/i.test(title.textContent || '')) title.textContent = 'Kaarten';
+    }
+  }
+
   function init() {
+    applyDarkValusaurV1();
     buildScanner();
     addLaunchers();
     window.PokemonCardScanner = {
