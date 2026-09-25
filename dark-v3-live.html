@@ -68,6 +68,44 @@
 .card-tile{position:relative}
 .card-price-badge{position:absolute;left:7px;bottom:7px;z-index:3;padding:4px 7px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:rgba(7,10,16,.82);backdrop-filter:blur(8px);color:#fff;font-size:10px;font-weight:850}
 
+
+/* === PORTFOLIO V4: echte assen + werkende marktkeuze === */
+.market{border:0;color:inherit;text-align:left;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.market:disabled{opacity:.68;cursor:wait}
+.market-change.neutral{color:#a7a9b2}
+.professional-chart{height:310px;margin-top:26px;position:relative}
+.professional-chart svg{display:block;width:100%;height:100%;overflow:visible}
+.chart-loading{height:100%;display:grid;place-items:center;color:#8e909a;font-size:16px}
+.chart-grid{stroke:#3b3d45;stroke-width:1;stroke-dasharray:4 6}
+.chart-axis{stroke:#555862;stroke-width:1}
+.chart-label{fill:#92959f;font-size:12px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.chart-line-main{fill:none;stroke:#34df78;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.chart-dot{fill:#d8ffe8;stroke:#34df78;stroke-width:3}
+.chart-area{fill:url(#portfolioArea)}
+.chart-empty{height:100%;display:grid;place-items:center;padding:24px;color:#999ca6;text-align:center;line-height:1.45}
+.spark-axis-note{display:flex;justify-content:space-between;margin-top:-4px;color:#777b85;font-size:10px}
+@media(max-width:600px){
+  .professional-chart{height:265px;margin-top:20px}
+  .chart-label{font-size:10px}
+  .market-switch{margin-top:30px}
+  .market{padding:13px 12px;gap:10px}
+  .market-icon{width:44px;height:44px;border-radius:13px;font-size:13px}
+  .market b{font-size:16px}
+  .market span{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:130px}
+  .market-card{min-height:255px;border-radius:34px;padding:30px 26px}
+  .market-card-head b{font-size:18px}
+  .tag{font-size:10px;padding:7px 10px}
+  .market-value{font-size:54px;margin-top:32px}
+  .market-change{font-size:17px;margin-top:20px}
+  .history{border-radius:30px;padding:22px 18px}
+  .history-top{display:block}
+  .history h3{font-size:22px}
+  .history p{font-size:14px}
+  .ranges{margin-top:16px;width:max-content}
+  .ranges button{padding:10px 14px;font-size:13px}
+  .history-foot{font-size:12px;line-height:1.45}
+}
+
 </style>
 </head>
 <body>
@@ -75,7 +113,7 @@
 <div class="top-safe"></div>
 <section class="screen active" data-screen="overview">
   <div class="headrow"><div><div class="kicker">Mijn collectie</div><h1 class="page-title">Overzicht</h1></div><button class="round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15 1.65 1.65 0 0 0 3.09 14H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 8.92 4.6H9A1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.36.49.86.83 1.51 1H21a2 2 0 1 1 0 4h-.09c-.65.17-1.15.51-1.51 1z"></path></svg></button></div>
-  <div class="home-hero" data-go="portfolio"><div class="hero-label"><div class="hero-label-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path><path d="M7 15h3"></path></svg><span>Totale collectiewaarde</span></div><span class="hero-arrow">›</span></div><div class="hero-value">€ 6,79</div><div class="hero-change">↗ 1.49% in 7 dagen</div><div class="spark"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><defs><linearGradient id="fillg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".28"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs><path d="M3 24 C14 21 18 17 28 20 S44 21 55 20 S77 19 97 17 L97 30 L3 30Z" fill="url(#fillg)"/><path d="M3 24 C14 21 18 17 28 20 S44 21 55 20 S77 19 97 17" fill="none" stroke="#34df78" stroke-width="2.2" stroke-linecap="round"/></svg></div></div>
+  <div class="home-hero" data-go="portfolio"><div class="hero-label"><div class="hero-label-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path><path d="M7 15h3"></path></svg><span>Totale collectiewaarde</span></div><span class="hero-arrow">›</span></div><div class="hero-value" id="overviewValue">€ 6,79</div><div class="hero-change" id="overviewChange">↗ 1.49% in 7 dagen</div><div class="spark" id="overviewSpark"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><defs><linearGradient id="fillg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".28"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs><path d="M3 24 C14 21 18 17 28 20 S44 21 55 20 S77 19 97 17 L97 30 L3 30Z" fill="url(#fillg)"/><path d="M3 24 C14 21 18 17 28 20 S44 21 55 20 S77 19 97 17" fill="none" stroke="#34df78" stroke-width="2.2" stroke-linecap="round"/></svg></div></div>
   <div class="stats">
     <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg><div><small>Unieke kaarten</small><b>12</b></div></div>
     <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="8" height="8" rx="2"></rect><rect x="12" y="12" width="8" height="8" rx="2"></rect></svg><div><small>Exemplaren</small><b>16</b></div></div>
@@ -97,7 +135,41 @@
   <div class="set-count">174 uitbreidingen</div><div class="set-list" id="setList"></div>
 </section>
 <section class="screen" data-screen="setdetail"><div class="detail-hero"><div class="detail-logo-box"><img id="detailLogo"></div><div class="detail-series"><span id="detailSeries"></span><span class="code" id="detailCode"></span></div><div class="detail-stats"><div class="detail-stat"><span>Set</span><b id="detailCount">0/120</b></div><div class="detail-stat"><span>Voortgang</span><b id="detailPct">0%</b></div><div class="detail-stat"><span>Verzameld</span><b>€ 0,00</b></div></div><div class="segmented"><button class="active">Alles</button><button>Ontbrekend</button><button>Verzameld</button></div><div class="scan-link">✓ <span id="detailScans">120</span> scans gekoppeld</div><div class="cards-grid"><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/7.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/18.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/21.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/33.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/45.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/57.png"><button class="plus">+</button></div></div></div></section>
-<section class="screen" data-screen="portfolio"><div class="port-head"><button class="backbtn" data-go="overview">←</button><div class="port-title">Portfolio</div><div class="port-sub">12 unieke kaarten · 16 exemplaren</div></div><div class="market-switch"><div class="market active"><div class="market-icon">◇</div><div><b>Cardmarket</b><span>EUR · TCG vult lege prijzen aan</span></div></div><div class="market"><div class="market-icon">TCG</div><div><b>TCGplayer</b><span>EUR · omgerekend uit USD</span></div></div></div><div class="market-card"><div class="market-card-head"><b>Totale marktwaarde</b><span class="tag">CARDMARKET</span></div><div class="market-value">€ 6,78</div><div class="market-change">↘ 0.44% · 1 maand</div></div><div class="history"><div class="history-top"><div><h3>Waardeontwikkeling</h3><p>Dagelijkse Cardmarket-trendprijzen</p></div><div class="ranges"><button>7D</button><button class="active">1M</button><button>3M</button><button>6M</button></div></div><div class="chart"><svg viewBox="0 0 100 45" preserveAspectRatio="none"><g stroke="#3b3c43" stroke-width=".25" stroke-dasharray="2,2"><path d="M0 10H100"></path><path d="M0 22H100"></path><path d="M0 36H100"></path><path d="M25 0V45"></path><path d="M50 0V45"></path><path d="M75 0V45"></path></g><defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".30"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs><path d="M0 25 C7 28 12 22 18 26 S27 23 33 29 S43 28 49 29 S55 26 61 32 S69 27 75 33 S86 28 92 27 S96 26 100 24 L100 45 L0 45Z" fill="url(#cg)"/><path d="M0 25 C7 28 12 22 18 26 S27 23 33 29 S43 28 49 29 S55 26 61 32 S69 27 75 33 S86 28 92 27 S96 26 100 24" fill="none" stroke="#34df78" stroke-width="1.3" stroke-linecap="round"/></svg></div><div class="history-foot">▣ 30 prijsdagen beschikbaar · ontbrekende prijzen worden aangevuld met de actuele TCGplayer-waarde</div></div></section>
+<section class="screen" data-screen="portfolio">
+  <div class="port-head">
+    <button class="backbtn" data-go="overview">←</button>
+    <div class="port-title">Portfolio</div>
+    <div class="port-sub" id="portfolioSub">Je actuele collectie</div>
+  </div>
+  <div class="market-switch">
+    <button class="market active" type="button" data-market="cardmarket">
+      <div class="market-icon">◇</div>
+      <div><b>Cardmarket</b><span>EUR · dagelijkse trendprijzen</span></div>
+    </button>
+    <button class="market" type="button" data-market="tcgplayer">
+      <div class="market-icon">TCG</div>
+      <div><b>TCGplayer</b><span>Market price · omgerekend naar EUR</span></div>
+    </button>
+  </div>
+  <div class="market-card">
+    <div class="market-card-head"><b>Totale marktwaarde</b><span class="tag" id="portfolioMarketTag">CARDMARKET</span></div>
+    <div class="market-value" id="portfolioMarketValue">—</div>
+    <div class="market-change neutral" id="portfolioMarketChange">Waarde wordt berekend…</div>
+  </div>
+  <div class="history">
+    <div class="history-top">
+      <div><h3>Waardeontwikkeling</h3><p id="portfolioHistorySubtitle">Dagelijkse Cardmarket-trendprijzen</p></div>
+      <div class="ranges">
+        <button type="button" data-days="7">7D</button>
+        <button type="button" data-days="30" class="active">1M</button>
+        <button type="button" data-days="90">3M</button>
+        <button type="button" data-days="180">6M</button>
+      </div>
+    </div>
+    <div class="chart professional-chart" id="portfolioChart"><div class="chart-loading">Prijsdata laden…</div></div>
+    <div class="history-foot" id="portfolioHistoryFoot">Historiek wordt geladen.</div>
+  </div>
+</section>
 <section class="screen" data-screen="scanner"><div class="scanner-wrap"><div class="scan-head"><div class="kicker">Automatische herkenning</div><div class="scan-head-row"><h1 class="scan-title">Kaartscanner</h1><div class="scan-actions"><button class="small-round">↶</button><button class="small-round" data-go="overview">×</button></div></div></div><div class="camera"><div class="cam-pill left">● Kaart bijstellen</div><div class="cam-pill right">⌗ Automatisch AAN</div><div class="frame"></div></div><div class="scan-status"><div class="checks"><span class="ok">✓ Kaart in kader</span><span class="ok">✓ Licht goed</span><span>○ Stil en scherp</span></div><h3>Hou de kaart rustig; kleine beweging is oké</h3><p>Lijn de vier kaarthoeken uit met het kader.</p></div><div class="scan-controls"><button class="control">▧ Kies foto</button><button class="scan-now">⌗<br><small>Scan nu</small></button><button class="control">⌑ Flits aan</button></div></div></section>
 <section class="screen" data-screen="search"><div class="headrow sets-head"><div><div class="kicker">Kaarten zoeken</div><h1 class="page-title">Zoeken</h1></div></div><label class="search-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg><input placeholder="Zoek kaart, set of nummer"></label><div class="section"><div class="valuable"><div class="valuable-row"><div class="rank">1</div><img src="https://images.pokemontcg.io/sv9/168.png"><div><h4>Furret</h4><p>Journey Together · 168</p></div><div class="valprice"><b>€ 6,25</b></div></div><div class="valuable-row"><div class="rank">2</div><img src="https://images.pokemontcg.io/sv9/118.png"><div><h4>Sentret</h4><p>Journey Together · 118</p></div><div class="valprice"><b>€ 0,12</b></div></div></div></div></section>
 <section class="screen" data-screen="collection"><div class="port-head"><div class="port-title">Portfolio</div><div class="port-sub">12 unieke kaarten · 16 exemplaren</div></div><div class="section"><div class="valuable"><div class="valuable-row"><div class="rank">1</div><img src="https://images.pokemontcg.io/sv9/168.png"><div><h4>Furret</h4><p>Journey Together · 168</p></div><div class="valprice"><b>€ 6,25</b><span>1× in bezit</span></div></div><div class="valuable-row"><div class="rank">2</div><img src="https://images.pokemontcg.io/sv9/118.png"><div><h4>Sentret</h4><p>Journey Together · 118</p></div><div class="valprice"><b>€ 0,12</b><span>3× in bezit</span></div></div></div></div></section>
@@ -115,6 +187,10 @@ let OWNED={};
 let HAVE_COUNTS=new Map();
 let TCG_PRICE_CACHE={};
 let USD_EUR_RATE=null;
+let PRICE_HISTORY_CACHE=null;
+let PORTFOLIO_MARKET='cardmarket';
+let PORTFOLIO_RANGE=30;
+const TCG_PORTFOLIO_HISTORY_KEY='pokemon_tcg_portfolio_tcg_history_v1';
 
 function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function slug(v){return String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’']/g,'').replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')}
@@ -423,6 +499,194 @@ function refreshSetCounts({preserveScroll=true}={}){
   }
   if(preserveScroll)requestAnimationFrame(()=>window.scrollTo(0,oldY));
 }
+
+function ownedCards(){return CARDS.filter(c=>ownedQty(c)>0)}
+function currentCardmarketTotal(){
+  return ownedCards().reduce((sum,c)=>{
+    const p=priceFor(c)||{};
+    const n=Number(p.trendPrice||p.price||0);
+    return sum+(Number.isFinite(n)?n*ownedQty(c):0);
+  },0);
+}
+async function loadPriceHistory(){
+  if(PRICE_HISTORY_CACHE)return PRICE_HISTORY_CACHE;
+  const payload=await fetch('price_history.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('price_history '+r.status);return r.json()});
+  PRICE_HISTORY_CACHE=payload&&payload.history?payload.history:{};
+  return PRICE_HISTORY_CACHE;
+}
+function historyValue(row){
+  if(!Array.isArray(row))return NaN;
+  const trend=Number(row[2]), price=Number(row[1]);
+  return Number.isFinite(trend)&&trend>0?trend:(Number.isFinite(price)&&price>0?price:NaN);
+}
+function isoCutoff(days){
+  const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-Math.max(1,days-1));return d.toISOString().slice(0,10);
+}
+async function cardmarketPortfolioSeries(days){
+  const hist=await loadPriceHistory();
+  const cards=ownedCards();
+  const cutoff=isoCutoff(days);
+  const perCard=[];
+  const allDates=new Set();
+  for(const card of cards){
+    const rows=(hist[card.key]||[]).filter(r=>Array.isArray(r)&&r[0]>=cutoff).slice().sort((a,b)=>String(a[0]).localeCompare(String(b[0])));
+    if(!rows.length)continue;
+    rows.forEach(r=>allDates.add(String(r[0])));
+    perCard.push({card,rows,qty:ownedQty(card)});
+  }
+  let dates=[...allDates].sort();
+  if(!dates.length)return {points:[],covered:0,total:cards.length};
+  const points=dates.map(date=>{
+    let total=0,covered=0;
+    for(const entry of perCard){
+      let chosen=null;
+      for(const row of entry.rows){if(String(row[0])<=date)chosen=row;else break}
+      if(!chosen)continue;
+      const v=historyValue(chosen);
+      if(Number.isFinite(v)){total+=v*entry.qty;covered++}
+    }
+    return {date,value:total,covered};
+  }).filter(p=>p.covered>0&&Number.isFinite(p.value));
+  return {points,covered:perCard.length,total:cards.length};
+}
+function readTcgPortfolioHistory(){try{return JSON.parse(localStorage.getItem(TCG_PORTFOLIO_HISTORY_KEY)||'[]')||[]}catch(e){return[]}}
+function saveTcgPortfolioSnapshot(value,priced,total){
+  if(!Number.isFinite(value)||value<=0)return;
+  const date=new Date().toISOString().slice(0,10);
+  let rows=readTcgPortfolioHistory().filter(x=>x&&x.date!==date);
+  rows.push({date,value,priced,total});
+  rows=rows.sort((a,b)=>String(a.date).localeCompare(String(b.date))).slice(-365);
+  try{localStorage.setItem(TCG_PORTFOLIO_HISTORY_KEY,JSON.stringify(rows))}catch(e){}
+}
+async function tcgPortfolioCurrent(){
+  const cards=ownedCards();
+  let value=0,priced=0;
+  const queue=cards.slice();
+  const worker=async()=>{while(queue.length){
+    const card=queue.shift(); if(!card)break;
+    const p=await fetchTcgMarket(card);
+    if(p&&Number.isFinite(Number(p.eur))&&Number(p.eur)>0){value+=Number(p.eur)*ownedQty(card);priced++}
+  }};
+  await Promise.all([worker(),worker(),worker(),worker()]);
+  saveTcgPortfolioSnapshot(value,priced,cards.length);
+  return {value,priced,total:cards.length};
+}
+function tcgPortfolioSeries(days){
+  const cutoff=isoCutoff(days);
+  return readTcgPortfolioHistory().filter(x=>x&&x.date>=cutoff&&Number.isFinite(Number(x.value))).map(x=>({date:x.date,value:Number(x.value),covered:Number(x.priced)||0}));
+}
+function shortDate(iso){
+  const d=new Date(iso+'T12:00:00');
+  return new Intl.DateTimeFormat('nl-BE',{day:'numeric',month:'short'}).format(d).replace('.','');
+}
+function niceBounds(values){
+  let min=Math.min(...values),max=Math.max(...values);
+  if(!Number.isFinite(min)||!Number.isFinite(max))return {min:0,max:1};
+  if(min===max){const pad=Math.max(.25,Math.abs(min)*.06);min-=pad;max+=pad}
+  else{const pad=(max-min)*.10;min-=pad;max+=pad}
+  min=Math.max(0,min);
+  return {min,max};
+}
+function svgPath(points,x,y){
+  return points.map((p,i)=>(i?'L':'M')+x(i).toFixed(2)+' '+y(p.value).toFixed(2)).join(' ');
+}
+function renderPortfolioChart(points){
+  const host=document.getElementById('portfolioChart');if(!host)return;
+  if(!points||!points.length){host.innerHTML='<div class="chart-empty">Nog onvoldoende historische prijsdata om deze periode te tekenen.</div>';return}
+  const W=760,H=300,L=18,R=72,T=18,B=42;
+  const vals=points.map(p=>p.value), bounds=niceBounds(vals);
+  const x=i=>L+(points.length===1?(W-L-R)/2:i/(points.length-1)*(W-L-R));
+  const y=v=>T+(bounds.max-v)/(bounds.max-bounds.min)*(H-T-B);
+  const path=svgPath(points,x,y);
+  const area=path+' L '+x(points.length-1).toFixed(2)+' '+(H-B)+' L '+x(0).toFixed(2)+' '+(H-B)+' Z';
+  const yTicks=5, xTicks=Math.min(5,points.length);
+  let grid='',labels='';
+  for(let i=0;i<yTicks;i++){
+    const yy=T+i/(yTicks-1)*(H-T-B);
+    const val=bounds.max-i/(yTicks-1)*(bounds.max-bounds.min);
+    grid+='<line class="chart-grid" x1="'+L+'" y1="'+yy+'" x2="'+(W-R)+'" y2="'+yy+'"/>';
+    labels+='<text class="chart-label" x="'+(W-R+9)+'" y="'+(yy+4)+'">'+esc(money(val,'EUR'))+'</text>';
+  }
+  const used=new Set();
+  for(let i=0;i<xTicks;i++){
+    const index=Math.round(i/(Math.max(1,xTicks-1))*(points.length-1));if(used.has(index))continue;used.add(index);
+    const xx=x(index);
+    grid+='<line class="chart-grid" x1="'+xx+'" y1="'+T+'" x2="'+xx+'" y2="'+(H-B)+'"/>';
+    labels+='<text class="chart-label" text-anchor="'+(i===0?'start':(i===xTicks-1?'end':'middle'))+'" x="'+xx+'" y="'+(H-14)+'">'+esc(shortDate(points[index].date))+'</text>';
+  }
+  const last=points[points.length-1];
+  host.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Waardeontwikkeling">'+
+    '<defs><linearGradient id="portfolioArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".30"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs>'+
+    grid+'<line class="chart-axis" x1="'+L+'" y1="'+(H-B)+'" x2="'+(W-R)+'" y2="'+(H-B)+'"/>'+
+    '<path class="chart-area" d="'+area+'"/><path class="chart-line-main" d="'+path+'"/>'+
+    '<circle class="chart-dot" cx="'+x(points.length-1)+'" cy="'+y(last.value)+'" r="5"/>'+labels+'</svg>';
+}
+function pctChange(points){
+  if(!points||points.length<2)return null;
+  const a=Number(points[0].value),b=Number(points[points.length-1].value);
+  return Number.isFinite(a)&&a!==0&&Number.isFinite(b)?((b-a)/a*100):null;
+}
+function updateMarketChange(points,label){
+  const el=document.getElementById('portfolioMarketChange');if(!el)return;
+  const ch=pctChange(points);
+  el.classList.remove('neutral');
+  if(ch==null){el.textContent='Nog onvoldoende meetpunten voor '+label;el.classList.add('neutral');return}
+  el.style.color=ch>=0?'#34df78':'#ff6178';
+  el.textContent=(ch>=0?'↗ ':'↘ ')+Math.abs(ch).toFixed(2)+'% · '+label;
+}
+async function renderPortfolio(){
+  const cards=ownedCards();
+  const sub=document.getElementById('portfolioSub');if(sub)sub.textContent=cards.length+' unieke kaarten · '+cards.reduce((n,c)=>n+ownedQty(c),0)+' exemplaren';
+  document.querySelectorAll('[data-market]').forEach(b=>b.classList.toggle('active',b.dataset.market===PORTFOLIO_MARKET));
+  document.querySelectorAll('.ranges [data-days]').forEach(b=>b.classList.toggle('active',Number(b.dataset.days)===PORTFOLIO_RANGE));
+  const tag=document.getElementById('portfolioMarketTag'),val=document.getElementById('portfolioMarketValue'),subt=document.getElementById('portfolioHistorySubtitle'),foot=document.getElementById('portfolioHistoryFoot'),chart=document.getElementById('portfolioChart');
+  if(chart)chart.innerHTML='<div class="chart-loading">Prijsdata laden…</div>';
+  if(PORTFOLIO_MARKET==='cardmarket'){
+    if(tag)tag.textContent='CARDMARKET';
+    if(val)val.textContent=money(currentCardmarketTotal(),'EUR');
+    if(subt)subt.textContent='Dagelijkse Cardmarket-trendprijzen';
+    try{
+      const result=await cardmarketPortfolioSeries(PORTFOLIO_RANGE);
+      renderPortfolioChart(result.points);
+      updateMarketChange(result.points,PORTFOLIO_RANGE===7?'7 dagen':PORTFOLIO_RANGE===30?'1 maand':PORTFOLIO_RANGE===90?'3 maanden':'6 maanden');
+      if(foot)foot.textContent=result.points.length+' prijsdagen · '+result.covered+' van '+result.total+' kaarten hebben historische Cardmarket-data';
+      renderOverviewFromSeries(result.points);
+    }catch(e){if(chart)chart.innerHTML='<div class="chart-empty">Cardmarket-historiek kon niet worden geladen.</div>';if(foot)foot.textContent=String(e.message||e)}
+  }else{
+    if(tag)tag.textContent='TCGPLAYER';
+    if(subt)subt.textContent='TCGplayer market price · EUR omgerekend uit USD';
+    document.querySelectorAll('[data-market]').forEach(b=>b.disabled=true);
+    try{
+      const cur=await tcgPortfolioCurrent();
+      if(val)val.textContent=money(cur.value,'EUR');
+      const points=tcgPortfolioSeries(PORTFOLIO_RANGE);
+      renderPortfolioChart(points);
+      updateMarketChange(points,PORTFOLIO_RANGE===7?'7 dagen':PORTFOLIO_RANGE===30?'1 maand':PORTFOLIO_RANGE===90?'3 maanden':'6 maanden');
+      if(foot)foot.textContent=cur.priced+' van '+cur.total+' kaarten met TCGplayer market price · dagelijkse snapshots worden vanaf nu lokaal opgebouwd';
+    }catch(e){if(chart)chart.innerHTML='<div class="chart-empty">TCGplayer-prijzen konden niet worden geladen.</div>';if(foot)foot.textContent='Controleer je internetverbinding en probeer opnieuw.'}
+    finally{document.querySelectorAll('[data-market]').forEach(b=>b.disabled=false)}
+  }
+}
+function renderOverviewFromSeries(points){
+  const value=document.getElementById('overviewValue');if(value)value.textContent=money(currentCardmarketTotal(),'EUR');
+  const recent=(points||[]).slice(-7);
+  const change=document.getElementById('overviewChange'),host=document.getElementById('overviewSpark');
+  const ch=pctChange(recent);
+  if(change){
+    change.textContent=ch==null?'Nog geen 7-daagse historiek':(ch>=0?'↗ ':'↘ ')+Math.abs(ch).toFixed(2)+'% in 7 dagen';
+    change.style.color=ch==null?'#9a9aa4':(ch>=0?'#34df78':'#ff6178');
+  }
+  if(!host||recent.length<2)return;
+  const vals=recent.map(p=>p.value),b=niceBounds(vals),W=100,H=30;
+  const x=i=>3+i/(recent.length-1)*94, y=v=>4+(b.max-v)/(b.max-b.min)*20;
+  const path=recent.map((p,i)=>(i?'L':'M')+x(i)+' '+y(p.value)).join(' ');
+  host.innerHTML='<svg viewBox="0 0 100 30" preserveAspectRatio="none"><defs><linearGradient id="overviewFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".28"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs><path d="'+path+' L97 29 L3 29Z" fill="url(#overviewFill)"/><path d="'+path+'" fill="none" stroke="#34df78" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="spark-axis-note"><span>'+esc(shortDate(recent[0].date))+'</span><span>'+money(Math.min(...vals),'EUR')+' – '+money(Math.max(...vals),'EUR')+'</span><span>'+esc(shortDate(recent[recent.length-1].date))+'</span></div>';
+}
+async function refreshOverviewHistory(){
+  const value=document.getElementById('overviewValue');if(value)value.textContent=money(currentCardmarketTotal(),'EUR');
+  try{const r=await cardmarketPortfolioSeries(7);renderOverviewFromSeries(r.points)}catch(e){}
+}
+
 function show(name,writeHash=true){
   document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.dataset.screen===name));
   const navState=name==='setdetail'?'sets':(name==='portfolio'?'portfolio':name);
@@ -430,12 +694,14 @@ function show(name,writeHash=true){
   document.getElementById('bottomNav').classList.toggle('hidden',name==='scanner');
   if(writeHash&&location.hash!=='#'+name)history.pushState(null,'','#'+name);
   scrollTo(0,0);
+  if(name==='portfolio')renderPortfolio().catch(console.error);
 }
 function bindStaticControls(){
   document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();show(el.dataset.go)}));
   document.getElementById('setSearch')?.addEventListener('input',e=>renderSets(e.target.value));
   document.querySelectorAll('.segmented button').forEach((btn,i)=>btn.addEventListener('click',()=>{btn.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');DETAIL_FILTER=i===1?'missing':(i===2?'owned':'all');if(CURRENT_SET)renderDetailCards(CURRENT_SET,{preserveScroll:true})}));
-  document.querySelectorAll('.ranges button').forEach(btn=>btn.addEventListener('click',()=>{btn.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}));
+  document.querySelectorAll('.ranges [data-days]').forEach(btn=>btn.addEventListener('click',()=>{PORTFOLIO_RANGE=Number(btn.dataset.days)||30;renderPortfolio().catch(console.error)}));
+  document.querySelectorAll('[data-market]').forEach(btn=>btn.addEventListener('click',()=>{PORTFOLIO_MARKET=btn.dataset.market==='tcgplayer'?'tcgplayer':'cardmarket';renderPortfolio().catch(console.error)}));
 }
 async function loadRealDatabase(){
   const [data,images,prices]=await Promise.all([
@@ -450,6 +716,7 @@ async function loadRealDatabase(){
   IMAGE_MAP=images.images||{};
   PRICE_MAP=new Map((prices.prices||[]).map(p=>[p.key,p]));
   renderSeriesChips();renderSets();renderHomeSets();
+  refreshOverviewHistory();
 }
 loadTcgCache();
 bindStaticControls();
