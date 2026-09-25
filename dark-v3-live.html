@@ -127,7 +127,7 @@ function setHave(series,name){return HAVE_COUNTS.get(series+'|||'+name)||0}
 function priceFor(card){return PRICE_MAP.get(card.key)||null}
 function money(n,currency='EUR'){const x=Number(n);if(!Number.isFinite(x))return '—';try{return new Intl.NumberFormat('nl-BE',{style:'currency',currency:currency||'EUR',maximumFractionDigits:2}).format(x)}catch(e){return '€ '+x.toFixed(2).replace('.',',')}}
 function imageEntry(card){return IMAGE_MAP[card.key]||null}
-function cardImage(card){const e=imageEntry(card);return (e&&e.bestUrl)||''}
+function cardImage(card){const e=imageEntry(card);return (e&&e.bestUrl)||card.imageUrl||''}
 
 const SET_FOLDER_MAP={
   '30th Celebration: Classic Collection':'30th Celebration',
@@ -185,7 +185,7 @@ function derivedPokemonTcgLogo(s){
   const rows=cardsForSet(s);
   for(const card of rows){
     const e=imageEntry(card)||{};
-    const urls=[e.bestUrl].concat(Array.isArray(e.candidates)?e.candidates:[]).filter(Boolean);
+    const urls=[e.bestUrl,card.imageUrl].concat(Array.isArray(e.candidates)?e.candidates:[]).filter(Boolean);
     for(const raw of urls){
       const m=String(raw).match(/https:\/\/images\.pokemontcg\.io\/([^\/]+)\//i);
       if(m&&m[1])return 'https://images.pokemontcg.io/'+m[1]+'/logo.png';
