@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Pokémon Collectie">
+<link rel="manifest" href="dark-v3-manifest.webmanifest">
 <title>Pokémon TCG – Referentiepreview</title>
 <style>
 :root{--bg:#000;--panel:#1b1b20;--panel2:#15161c;--line:#34343d;--muted:#9a9aa4;--blue:#1ca5ff;--blue2:#1498f5;--green:#34df78;--red:#ff6178;--white:#f7f7fa}
@@ -197,6 +201,46 @@
   .home-trend-head{margin-top:22px;font-size:11px}
 }
 
+
+/* === HOME VALUE V5: total value + development in one professional card === */
+.home-hero{
+  min-height:0!important;
+  padding-bottom:28px!important;
+}
+.home-trend-head{
+  margin-top:26px!important;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.09);
+}
+.home-chart{
+  height:168px;
+  margin-top:10px;
+  position:relative;
+}
+.home-chart svg{display:block;width:100%;height:100%;overflow:visible}
+.home-chart-grid{stroke:#3b3f48;stroke-width:.55;stroke-dasharray:2.5 3.5}
+.home-chart-axis{stroke:#565b65;stroke-width:.65}
+.home-chart-label{fill:#8f949d;font-size:4px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.home-chart-line{fill:none;stroke:#34df78;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.home-chart-area{fill:url(#homePortfolioArea)}
+.home-chart-dot{fill:#e1ffec;stroke:#34df78;stroke-width:1.2}
+.home-chart-summary{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:8px;
+  margin-top:4px;
+  color:#7f858f;
+  font-size:10px;
+}
+.home-chart-summary span:nth-child(2){text-align:center}
+.home-chart-summary span:last-child{text-align:right}
+@media(max-width:600px){
+  .home-hero{padding-bottom:22px!important}
+  .home-trend-head{margin-top:20px!important;padding-top:16px}
+  .home-chart{height:132px}
+  .home-chart-summary{font-size:9px}
+}
+
 </style>
 </head>
 <body>
@@ -204,7 +248,7 @@
 <div class="top-safe"></div>
 <section class="screen active" data-screen="overview">
   <div class="headrow"><div><div class="kicker">Mijn collectie</div><h1 class="page-title">Overzicht</h1></div><button class="round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15 1.65 1.65 0 0 0 3.09 14H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 8.92 4.6H9A1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.36.49.86.83 1.51 1H21a2 2 0 1 1 0 4h-.09c-.65.17-1.15.51-1.51 1z"></path></svg></button></div>
-  <div class="home-hero" data-go="portfolio"><div class="hero-label"><div class="hero-label-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path><path d="M7 15h3"></path></svg><span>Totale collectiewaarde</span></div><span class="hero-arrow">›</span></div><div class="hero-value" id="overviewValue">€ 6,79</div><div class="hero-change" id="overviewChange">↗ 1.49% in 7 dagen</div><div class="home-trend-head"><span>Waardeontwikkeling</span><span>7D</span></div><div class="spark" id="overviewSpark"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><defs><linearGradient id="fillg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".28"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs><path d="M3 24 C14 21 18 17 28 20 S44 21 55 20 S77 19 97 17 L97 30 L3 30Z" fill="url(#fillg)"/><path d="M3 24 C14 21 18 17 28 20 S44 21 55 20 S77 19 97 17" fill="none" stroke="#34df78" stroke-width="2.2" stroke-linecap="round"/></svg></div></div>
+  <div class="home-hero" data-go="portfolio"><div class="hero-label"><div class="hero-label-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path><path d="M7 15h3"></path></svg><span>Totale collectiewaarde</span></div><span class="hero-arrow">›</span></div><div class="hero-value" id="overviewValue">€ 6,79</div><div class="hero-change" id="overviewChange">↗ 1.49% in 7 dagen</div><div class="home-trend-head"><span>Waardeontwikkeling</span><span>7D</span></div><div class="home-chart" id="overviewSpark"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><defs><linearGradient id="fillg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".28"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs><path d="M3 24 C14 21 18 17 28 20 S44 21 55 20 S77 19 97 17 L97 30 L3 30Z" fill="url(#fillg)"/><path d="M3 24 C14 21 18 17 28 20 S44 21 55 20 S77 19 97 17" fill="none" stroke="#34df78" stroke-width="2.2" stroke-linecap="round"/></svg></div></div>
   <div class="stats">
     <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg><div><small>Unieke kaarten</small><b>12</b></div></div>
     <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="8" height="8" rx="2"></rect><rect x="12" y="12" width="8" height="8" rx="2"></rect></svg><div><small>Exemplaren</small><b>16</b></div></div>
@@ -794,20 +838,43 @@ function renderOverviewFromSeries(points){
     change.textContent=ch==null?'Nog geen 7-daagse historiek':(ch>=0?'↗ ':'↘ ')+Math.abs(ch).toFixed(2)+'% in 7 dagen';
     change.style.color=ch==null?'#9a9aa4':(ch>=0?'#34df78':'#ff6178');
   }
-  if(!host||recent.length<2)return;
-  const vals=recent.map(p=>p.value),b=niceBounds(vals),W=100,H=30;
-  const x=i=>3+i/(recent.length-1)*94, y=v=>4+(b.max-v)/(b.max-b.min)*19;
+  if(!host){return}
+  if(recent.length<2){
+    host.innerHTML='<div class="chart-empty" style="height:100%">Nog onvoldoende prijsdagen voor de 7-daagse grafiek.</div>';
+    return;
+  }
+  const vals=recent.map(p=>Number(p.value)).filter(Number.isFinite);
+  const b=niceBounds(vals);
+  const W=100,H=44,L=2,R=15,T=3,B=10;
+  const x=i=>L+i/(recent.length-1)*(W-L-R);
+  const y=v=>T+(b.max-v)/(b.max-b.min)*(H-T-B);
   const path=recent.map((p,i)=>(i?'L':'M')+x(i).toFixed(2)+' '+y(p.value).toFixed(2)).join(' ');
-  const startVal=Number(recent[0].value),endVal=Number(recent[recent.length-1].value);
-  host.innerHTML='<svg viewBox="0 0 100 30" preserveAspectRatio="none">'+
-    '<defs><linearGradient id="overviewFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".28"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs>'+
-    '<line x1="3" y1="25" x2="97" y2="25" stroke="#4a4d55" stroke-width=".3"/>'+
-    '<path d="'+path+' L97 28 L3 28Z" fill="url(#overviewFill)"/>'+
-    '<path d="'+path+'" fill="none" stroke="#34df78" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'+
-    '<circle cx="'+x(recent.length-1)+'" cy="'+y(endVal)+'" r="1.7" fill="#e1ffec" stroke="#34df78" stroke-width="1"/>'+
+  let grid='',labels='';
+  for(let i=0;i<3;i++){
+    const yy=T+i/2*(H-T-B);
+    const val=b.max-i/2*(b.max-b.min);
+    grid+='<line class="home-chart-grid" x1="'+L+'" y1="'+yy+'" x2="'+(W-R)+'" y2="'+yy+'"/>';
+    labels+='<text class="home-chart-label" x="'+(W-R+2)+'" y="'+(yy+1.2)+'">'+esc(money(val,'EUR'))+'</text>';
+  }
+  const idxs=[0,Math.floor((recent.length-1)/2),recent.length-1];
+  idxs.forEach((idx,n)=>{
+    const xx=x(idx);
+    grid+='<line class="home-chart-grid" x1="'+xx+'" y1="'+T+'" x2="'+xx+'" y2="'+(H-B)+'"/>';
+    labels+='<text class="home-chart-label" text-anchor="'+(n===0?'start':(n===2?'end':'middle'))+'" x="'+xx+'" y="'+(H-2)+'">'+esc(shortDate(recent[idx].date))+'</text>';
+  });
+  const endVal=Number(recent[recent.length-1].value);
+  const area=path+' L '+x(recent.length-1).toFixed(2)+' '+(H-B)+' L '+x(0).toFixed(2)+' '+(H-B)+' Z';
+  host.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Waardeontwikkeling laatste 7 dagen">'+
+    '<defs><linearGradient id="homePortfolioArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".26"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs>'+
+    grid+
+    '<line class="home-chart-axis" x1="'+L+'" y1="'+(H-B)+'" x2="'+(W-R)+'" y2="'+(H-B)+'"/>'+
+    '<path class="home-chart-area" d="'+area+'"/>'+
+    '<path class="home-chart-line" d="'+path+'"/>'+
+    '<circle class="home-chart-dot" cx="'+x(recent.length-1)+'" cy="'+y(endVal)+'" r="1.8"/>'+labels+
     '</svg>'+
-    '<div class="spark-value-row"><span>'+esc(shortDate(recent[0].date))+' · '+esc(money(startVal,'EUR'))+'</span><span>'+esc(shortDate(recent[recent.length-1].date))+' · '+esc(money(endVal,'EUR'))+'</span></div>';
+    '<div class="home-chart-summary"><span>Laag '+esc(money(Math.min(...vals),'EUR'))+'</span><span>7 dagen</span><span>Hoog '+esc(money(Math.max(...vals),'EUR'))+'</span></div>';
 }
+
 async function refreshOverviewHistory(){
   const value=document.getElementById('overviewValue');if(value)value.textContent=money(currentCardmarketTotal(),'EUR');
   try{const r=await cardmarketPortfolioSeries(7);renderOverviewFromSeries(r.points)}catch(e){}
