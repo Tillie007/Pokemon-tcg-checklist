@@ -121,7 +121,7 @@ function slug(v){return String(v||'').toLowerCase().normalize('NFD').replace(/[\
 function readOwned(){try{return JSON.parse(localStorage.getItem(OWNED_KEY)||'{}')||{}}catch(e){return{}}}
 function qty(v){if(typeof v==='number')return v;if(typeof v==='boolean')return v?1:0;if(v&&typeof v==='object')return Number(v.qty??v.count??v.owned??1)||0;return Number(v)||0}
 function ownedQty(card){return qty(OWNED[card.key])}
-function rebuildHaveCounts(){HAVE_COUNTS=new Map();for(const c of CARDS){if(ownedQty(c)>0){const k=c.series+'|||'+c.set;HAVE_COUNTS.set(k,(HAVE_COUNTS.get(k)||0)+1)}}}
+function rebuildHaveCounts(){HAVE_COUNTS=new Map();for(const c of CARDS){if(ownedQty(c)>0){const k=c.series+'|||'+folderSetName(c.set);HAVE_COUNTS.set(k,(HAVE_COUNTS.get(k)||0)+1)}}}
 function setOwnedQty(card,n){if(n>0)OWNED[card.key]={qty:n};else delete OWNED[card.key];localStorage.setItem(OWNED_KEY,JSON.stringify(OWNED));rebuildHaveCounts()}
 function setHave(series,name){return HAVE_COUNTS.get(series+'|||'+name)||0}
 function priceFor(card){return PRICE_MAP.get(card.key)||null}
@@ -129,9 +129,74 @@ function money(n,currency='EUR'){const x=Number(n);if(!Number.isFinite(x))return
 function imageEntry(card){return IMAGE_MAP[card.key]||null}
 function cardImage(card){const e=imageEntry(card);return (e&&e.bestUrl)||''}
 
+const SET_FOLDER_MAP={
+  '30th Celebration: Classic Collection':'30th Celebration',
+  '30th Celebration: Energy Collection':'Mega Evolution Energy',
+  'Crown Zenith Galarian Gallery':'Crown Zenith',
+  'Silver Tempest Trainer Gallery':'Silver Tempest',
+  'Lost Origin Trainer Gallery':'Lost Origin',
+  'Astral Radiance Trainer Gallery':'Astral Radiance',
+  'Brilliant Stars Trainer Gallery':'Brilliant Stars',
+  'Celebrations: Classic Collection':'Celebrations',
+  'Shining Fates Shiny Vault':'Shining Fates'
+};
+let DETAIL_FILTER='all';
+function folderSetName(name){return SET_FOLDER_MAP[name]||name}
+function cardsForSet(s){return CARDS.filter(c=>c.series===s.series&&folderSetName(c.set)===s.name)}
+function normalizeSets(rawSets){
+  const map=new Map(),order=[];
+  (rawSets||[]).forEach(raw=>{
+    const name=folderSetName(raw.set);
+    const key=raw.series+'|||'+name;
+    if(!map.has(key)){
+      map.set(key,{series:raw.series,name:name,code:raw.abbr,total:0});
+      order.push(key);
+    }
+    const row=map.get(key);
+    row.total+=Number(raw.count)||0;
+    if(raw.set===name&&raw.abbr)row.code=raw.abbr;
+    if(name==='Mega Evolution Energy')row.code='MEE';
+  });
+  return order.map(k=>map.get(k));
+}
+function updateCurrentSetSummary(){
+  if(!CURRENT_SET)return;
+  const all=cardsForSet(CURRENT_SET);
+  const have=all.filter(c=>ownedQty(c)>0).length;
+  const total=all.length||CURRENT_SET.total||0;
+  const count=document.getElementById('detailCount');
+  const pct=document.getElementById('detailPct');
+  const scans=document.getElementById('detailScans');
+  if(count)count.textContent=have+'/'+total;
+  if(pct)pct.textContent=(total?Math.round(have/total*100):0)+'%';
+  if(scans)scans.textContent=total;
+  const valueNode=document.querySelector('[data-screen="setdetail"] .detail-stat:nth-child(3) b');
+  if(valueNode){
+    const value=all.reduce((sum,c)=>{
+      const q=ownedQty(c);if(!q)return sum;
+      const p=priceFor(c)||{};const n=Number(p.price||p.trendPrice||0);
+      return sum+(Number.isFinite(n)?n*q:0);
+    },0);
+    valueNode.textContent=money(value,'EUR');
+  }
+}
+
+function derivedPokemonTcgLogo(s){
+  const rows=cardsForSet(s);
+  for(const card of rows){
+    const e=imageEntry(card)||{};
+    const urls=[e.bestUrl].concat(Array.isArray(e.candidates)?e.candidates:[]).filter(Boolean);
+    for(const raw of urls){
+      const m=String(raw).match(/https:\/\/images\.pokemontcg\.io\/([^\/]+)\//i);
+      if(m&&m[1])return 'https://images.pokemontcg.io/'+m[1]+'/logo.png';
+    }
+  }
+  return '';
+}
 function logoCandidates(s){
   const known={
     '30th Celebration':'https://pokesymbols.com/images/tcg/sets/logos/30th-celebration.png',
+    'Mega Evolution Energy':'https://pokesymbols.com/images/tcg/sets/logos/mega-evolution-energy.png',
     'Pitch Black':'https://pokesymbols.com/images/tcg/sets/logos/pitch-black.png',
     'Chaos Rising':'https://pokesymbols.com/images/tcg/sets/logos/chaos-rising.png',
     'Perfect Order':'https://pokesymbols.com/images/tcg/sets/logos/perfect-order.png',
@@ -173,7 +238,8 @@ function logoCandidates(s){
     'Rebel Clash':'https://images.pokemontcg.io/swsh2/logo.png',
     'Sword & Shield':'https://images.pokemontcg.io/swsh1/logo.png'
   };
-  return [known[s.name], 'https://pokesymbols.com/images/tcg/sets/logos/'+slug(s.name)+'.png'].filter(Boolean);
+  return [known[s.name],derivedPokemonTcgLogo(s),'https://pokesymbols.com/images/tcg/sets/logos/'+slug(s.name)+'.png']
+    .filter((v,i,a)=>v&&a.indexOf(v)===i);
 }
 function tryNextLogo(img){
   let list=[];try{list=JSON.parse(decodeURIComponent(img.dataset.fallbacks||''))||[]}catch(e){}
@@ -189,7 +255,7 @@ function logoHtml(s){
 }
 function setCard(s){
   const have=setHave(s.series,s.name), p=s.total?Math.round(have/s.total*100):0;
-  return '<article class="set-card" data-set="'+esc(encodeURIComponent(s.name))+'" data-series="'+esc(encodeURIComponent(s.series))+'"><div class="set-logo">'+logoHtml(s)+'</div><div class="set-copy"><div class="series">'+esc(s.series)+'</div><div class="set-title">'+esc(s.name)+'</div><div class="set-mid"><span>'+have+' / '+s.total+' kaarten</span><div class="set-right"><b class="pct">'+p+'%</b><span class="code">'+esc(s.code)+'</span></div></div><div class="progress"><i style="width:'+p+'%"></i></div></div></article>';
+  return '<article class="set-card" data-set="'+esc(encodeURIComponent(s.name))+'" data-series="'+esc(encodeURIComponent(s.series))+'"><div class="set-logo">'+logoHtml(s)+'</div><div class="set-copy"><div class="series">'+esc(s.series)+'</div><div class="set-title">'+esc(s.name)+'</div><div class="set-mid"><span>'+have+' / '+s.total+' kaarten</span><div class="set-right"><b class="pct">'+p+'%</b><span class="code">'+esc(s.code||'')+'</span></div></div><div class="progress"><i style="width:'+p+'%"></i></div></div></article>';
 }
 function filteredSets(q=''){
   const needle=String(q||'').trim().toLowerCase();
@@ -303,9 +369,12 @@ async function hydrateTcgPrices(cards){
   }};
   await Promise.all([worker(),worker(),worker(),worker()]);
 }
-function renderDetailCards(s){
+function renderDetailCards(s,{preserveScroll=false}={}){
   const grid=document.querySelector('[data-screen="setdetail"] .cards-grid');if(!grid)return;
-  const rows=CARDS.filter(c=>c.series===s.series&&c.set===s.name).slice(0,60);
+  const oldY=window.scrollY;
+  let rows=cardsForSet(s);
+  if(DETAIL_FILTER==='missing')rows=rows.filter(c=>ownedQty(c)<=0);
+  if(DETAIL_FILTER==='owned')rows=rows.filter(c=>ownedQty(c)>0);
   grid.innerHTML=rows.map(c=>{
     const img=cardImage(c);
     const p=priceFor(c);
@@ -313,29 +382,47 @@ function renderDetailCards(s){
     const owned=ownedQty(c)>0;
     return '<div class="card-tile" data-card-key="'+esc(c.key)+'">'+
       (img?'<img src="'+esc(img)+'" alt="'+esc(c.name)+'" loading="lazy">':'<div class="set-logo-fallback">'+esc(c.num)+'</div>')+
-      (price?'<span class="card-price-badge" data-price-key="'+esc(c.key)+'" title="Cardmarket fallback">'+esc(money(price,(p&&p.currency)||'EUR'))+'</span>':'<span class="card-price-badge" data-price-key="'+esc(c.key)+'" style="display:none"></span>')+
+      (price?'<span class="card-price-badge" data-price-key="'+esc(c.key)+'" title="Cardmarket">'+esc(money(price,(p&&p.currency)||'EUR'))+'</span>':'<span class="card-price-badge" data-price-key="'+esc(c.key)+'" style="display:none"></span>')+
       '<button class="plus" data-add="'+esc(c.key)+'">'+(owned?'✓':'+')+'</button></div>';
   }).join('');
   hydrateTcgPrices(rows);
-  grid.querySelectorAll('[data-add]').forEach(btn=>btn.addEventListener('click',e=>{e.stopPropagation();const c=CARDS.find(x=>x.key===btn.dataset.add);if(!c)return;const now=ownedQty(c)>0;setOwnedQty(c,now?0:1);btn.textContent=now?'+':'✓';refreshSetCounts()}));
+  grid.querySelectorAll('[data-add]').forEach(btn=>btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    const c=CARDS.find(x=>x.key===btn.dataset.add);if(!c)return;
+    const now=ownedQty(c)>0;
+    setOwnedQty(c,now?0:1);
+    updateCurrentSetSummary();
+    renderDetailCards(s,{preserveScroll:true});
+    renderHomeSets();
+    renderSets(document.getElementById('setSearch')?.value||'');
+  }));
+  if(preserveScroll)requestAnimationFrame(()=>window.scrollTo(0,oldY));
 }
 function openSet(series,name){
   const s=SETS.find(x=>x.name===name&&x.series===series)||SETS.find(x=>x.name===name); if(!s)return;
   CURRENT_SET=s;
+  DETAIL_FILTER='all';
+  document.querySelectorAll('.segmented button').forEach((b,i)=>b.classList.toggle('active',i===0));
   const logoBox=document.querySelector('.detail-logo-box'); if(logoBox)logoBox.innerHTML=logoHtml(s);
   document.getElementById('detailSeries').textContent=s.series;
-  document.getElementById('detailCode').textContent=s.code;
-  const have=setHave(s.series,s.name);
-  document.getElementById('detailCount').textContent=have+'/'+s.total;
-  document.getElementById('detailPct').textContent=(s.total?Math.round(have/s.total*100):0)+'%';
-  document.getElementById('detailScans').textContent=s.total;
+  document.getElementById('detailCode').textContent=s.code||'';
+  updateCurrentSetSummary();
   renderDetailCards(s);
   show('setdetail');
 }
 function bindSetCards(){
   document.querySelectorAll('[data-set]').forEach(el=>{el.onclick=()=>openSet(decodeURIComponent(el.dataset.series||''),decodeURIComponent(el.dataset.set||''))});
 }
-function refreshSetCounts(){renderHomeSets();renderSets(document.getElementById('setSearch')?.value||'');if(CURRENT_SET)openSet(CURRENT_SET.series,CURRENT_SET.name)}
+function refreshSetCounts({preserveScroll=true}={}){
+  const oldY=window.scrollY;
+  renderHomeSets();
+  renderSets(document.getElementById('setSearch')?.value||'');
+  if(CURRENT_SET){
+    updateCurrentSetSummary();
+    renderDetailCards(CURRENT_SET,{preserveScroll:false});
+  }
+  if(preserveScroll)requestAnimationFrame(()=>window.scrollTo(0,oldY));
+}
 function show(name,writeHash=true){
   document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.dataset.screen===name));
   const navState=name==='setdetail'?'sets':(name==='portfolio'?'portfolio':name);
@@ -347,7 +434,7 @@ function show(name,writeHash=true){
 function bindStaticControls(){
   document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();show(el.dataset.go)}));
   document.getElementById('setSearch')?.addEventListener('input',e=>renderSets(e.target.value));
-  document.querySelectorAll('.segmented button').forEach(btn=>btn.addEventListener('click',()=>{btn.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}));
+  document.querySelectorAll('.segmented button').forEach((btn,i)=>btn.addEventListener('click',()=>{btn.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');DETAIL_FILTER=i===1?'missing':(i===2?'owned':'all');if(CURRENT_SET)renderDetailCards(CURRENT_SET,{preserveScroll:true})}));
   document.querySelectorAll('.ranges button').forEach(btn=>btn.addEventListener('click',()=>{btn.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}));
 }
 async function loadRealDatabase(){
@@ -357,7 +444,7 @@ async function loadRealDatabase(){
     fetch('prices.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).catch(()=>({prices:[]}))
   ]);
   CARDS=Array.isArray(data.cards)?data.cards:[];
-  SETS=(Array.isArray(data.sets)?data.sets:[]).map(s=>({series:s.series,name:s.set,code:s.abbr,total:Number(s.count)||0}));
+  SETS=normalizeSets(Array.isArray(data.sets)?data.sets:[]);
   OWNED=readOwned();
   rebuildHaveCounts();
   IMAGE_MAP=images.images||{};
