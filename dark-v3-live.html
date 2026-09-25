@@ -106,6 +106,32 @@
   .history-foot{font-size:12px;line-height:1.45}
 }
 
+
+/* === PORTFOLIO V5: professional financial chart === */
+.professional-chart{height:340px}
+.chart-grid{stroke:#373a43;stroke-width:1;stroke-dasharray:3 6}
+.chart-axis{stroke:#666a75;stroke-width:1.2}
+.chart-label{fill:#9b9eaa;font-size:11px;font-weight:600}
+.chart-line-main{stroke-width:3.2}
+.chart-dot{r:5}
+.chart-current-line{stroke:#34df78;stroke-width:1;stroke-dasharray:3 4;opacity:.45}
+.chart-current-label{fill:#b7f8d1;font-size:11px;font-weight:800}
+.chart-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.chart-summary .sum{border:1px solid #34363f;border-radius:16px;background:#17181d;padding:12px 13px}
+.chart-summary .sum span{display:block;color:#858892;font-size:11px}
+.chart-summary .sum b{display:block;margin-top:4px;color:#f2f4f7;font-size:15px}
+.spark-axis-note{margin-top:2px;padding:0 2px;font-size:9px}
+.spark-value-row{display:flex;justify-content:space-between;align-items:center;margin-top:3px;color:#8f929c;font-size:9px}
+.market-status-note{margin-top:10px;color:#8e919b;font-size:12px;line-height:1.4}
+@media(max-width:600px){
+  .professional-chart{height:285px}
+  .chart-label{font-size:9px}
+  .chart-summary{gap:7px;margin-top:10px}
+  .chart-summary .sum{padding:9px 10px;border-radius:13px}
+  .chart-summary .sum span{font-size:9px}
+  .chart-summary .sum b{font-size:12px}
+}
+
 </style>
 </head>
 <body>
@@ -167,6 +193,7 @@
       </div>
     </div>
     <div class="chart professional-chart" id="portfolioChart"><div class="chart-loading">Prijsdata laden…</div></div>
+    <div class="chart-summary" id="portfolioChartSummary"></div>
     <div class="history-foot" id="portfolioHistoryFoot">Historiek wordt geladen.</div>
   </div>
 </section>
@@ -591,35 +618,56 @@ function svgPath(points,x,y){
   return points.map((p,i)=>(i?'L':'M')+x(i).toFixed(2)+' '+y(p.value).toFixed(2)).join(' ');
 }
 function renderPortfolioChart(points){
-  const host=document.getElementById('portfolioChart');if(!host)return;
-  if(!points||!points.length){host.innerHTML='<div class="chart-empty">Nog onvoldoende historische prijsdata om deze periode te tekenen.</div>';return}
-  const W=760,H=300,L=18,R=72,T=18,B=42;
-  const vals=points.map(p=>p.value), bounds=niceBounds(vals);
+  const host=document.getElementById('portfolioChart');
+  const summary=document.getElementById('portfolioChartSummary');
+  if(!host)return;
+  if(!points||!points.length){
+    host.innerHTML='<div class="chart-empty">Nog onvoldoende historische prijsdata om deze periode te tekenen.</div>';
+    if(summary)summary.innerHTML='';
+    return;
+  }
+  const W=780,H=330,L=52,R=76,T=24,B=46;
+  const vals=points.map(p=>Number(p.value)).filter(Number.isFinite);
+  const bounds=niceBounds(vals);
   const x=i=>L+(points.length===1?(W-L-R)/2:i/(points.length-1)*(W-L-R));
   const y=v=>T+(bounds.max-v)/(bounds.max-bounds.min)*(H-T-B);
   const path=svgPath(points,x,y);
   const area=path+' L '+x(points.length-1).toFixed(2)+' '+(H-B)+' L '+x(0).toFixed(2)+' '+(H-B)+' Z';
-  const yTicks=5, xTicks=Math.min(5,points.length);
+  const yTicks=5;
+  const xTicks=Math.min(5,points.length);
   let grid='',labels='';
   for(let i=0;i<yTicks;i++){
     const yy=T+i/(yTicks-1)*(H-T-B);
     const val=bounds.max-i/(yTicks-1)*(bounds.max-bounds.min);
     grid+='<line class="chart-grid" x1="'+L+'" y1="'+yy+'" x2="'+(W-R)+'" y2="'+yy+'"/>';
-    labels+='<text class="chart-label" x="'+(W-R+9)+'" y="'+(yy+4)+'">'+esc(money(val,'EUR'))+'</text>';
+    labels+='<text class="chart-label" text-anchor="end" x="'+(L-8)+'" y="'+(yy+4)+'">'+esc(money(val,'EUR'))+'</text>';
   }
   const used=new Set();
   for(let i=0;i<xTicks;i++){
-    const index=Math.round(i/(Math.max(1,xTicks-1))*(points.length-1));if(used.has(index))continue;used.add(index);
+    const index=Math.round(i/(Math.max(1,xTicks-1))*(points.length-1));
+    if(used.has(index))continue; used.add(index);
     const xx=x(index);
     grid+='<line class="chart-grid" x1="'+xx+'" y1="'+T+'" x2="'+xx+'" y2="'+(H-B)+'"/>';
-    labels+='<text class="chart-label" text-anchor="'+(i===0?'start':(i===xTicks-1?'end':'middle'))+'" x="'+xx+'" y="'+(H-14)+'">'+esc(shortDate(points[index].date))+'</text>';
+    const anchor=i===0?'start':(i===xTicks-1?'end':'middle');
+    labels+='<text class="chart-label" text-anchor="'+anchor+'" x="'+xx+'" y="'+(H-15)+'">'+esc(shortDate(points[index].date))+'</text>';
   }
   const last=points[points.length-1];
-  host.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Waardeontwikkeling">'+
-    '<defs><linearGradient id="portfolioArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".30"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs>'+
-    grid+'<line class="chart-axis" x1="'+L+'" y1="'+(H-B)+'" x2="'+(W-R)+'" y2="'+(H-B)+'"/>'+
+  const lastY=y(last.value);
+  const low=Math.min(...vals),high=Math.max(...vals),current=Number(last.value);
+  host.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Portfolio waarde in euro over tijd">'+
+    '<defs><linearGradient id="portfolioArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".28"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs>'+
+    grid+
+    '<line class="chart-axis" x1="'+L+'" y1="'+T+'" x2="'+L+'" y2="'+(H-B)+'"/>'+
+    '<line class="chart-axis" x1="'+L+'" y1="'+(H-B)+'" x2="'+(W-R)+'" y2="'+(H-B)+'"/>'+
+    '<line class="chart-current-line" x1="'+L+'" y1="'+lastY+'" x2="'+(W-R)+'" y2="'+lastY+'"/>'+
     '<path class="chart-area" d="'+area+'"/><path class="chart-line-main" d="'+path+'"/>'+
-    '<circle class="chart-dot" cx="'+x(points.length-1)+'" cy="'+y(last.value)+'" r="5"/>'+labels+'</svg>';
+    '<circle class="chart-dot" cx="'+x(points.length-1)+'" cy="'+lastY+'" r="5"/>'+
+    '<text class="chart-current-label" text-anchor="start" x="'+(W-R+8)+'" y="'+(lastY+4)+'">'+esc(money(current,'EUR'))+'</text>'+
+    labels+'</svg>';
+  if(summary)summary.innerHTML=
+    '<div class="sum"><span>Laagste</span><b>'+esc(money(low,'EUR'))+'</b></div>'+
+    '<div class="sum"><span>Hoogste</span><b>'+esc(money(high,'EUR'))+'</b></div>'+
+    '<div class="sum"><span>Huidig</span><b>'+esc(money(current,'EUR'))+'</b></div>';
 }
 function pctChange(points){
   if(!points||points.length<2)return null;
@@ -639,8 +687,8 @@ async function renderPortfolio(){
   const sub=document.getElementById('portfolioSub');if(sub)sub.textContent=cards.length+' unieke kaarten · '+cards.reduce((n,c)=>n+ownedQty(c),0)+' exemplaren';
   document.querySelectorAll('[data-market]').forEach(b=>b.classList.toggle('active',b.dataset.market===PORTFOLIO_MARKET));
   document.querySelectorAll('.ranges [data-days]').forEach(b=>b.classList.toggle('active',Number(b.dataset.days)===PORTFOLIO_RANGE));
-  const tag=document.getElementById('portfolioMarketTag'),val=document.getElementById('portfolioMarketValue'),subt=document.getElementById('portfolioHistorySubtitle'),foot=document.getElementById('portfolioHistoryFoot'),chart=document.getElementById('portfolioChart');
-  if(chart)chart.innerHTML='<div class="chart-loading">Prijsdata laden…</div>';
+  const tag=document.getElementById('portfolioMarketTag'),val=document.getElementById('portfolioMarketValue'),subt=document.getElementById('portfolioHistorySubtitle'),foot=document.getElementById('portfolioHistoryFoot'),chart=document.getElementById('portfolioChart'),summary=document.getElementById('portfolioChartSummary');
+  if(chart)chart.innerHTML='<div class="chart-loading">Prijsdata laden…</div>';if(summary)summary.innerHTML='';
   if(PORTFOLIO_MARKET==='cardmarket'){
     if(tag)tag.textContent='CARDMARKET';
     if(val)val.textContent=money(currentCardmarketTotal(),'EUR');
@@ -662,13 +710,14 @@ async function renderPortfolio(){
       const points=tcgPortfolioSeries(PORTFOLIO_RANGE);
       renderPortfolioChart(points);
       updateMarketChange(points,PORTFOLIO_RANGE===7?'7 dagen':PORTFOLIO_RANGE===30?'1 maand':PORTFOLIO_RANGE===90?'3 maanden':'6 maanden');
-      if(foot)foot.textContent=cur.priced+' van '+cur.total+' kaarten met TCGplayer market price · dagelijkse snapshots worden vanaf nu lokaal opgebouwd';
+      if(foot){const snap=points.length;foot.innerHTML=cur.priced+' van '+cur.total+' kaarten met TCGplayer market price.'+(snap<2?' <span class="market-status-note">De TCGplayer-grafiek heeft nog geen historische reeks: vanaf vandaag wordt dagelijks een snapshot lokaal bewaard.</span>':' '+snap+' TCGplayer-snapshots in deze periode.');}
     }catch(e){if(chart)chart.innerHTML='<div class="chart-empty">TCGplayer-prijzen konden niet worden geladen.</div>';if(foot)foot.textContent='Controleer je internetverbinding en probeer opnieuw.'}
     finally{document.querySelectorAll('[data-market]').forEach(b=>b.disabled=false)}
   }
 }
 function renderOverviewFromSeries(points){
-  const value=document.getElementById('overviewValue');if(value)value.textContent=money(currentCardmarketTotal(),'EUR');
+  const value=document.getElementById('overviewValue');
+  if(value)value.textContent=money(currentCardmarketTotal(),'EUR');
   const recent=(points||[]).slice(-7);
   const change=document.getElementById('overviewChange'),host=document.getElementById('overviewSpark');
   const ch=pctChange(recent);
@@ -678,9 +727,17 @@ function renderOverviewFromSeries(points){
   }
   if(!host||recent.length<2)return;
   const vals=recent.map(p=>p.value),b=niceBounds(vals),W=100,H=30;
-  const x=i=>3+i/(recent.length-1)*94, y=v=>4+(b.max-v)/(b.max-b.min)*20;
-  const path=recent.map((p,i)=>(i?'L':'M')+x(i)+' '+y(p.value)).join(' ');
-  host.innerHTML='<svg viewBox="0 0 100 30" preserveAspectRatio="none"><defs><linearGradient id="overviewFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".28"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs><path d="'+path+' L97 29 L3 29Z" fill="url(#overviewFill)"/><path d="'+path+'" fill="none" stroke="#34df78" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="spark-axis-note"><span>'+esc(shortDate(recent[0].date))+'</span><span>'+money(Math.min(...vals),'EUR')+' – '+money(Math.max(...vals),'EUR')+'</span><span>'+esc(shortDate(recent[recent.length-1].date))+'</span></div>';
+  const x=i=>3+i/(recent.length-1)*94, y=v=>4+(b.max-v)/(b.max-b.min)*19;
+  const path=recent.map((p,i)=>(i?'L':'M')+x(i).toFixed(2)+' '+y(p.value).toFixed(2)).join(' ');
+  const startVal=Number(recent[0].value),endVal=Number(recent[recent.length-1].value);
+  host.innerHTML='<svg viewBox="0 0 100 30" preserveAspectRatio="none">'+
+    '<defs><linearGradient id="overviewFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".28"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs>'+
+    '<line x1="3" y1="25" x2="97" y2="25" stroke="#4a4d55" stroke-width=".3"/>'+
+    '<path d="'+path+' L97 28 L3 28Z" fill="url(#overviewFill)"/>'+
+    '<path d="'+path+'" fill="none" stroke="#34df78" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'+
+    '<circle cx="'+x(recent.length-1)+'" cy="'+y(endVal)+'" r="1.7" fill="#e1ffec" stroke="#34df78" stroke-width="1"/>'+
+    '</svg>'+
+    '<div class="spark-value-row"><span>'+esc(shortDate(recent[0].date))+' · '+esc(money(startVal,'EUR'))+'</span><span>'+esc(shortDate(recent[recent.length-1].date))+' · '+esc(money(endVal,'EUR'))+'</span></div>';
 }
 async function refreshOverviewHistory(){
   const value=document.getElementById('overviewValue');if(value)value.textContent=money(currentCardmarketTotal(),'EUR');
@@ -701,7 +758,7 @@ function bindStaticControls(){
   document.getElementById('setSearch')?.addEventListener('input',e=>renderSets(e.target.value));
   document.querySelectorAll('.segmented button').forEach((btn,i)=>btn.addEventListener('click',()=>{btn.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');DETAIL_FILTER=i===1?'missing':(i===2?'owned':'all');if(CURRENT_SET)renderDetailCards(CURRENT_SET,{preserveScroll:true})}));
   document.querySelectorAll('.ranges [data-days]').forEach(btn=>btn.addEventListener('click',()=>{PORTFOLIO_RANGE=Number(btn.dataset.days)||30;renderPortfolio().catch(console.error)}));
-  document.querySelectorAll('[data-market]').forEach(btn=>btn.addEventListener('click',()=>{PORTFOLIO_MARKET=btn.dataset.market==='tcgplayer'?'tcgplayer':'cardmarket';renderPortfolio().catch(console.error)}));
+  document.querySelectorAll('[data-market]').forEach(btn=>btn.addEventListener('click',()=>{PORTFOLIO_MARKET=btn.dataset.market==='tcgplayer'?'tcgplayer':'cardmarket';document.querySelectorAll('[data-market]').forEach(b=>b.classList.toggle('active',b===btn));const val=document.getElementById('portfolioMarketValue');const chart=document.getElementById('portfolioChart');if(val)val.textContent='…';if(chart)chart.innerHTML='<div class="chart-loading">'+(PORTFOLIO_MARKET==='tcgplayer'?'TCGplayer-prijzen ophalen…':'Cardmarket-historiek laden…')+'</div>';renderPortfolio().catch(console.error)}));
 }
 async function loadRealDatabase(){
   const [data,images,prices]=await Promise.all([
