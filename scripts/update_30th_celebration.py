@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Voeg de Engelse Pokemon TCG-set 30th Celebration toe aan de app.
 
-De release bestaat uit drie logische checklists:
-* 158 genummerde kaarten plus drie ongenummerde RGB Mew-kaarten;
-* 30 Classic Collection-herdrukken met het nummer dat op de kaart staat;
-* acht 30th Celebration Energy-kaarten (Cardmarket MEE 009 t/m 016).
+De app volgt de mapindeling van PkmnCards:
+* 30th Celebration is één set van 191 kaarten: 158 genummerde kaarten,
+  drie RGB Mew-kaarten en 30 Classic Collection-herdrukken;
+* Mega Evolution Energy is één MEE-set van 16 kaarten: de acht gewone
+  energies 001-008 plus acht 30th Celebration-illustraties 009-016.
 
 De 158 genummerde kaartnamen komen van de publieke TCGdex-set-API. De twee
 speciale deelverzamelingen staan bewust vast in dit script, zodat een latere
@@ -24,8 +25,9 @@ DEBUG_PATH = ROOT / "thirtieth_celebration_debug.json"
 
 SERIES = "Mega Evolution"
 MAIN_SET = "30th Celebration"
-CLASSIC_SET = "30th Celebration: Classic Collection"
-ENERGY_SET = "30th Celebration: Energy Collection"
+CLASSIC_LEGACY_SET = "30th Celebration: Classic Collection"
+ENERGY_SET = "Mega Evolution Energy"
+ENERGY_LEGACY_SET = "30th Celebration: Energy Collection"
 MAIN_ABBR = "30C"
 ENERGY_ABBR = "MEE"
 TCGDEX_SET_URL = "https://api.tcgdex.net/v2/en/sets/30th"
@@ -71,8 +73,18 @@ CLASSIC_CARDS = [
     ("203", "Magikarp"),
 ]
 
-# Cardmarket catalogiseert de acht nieuwe jubileumillustraties als V2,
-# aansluitend op de bestaande MEE 001-008.
+BASE_ENERGY_CARDS = [
+    ("001", "Basic Grass Energy"),
+    ("002", "Basic Fire Energy"),
+    ("003", "Basic Water Energy"),
+    ("004", "Basic Lightning Energy"),
+    ("005", "Basic Psychic Energy"),
+    ("006", "Basic Fighting Energy"),
+    ("007", "Basic Darkness Energy"),
+    ("008", "Basic Metal Energy"),
+]
+
+# De acht jubileumillustraties sluiten aan op MEE 001-008.
 ENERGY_CARDS = [
     ("009", "Basic Grass Energy"),
     ("010", "Basic Fire Energy"),
@@ -127,9 +139,18 @@ def load_data() -> dict[str, Any]:
     return payload
 
 
-def make_card(set_name: str, abbr: str, num: str, name: str, rarity: str) -> dict[str, str]:
+def make_card(
+    set_name: str,
+    abbr: str,
+    num: str,
+    name: str,
+    rarity: str,
+    *,
+    key_set_name: str | None = None,
+) -> dict[str, str]:
+    key_set = key_set_name or set_name
     return {
-        "key": f"{SERIES}|{set_name}|{abbr}|{num}|{name}",
+        "key": f"{SERIES}|{key_set}|{abbr}|{num}|{name}",
         "series": SERIES,
         "set": set_name,
         "abbr": abbr,
@@ -166,7 +187,7 @@ def numbered_cards() -> list[dict[str, str]]:
 
 
 def upsert_sets(data: dict[str, Any]) -> int:
-    target_names = {MAIN_SET, CLASSIC_SET, ENERGY_SET}
+    target_names = {MAIN_SET, CLASSIC_LEGACY_SET, ENERGY_SET, ENERGY_LEGACY_SET}
     before = len(data["sets"])
     data["sets"] = [
         item for item in data["sets"]
@@ -174,16 +195,15 @@ def upsert_sets(data: dict[str, Any]) -> int:
     ]
     removed = before - len(data["sets"])
     new_sets = [
-        {"series": SERIES, "set": MAIN_SET, "abbr": MAIN_ABBR, "count": 161},
-        {"series": SERIES, "set": CLASSIC_SET, "abbr": MAIN_ABBR, "count": 30},
-        {"series": SERIES, "set": ENERGY_SET, "abbr": ENERGY_ABBR, "count": 8},
+        {"series": SERIES, "set": MAIN_SET, "abbr": MAIN_ABBR, "count": 191},
+        {"series": SERIES, "set": ENERGY_SET, "abbr": ENERGY_ABBR, "count": 16},
     ]
     data["sets"] = new_sets + data["sets"]
     return removed
 
 
 def remove_existing_cards(data: dict[str, Any]) -> int:
-    target_names = {MAIN_SET, CLASSIC_SET, ENERGY_SET}
+    target_names = {MAIN_SET, CLASSIC_LEGACY_SET, ENERGY_SET, ENERGY_LEGACY_SET}
     before = len(data["cards"])
     data["cards"] = [
         card for card in data["cards"]
@@ -200,13 +220,32 @@ def main() -> int:
         for num, name in RGB_CARDS
     )
     classic_cards = [
-        make_card(CLASSIC_SET, MAIN_ABBR, num, name, "Classic Collection")
+        make_card(
+            MAIN_SET,
+            MAIN_ABBR,
+            num,
+            name,
+            "Classic Collection",
+            key_set_name=CLASSIC_LEGACY_SET,
+        )
         for num, name in CLASSIC_CARDS
     ]
-    energy_cards = [
-        make_card(ENERGY_SET, ENERGY_ABBR, num, name, "Energy")
+    base_energy_cards = [
+        make_card(ENERGY_SET, ENERGY_ABBR, num, name, "Common")
+        for num, name in BASE_ENERGY_CARDS
+    ]
+    anniversary_energy_cards = [
+        make_card(
+            ENERGY_SET,
+            ENERGY_ABBR,
+            num,
+            name,
+            "Futuristic Rare",
+            key_set_name=ENERGY_LEGACY_SET,
+        )
         for num, name in ENERGY_CARDS
     ]
+    energy_cards = base_energy_cards + anniversary_energy_cards
 
     removed_sets = upsert_sets(data)
     removed_cards = remove_existing_cards(data)
@@ -227,7 +266,11 @@ def main() -> int:
         "source": TCGDEX_SET_URL,
         "sets": data["sets"][:3],
         "addedCards": len(added_cards),
-        "breakdown": {"mainAndRgb": len(main_cards), "classic": len(classic_cards), "energy": len(energy_cards)},
+        "breakdown": {
+            "mainAndRgb": len(main_cards),
+            "classicMergedInto30th": len(classic_cards),
+            "megaEvolutionEnergy": len(energy_cards),
+        },
         "removedExistingSets": removed_sets,
         "removedExistingCards": removed_cards,
         "firstCards": added_cards[:5],
