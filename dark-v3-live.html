@@ -132,6 +132,71 @@
   .chart-summary .sum b{font-size:12px}
 }
 
+
+/* === V5.2 — waarde + ontwikkeling in één kaart === */
+.portfolio-combined{
+  margin-top:26px;
+  border-color:#24485f;
+  background:
+    radial-gradient(circle at 86% 0,rgba(31,157,255,.16),transparent 31%),
+    linear-gradient(180deg,#1b1d24,#17181d);
+}
+.combined-value-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  padding:4px 2px 0;
+}
+.combined-value-label{
+  color:#d7d9df;
+  font-size:22px;
+  font-weight:800;
+}
+.portfolio-combined .market-value{
+  margin-top:18px;
+}
+.portfolio-combined .market-change{
+  margin-top:14px;
+}
+.combined-divider{
+  height:1px;
+  margin:28px 0 26px;
+  background:linear-gradient(90deg,transparent,#393b43 8%,#393b43 92%,transparent);
+}
+.portfolio-combined .history-top{
+  margin-top:0;
+}
+.home-trend-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:28px;
+  color:#8d919b;
+  font-size:13px;
+  font-weight:750;
+  letter-spacing:.02em;
+}
+.home-trend-head span:last-child{
+  padding:4px 8px;
+  border:1px solid #3b3e47;
+  border-radius:999px;
+  background:rgba(255,255,255,.035);
+  color:#b7bbc4;
+  font-size:11px;
+}
+.home-hero .spark{
+  margin-top:8px;
+}
+@media(max-width:600px){
+  .portfolio-combined{padding:24px 18px}
+  .combined-value-label{font-size:16px}
+  .portfolio-combined .market-value{font-size:48px;margin-top:12px}
+  .portfolio-combined .market-change{font-size:15px;margin-top:12px}
+  .combined-divider{margin:22px 0 20px}
+  .home-trend-head{margin-top:22px;font-size:11px}
+}
+
 </style>
 </head>
 <body>
@@ -139,7 +204,7 @@
 <div class="top-safe"></div>
 <section class="screen active" data-screen="overview">
   <div class="headrow"><div><div class="kicker">Mijn collectie</div><h1 class="page-title">Overzicht</h1></div><button class="round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15 1.65 1.65 0 0 0 3.09 14H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 8.92 4.6H9A1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.36.49.86.83 1.51 1H21a2 2 0 1 1 0 4h-.09c-.65.17-1.15.51-1.51 1z"></path></svg></button></div>
-  <div class="home-hero" data-go="portfolio"><div class="hero-label"><div class="hero-label-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path><path d="M7 15h3"></path></svg><span>Totale collectiewaarde</span></div><span class="hero-arrow">›</span></div><div class="hero-value" id="overviewValue">€ 6,79</div><div class="hero-change" id="overviewChange">↗ 1.49% in 7 dagen</div><div class="spark" id="overviewSpark"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><defs><linearGradient id="fillg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".28"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs><path d="M3 24 C14 21 18 17 28 20 S44 21 55 20 S77 19 97 17 L97 30 L3 30Z" fill="url(#fillg)"/><path d="M3 24 C14 21 18 17 28 20 S44 21 55 20 S77 19 97 17" fill="none" stroke="#34df78" stroke-width="2.2" stroke-linecap="round"/></svg></div></div>
+  <div class="home-hero" data-go="portfolio"><div class="hero-label"><div class="hero-label-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path><path d="M7 15h3"></path></svg><span>Totale collectiewaarde</span></div><span class="hero-arrow">›</span></div><div class="hero-value" id="overviewValue">€ 6,79</div><div class="hero-change" id="overviewChange">↗ 1.49% in 7 dagen</div><div class="home-trend-head"><span>Waardeontwikkeling</span><span>7D</span></div><div class="spark" id="overviewSpark"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><defs><linearGradient id="fillg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".28"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs><path d="M3 24 C14 21 18 17 28 20 S44 21 55 20 S77 19 97 17 L97 30 L3 30Z" fill="url(#fillg)"/><path d="M3 24 C14 21 18 17 28 20 S44 21 55 20 S77 19 97 17" fill="none" stroke="#34df78" stroke-width="2.2" stroke-linecap="round"/></svg></div></div>
   <div class="stats">
     <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg><div><small>Unieke kaarten</small><b>12</b></div></div>
     <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="8" height="8" rx="2"></rect><rect x="12" y="12" width="8" height="8" rx="2"></rect></svg><div><small>Exemplaren</small><b>16</b></div></div>
@@ -177,12 +242,16 @@
       <div><b>TCGplayer</b><span>Market price · omgerekend naar EUR</span></div>
     </button>
   </div>
-  <div class="market-card">
-    <div class="market-card-head"><b>Totale marktwaarde</b><span class="tag" id="portfolioMarketTag">CARDMARKET</span></div>
-    <div class="market-value" id="portfolioMarketValue">—</div>
-    <div class="market-change neutral" id="portfolioMarketChange">Waarde wordt berekend…</div>
-  </div>
-  <div class="history">
+  <div class="history portfolio-combined">
+    <div class="combined-value-head">
+      <div>
+        <div class="combined-value-label">Totale marktwaarde</div>
+        <div class="market-value" id="portfolioMarketValue">—</div>
+        <div class="market-change neutral" id="portfolioMarketChange">Waarde wordt berekend…</div>
+      </div>
+      <span class="tag" id="portfolioMarketTag">CARDMARKET</span>
+    </div>
+    <div class="combined-divider"></div>
     <div class="history-top">
       <div><h3>Waardeontwikkeling</h3><p id="portfolioHistorySubtitle">Dagelijkse Cardmarket-trendprijzen</p></div>
       <div class="ranges">
