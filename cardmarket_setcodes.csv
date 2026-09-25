@@ -1,7 +1,6 @@
 ﻿serie;set;appAfkorting;cardmarketExpansionId;cardmarketSetcode;cardmarketSetnaam;methode;score;overlap;gekoppeldeKaarten
-Mega Evolution;30th Celebration;30C;6601;30C;30th Celebration;manual-set-map;manual;Engelse Cardmarket-expansie: 191 producten (158 genummerd, 3 RGB en 30 Classic Collection);161
-Mega Evolution;30th Celebration: Classic Collection;30C;6601;30C;30th Celebration;manual-set-map;manual;Classic Collection staat bij Cardmarket in dezelfde Engelse 30C-expansie;30
-Mega Evolution;30th Celebration: Energy Collection;MEE;6324;MEE;Mega Evolution Energies;manual-set-map;manual;30th Energy-artwork staat bij Cardmarket als MEE 009-016;8
+Mega Evolution;30th Celebration;30C;6601;30C;30th Celebration;manual-set-map;manual;Engelse Cardmarket-expansie: 191 producten (158 genummerd, 3 RGB en 30 Classic Collection);89
+Mega Evolution;Mega Evolution Energy;MEE;;;;;;;0
 Mega Evolution;Pitch Black;PBL;6569;;;manual-set-map;manual;"handmatig toegevoegd: sterke kandidaat uit cardmarket_set_mapping_candidates; score 0.1591; overlap 14; cmProducten 120";61
 Mega Evolution;Chaos Rising;CRI;6517;;;manual-set-map;manual;"teruggezet na test: expansionId 6596 gaf slechter resultaat; 6517 koppelde meer Chaos Rising-kaarten en blijft voorlopig de veiligere mapping";58
 Mega Evolution;Perfect Order;POR;6443;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2283; overlap 21; appUniek 92; cmUniek 92; cmProducten 125";64
@@ -26,24 +25,17 @@ Scarlet & Violet;Paldea Evolved;PAL;5318;;;manual-set-map;manual;"v2: automatisc
 Scarlet & Violet;Scarlet & Violet Energies;SVE;6324;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 2; score 1.0; overlap 8; appUniek 8; cmUniek 8; cmProducten 8";0
 Scarlet & Violet;Scarlet & Violet;SVI;5223;SPIDOPS;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.1759; overlap 35; appUniek 175; cmUniek 214; cmProducten 315";98
 Scarlet & Violet;Scarlet & Violet Black Star Promos;PR-SV;;;;;;;0
-Sword & Shield;Crown Zenith Galarian Gallery;CRZ;6355;;;manual-set-map;manual;"v3: toegevoegd uit unmatched-analyse (size-fit); kandidaat rang 6; score 0.0577; overlap 4; app totaal 70; appUniek 70; cmUniek 68; cmProducten 68; advies bron: zwak/alternatief";23
-Sword & Shield;Crown Zenith;CRZ;5201;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.1721; overlap 34; appUniek 153; cmUniek 230; cmProducten 256";120
-Sword & Shield;Silver Tempest Trainer Gallery;SIT;;;;;;;0
-Sword & Shield;Silver Tempest;SIT;5142;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1107; overlap 21; appUniek 171; cmUniek 201; cmProducten 266";128
-Sword & Shield;Lost Origin Trainer Gallery;LOR;;;;;;;0
-Sword & Shield;Lost Origin;LOR;5093;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1135; overlap 22; appUniek 174; cmUniek 206; cmProducten 266";131
+Sword & Shield;Crown Zenith;CRZ;5201;;;manual-set-map;manual;"v2: override: betere setgrootte/productcount dan rang-1; kandidaat rang 2; score 0.1721; overlap 34; appUniek 153; cmUniek 230; cmProducten 256";174
+Sword & Shield;Silver Tempest;SIT;5142;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1107; overlap 21; appUniek 171; cmUniek 201; cmProducten 266";146
+Sword & Shield;Lost Origin;LOR;5093;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1135; overlap 22; appUniek 174; cmUniek 206; cmProducten 266";148
 Sword & Shield;Pokémon GO;PGO;4786;;;manual-set-map;manual;"v3: toegevoegd uit unmatched-analyse (possible); kandidaat rang 1; score 0.0911; overlap 7; app totaal 88; appUniek 70; cmUniek 81; cmProducten 102; advies bron: MOGELIJK - handmatig controleren";54
-Sword & Shield;Astral Radiance Trainer Gallery;ASR;3717;;;manual-set-map;manual;"v3: toegevoegd uit unmatched-analyse (small-set); kandidaat rang 3; score 0.0643; overlap 2; app totaal 30; appUniek 28; cmUniek 33; cmProducten 33; advies bron: zwak/alternatief";3
-Sword & Shield;Astral Radiance;ASR;4979;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1539; overlap 28; appUniek 161; cmUniek 195; cmProducten 271";108
-Sword & Shield;Brilliant Stars Trainer Gallery;BRS;6273;;;manual-set-map;manual;"v3: toegevoegd uit unmatched-analyse (small-set); kandidaat rang 1; score 0.0767; overlap 2; app totaal 30; appUniek 28; cmUniek 23; cmProducten 23; advies bron: zwak/alternatief";4
-Sword & Shield;Brilliant Stars;BRS;4434;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1177; overlap 21; appUniek 153; cmUniek 195; cmProducten 252";113
+Sword & Shield;Astral Radiance;ASR;4979;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1539; overlap 28; appUniek 161; cmUniek 195; cmProducten 271";127
+Sword & Shield;Brilliant Stars;BRS;4434;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1177; overlap 21; appUniek 153; cmUniek 195; cmProducten 252";131
 Sword & Shield;Fusion Strike;FST;4382;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 2; score 0.0942; overlap 24; appUniek 242; cmUniek 262; cmProducten 303";205
-Sword & Shield;Celebrations: Classic Collection;CEL;4346;;;manual-set-map;manual;"v3: toegevoegd uit unmatched-analyse (size-fit); kandidaat rang 1; score 0.12; overlap 3; app totaal 25; appUniek 25; cmUniek 25; cmProducten 25; advies bron: zwak/alternatief";23
 Sword & Shield;Celebrations;CEL;;;;;;;0
 Sword & Shield;Evolving Skies;EVS;4328;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1579; overlap 29; appUniek 176; cmUniek 188; cmProducten 258";130
 Sword & Shield;Chilling Reign;CRE;4174;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2049; overlap 36; appUniek 168; cmUniek 180; cmProducten 255";119
 Sword & Shield;Battle Styles;BST;3675;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1423; overlap 21; appUniek 140; cmUniek 152; cmProducten 206";103
-Sword & Shield;Shining Fates Shiny Vault;SHF;;;;;;;0
 Sword & Shield;Shining Fates;SHF;;;;;;;0
 Sword & Shield;Vivid Voltage;VIV;3484;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.1011; overlap 18; appUniek 171; cmUniek 182; cmProducten 222";135
 Sword & Shield;Champion's Path;CPA;3419;;;manual-set-map;manual;"v2: automatisch gekozen: overlap + vergelijkbare setgrootte; kandidaat rang 1; score 0.2283; overlap 19; appUniek 70; cmUniek 92; cmProducten 102";60
