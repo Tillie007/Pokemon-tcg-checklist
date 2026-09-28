@@ -408,7 +408,7 @@ let PRICE_MAP=new Map();
 let CURRENT_SET=null;
 let ACTIVE_SERIES='Alles';
 const OWNED_KEY='pokemon_tcg_owned_cards_v1';
-const OWNED_RESET_KEY='pokemon_tcg_owned_reset_20260928_v1';
+const OWNED_RESET_KEY='pokemon_tcg_owned_reset_20260928_v2';
 let OWNED={};
 let HAVE_COUNTS=new Map();
 let TCG_PRICE_CACHE={};
@@ -856,10 +856,32 @@ function overviewMetrics(){
   }
   return {unique,copies,completed:completedSets().length,duplicates,trade,favorites,wishlist};
 }
+function renderHomeCollection(){
+  const owned=ownedCards();
+  const total=currentCardmarketTotal();
+  const value=document.getElementById('overviewValue'); if(value)value.textContent=money(total,'EUR');
+  const portfolioStat=[...document.querySelectorAll('.stat')].find(el=>el.querySelector('small')?.textContent.trim()==='Portfolio');
+  if(portfolioStat){const b=portfolioStat.querySelector('b');if(b)b.textContent=money(total,'EUR')}
+  const section=[...document.querySelectorAll('[data-screen="overview"] .section')].find(el=>el.querySelector('.section-title span')?.textContent.trim()==='Waardevolste kaarten');
+  if(section){
+    const host=section.querySelector('.valuable');
+    if(host){
+      const rows=owned.slice().sort((a,b)=>{
+        const pa=priceFor(a)||{},pb=priceFor(b)||{};
+        return Number(pb.trendPrice||pb.price||0)*ownedQty(b)-Number(pa.trendPrice||pa.price||0)*ownedQty(a);
+      }).slice(0,3);
+      host.innerHTML=rows.length?rows.map((card,i)=>{
+        const p=priceFor(card)||{},n=Number(p.trendPrice||p.price||0),q=ownedQty(card);
+        return '<div class="valuable-row"><div class="rank">'+(i+1)+'</div>'+cardImgHtml(card)+'<div><h4>'+esc(card.name)+'</h4><p>'+esc(folderSetName(card.set))+' · '+esc(card.num)+'</p></div><div class="valprice"><b>'+esc(n>0?money(n*q,p.currency||'EUR'):'—')+'</b><span>'+q+'× in bezit</span></div></div>';
+      }).join(''):'<div class="smart-empty">Nog geen kaarten in je collectie.</div>';
+    }
+  }
+}
 function updateOverviewStats(){
   const m=overviewMetrics();
   const map={statUnique:m.unique,statCopies:m.copies,statCompleted:m.completed,statDuplicates:m.duplicates,statTrade:m.trade,statFavorites:m.favorites,statWishlist:m.wishlist};
   Object.entries(map).forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.textContent=v});
+  renderHomeCollection();
 }
 function smartCardRow(card,mode){
   const q=ownedQty(card);
@@ -1173,7 +1195,12 @@ async function loadRealDatabase(){
   SETS=normalizeSets(Array.isArray(data.sets)?data.sets:[]);
   // Eenmalige reset na de testfase: start de echte collectie volledig leeg.
   if(!localStorage.getItem(OWNED_RESET_KEY)){
+    // Volledige eenmalige fabrieksreset van alle persoonlijke/testdata.
     localStorage.removeItem(OWNED_KEY);
+    localStorage.removeItem(LIST_META_KEY);
+    localStorage.removeItem(TCG_PORTFOLIO_HISTORY_KEY);
+    localStorage.removeItem('pokemon_tcg_tcgplayer_cache_v1');
+    localStorage.removeItem('pokemon_tcg_usd_eur_v1');
     localStorage.setItem(OWNED_RESET_KEY,'1');
   }
   OWNED=readOwned();
