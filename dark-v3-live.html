@@ -272,6 +272,42 @@
   .home-hero{padding-bottom:24px!important}
 }
 
+
+/* === OVERVIEW SUBMENUS === */
+.stat-link{cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:transform .12s ease,border-color .12s ease}
+.stat-link:active{transform:scale(.985);border-color:#315a7d}
+.smart-head{position:relative;padding-top:24px;min-height:100px}
+.smart-head .backbtn{top:max(18px,env(safe-area-inset-top));left:0}
+.smart-head>div{padding-left:76px}
+.smart-title{font-size:48px;margin-top:7px}
+.smart-summary{margin:24px 0 18px;color:#9396a0;font-size:17px}
+.smart-list{display:grid;gap:13px}
+.smart-row{display:grid;grid-template-columns:72px minmax(0,1fr) auto;align-items:center;gap:14px;padding:13px;border:1px solid #34363e;border-radius:22px;background:#1a1b20}
+.smart-row img{width:72px;height:100px;object-fit:cover;border-radius:9px;background:#292a30}
+.smart-row h3{margin:0;font-size:20px}
+.smart-row p{margin:6px 0 0;color:#9698a2;font-size:14px}
+.smart-row-right{text-align:right}
+.smart-row-right b{display:block;font-size:18px}
+.smart-row-right span{display:block;margin-top:6px;color:#92949d;font-size:13px}
+.smart-empty{padding:34px 24px;border:1px solid #34363e;border-radius:24px;background:#1a1b20;text-align:center;color:#9597a0}
+.smart-set-row{display:grid;grid-template-columns:92px 1fr auto;gap:14px;align-items:center;padding:14px;border:1px solid #34363e;border-radius:22px;background:#1a1b20}
+.smart-set-row .set-logo{min-height:82px;border-radius:16px}
+.smart-set-row .set-logo img{max-width:72%;max-height:40px}
+.smart-set-row h3{margin:0;font-size:20px}
+.smart-set-row p{margin:6px 0 0;color:#9799a2}
+@media(max-width:600px){
+  .smart-head{padding-top:18px;min-height:82px}
+  .smart-head>div{padding-left:60px}
+  .smart-title{font-size:38px}
+  .smart-summary{font-size:15px;margin:18px 0 14px}
+  .smart-row{grid-template-columns:62px minmax(0,1fr) auto;padding:11px;gap:11px;border-radius:19px}
+  .smart-row img{width:62px;height:87px}
+  .smart-row h3{font-size:17px}
+  .smart-row p{font-size:12px}
+  .smart-row-right b{font-size:16px}
+  .smart-row-right span{font-size:11px}
+}
+
 </style>
 </head>
 <body>
@@ -281,16 +317,16 @@
   <div class="headrow"><div><div class="kicker">Mijn collectie</div><h1 class="page-title">Overzicht</h1></div><button class="round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15 1.65 1.65 0 0 0 3.09 14H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 8.92 4.6H9A1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.36.49.86.83 1.51 1H21a2 2 0 1 1 0 4h-.09c-.65.17-1.15.51-1.51 1z"></path></svg></button></div>
   <div class="home-hero" data-go="portfolio"><div class="hero-label"><div class="hero-label-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path><path d="M7 15h3"></path></svg><span>Totale collectiewaarde</span></div><span class="hero-arrow">›</span></div><div class="hero-value" id="overviewValue">€ 6,79</div><div class="hero-change" id="overviewChange">↗ 1.49% in 7 dagen</div><div class="home-trend-head"><span>Waardeontwikkeling</span><span>7D</span></div><div class="home-chart" id="overviewSpark"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><defs><linearGradient id="fillg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34df78" stop-opacity=".28"/><stop offset="1" stop-color="#34df78" stop-opacity="0"/></linearGradient></defs><path d="M3 24 C14 21 18 17 28 20 S44 21 55 20 S77 19 97 17 L97 30 L3 30Z" fill="url(#fillg)"/><path d="M3 24 C14 21 18 17 28 20 S44 21 55 20 S77 19 97 17" fill="none" stroke="#34df78" stroke-width="2.2" stroke-linecap="round"/></svg></div></div>
   <div class="stats">
-    <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg><div><small>Unieke kaarten</small><b>12</b></div></div>
-    <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="8" height="8" rx="2"></rect><rect x="12" y="12" width="8" height="8" rx="2"></rect></svg><div><small>Exemplaren</small><b>16</b></div></div>
-    <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><circle cx="12" cy="12" r="9"></circle></svg><div><small>Voltooide sets</small><b>0</b></div></div>
-    <div class="stat" data-go="portfolio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path></svg><div><small>Portfolio</small><b>€ 6,79</b></div></div>
-    <div class="stat"><svg class="pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l7.78-7.78a5.5 5.5 0 0 0 1.06-7.78z"></path></svg><div><small>Favorieten</small><b>0</b></div></div>
-    <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h12"></path><path d="M4 12h16"></path><path d="M4 18h8"></path><path d="M18 15v6"></path><path d="M15 18h6"></path></svg><div><small>Zoeklijst</small><b>0</b></div></div>
-    <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="8" height="8" rx="2"></rect><rect x="12" y="12" width="8" height="8" rx="2"></rect></svg><div><small>Duplicaten</small><b>3</b></div></div>
-    <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 1l4 4-4 4"></path><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><path d="M7 23l-4-4 4-4"></path><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg><div><small>Te ruilen</small><b>4</b></div></div>
+    <div class="stat stat-link" data-smartlist="unique"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg><div><small>Unieke kaarten</small><b id="statUnique">12</b></div></div>
+    <div class="stat stat-link" data-smartlist="copies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="8" height="8" rx="2"></rect><rect x="12" y="12" width="8" height="8" rx="2"></rect></svg><div><small>Exemplaren</small><b id="statCopies">16</b></div></div>
+    <div class="stat stat-link" data-smartlist="completed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><circle cx="12" cy="12" r="9"></circle></svg><div><small>Voltooide sets</small><b id="statCompleted">0</b></div></div>
+    <div class="stat stat-link" data-go="portfolio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path></svg><div><small>Portfolio</small><b>€ 6,79</b></div></div>
+    <div class="stat stat-link" data-smartlist="favorites"><svg class="pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l7.78-7.78a5.5 5.5 0 0 0 1.06-7.78z"></path></svg><div><small>Favorieten</small><b id="statFavorites">0</b></div></div>
+    <div class="stat stat-link" data-smartlist="wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h12"></path><path d="M4 12h16"></path><path d="M4 18h8"></path><path d="M18 15v6"></path><path d="M15 18h6"></path></svg><div><small>Zoeklijst</small><b id="statWishlist">0</b></div></div>
+    <div class="stat stat-link" data-smartlist="duplicates"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="8" height="8" rx="2"></rect><rect x="12" y="12" width="8" height="8" rx="2"></rect></svg><div><small>Duplicaten</small><b id="statDuplicates">3</b></div></div>
+    <div class="stat stat-link" data-smartlist="trade"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 1l4 4-4 4"></path><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><path d="M7 23l-4-4 4-4"></path><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg><div><small>Te ruilen</small><b id="statTrade">4</b></div></div>
   </div>
-  <div class="section"><div class="section-head"><div class="section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 5.2L20 9l-4.4 3.8L17 18l-5-2.8L7 18l1.4-5.2L4 9l5.6-1.8L12 2z"></path></svg><span>Waardevolste kaarten</span></div><button class="allbtn">Alle ›</button></div><div class="valuable"><div class="valuable-row"><div class="rank">1</div><img src="https://images.pokemontcg.io/sv9/168.png"><div><h4>Furret</h4><p>Journey Together · 168</p></div><div class="valprice"><b>€ 6,25</b><span>1× in bezit</span></div></div><div class="valuable-row"><div class="rank">2</div><img src="https://images.pokemontcg.io/sv9/118.png"><div><h4>Sentret</h4><p>Journey Together · 118</p></div><div class="valprice"><b>€ 0,12</b><span>3× in bezit</span></div></div><div class="valuable-row"><div class="rank">3</div><img src="https://images.pokemontcg.io/sv5/1.png"><div><h4>Weedle</h4><p>Chaos Rising · 001</p></div><div class="valprice"><b>€ 0,07</b><span>1× in bezit</span></div></div></div></div>
+  <div class="section"><div class="section-head"><div class="section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 5.2L20 9l-4.4 3.8L17 18l-5-2.8L7 18l1.4-5.2L4 9l5.6-1.8L12 2z"></path></svg><span>Waardevolste kaarten</span></div><button class="allbtn" type="button" data-smartlist="unique">Alle ›</button></div><div class="valuable"><div class="valuable-row"><div class="rank">1</div><img src="https://images.pokemontcg.io/sv9/168.png"><div><h4>Furret</h4><p>Journey Together · 168</p></div><div class="valprice"><b>€ 6,25</b><span>1× in bezit</span></div></div><div class="valuable-row"><div class="rank">2</div><img src="https://images.pokemontcg.io/sv9/118.png"><div><h4>Sentret</h4><p>Journey Together · 118</p></div><div class="valprice"><b>€ 0,12</b><span>3× in bezit</span></div></div><div class="valuable-row"><div class="rank">3</div><img src="https://images.pokemontcg.io/sv5/1.png"><div><h4>Weedle</h4><p>Chaos Rising · 001</p></div><div class="valprice"><b>€ 0,07</b><span>1× in bezit</span></div></div></div></div>
   <div class="section"><div class="section-head"><div class="section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 5-9 5-9-5 9-5z"></path><path d="M3 12l9 5 9-5"></path><path d="M3 17l9 5 9-5"></path></svg><span>Uitbreidingen</span></div><button class="allbtn" data-go="sets">Alle ›</button></div><div id="homeSets"></div></div>
   <div class="section"><div class="section-head"><div class="section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h6l2 2h10v10H3z"></path></svg><span>Mappen</span></div></div><div class="valuable"><div class="valuable-row" style="grid-template-columns:76px 1fr"><div class="rank" style="font-size:36px">＋</div><div><h4 style="color:var(--blue)">Nieuwe map</h4></div></div><div class="valuable-row" style="grid-template-columns:76px 1fr auto"><div class="rank" style="background:#4b331d;color:#ffad55">▭</div><div><h4>My Folder</h4><p>12 kaarten · € 6,78</p></div><div style="font-size:36px;color:#777">▧▧</div></div></div></div>
 </section>
@@ -301,6 +337,18 @@
   <div class="set-count">174 uitbreidingen</div><div class="set-list" id="setList"></div>
 </section>
 <section class="screen" data-screen="setdetail"><div class="detail-hero"><div class="detail-logo-box"><img id="detailLogo"></div><div class="detail-series"><span id="detailSeries"></span><span class="code" id="detailCode"></span></div><div class="detail-stats"><div class="detail-stat"><span>Set</span><b id="detailCount">0/120</b></div><div class="detail-stat"><span>Voortgang</span><b id="detailPct">0%</b></div><div class="detail-stat"><span>Verzameld</span><b>€ 0,00</b></div></div><div class="segmented"><button class="active">Alles</button><button>Ontbrekend</button><button>Verzameld</button></div><div class="scan-link">✓ <span id="detailScans">120</span> scans gekoppeld</div><div class="cards-grid"><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/7.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/18.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/21.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/33.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/45.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/57.png"><button class="plus">+</button></div></div></div></section>
+
+<section class="screen" data-screen="smartlist">
+  <div class="smart-head">
+    <button class="backbtn smart-back" type="button" data-go="overview">←</button>
+    <div>
+      <div class="kicker" id="smartKicker">Mijn collectie</div>
+      <h1 class="page-title smart-title" id="smartTitle">Collectie</h1>
+    </div>
+  </div>
+  <div class="smart-summary" id="smartSummary"></div>
+  <div class="smart-list" id="smartList"></div>
+</section>
 <section class="screen" data-screen="portfolio">
   <div class="port-head">
     <button class="backbtn" data-go="overview">←</button>
@@ -369,7 +417,7 @@ function readOwned(){try{return JSON.parse(localStorage.getItem(OWNED_KEY)||'{}'
 function qty(v){if(typeof v==='number')return v;if(typeof v==='boolean')return v?1:0;if(v&&typeof v==='object')return Number(v.qty??v.count??v.owned??1)||0;return Number(v)||0}
 function ownedQty(card){return qty(OWNED[card.key])}
 function rebuildHaveCounts(){HAVE_COUNTS=new Map();for(const c of CARDS){if(ownedQty(c)>0){const k=c.series+'|||'+folderSetName(c.set);HAVE_COUNTS.set(k,(HAVE_COUNTS.get(k)||0)+1)}}}
-function setOwnedQty(card,n){if(n>0)OWNED[card.key]={qty:n};else delete OWNED[card.key];localStorage.setItem(OWNED_KEY,JSON.stringify(OWNED));rebuildHaveCounts()}
+function setOwnedQty(card,n){if(n>0)OWNED[card.key]={qty:n};else delete OWNED[card.key];localStorage.setItem(OWNED_KEY,JSON.stringify(OWNED));rebuildHaveCounts();updateOverviewStats()}
 function setHave(series,name){return HAVE_COUNTS.get(series+'|||'+name)||0}
 function priceFor(card){return PRICE_MAP.get(card.key)||null}
 function money(n,currency='EUR'){const x=Number(n);if(!Number.isFinite(x))return '—';try{return new Intl.NumberFormat('nl-BE',{style:'currency',currency:currency||'EUR',maximumFractionDigits:2}).format(x)}catch(e){return '€ '+x.toFixed(2).replace('.',',')}}
@@ -388,6 +436,11 @@ const SET_FOLDER_MAP={
   'Shining Fates Shiny Vault':'Shining Fates'
 };
 let DETAIL_FILTER='all';
+let SMARTLIST_MODE='unique';
+const LIST_META_KEY='pokemon_tcg_lists_v1';
+function readListMeta(){try{return JSON.parse(localStorage.getItem(LIST_META_KEY)||'{}')||{}}catch(e){return{}}}
+function listFlag(card,flag){const m=readListMeta();return !!(m[card.key]&&m[card.key][flag])}
+
 function folderSetName(name){return SET_FOLDER_MAP[name]||name}
 function cardsForSet(s){return CARDS.filter(c=>c.series===s.series&&folderSetName(c.set)===s.name)}
 function normalizeSets(rawSets){
@@ -671,6 +724,69 @@ function refreshSetCounts({preserveScroll=true}={}){
   if(preserveScroll)requestAnimationFrame(()=>window.scrollTo(0,oldY));
 }
 
+
+function completedSets(){
+  return SETS.filter(set=>{const rows=cardsForSet(set);return rows.length>0&&rows.every(c=>ownedQty(c)>0)});
+}
+function overviewMetrics(){
+  const owned=ownedCards();
+  const unique=owned.length;
+  const copies=owned.reduce((n,c)=>n+ownedQty(c),0);
+  const duplicates=owned.filter(c=>ownedQty(c)>1).length;
+  const trade=owned.reduce((n,c)=>n+Math.max(0,ownedQty(c)-1),0);
+  const meta=readListMeta();
+  let favorites=0,wishlist=0;
+  for(const c of CARDS){
+    const m=meta[c.key]||{};
+    if(m.favorite)favorites++;
+    if(m.wishlist)wishlist++;
+  }
+  return {unique,copies,completed:completedSets().length,duplicates,trade,favorites,wishlist};
+}
+function updateOverviewStats(){
+  const m=overviewMetrics();
+  const map={statUnique:m.unique,statCopies:m.copies,statCompleted:m.completed,statDuplicates:m.duplicates,statTrade:m.trade,statFavorites:m.favorites,statWishlist:m.wishlist};
+  Object.entries(map).forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.textContent=v});
+}
+function smartCardRow(card,mode){
+  const q=ownedQty(card);
+  const p=priceFor(card)||{};
+  const n=Number(p.trendPrice||p.price||0);
+  const right=mode==='trade'
+    ? '<b>'+Math.max(0,q-1)+'× te ruilen</b><span>'+q+'× totaal</span>'
+    : '<b>'+(n>0?esc(money(n,(p&&p.currency)||'EUR')):'—')+'</b><span>'+q+'× in bezit</span>';
+  return '<div class="smart-row">'+
+    (cardImage(card)?'<img src="'+esc(cardImage(card))+'" alt="'+esc(card.name)+'" loading="lazy">':'<div></div>')+
+    '<div><h3>'+esc(card.name)+'</h3><p>'+esc(folderSetName(card.set))+' · '+esc(card.num)+'</p></div>'+
+    '<div class="smart-row-right">'+right+'</div></div>';
+}
+function renderSmartList(mode){
+  SMARTLIST_MODE=mode||'unique';
+  const title=document.getElementById('smartTitle'),kick=document.getElementById('smartKicker'),summary=document.getElementById('smartSummary'),host=document.getElementById('smartList');
+  if(!host)return;
+  let rows=[],label='',kicker='Mijn collectie',summaryText='';
+  if(mode==='unique'){label='Unieke kaarten';rows=ownedCards();summaryText=rows.length+' unieke kaarten in je collectie.'}
+  else if(mode==='copies'){label='Exemplaren';rows=ownedCards().slice().sort((a,b)=>ownedQty(b)-ownedQty(a));summaryText=rows.reduce((n,c)=>n+ownedQty(c),0)+' exemplaren verdeeld over '+rows.length+' unieke kaarten.'}
+  else if(mode==='duplicates'){label='Duplicaten';rows=ownedCards().filter(c=>ownedQty(c)>1).sort((a,b)=>ownedQty(b)-ownedQty(a));summaryText=rows.length+' kaarttypes waarvan je meer dan één exemplaar hebt.'}
+  else if(mode==='trade'){label='Te ruilen';rows=ownedCards().filter(c=>ownedQty(c)>1).sort((a,b)=>(ownedQty(b)-1)-(ownedQty(a)-1));summaryText=rows.reduce((n,c)=>n+Math.max(0,ownedQty(c)-1),0)+' extra exemplaren beschikbaar om te ruilen.'}
+  else if(mode==='favorites'){label='Favorieten';rows=CARDS.filter(c=>listFlag(c,'favorite'));summaryText=rows.length?rows.length+' favoriete kaarten.':'Je hebt nog geen kaarten als favoriet aangeduid.'}
+  else if(mode==='wishlist'){label='Zoeklijst';rows=CARDS.filter(c=>listFlag(c,'wishlist'));summaryText=rows.length?rows.length+' kaarten op je zoeklijst.':'Je zoeklijst is momenteel leeg.'}
+  else if(mode==='completed'){
+    label='Voltooide sets';kicker='Uitbreidingen';
+    const sets=completedSets();
+    if(title)title.textContent=label;if(kick)kick.textContent=kicker;if(summary)summary.textContent=sets.length+' volledig verzamelde sets.';
+    host.innerHTML=sets.length?sets.map(set=>'<div class="smart-set-row" data-open-smart-set="'+esc(encodeURIComponent(set.series+'|||'+set.name))+'"><div class="set-logo">'+logoHtml(set)+'</div><div><h3>'+esc(set.name)+'</h3><p>'+esc(set.series)+' · '+set.total+' kaarten</p></div><div class="pct">100%</div></div>').join(''):'<div class="smart-empty">Je hebt momenteel nog geen set voor 100% voltooid.</div>';
+    host.querySelectorAll('[data-open-smart-set]').forEach(el=>el.addEventListener('click',()=>{const [series,name]=decodeURIComponent(el.dataset.openSmartSet).split('|||');openSet(series,name)}));
+    return;
+  }
+  if(title)title.textContent=label;if(kick)kick.textContent=kicker;if(summary)summary.textContent=summaryText;
+  host.innerHTML=rows.length?rows.map(c=>smartCardRow(c,mode)).join(''):'<div class="smart-empty">'+esc(summaryText)+'</div>';
+}
+function openSmartList(mode){renderSmartList(mode);show('smartlist')}
+function bindOverviewSubmenus(){
+  document.querySelectorAll('[data-smartlist]').forEach(el=>el.addEventListener('click',()=>openSmartList(el.dataset.smartlist)));
+}
+
 function ownedCards(){return CARDS.filter(c=>ownedQty(c)>0)}
 function currentCardmarketTotal(){
   return ownedCards().reduce((sum,c)=>{
@@ -920,7 +1036,7 @@ async function refreshOverviewHistory(){
 
 function show(name,writeHash=true){
   document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.dataset.screen===name));
-  const navState=name==='setdetail'?'sets':(name==='portfolio'?'portfolio':name);
+  const navState=name==='setdetail'?'sets':(name==='portfolio'?'portfolio':(name==='smartlist'?'overview':name));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.go===navState));
   document.getElementById('bottomNav').classList.toggle('hidden',name==='scanner');
   if(writeHash&&location.hash!=='#'+name)history.pushState(null,'','#'+name);
@@ -946,11 +1062,12 @@ async function loadRealDatabase(){
   rebuildHaveCounts();
   IMAGE_MAP=images.images||{};
   PRICE_MAP=new Map((prices.prices||[]).map(p=>[p.key,p]));
-  renderSeriesChips();renderSets();renderHomeSets();
+  renderSeriesChips();renderSets();renderHomeSets();updateOverviewStats();
   refreshOverviewHistory();
 }
 loadTcgCache();
 bindStaticControls();
+bindOverviewSubmenus();
 const initial=(location.hash||'').replace('#','');
 if(initial&&document.querySelector('[data-screen="'+initial+'"]'))show(initial,false);
 window.addEventListener('hashchange',()=>{const n=(location.hash||'').replace('#','');if(n&&document.querySelector('[data-screen="'+n+'"]'))show(n,false)});
