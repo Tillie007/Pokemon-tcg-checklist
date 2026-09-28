@@ -408,6 +408,7 @@ let PRICE_MAP=new Map();
 let CURRENT_SET=null;
 let ACTIVE_SERIES='Alles';
 const OWNED_KEY='pokemon_tcg_owned_cards_v1';
+const OWNED_RESET_KEY='pokemon_tcg_owned_reset_20260928_v1';
 let OWNED={};
 let HAVE_COUNTS=new Map();
 let TCG_PRICE_CACHE={};
@@ -1170,6 +1171,11 @@ async function loadRealDatabase(){
   ]);
   CARDS=Array.isArray(data.cards)?data.cards:[];
   SETS=normalizeSets(Array.isArray(data.sets)?data.sets:[]);
+  // Eenmalige reset na de testfase: start de echte collectie volledig leeg.
+  if(!localStorage.getItem(OWNED_RESET_KEY)){
+    localStorage.removeItem(OWNED_KEY);
+    localStorage.setItem(OWNED_RESET_KEY,'1');
+  }
   OWNED=readOwned();
   rebuildHaveCounts();
   IMAGE_MAP=images.images||{};
