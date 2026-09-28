@@ -308,6 +308,10 @@
   .smart-row-right span{font-size:11px}
 }
 
+
+/* === IMAGE QUALITY V5 === */
+.card-image-fallback{width:100%;aspect-ratio:.715/1;border-radius:14px;background:linear-gradient(145deg,#242630,#15171d);color:#747883;display:grid;place-items:center;font-size:13px;font-weight:800;border:1px solid #343640}
+.smart-row .card-image-fallback{width:72px;height:100px;aspect-ratio:auto}
 </style>
 </head>
 <body>
@@ -407,6 +411,8 @@ let HAVE_COUNTS=new Map();
 let TCG_PRICE_CACHE={};
 let USD_EUR_RATE=null;
 let PRICE_HISTORY_CACHE=null;
+let TCGDEX_SET_INDEX=new Map();
+let TCGDEX_SET_INDEX_READY=false;
 let PORTFOLIO_MARKET='cardmarket';
 let PORTFOLIO_RANGE=30;
 const TCG_PORTFOLIO_HISTORY_KEY='pokemon_tcg_portfolio_tcg_history_v1';
@@ -422,7 +428,107 @@ function setHave(series,name){return HAVE_COUNTS.get(series+'|||'+name)||0}
 function priceFor(card){return PRICE_MAP.get(card.key)||null}
 function money(n,currency='EUR'){const x=Number(n);if(!Number.isFinite(x))return '—';try{return new Intl.NumberFormat('nl-BE',{style:'currency',currency:currency||'EUR',maximumFractionDigits:2}).format(x)}catch(e){return '€ '+x.toFixed(2).replace('.',',')}}
 function imageEntry(card){return IMAGE_MAP[card.key]||null}
-function cardImage(card){const e=imageEntry(card);return (e&&e.bestUrl)||card.imageUrl||''}
+function imageMatchKey(v){
+  return String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’']/g,"'").replace(/pokemon|pokémon/g,'pokemon').replace(/[^a-z0-9]+/g,' ').trim();
+}
+function tcgdexNameVariants(name){
+  const raw=String(name||'').trim();
+  const variants=[raw,folderSetName(raw)];
+  const aliases={
+    'Base':'Base Set',
+    'Expedition Base Set':'Expedition',
+    'Pokémon Rumble':'Rumble',
+    'HS—Unleashed':'Unleashed',
+    'HS—Undaunted':'Undaunted',
+    'HS—Triumphant':'Triumphant',
+    'HGSS Black Star Promos':'HGSS Black Star Promos',
+    'DP Black Star Promos':'DP Black Star Promos',
+    'BW Black Star Promos':'BW Black Star Promos',
+    'XY Black Star Promos':'XY Black Star Promos',
+    'SM Black Star Promos':'SM Black Star Promos',
+    'SWSH Black Star Promos':'SWSH Black Star Promos',
+    'Scarlet & Violet Black Star Promos':'SV Black Star Promos'
+  };
+  if(aliases[raw])variants.push(aliases[raw]);
+  if(/^HS[—-]/.test(raw))variants.push(raw.replace(/^HS[—-]/,''));
+  return [...new Set(variants.filter(Boolean))];
+}
+function tcgdexSetForName(name){
+  for(const v of tcgdexNameVariants(name)){
+    const hit=TCGDEX_SET_INDEX.get(imageMatchKey(v));
+    if(hit)return hit;
+  }
+  return null;
+}
+function tcgdexLocalIds(value){
+  const raw=String(value||'').trim().replace(/\s+/g,'');
+  const out=[];
+  if(/^0*\d+$/.test(raw))out.push(String(parseInt(raw,10)));
+  out.push(raw,raw.toUpperCase(),raw.toLowerCase());
+  return [...new Set(out.filter(Boolean))];
+}
+function tcgdexCardCandidates(card){
+  const set=tcgdexSetForName(folderSetName(card.set))||tcgdexSetForName(card.set);
+  if(!set||!set.logo)return [];
+  const base=String(set.logo).replace(/\/logo$/,'');
+  const urls=[];
+  for(const id of tcgdexLocalIds(card.num)){
+    urls.push(base+'/'+encodeURIComponent(id)+'/high.webp');
+    urls.push(base+'/'+encodeURIComponent(id)+'/high.png');
+    urls.push(base+'/'+encodeURIComponent(id)+'/low.webp');
+  }
+  return urls;
+}
+function cardImageCandidates(card){
+  const e=imageEntry(card)||{};
+  const urls=[
+    ...tcgdexCardCandidates(card),
+    e.bestUrl,
+    ...(Array.isArray(e.candidates)?e.candidates:[]),
+    card.imageUrl
+  ].filter(Boolean);
+  return [...new Set(urls)];
+}
+function cardImage(card){return cardImageCandidates(card)[0]||''}
+function tryNextCardImage(img){
+  let list=[];
+  try{list=JSON.parse(decodeURIComponent(img.dataset.fallbacks||''))||[]}catch(e){}
+  const next=list.shift();
+  if(next){
+    img.dataset.fallbacks=encodeURIComponent(JSON.stringify(list));
+    img.src=next;
+    return;
+  }
+  img.style.display='none';
+  const fallback=img.parentElement&&img.parentElement.querySelector('.card-image-fallback');
+  if(fallback)fallback.style.display='grid';
+}
+function cardImgHtml(card,extraClass=''){
+  const urls=cardImageCandidates(card),first=urls.shift()||'';
+  if(!first)return '<div class="card-image-fallback">'+esc(card.num||'')+'</div>';
+  return '<img class="'+esc(extraClass)+'" src="'+esc(first)+'" data-fallbacks="'+esc(encodeURIComponent(JSON.stringify(urls)))+'" alt="'+esc(card.name)+'" loading="lazy" onerror="tryNextCardImage(this)"><div class="card-image-fallback" style="display:none">'+esc(card.num||'')+'</div>';
+}
+async function loadTcgdexSetIndex(){
+  try{
+    const rows=await fetch('https://api.tcgdex.net/v2/en/sets',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('TCGdex '+r.status);return r.json()});
+    const map=new Map();
+    for(const row of Array.isArray(rows)?rows:[]){
+      if(!row||!row.name)continue;
+      map.set(imageMatchKey(row.name),row);
+    }
+    TCGDEX_SET_INDEX=map;
+    TCGDEX_SET_INDEX_READY=true;
+    renderHomeSets();
+    renderSets(document.getElementById('setSearch')?.value||'');
+    if(CURRENT_SET){
+      const logoBox=document.querySelector('.detail-logo-box');
+      if(logoBox)logoBox.innerHTML=logoHtml(CURRENT_SET);
+      renderDetailCards(CURRENT_SET,{preserveScroll:true});
+    }
+  }catch(e){
+    console.warn('TCGdex beeldindex niet beschikbaar',e);
+  }
+}
 
 const SET_FOLDER_MAP={
   '30th Celebration: Classic Collection':'30th Celebration',
@@ -538,7 +644,8 @@ function logoCandidates(s){
     'Rebel Clash':'https://images.pokemontcg.io/swsh2/logo.png',
     'Sword & Shield':'https://images.pokemontcg.io/swsh1/logo.png'
   };
-  return [known[s.name],derivedPokemonTcgLogo(s),'https://pokesymbols.com/images/tcg/sets/logos/'+slug(s.name)+'.png']
+  const dex=tcgdexSetForName(s.name);const dexLogo=dex&&dex.logo?dex.logo+'.webp':'';
+  return [known[s.name],dexLogo,derivedPokemonTcgLogo(s),'https://pokesymbols.com/images/tcg/sets/logos/'+slug(s.name)+'.png']
     .filter((v,i,a)=>v&&a.indexOf(v)===i);
 }
 function tryNextLogo(img){
@@ -586,6 +693,9 @@ function renderHomeSets(){
 function loadTcgCache(){try{TCG_PRICE_CACHE=JSON.parse(localStorage.getItem('pokemon_tcg_tcgplayer_cache_v1')||'{}')||{}}catch(e){TCG_PRICE_CACHE={}}}
 function saveTcgCache(){try{localStorage.setItem('pokemon_tcg_tcgplayer_cache_v1',JSON.stringify(TCG_PRICE_CACHE))}catch(e){}}
 function tcgdexCardId(card){
+  const dexSet=tcgdexSetForName(folderSetName(card.set))||tcgdexSetForName(card.set);
+  const localIds=tcgdexLocalIds(card.num);
+  if(dexSet&&dexSet.id&&localIds.length)return dexSet.id+'-'+localIds[0];
   const e=imageEntry(card)||{};
   const urls=[e.bestUrl].concat(Array.isArray(e.candidates)?e.candidates:[]).filter(Boolean);
   for(const raw of urls){
@@ -681,7 +791,7 @@ function renderDetailCards(s,{preserveScroll=false}={}){
     const price=p?Number(p.price||p.trendPrice||0):0;
     const owned=ownedQty(c)>0;
     return '<div class="card-tile" data-card-key="'+esc(c.key)+'">'+
-      (img?'<img src="'+esc(img)+'" alt="'+esc(c.name)+'" loading="lazy">':'<div class="set-logo-fallback">'+esc(c.num)+'</div>')+
+      cardImgHtml(c)+
       (price?'<span class="card-price-badge" data-price-key="'+esc(c.key)+'" title="Cardmarket">'+esc(money(price,(p&&p.currency)||'EUR'))+'</span>':'<span class="card-price-badge" data-price-key="'+esc(c.key)+'" style="display:none"></span>')+
       '<button class="plus" data-add="'+esc(c.key)+'">'+(owned?'✓':'+')+'</button></div>';
   }).join('');
@@ -756,7 +866,7 @@ function smartCardRow(card,mode){
     ? '<b>'+Math.max(0,q-1)+'× te ruilen</b><span>'+q+'× totaal</span>'
     : '<b>'+(n>0?esc(money(n,(p&&p.currency)||'EUR')):'—')+'</b><span>'+q+'× in bezit</span>';
   return '<div class="smart-row">'+
-    (cardImage(card)?'<img src="'+esc(cardImage(card))+'" alt="'+esc(card.name)+'" loading="lazy">':'<div></div>')+
+    cardImgHtml(card)+
     '<div><h3>'+esc(card.name)+'</h3><p>'+esc(folderSetName(card.set))+' · '+esc(card.num)+'</p></div>'+
     '<div class="smart-row-right">'+right+'</div></div>';
 }
