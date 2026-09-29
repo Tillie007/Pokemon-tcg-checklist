@@ -424,7 +424,7 @@
 <div class="card-modal" id="cardModal"><div class="card-sheet"><button class="modal-back" id="modalBack" type="button">Terug</button><button class="modal-close" id="modalClose" type="button">×</button><div id="modalBody"></div></div></div>
 <div class="save-state" id="saveState">✓ Opgeslagen</div>
 <script>
-const APP_BUILD='20260929.7';
+const APP_BUILD='20260929.8';
 let SETS=[];
 let CARDS=[];
 let IMAGE_MAP={};
@@ -636,23 +636,35 @@ function applySyncPayload(state){
   if(CURRENT_SET){updateCurrentSetSummary();renderDetailCards(CURRENT_SET,{preserveScroll:true})}
   if(SMARTLIST_MODE&&document.querySelector('[data-screen="smartlist"]')?.classList.contains('active'))renderSmartList(SMARTLIST_MODE);
 }
-async function syncNow({silent=false}={}){
+async function syncNow({silent=false,allowCreate=false}={}){
   const cfg=getSyncConfig();if(!cfg||SYNC_BUSY||!navigator.onLine)return false;
   SYNC_BUSY=true;if(!silent)setSyncStatus('Synchroniseren…','syncing');
   try{
     let loaded=await cloudLoadRaw(cfg);
-    if(loaded&&loaded.ok===false)throw new Error(loaded.error||'Collectie-ID of pincode klopt niet');
-    const outer=loaded&&loaded.data&&typeof loaded.data==='object'?loaded.data:{};
-    const remote=outer.darkV3&&typeof outer.darkV3==='object'?outer.darkV3:null;
+    let outer={},remote=null,created=false;
+    if(loaded&&loaded.ok===false){
+      const loadMsg=String(loaded.error||'Collectie-ID of pincode klopt niet');
+      const missing=/geen collectie gevonden|not found|bestaat niet/i.test(loadMsg);
+      if(!allowCreate||!missing)throw new Error(loadMsg);
+      const local=localSyncPayload({stampMissing:true});
+      const firstPayload={darkV3:local};
+      const saved=await cloudSaveRaw(cfg,firstPayload);
+      if(saved&&saved.ok===false)throw new Error(saved.error||'Nieuwe cloudcollectie kon niet worden aangemaakt');
+      outer=firstPayload;remote=local;created=true;
+    }else{
+      outer=loaded&&loaded.data&&typeof loaded.data==='object'?loaded.data:{};
+      remote=outer.darkV3&&typeof outer.darkV3==='object'?outer.darkV3:null;
+    }
     const local=localSyncPayload({stampMissing:!remote});
     let merged=local;
-    if(remote){
+    if(remote&&!created){
       const m=mergeOwnedStates(local.owned,local.deletedOwned,remote.owned||{},remote.deletedOwned||{});
       merged={version:1,updatedAt:new Date().toISOString(),owned:m.owned,deletedOwned:m.deleted,listMeta:{...(local.listMeta||{}),...(remote.listMeta||{})}};
     }
     applySyncPayload(merged);
-    await cloudSaveRaw(cfg,{...outer,darkV3:merged});
-    SYNC_READY=true;setSyncStatus('Cloud sync actief · alles gelijk','ok');
+    const saved=await cloudSaveRaw(cfg,{...outer,darkV3:merged});
+    if(saved&&saved.ok===false)throw new Error(saved.error||'Cloudcollectie kon niet worden opgeslagen');
+    SYNC_READY=true;setSyncStatus(created?'Cloudcollectie aangemaakt · sync actief':'Cloud sync actief · alles gelijk','ok');
     return true;
   }catch(e){
     const msg=String(e&&e.message||e);
@@ -683,7 +695,7 @@ function bindSyncUi(){
     const id=document.getElementById('syncCollectionId')?.value.trim(),pin=document.getElementById('syncPin')?.value||'';
     if(!id||!pin){setSyncStatus('Vul Collectie-ID en pincode in','error');return}
     const previous=localStorage.getItem(SYNC_CONFIG_KEY);
-    setSyncConfig(id,pin);setSyncStatus('Eerste synchronisatie…','syncing');const ok=await syncNow();
+    setSyncConfig(id,pin);setSyncStatus('Eerste synchronisatie…','syncing');const ok=await syncNow({allowCreate:true});
     if(ok){openSyncModal();setTimeout(()=>modal.classList.remove('open'),650)}
     else if(previous==null)localStorage.removeItem(SYNC_CONFIG_KEY);else localStorage.setItem(SYNC_CONFIG_KEY,previous);
   };
