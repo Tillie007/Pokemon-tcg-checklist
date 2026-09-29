@@ -435,7 +435,7 @@
 <div class="card-modal" id="cardModal"><div class="card-sheet"><button class="modal-back" id="modalBack" type="button">Terug</button><button class="modal-close" id="modalClose" type="button">×</button><div id="modalBody"></div></div></div>
 <div class="save-state" id="saveState">✓ Opgeslagen</div>
 <script>
-const APP_BUILD='20260929.12';
+const APP_BUILD='20260929.13';
 let SETS=[];
 let CARDS=[];
 let IMAGE_MAP={};
@@ -901,26 +901,21 @@ function renderHomeSets(){
 
 function loadTcgCache(){try{TCG_PRICE_CACHE=JSON.parse(localStorage.getItem('pokemon_tcg_tcgplayer_cache_v1')||'{}')||{}}catch(e){TCG_PRICE_CACHE={}}}
 function saveTcgCache(){try{localStorage.setItem('pokemon_tcg_tcgplayer_cache_v1',JSON.stringify(TCG_PRICE_CACHE))}catch(e){}}
-function tcgdexCardId(card){
-  const e=imageEntry(card)||{};
-  const urls=[e.bestUrl].concat(Array.isArray(e.candidates)?e.candidates:[]).filter(Boolean);
+function tcgdexCardIds(card){
+  const out=[],push=id=>{if(id&&!out.includes(id))out.push(id)};
+  const e=imageEntry(card)||{},urls=[e.bestUrl].concat(Array.isArray(e.candidates)?e.candidates:[]).filter(Boolean);
   for(const raw of urls){
-    const u=String(raw);
-    if(!u.includes('assets.tcgdex.net/en/'))continue;
-    const parts=u.split('/');
-    const i=parts.indexOf('en');
-    if(i>=0 && parts.length>i+4){
-      const setId=parts[i+2],localId=parts[i+3];
-      if(setId&&localId)return setId+'-'+localId;
-    }
+    const u=String(raw);if(!u.includes('assets.tcgdex.net/en/'))continue;
+    const parts=u.split('/'),i=parts.indexOf('en');
+    if(i>=0&&parts.length>i+4){const setId=parts[i+2],localId=parts[i+3];if(setId&&localId)push(setId+'-'+localId)}
   }
+  if(TCGDEX_CARD_ID_CACHE[card.key])push(TCGDEX_CARD_ID_CACHE[card.key]);
   const dexSet=tcgdexSetForName(folderSetName(card.set))||tcgdexSetForName(card.set);
-  const localIds=tcgdexLocalIds(card.num);
-  if(dexSet&&dexSet.id&&localIds.length)return dexSet.id+'-'+localIds[0];
-  return '';
+  if(dexSet&&dexSet.id)for(const localId of tcgdexLocalIds(card.num))push(dexSet.id+'-'+localId);
+  return out;
 }
-async function resolveTcgdexCardId(card){
-  const direct=tcgdexCardId(card);if(direct)return direct;
+function tcgdexCardId(card){return tcgdexCardIds(card)[0]||''}
+async function searchTcgdexCardId(card){
   if(TCGDEX_CARD_ID_CACHE[card.key])return TCGDEX_CARD_ID_CACHE[card.key];
   try{
     const url='https://api.tcgdex.net/v2/en/cards?name='+encodeURIComponent(card.name);
@@ -988,33 +983,31 @@ async function getUsdEurRate(){
   return null;
 }
 async function fetchTcgMarket(card){
-  const id=await resolveTcgdexCardId(card);
-  if(!id)return null;
-  const cached=TCG_PRICE_CACHE[id];
-  if(cached&&cached.schema===2&&Date.now()-Number(cached.at||0)<86400000)return cached;
-  try{
-    const response=await fetch('https://api.tcgdex.net/v2/en/cards/'+encodeURIComponent(id));
-    if(!response.ok)return null;
-    const data=await response.json(),all=marketsFromTcgPricing(data),m=marketFromTcgPricing(data),cm=cardmarketFromTcgPricing(data);
-    const rate=Object.keys(all).length?await getUsdEurRate():null;
-    const variants={};Object.entries(all).forEach(([k,v])=>variants[k]={usd:v.usd,eur:rate?v.usd*rate:null,variant:v.variant});
-    const availability={
-      normal:data&&data.variants?data.variants.normal!==false:null,
-      holo:data&&data.variants?!!data.variants.holo:null,
-      reverse:data&&data.variants?!!data.variants.reverse:null
-    };
-    let primary=cm.normal||cm.foil||null;
-    if(!primary&&m)primary={usd:m.usd,eur:rate?m.usd*rate:null,variant:m.variant,source:'TCGplayer via TCGdex'};
-    const out={
-      schema:2,
-      usd:primary&&primary.usd!=null?primary.usd:null,
-      eur:primary&&primary.eur!=null?primary.eur:null,
-      variant:primary&&primary.variant||'',
-      variants,cardmarket:cm,availability,
-      at:Date.now(),source:primary&&primary.source||'TCGdex'
-    };
-    TCG_PRICE_CACHE[id]=out;saveTcgCache();return out;
-  }catch(e){return null}
+  const ids=tcgdexCardIds(card);
+  const fetchOne=async id=>{
+    const cached=TCG_PRICE_CACHE[id];
+    if(cached&&cached.schema===2&&Date.now()-Number(cached.at||0)<86400000)return cached;
+    try{
+      const response=await fetch('https://api.tcgdex.net/v2/en/cards/'+encodeURIComponent(id));
+      if(!response.ok)return null;
+      const data=await response.json(),all=marketsFromTcgPricing(data),m=marketFromTcgPricing(data),cm=cardmarketFromTcgPricing(data);
+      const rate=Object.keys(all).length?await getUsdEurRate():null;
+      const variants={};Object.entries(all).forEach(([k,v])=>variants[k]={usd:v.usd,eur:rate?v.usd*rate:null,variant:v.variant});
+      const availability={
+        normal:data&&data.variants?data.variants.normal!==false:null,
+        holo:data&&data.variants?!!data.variants.holo:null,
+        reverse:data&&data.variants?!!data.variants.reverse:null
+      };
+      let primary=cm.normal||cm.foil||null;
+      if(!primary&&m)primary={usd:m.usd,eur:rate?m.usd*rate:null,variant:m.variant,source:'TCGplayer via TCGdex'};
+      const out={schema:2,usd:primary&&primary.usd!=null?primary.usd:null,eur:primary&&primary.eur!=null?primary.eur:null,variant:primary&&primary.variant||'',variants,cardmarket:cm,availability,at:Date.now(),source:primary&&primary.source||'TCGdex'};
+      TCG_PRICE_CACHE[id]=out;TCGDEX_CARD_ID_CACHE[card.key]=id;saveTcgCache();return out;
+    }catch(e){return null}
+  };
+  for(const id of ids){const out=await fetchOne(id);if(out)return out}
+  const searched=await searchTcgdexCardId(card);
+  if(searched&&!ids.includes(searched))return fetchOne(searched);
+  return null;
 }
 function hydrateTcgPrices(cards){
   const byKey=new Map(cards.map(c=>[c.key,c]));
