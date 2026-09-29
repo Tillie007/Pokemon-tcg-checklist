@@ -424,7 +424,7 @@
 <div class="card-modal" id="cardModal"><div class="card-sheet"><button class="modal-back" id="modalBack" type="button">Terug</button><button class="modal-close" id="modalClose" type="button">×</button><div id="modalBody"></div></div></div>
 <div class="save-state" id="saveState">✓ Opgeslagen</div>
 <script>
-const APP_BUILD='20260929.8';
+const APP_BUILD='20260929.9';
 let SETS=[];
 let CARDS=[];
 let IMAGE_MAP={};
@@ -605,8 +605,8 @@ async function supabaseRpc(name,payload){
   if(!r.ok)throw new Error((data&&data.message)||('Cloudfout '+r.status));
   return data;
 }
-async function cloudLoadRaw(cfg){return supabaseRpc('load_pokemon_collection',{p_collection_id:cfg.collectionId,p_pin:cfg.pin})}
-async function cloudSaveRaw(cfg,data){return supabaseRpc('save_pokemon_collection',{p_collection_id:cfg.collectionId,p_pin:cfg.pin,p_data:data})}
+async function cloudLoadRaw(cfg){return supabaseRpc('load_pokemon_collection_v3',{p_collection_id:cfg.collectionId,p_pin:cfg.pin})}
+async function cloudSaveRaw(cfg,data){return supabaseRpc('save_pokemon_collection_v3',{p_collection_id:cfg.collectionId,p_pin:cfg.pin,p_data:data})}
 function ensureOwnedSyncTimes(owned){
   const now=Date.now();let changed=false;
   for(const [key,v] of Object.entries(owned||{})){if(!v||typeof v!=='object'){owned[key]={qty:qty(v),_syncAt:now};changed=true}else if(!Number(v._syncAt)){v._syncAt=now;changed=true}}
