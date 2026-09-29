@@ -81,6 +81,9 @@
 .set-logo img[data-failed="1"]{display:none}
 .card-tile{position:relative}
 .card-price-badge{position:absolute;left:7px;bottom:7px;z-index:3;padding:4px 7px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:rgba(7,10,16,.82);backdrop-filter:blur(8px);color:#fff;font-size:10px;font-weight:850}.card-price-badge.loading{color:#9da0aa;min-width:38px;text-align:center}.card-price-badge.missing{color:#767983}.variant-price.unavailable{opacity:.58}.variant-price.unavailable b{font-size:15px;color:#9b9da6}
+.search-meta{margin:10px 2px 14px;color:#83858e;font-size:12px}.search-results{display:grid;gap:10px;padding-bottom:28px}.search-empty{border:1px solid #2c2e36;border-radius:18px;background:#14151a;padding:24px;color:#8d9099;text-align:center;line-height:1.5}.search-card{position:relative;display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:13px;align-items:center;border:1px solid #2d2f37;border-radius:18px;background:#15161b;padding:10px;cursor:pointer;min-height:96px}.search-card:hover{border-color:#40434d}.search-thumb{position:relative;width:72px}.search-thumb>img{display:block;width:100%;border-radius:9px}.search-thumb .card-image-fallback{min-height:92px;border-radius:9px}.owned-check{position:absolute;right:-5px;top:-5px;display:grid;place-items:center;width:23px;height:23px;border:2px solid #15161b;border-radius:50%;background:#31d979;color:#06170d;font-size:13px;font-weight:1000;box-shadow:0 3px 10px rgba(0,0,0,.35)}.search-copy{min-width:0}.search-copy h3{margin:0 0 5px;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.search-copy p{margin:0;color:#8e9099;font-size:12px;line-height:1.4}.search-right{text-align:right;min-width:72px}.search-right .card-price-badge{position:static;display:inline-block}.search-right small{display:block;margin-top:6px;color:#6f727b;font-size:10px}.search-more{padding:10px;color:#777a83;text-align:center;font-size:11px}
+@media(max-width:560px){.search-card{grid-template-columns:58px minmax(0,1fr) auto;gap:10px}.search-thumb{width:58px}.search-copy h3{font-size:15px}.search-right{min-width:60px}.search-right small{display:none}}
+
 
 
 /* === PORTFOLIO V4: echte assen + werkende marktkeuze === */
@@ -413,7 +416,12 @@
   </div>
 </section>
 <section class="screen" data-screen="scanner"><div class="scanner-wrap"><div class="scan-head"><div class="kicker">Automatische herkenning</div><div class="scan-head-row"><h1 class="scan-title">Kaartscanner</h1><div class="scan-actions"><button class="small-round">↶</button><button class="small-round" data-go="overview">×</button></div></div></div><div class="camera"><div class="cam-pill left">● Kaart bijstellen</div><div class="cam-pill right">⌗ Automatisch AAN</div><div class="frame"></div></div><div class="scan-status"><div class="checks"><span class="ok">✓ Kaart in kader</span><span class="ok">✓ Licht goed</span><span>○ Stil en scherp</span></div><h3>Hou de kaart rustig; kleine beweging is oké</h3><p>Lijn de vier kaarthoeken uit met het kader.</p></div><div class="scan-controls"><button class="control">▧ Kies foto</button><button class="scan-now">⌗<br><small>Scan nu</small></button><button class="control">⌑ Flits aan</button></div></div></section>
-<section class="screen" data-screen="search"><div class="headrow sets-head"><div><div class="kicker">Kaarten zoeken</div><h1 class="page-title">Zoeken</h1></div></div><label class="search-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg><input placeholder="Zoek kaart, set of nummer"></label><div class="section"><div class="valuable"><div class="valuable-row"><div class="rank">1</div><img src="https://images.pokemontcg.io/sv9/168.png"><div><h4>Furret</h4><p>Journey Together · 168</p></div><div class="valprice"><b>€ 6,25</b></div></div><div class="valuable-row"><div class="rank">2</div><img src="https://images.pokemontcg.io/sv9/118.png"><div><h4>Sentret</h4><p>Journey Together · 118</p></div><div class="valprice"><b>€ 0,12</b></div></div></div></div></section>
+<section class="screen" data-screen="search">
+  <div class="headrow sets-head"><div><div class="kicker">Alle kaarten</div><h1 class="page-title">Zoeken</h1></div></div>
+  <label class="search-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg><input id="globalCardSearch" autocomplete="off" placeholder="Zoek kaart, set of nummer"></label>
+  <div class="search-meta" id="globalSearchMeta">Zoek in alle kaarten, ook kaarten die je nog niet hebt.</div>
+  <div class="search-results" id="globalSearchResults"><div class="search-empty">Typ bijvoorbeeld <b>Pikachu</b>, <b>025</b> of een setnaam.</div></div>
+</section>
 <section class="screen" data-screen="collection"><div class="port-head"><div class="port-title">Portfolio</div><div class="port-sub">12 unieke kaarten · 16 exemplaren</div></div><div class="section"><div class="valuable"><div class="valuable-row"><div class="rank">1</div><img src="https://images.pokemontcg.io/sv9/168.png"><div><h4>Furret</h4><p>Journey Together · 168</p></div><div class="valprice"><b>€ 6,25</b><span>1× in bezit</span></div></div><div class="valuable-row"><div class="rank">2</div><img src="https://images.pokemontcg.io/sv9/118.png"><div><h4>Sentret</h4><p>Journey Together · 118</p></div><div class="valprice"><b>€ 0,12</b><span>3× in bezit</span></div></div></div></div></section>
 </div>
 <nav class="bottom-nav" id="bottomNav"><button class="nav-btn active" data-go="overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg><span>Overzicht</span></button><button class="nav-btn" data-go="sets"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 5-9 5-9-5 9-5z"></path><path d="M3 12l9 5 9-5"></path><path d="M3 17l9 5 9-5"></path></svg><span>Sets</span></button><button class="nav-btn scanner-nav" data-go="scanner"><span class="scanner-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4"></path><path d="M15 3h4a2 2 0 0 1 2 2v4"></path><path d="M21 15v4a2 2 0 0 1-2 2h-4"></path><path d="M3 15v4a2 2 0 0 0 2 2h4"></path><path d="M8 12h8"></path></svg></span></button><button class="nav-btn" data-go="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg><span>Zoeken</span></button><button class="nav-btn" data-go="portfolio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path><path d="M7 15h3"></path></svg><span>Collectie</span></button></nav>
@@ -435,7 +443,7 @@
 <div class="card-modal" id="cardModal"><div class="card-sheet"><button class="modal-back" id="modalBack" type="button">Terug</button><button class="modal-close" id="modalClose" type="button">×</button><div id="modalBody"></div></div></div>
 <div class="save-state" id="saveState">✓ Opgeslagen</div>
 <script>
-const APP_BUILD='20260929.13';
+const APP_BUILD='20260929.14';
 let SETS=[];
 let CARDS=[];
 let IMAGE_MAP={};
@@ -460,6 +468,7 @@ let PRICE_HISTORY_CACHE=null;
 let TCGDEX_SET_INDEX=new Map();
 let TCGDEX_SET_INDEX_READY=false;
 let TCGDEX_CARD_ID_CACHE={};
+let COLLECTION_PRICE_REFRESH_TIMER=null;
 let PORTFOLIO_MARKET='cardmarket';
 let PORTFOLIO_RANGE=30;
 let QUICK_ADD=true;
@@ -492,7 +501,7 @@ function setVariantQty(card,type,n){
   current.variants={...ownedVariants(card)};current.variants[type]=n;
   current.qty=['normal','holo','reverse'].reduce((sum,k)=>sum+(Number(current.variants[k])||0),0);current._syncAt=Date.now();
   if(current.qty>0){OWNED[card.key]=current;clearOwnedDeleted(card.key)}else{delete OWNED[card.key];markOwnedDeleted(card.key,current._syncAt)}
-  localStorage.setItem(OWNED_KEY,JSON.stringify(OWNED));rebuildHaveCounts();updateOverviewStats();flashSaved();scheduleCloudSync();
+  localStorage.setItem(OWNED_KEY,JSON.stringify(OWNED));rebuildHaveCounts();updateOverviewStats();flashSaved();scheduleCloudSync();queueCollectionPriceRefresh(card);
 }
 function rebuildHaveCounts(){HAVE_COUNTS=new Map();for(const c of CARDS){if(ownedQty(c)>0){const k=c.series+'|||'+folderSetName(c.set);HAVE_COUNTS.set(k,(HAVE_COUNTS.get(k)||0)+1)}}}
 function flashSaved(){
@@ -519,7 +528,7 @@ function setOwnedQty(card,n){
     current._syncAt=at;OWNED[card.key]=current;clearOwnedDeleted(card.key);
   }else{delete OWNED[card.key];markOwnedDeleted(card.key,at)}
   localStorage.setItem(OWNED_KEY,JSON.stringify(OWNED));
-  rebuildHaveCounts();updateOverviewStats();flashSaved();scheduleCloudSync();
+  rebuildHaveCounts();updateOverviewStats();flashSaved();scheduleCloudSync();queueCollectionPriceRefresh(card);
 }
 function setHave(series,name){return HAVE_COUNTS.get(series+'|||'+name)||0}
 function priceFor(card){return PRICE_MAP.get(card.key)||null}
@@ -671,6 +680,8 @@ function applySyncPayload(state){
   rebuildHaveCounts();updateOverviewStats();renderHomeSets();renderSets(document.getElementById('setSearch')?.value||'');
   if(CURRENT_SET){updateCurrentSetSummary();renderDetailCards(CURRENT_SET,{preserveScroll:true})}
   if(SMARTLIST_MODE&&document.querySelector('[data-screen="smartlist"]')?.classList.contains('active'))renderSmartList(SMARTLIST_MODE);
+  if(document.querySelector('[data-screen="search"]')?.classList.contains('active'))renderGlobalSearch(document.getElementById('globalCardSearch')?.value||'');
+  queueCollectionPriceRefresh();
 }
 async function syncNow({silent=false,allowCreate=false}={}){
   const cfg=getSyncConfig();if(!cfg||SYNC_BUSY||!navigator.onLine)return false;
@@ -787,11 +798,7 @@ function updateCurrentSetSummary(){
   if(scans)scans.textContent=total;
   const valueNode=document.querySelector('[data-screen="setdetail"] .detail-stat:nth-child(3) b');
   if(valueNode){
-    const value=all.reduce((sum,c)=>{
-      const q=ownedQty(c);if(!q)return sum;
-      const p=priceFor(c)||{};const n=Number(p.price||p.trendPrice||0);
-      return sum+(Number.isFinite(n)?n*q:0);
-    },0);
+    const value=all.reduce((sum,c)=>ownedQty(c)>0?sum+ownedCardMarketValue(c):sum,0);
     valueNode.textContent=money(value,'EUR');
   }
 }
@@ -1149,6 +1156,7 @@ async function openCardModal(key,days=30){
     setVariantQty(card,type,(Number(ownedVariants(card)[type])||0)+delta);
     updateCardCollectionUi(card);updateCurrentSetSummary();
     if(CURRENT_SET){renderDetailCards(CURRENT_SET,{preserveScroll:false});renderHomeSets();renderSets(document.getElementById('setSearch')?.value||'')}
+    if(CARD_DETAIL_RETURN&&CARD_DETAIL_RETURN.screen==='search')renderGlobalSearch(document.getElementById('globalCardSearch')?.value||'');
   };
   body.querySelectorAll('[data-vminus]').forEach(b=>b.onclick=()=>variantChange(b.dataset.vminus,-1));
   body.querySelectorAll('[data-vplus]').forEach(b=>b.onclick=()=>variantChange(b.dataset.vplus,1));
@@ -1248,30 +1256,100 @@ function overviewMetrics(){
   }
   return {unique,copies,completed:completedSets().length,duplicates,trade,favorites,wishlist};
 }
+function cachedTcgForCard(card){
+  for(const id of tcgdexCardIds(card)){const p=TCG_PRICE_CACHE[id];if(p&&p.schema===2)return p}
+  const mapped=TCGDEX_CARD_ID_CACHE[card.key];return mapped&&TCG_PRICE_CACHE[mapped]&&TCG_PRICE_CACHE[mapped].schema===2?TCG_PRICE_CACHE[mapped]:null;
+}
+function directCardmarketPrices(card){
+  const p=priceFor(card)||{};
+  const normal=Number(p.trendPrice||p.price||p.avg7||p.avg30||p.lowPrice||0);
+  const foil=Number(p.foilTrendPrice||p.foilAvg7||p.foilAvg30||p.foilSellPrice||p.foilLowPrice||0);
+  return {normal:normal>0?normal:0,foil:foil>0?foil:0};
+}
+function cardVariantUnitPrices(card){
+  const direct=directCardmarketPrices(card),tcg=cachedTcgForCard(card),tv=tcg&&tcg.variants||{},cm=tcg&&tcg.cardmarket||{};
+  const normal=direct.normal||Number(cm.normal&&cm.normal.eur)||Number(tv.normal&&tv.normal.eur)||0;
+  const foil=direct.foil||Number(cm.foil&&cm.foil.eur)||0;
+  const holo=foil||Number(tv.holo&&tv.holo.eur)||0;
+  const reverse=Number(tv.reverse&&tv.reverse.eur)||foil||0;
+  return {normal:normal>0?normal:0,holo:holo>0?holo:0,reverse:reverse>0?reverse:0};
+}
+function ownedCardMarketValue(card){
+  const v=ownedVariants(card),p=cardVariantUnitPrices(card);
+  return (Number(v.normal)||0)*p.normal+(Number(v.holo)||0)*p.holo+(Number(v.reverse)||0)*p.reverse;
+}
+function ownedCardBestUnit(card){
+  const v=ownedVariants(card),p=cardVariantUnitPrices(card),choices=[];
+  if(Number(v.normal)>0&&p.normal>0)choices.push({value:p.normal,type:'Normaal'});
+  if(Number(v.holo)>0&&p.holo>0)choices.push({value:p.holo,type:'Holo'});
+  if(Number(v.reverse)>0&&p.reverse>0)choices.push({value:p.reverse,type:'Reverse'});
+  if(!choices.length&&p.normal>0)choices.push({value:p.normal,type:'Normaal'});
+  return choices.sort((a,b)=>b.value-a.value)[0]||{value:0,type:''};
+}
+function needsOwnedPriceFetch(card){
+  const v=ownedVariants(card),p=cardVariantUnitPrices(card);
+  return (Number(v.normal)>0&&!p.normal)||(Number(v.holo)>0&&!p.holo)||(Number(v.reverse)>0&&!p.reverse);
+}
+function queueCollectionPriceRefresh(card=null){
+  clearTimeout(COLLECTION_PRICE_REFRESH_TIMER);
+  COLLECTION_PRICE_REFRESH_TIMER=setTimeout(async()=>{
+    const rows=(card?[card]:ownedCards()).filter(needsOwnedPriceFetch);
+    if(!rows.length)return;
+    const queue=rows.slice(),worker=async()=>{while(queue.length){const x=queue.shift();if(x)await fetchTcgMarket(x)}};
+    await Promise.all([worker(),worker(),worker()]);
+    updateOverviewStats();
+    if(CURRENT_SET)updateCurrentSetSummary();
+    if(document.querySelector('[data-screen="portfolio"]')?.classList.contains('active'))renderPortfolio().catch(()=>{});
+    const q=document.getElementById('globalCardSearch')?.value||'';
+    if(document.querySelector('[data-screen="search"]')?.classList.contains('active')&&q.trim())renderGlobalSearch(q);
+  },80);
+}
+function searchCardScore(card,needle,tokens){
+  const name=imageMatchKey(card.name),set=imageMatchKey(folderSetName(card.set)),series=imageMatchKey(card.series),num=imageMatchKey(card.num),abbr=imageMatchKey(card.abbr||'');
+  const hay=[name,set,series,num,abbr].join(' ');
+  if(!tokens.every(t=>hay.includes(t)))return -1;
+  let score=0;
+  if(name===needle)score+=1000;
+  if(name.startsWith(needle))score+=500;
+  if(num===needle)score+=420;
+  if(abbr===needle)score+=300;
+  if(name.includes(needle))score+=220;
+  if(set.includes(needle))score+=100;
+  if(ownedQty(card)>0)score+=15;
+  return score;
+}
+function renderGlobalSearch(query=''){
+  const host=document.getElementById('globalSearchResults'),meta=document.getElementById('globalSearchMeta');if(!host)return;
+  const raw=String(query||'').trim(),needle=imageMatchKey(raw),tokens=needle.split(' ').filter(Boolean);
+  if(!needle){
+    if(meta)meta.textContent='Zoek in '+CARDS.length.toLocaleString('nl-BE')+' kaarten, ook kaarten die je nog niet hebt.';
+    host.innerHTML='<div class="search-empty">Typ bijvoorbeeld <b>Pikachu</b>, <b>025</b> of een setnaam.</div>';return;
+  }
+  const rows=CARDS.map(card=>({card,score:searchCardScore(card,needle,tokens)})).filter(x=>x.score>=0).sort((a,b)=>b.score-a.score||String(a.card.name).localeCompare(String(b.card.name))).map(x=>x.card);
+  const shown=rows.slice(0,120);
+  if(meta)meta.textContent=rows.length+' resultaat'+(rows.length===1?'':'en')+(rows.length>120?' · eerste 120 getoond':'')+' · groen vinkje = in bezit';
+  host.innerHTML=shown.length?shown.map(card=>{
+    const p=directCardmarketPrices(card),owned=ownedQty(card)>0;
+    return '<div class="search-card" data-search-card="'+esc(card.key)+'"><div class="search-thumb">'+cardImgHtml(card)+(owned?'<span class="owned-check">✓</span>':'')+'</div><div class="search-copy"><h3>'+esc(card.name)+'</h3><p>'+esc(folderSetName(card.set))+' · '+esc(card.num)+(card.abbr?' · '+esc(card.abbr):'')+'</p></div><div class="search-right"><span class="card-price-badge '+(p.normal?'':'loading')+'" data-price-key="'+esc(card.key)+'" '+(p.normal?'':'data-needs-price="1"')+'>'+(p.normal?esc(money(p.normal,'EUR')):'…')+'</span>'+(owned?'<small>'+ownedQty(card)+'× in bezit</small>':'')+'</div></div>';
+  }).join(''):'<div class="search-empty">Geen kaarten gevonden voor <b>'+esc(raw)+'</b>.</div>';
+  host.querySelectorAll('[data-search-card]').forEach(el=>el.onclick=()=>openCardModal(el.dataset.searchCard));
+  hydrateTcgPrices(shown);
+}
 function renderHomeCollection(){
-  const owned=ownedCards();
-  const total=currentCardmarketTotal();
-  const value=document.getElementById('overviewValue'); if(value)value.textContent=money(total,'EUR');
-  // Update every Portfolio tile; avoids stale demo value in responsive/duplicated markup.
+  const owned=ownedCards(),total=currentCardmarketTotal();
+  const value=document.getElementById('overviewValue');if(value)value.textContent=money(total,'EUR');
   document.querySelectorAll('.stat').forEach(el=>{
-    if(el.querySelector('small')?.textContent.trim()==='Portfolio'){
-      const b=el.querySelector('b'); if(b)b.textContent=money(total,'EUR');
-    }
+    if(el.querySelector('small')?.textContent.trim()==='Portfolio'){const b=el.querySelector('b');if(b)b.textContent=money(total,'EUR')}
   });
   const sections=[...document.querySelectorAll('[data-screen="overview"] .section')].filter(el=>el.querySelector('.section-title span')?.textContent.trim()==='Waardevolste kaarten');
   sections.forEach(section=>{
-    const host=section.querySelector('.valuable');
-    if(host){
-      const rows=owned.slice().sort((a,b)=>{
-        const pa=priceFor(a)||{},pb=priceFor(b)||{};
-        return Number(pb.trendPrice||pb.price||0)*ownedQty(b)-Number(pa.trendPrice||pa.price||0)*ownedQty(a);
-      }).slice(0,3);
-      host.innerHTML=rows.length?rows.map((card,i)=>{
-        const p=priceFor(card)||{},n=Number(p.trendPrice||p.price||0),q=ownedQty(card);
-        return '<div class="valuable-row" data-card-detail="'+esc(card.key)+'"><div class="rank">'+(i+1)+'</div>'+cardImgHtml(card)+'<div><h4>'+esc(card.name)+'</h4><p>'+esc(folderSetName(card.set))+' · '+esc(card.num)+'</p></div><div class="valprice"><b>'+esc(n>0?money(n*q,p.currency||'EUR'):'—')+'</b><span>'+q+'× in bezit</span></div></div>';
-      }).join(''):'<div class="smart-empty">Nog geen kaarten in je collectie.</div>';
-      host.querySelectorAll('[data-card-detail]').forEach(el=>el.onclick=()=>openCardModal(el.dataset.cardDetail));
-    }
+    const host=section.querySelector('.valuable');if(!host)return;
+    const rows=owned.slice().sort((a,b)=>ownedCardBestUnit(b).value-ownedCardBestUnit(a).value).slice(0,3);
+    host.innerHTML=rows.length?rows.map((card,i)=>{
+      const one=ownedCardBestUnit(card),q=ownedQty(card);
+      return '<div class="valuable-row" data-card-detail="'+esc(card.key)+'"><div class="rank">'+(i+1)+'</div>'+cardImgHtml(card)+'<div><h4>'+esc(card.name)+'</h4><p>'+esc(folderSetName(card.set))+' · '+esc(card.num)+'</p></div><div class="valprice"><b>'+esc(one.value>0?money(one.value,'EUR'):'—')+'</b><span>'+esc(one.type||(q+'× in bezit'))+(one.type?' · per kaart':'')+'</span></div></div>';
+    }).join(''):'<div class="smart-empty">Nog geen kaarten in je collectie.</div>';
+    host.querySelectorAll('[data-card-detail]').forEach(el=>el.onclick=()=>openCardModal(el.dataset.cardDetail));
   });
 }
 function updateOverviewStats(){
@@ -1322,11 +1400,7 @@ function bindOverviewSubmenus(){
 
 function ownedCards(){return CARDS.filter(c=>ownedQty(c)>0)}
 function currentCardmarketTotal(){
-  return ownedCards().reduce((sum,c)=>{
-    const p=priceFor(c)||{};
-    const n=Number(p.trendPrice||p.price||0);
-    return sum+(Number.isFinite(n)?n*ownedQty(c):0);
-  },0);
+  return ownedCards().reduce((sum,c)=>sum+ownedCardMarketValue(c),0);
 }
 async function loadPriceHistory(){
   if(PRICE_HISTORY_CACHE)return PRICE_HISTORY_CACHE;
@@ -1580,6 +1654,7 @@ function show(name,writeHash=true){
 function bindStaticControls(){
   document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();show(el.dataset.go)}));
   document.getElementById('setSearch')?.addEventListener('input',e=>renderSets(e.target.value));
+  document.getElementById('globalCardSearch')?.addEventListener('input',e=>renderGlobalSearch(e.target.value));
   document.querySelectorAll('.segmented button').forEach((btn,i)=>btn.addEventListener('click',()=>{btn.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');DETAIL_FILTER=i===1?'missing':(i===2?'owned':'all');if(CURRENT_SET)renderDetailCards(CURRENT_SET,{preserveScroll:true})}));
   document.querySelectorAll('.ranges [data-days]').forEach(btn=>btn.addEventListener('click',()=>{PORTFOLIO_RANGE=Number(btn.dataset.days)||30;renderPortfolio().catch(console.error)}));
   document.querySelectorAll('[data-market]').forEach(btn=>btn.addEventListener('click',()=>{PORTFOLIO_MARKET=btn.dataset.market==='tcgplayer'?'tcgplayer':'cardmarket';document.querySelectorAll('[data-market]').forEach(b=>b.classList.toggle('active',b===btn));const val=document.getElementById('portfolioMarketValue');const chart=document.getElementById('portfolioChart');if(val)val.textContent='…';if(chart)chart.innerHTML='<div class="chart-loading">'+(PORTFOLIO_MARKET==='tcgplayer'?'TCGplayer-prijzen ophalen…':'Cardmarket-historiek laden…')+'</div>';renderPortfolio().catch(console.error)}));
@@ -1606,10 +1681,11 @@ async function loadRealDatabase(){
   rebuildHaveCounts();
   IMAGE_MAP=images.images||{};
   PRICE_MAP=new Map((prices.prices||[]).map(p=>[p.key,p]));
-  renderSeriesChips();renderSets();renderHomeSets();updateOverviewStats();
+  renderSeriesChips();renderSets();renderHomeSets();updateOverviewStats();renderGlobalSearch(document.getElementById('globalCardSearch')?.value||'');
   refreshOverviewHistory();
   loadTcgdexSetIndex();
   await autoSyncStart();
+  queueCollectionPriceRefresh();
 }
 async function checkForAppUpdate(){
   try{
