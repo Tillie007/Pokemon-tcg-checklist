@@ -424,7 +424,7 @@
 <div class="card-modal" id="cardModal"><div class="card-sheet"><button class="modal-back" id="modalBack" type="button">Terug</button><button class="modal-close" id="modalClose" type="button">×</button><div id="modalBody"></div></div></div>
 <div class="save-state" id="saveState">✓ Opgeslagen</div>
 <script>
-const APP_BUILD='20260929.5';
+const APP_BUILD='20260929.6';
 let SETS=[];
 let CARDS=[];
 let IMAGE_MAP={};
@@ -655,8 +655,10 @@ async function syncNow({silent=false}={}){
     SYNC_READY=true;setSyncStatus('Cloud sync actief · alles gelijk','ok');
     return true;
   }catch(e){
-    setSyncStatus('Syncfout · tik om te controleren','error');
-    if(!silent){const info=document.getElementById('syncInfo');if(info)info.textContent='Synchronisatie mislukt: '+String(e.message||e)}
+    const msg=String(e&&e.message||e);
+    const network=/failed to fetch|networkerror|load failed/i.test(msg);
+    setSyncStatus(network?'Cloud niet bereikbaar · ID nog niet gecontroleerd':'Syncfout · tik om te controleren','error');
+    if(!silent){const info=document.getElementById('syncInfo');if(info)info.textContent=network?'Cloudverbinding niet bereikbaar. De Collectie-ID en pincode zijn nog niet gecontroleerd.':'Synchronisatie mislukt: '+msg}
     return false;
   }finally{SYNC_BUSY=false}
 }
@@ -680,7 +682,10 @@ function bindSyncUi(){
   if(connect)connect.onclick=async()=>{
     const id=document.getElementById('syncCollectionId')?.value.trim(),pin=document.getElementById('syncPin')?.value||'';
     if(!id||!pin){setSyncStatus('Vul Collectie-ID en pincode in','error');return}
-    setSyncConfig(id,pin);setSyncStatus('Eerste synchronisatie…','syncing');const ok=await syncNow();if(ok){openSyncModal();setTimeout(()=>modal.classList.remove('open'),650)}
+    const previous=localStorage.getItem(SYNC_CONFIG_KEY);
+    setSyncConfig(id,pin);setSyncStatus('Eerste synchronisatie…','syncing');const ok=await syncNow();
+    if(ok){openSyncModal();setTimeout(()=>modal.classList.remove('open'),650)}
+    else if(previous==null)localStorage.removeItem(SYNC_CONFIG_KEY);else localStorage.setItem(SYNC_CONFIG_KEY,previous);
   };
   if(now)now.onclick=()=>syncNow();
   if(disc)disc.onclick=()=>{localStorage.removeItem(SYNC_CONFIG_KEY);SYNC_READY=false;setSyncStatus('Cloud sync instellen');modal.classList.remove('open')};
