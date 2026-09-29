@@ -104,12 +104,12 @@ TREND_FIELDS = ["Trend Price", "trendPrice", "trend", "TREND", "priceTrend", "tr
 AVG30_FIELDS = ["AVG30", "avg30", "average30", "avg30Days", "avg30day", "thirtyDayAverage"]
 AVG7_FIELDS = ["AVG7", "avg7", "average7", "avg7Days", "sevenDayAverage"]
 AVG1_FIELDS = ["AVG1", "avg1", "average1", "avg1Days", "oneDayAverage"]
-FOIL_LOW_FIELDS = ["Foil Low", "low-foil", "lowFoil", "LOWFOIL", "foilLowPrice"]
-FOIL_TREND_FIELDS = ["Foil Trend", "trend-foil", "trendFoil", "TRENDFOIL", "foilTrendPrice"]
-FOIL_AVG30_FIELDS = ["Foil AVG30", "avg30-foil", "avg30Foil", "foilAvg30"]
-FOIL_AVG7_FIELDS = ["Foil AVG7", "avg7-foil", "avg7Foil", "foilAvg7"]
-FOIL_AVG1_FIELDS = ["Foil AVG1", "avg1-foil", "avg1Foil", "foilAvg1"]
-FOIL_SELL_FIELDS = ["Foil Sell", "foilSell", "foilSellPrice", "avgFoilSell"]
+FOIL_LOW_FIELDS = ["Foil Low", "low-foil", "low-holo", "lowFoil", "LOWFOIL", "foilLowPrice"]
+FOIL_TREND_FIELDS = ["Foil Trend", "trend-foil", "trend-holo", "trendFoil", "TRENDFOIL", "foilTrendPrice"]
+FOIL_AVG30_FIELDS = ["Foil AVG30", "avg30-foil", "avg30-holo", "avg30Foil", "foilAvg30"]
+FOIL_AVG7_FIELDS = ["Foil AVG7", "avg7-foil", "avg7-holo", "avg7Foil", "foilAvg7"]
+FOIL_AVG1_FIELDS = ["Foil AVG1", "avg1-foil", "avg1-holo", "avg1Foil", "foilAvg1"]
+FOIL_SELL_FIELDS = ["Foil Sell", "avg-holo", "foilSell", "foilSellPrice", "avgFoilSell"]
 
 # De app toont maximaal één jaar prijsgeschiedenis. De recente periode blijft
 # dagelijks; oudere punten worden per ISO-week samengevat. Zo groeit het
