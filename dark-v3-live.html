@@ -424,7 +424,7 @@
 <div class="card-modal" id="cardModal"><div class="card-sheet"><button class="modal-back" id="modalBack" type="button">Terug</button><button class="modal-close" id="modalClose" type="button">×</button><div id="modalBody"></div></div></div>
 <div class="save-state" id="saveState">✓ Opgeslagen</div>
 <script>
-const APP_BUILD='20260929.4';
+const APP_BUILD='20260929.5';
 let SETS=[];
 let CARDS=[];
 let IMAGE_MAP={};
@@ -622,8 +622,8 @@ function mergeOwnedStates(localOwned,localDeleted,remoteOwned,remoteDeleted){
   }
   return {owned,deleted};
 }
-function localSyncPayload(){
-  ensureOwnedSyncTimes(OWNED);
+function localSyncPayload({stampMissing=false}={}){
+  if(stampMissing)ensureOwnedSyncTimes(OWNED);
   return {version:1,updatedAt:new Date().toISOString(),owned:OWNED,deletedOwned:readDeletedOwned(),listMeta:readListMeta()};
 }
 function applySyncPayload(state){
@@ -644,11 +644,11 @@ async function syncNow({silent=false}={}){
     if(loaded&&loaded.ok===false)throw new Error(loaded.error||'Collectie-ID of pincode klopt niet');
     const outer=loaded&&loaded.data&&typeof loaded.data==='object'?loaded.data:{};
     const remote=outer.darkV3&&typeof outer.darkV3==='object'?outer.darkV3:null;
-    const local=localSyncPayload();
+    const local=localSyncPayload({stampMissing:!remote});
     let merged=local;
     if(remote){
       const m=mergeOwnedStates(local.owned,local.deletedOwned,remote.owned||{},remote.deletedOwned||{});
-      merged={version:1,updatedAt:new Date().toISOString(),owned:m.owned,deletedOwned:m.deleted,listMeta:{...(remote.listMeta||{}),...(local.listMeta||{})}};
+      merged={version:1,updatedAt:new Date().toISOString(),owned:m.owned,deletedOwned:m.deleted,listMeta:{...(local.listMeta||{}),...(remote.listMeta||{})}};
     }
     applySyncPayload(merged);
     await cloudSaveRaw(cfg,{...outer,darkV3:merged});
