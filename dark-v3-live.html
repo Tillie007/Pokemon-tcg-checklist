@@ -1416,6 +1416,12 @@ function historyValue(row){
 function isoCutoff(days){
   const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-Math.max(1,days-1));return d.toISOString().slice(0,10);
 }
+function historicalOwnedCardValue(card,row){
+  const normal=historyValue(row),foil=Number(row&&row[5]),v=ownedVariants(card);
+  if(!Number.isFinite(normal))return NaN;
+  const foilValue=Number.isFinite(foil)&&foil>0?foil:normal;
+  return (Number(v.normal)||0)*normal+(Number(v.holo)||0)*foilValue+(Number(v.reverse)||0)*foilValue;
+}
 async function cardmarketPortfolioSeries(days){
   const hist=await loadPriceHistory();
   const cards=ownedCards();
@@ -1426,7 +1432,7 @@ async function cardmarketPortfolioSeries(days){
     const rows=(hist[card.key]||[]).filter(r=>Array.isArray(r)&&r[0]>=cutoff).slice().sort((a,b)=>String(a[0]).localeCompare(String(b[0])));
     if(!rows.length)continue;
     rows.forEach(r=>allDates.add(String(r[0])));
-    perCard.push({card,rows,qty:ownedQty(card)});
+    perCard.push({card,rows});
   }
   let dates=[...allDates].sort();
   if(!dates.length)return {points:[],covered:0,total:cards.length};
@@ -1436,8 +1442,8 @@ async function cardmarketPortfolioSeries(days){
       let chosen=null;
       for(const row of entry.rows){if(String(row[0])<=date)chosen=row;else break}
       if(!chosen)continue;
-      const v=historyValue(chosen);
-      if(Number.isFinite(v)){total+=v*entry.qty;covered++}
+      const value=historicalOwnedCardValue(entry.card,chosen);
+      if(Number.isFinite(value)){total+=value;covered++}
     }
     return {date,value:total,covered};
   }).filter(p=>p.covered>0&&Number.isFinite(p.value));
@@ -1452,14 +1458,22 @@ function saveTcgPortfolioSnapshot(value,priced,total){
   rows=rows.sort((a,b)=>String(a.date).localeCompare(String(b.date))).slice(-365);
   try{localStorage.setItem(TCG_PORTFOLIO_HISTORY_KEY,JSON.stringify(rows))}catch(e){}
 }
+function tcgOwnedCardValue(card,p){
+  if(!p)return 0;
+  const v=ownedVariants(card),tv=p.variants||{},fallback=Number(p.eur)||0;
+  const normal=Number(tv.normal&&tv.normal.eur)||fallback;
+  const holo=Number(tv.holo&&tv.holo.eur)||fallback;
+  const reverse=Number(tv.reverse&&tv.reverse.eur)||fallback;
+  return (Number(v.normal)||0)*normal+(Number(v.holo)||0)*holo+(Number(v.reverse)||0)*reverse;
+}
 async function tcgPortfolioCurrent(){
   const cards=ownedCards();
   let value=0,priced=0;
   const queue=cards.slice();
   const worker=async()=>{while(queue.length){
-    const card=queue.shift(); if(!card)break;
-    const p=await fetchTcgMarket(card);
-    if(p&&Number.isFinite(Number(p.eur))&&Number(p.eur)>0){value+=Number(p.eur)*ownedQty(card);priced++}
+    const card=queue.shift();if(!card)break;
+    const p=await fetchTcgMarket(card),cardValue=tcgOwnedCardValue(card,p);
+    if(cardValue>0){value+=cardValue;priced++}
   }};
   await Promise.all([worker(),worker(),worker(),worker()]);
   saveTcgPortfolioSnapshot(value,priced,cards.length);
