@@ -1,8 +1,10 @@
-const CACHE_NAME = 'pokemon-tcg-checklist-scanner-v5';
+const CACHE_NAME = 'pokemon-tcg-checklist-scanner-v6';
 
 const FRESH_PATHS = new Set([
   '/Pokemon-tcg-checklist/',
   '/Pokemon-tcg-checklist/index.html',
+  '/Pokemon-tcg-checklist/dark-v3-live.html',
+  '/Pokemon-tcg-checklist/dark-v3-manifest.webmanifest',
   '/Pokemon-tcg-checklist/scanner.css',
   '/Pokemon-tcg-checklist/scanner-match.js',
   '/Pokemon-tcg-checklist/scanner.js',
