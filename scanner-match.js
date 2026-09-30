@@ -150,7 +150,8 @@
     const nameTokens = meaningfulTokens(name);
     if (!nameTokens.length) return 0;
     const textTokens = text.split(' ').filter(Boolean);
-    const exactCoverage = nameTokens.filter(token => textTokens.includes(token)).length / nameTokens.length;
+    const exactMatches = nameTokens.filter(token => textTokens.includes(token)).length;
+    const exactCoverage = exactMatches / nameTokens.length;
     let best = exactCoverage * 0.9;
 
     const targetCompact = compactText(nameTokens.join(' '));
@@ -166,6 +167,9 @@
     }
 
     if (nameTokens.some(token => token.length >= 5 && textTokens.includes(token))) best = Math.max(best, 0.78);
+    // OCR-ruis mag niet via louter Levenshtein-afstand als een "herkende naam"
+    // tellen. Zonder één echt naamtoken blijft fuzzy herkenning bewust beperkt.
+    if (exactMatches === 0) best = Math.min(best, 0.66);
     return clamp(best, 0, 1);
   }
 
@@ -244,24 +248,28 @@
       const visualEvaluated = Object.prototype.hasOwnProperty.call(visualScores, card.key);
       const rawVisual = Number(visualScores[card.key]);
       const visualScore = Number.isFinite(rawVisual) ? clamp(rawVisual, 0, 1) : 0;
-      const usefulVisual = visualScore >= 0.48 ? (visualScore - 0.48) / 0.52 : 0;
-      const visualRelative = visualEvaluated && visualBest >= 0.6
-        ? clamp((visualScore - (visualBest - 0.24)) / 0.24, 0, 1)
+      const usefulVisual = visualScore >= 0.56 ? clamp((visualScore - 0.56) / 0.34, 0, 1) : 0;
+      const visualRelative = visualEvaluated && visualBest >= 0.66
+        ? clamp((visualScore - (visualBest - 0.18)) / 0.18, 0, 1)
         : usefulVisual;
+      // Relatief "beste van een slechte groep" is geen sterk bewijs.
+      // De absolute gelijkenis bepaalt voortaan het grootste deel van de beeldscore.
+      const visualEvidence = (usefulVisual * 0.82) + (visualRelative * 0.18);
       let effectiveNumberScore = number.value;
       if (visualEvaluated && visualBest >= 0.76) {
         const visualGap = visualBest - visualScore;
         if (visualGap >= 0.18) effectiveNumberScore *= 0.12;
         else if (visualGap >= 0.09) effectiveNumberScore *= 0.45;
       }
-      const onlyNumber = nameScore < 0.38 && effectiveNumberScore > 0 && setScore < 0.55 && visualRelative < 0.55;
+      const onlyNumber = nameScore < 0.38 && effectiveNumberScore > 0 && setScore < 0.55 && visualEvidence < 0.55;
 
-      let score = (nameScore * 58) + (effectiveNumberScore * 26) + (setScore * 10) + (visualRelative * 42);
+      let score = (nameScore * 56) + (effectiveNumberScore * 28) + (setScore * 10) + (visualEvidence * 34);
       if (nameScore >= 0.76 && number.value >= 0.82) score += 10;
       if (nameScore >= 0.84 && setScore >= 0.65) score += 5;
-      if (number.value >= 0.82 && visualRelative >= 0.72) score += 6;
-      if (nameScore >= 0.72 && visualRelative >= 0.78) score += 8;
+      if (number.value >= 0.82 && visualScore >= 0.76) score += 6;
+      if (nameScore >= 0.72 && visualScore >= 0.78) score += 8;
       if (visualEvaluated && visualBest >= 0.76 && (visualBest - visualScore) >= 0.18 && nameScore < 0.55) score -= 8;
+      if (visualEvaluated && visualScore < 0.62 && effectiveNumberScore < 0.82) score -= 8;
       if (onlyNumber) score = Math.min(score, visualEvaluated ? 30 : 42);
       if (unown && !explicitUnown) score = Math.min(score, 18);
       if (score < 18) return;
@@ -284,6 +292,7 @@
         visualScore,
         usefulVisual,
         visualRelative,
+        visualEvidence,
         visualEvaluated,
         visualBest,
         onlyNumber,
@@ -303,13 +312,15 @@
     const second = rows[1];
     const gap = top.score - (second ? second.score : 0);
     const multiSignal = top.signals.length >= 2;
+    const strongImage = top.visualEvaluated && top.visualScore >= 0.78;
+    const strongText = top.nameScore >= 0.78 && top.numberScore >= 0.82;
     const high = !top.onlyNumber && top.score >= 82 && gap >= 11 && multiSignal && (
-      top.nameScore >= 0.68 || (top.visualRelative >= 0.9 && top.numberScore >= 0.82)
+      strongText || (strongImage && (top.nameScore >= 0.58 || top.numberScore >= 0.82))
     );
     if (high) return { level: 'high', autoSelect: true, gap, label: 'Zeer betrouwbare match' };
     if (!top.onlyNumber && (
-      (top.score >= 56 && (top.nameScore >= 0.48 || top.visualRelative >= 0.72)) ||
-      (top.score >= 40 && top.visualRelative >= 0.9)
+      (top.score >= 56 && (top.nameScore >= 0.48 || top.visualScore >= 0.70)) ||
+      (top.score >= 46 && top.visualScore >= 0.78)
     )) {
       return { level: 'medium', autoSelect: false, gap, label: 'Waarschijnlijke match — controleer even' };
     }
