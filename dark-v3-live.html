@@ -475,7 +475,7 @@
 </div>
 <div class="save-state" id="saveState">✓ Opgeslagen</div>
 <script>
-const APP_BUILD='20260930.3';
+const APP_BUILD='20260930.4';
 let SETS=[];
 let CARDS=[];
 let IMAGE_MAP={};
@@ -1786,7 +1786,7 @@ function bindStaticControls(){
   document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{
     e.preventDefault();
     const target=el.dataset.go;
-    if(target==='scanner'&&window.PokemonCardScanner&&typeof window.PokemonCardScanner.open==='function'){window.PokemonCardScanner.open();return}
+    if(target==='scanner'&&window.PokemonCardScanner&&typeof window.PokemonCardScanner.open==='function'){e.stopImmediatePropagation();window.PokemonCardScanner.open();return}
     show(target);
   }));
   document.getElementById('setSearch')?.addEventListener('input',e=>renderSets(e.target.value));
