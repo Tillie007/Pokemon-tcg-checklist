@@ -10,6 +10,7 @@
 <link rel="manifest" href="dark-v3-manifest.webmanifest">
 <link rel="apple-touch-icon" sizes="180x180" href="icons/dark-v3-icon.jpg?v=20260928b">
 <link rel="icon" type="image/jpeg" href="icons/dark-v3-icon.jpg?v=20260928b">
+<link rel="stylesheet" href="scanner.css?v=2.1.1">
 <title>Pokémon TCG Collectie</title>
 <style>
 :root{--bg:#000;--panel:#1b1b20;--panel2:#15161c;--line:#34343d;--muted:#9a9aa4;--blue:#1ca5ff;--blue2:#1498f5;--green:#34df78;--red:#ff6178;--white:#f7f7fa}
@@ -474,7 +475,7 @@
 </div>
 <div class="save-state" id="saveState">✓ Opgeslagen</div>
 <script>
-const APP_BUILD='20260930.1';
+const APP_BUILD='20260930.2';
 let SETS=[];
 let CARDS=[];
 let IMAGE_MAP={};
@@ -1098,7 +1099,8 @@ function renderDetailCards(s,{preserveScroll=false}={}){
     b.onclick=e=>{
       e.stopPropagation();if(longPressed){longPressed=false;return}
       const card=CARDS.find(x=>x.key===b.dataset.quick);if(!card)return;
-      setOwnedQty(card,ownedQty(card)+1);updateCurrentSetSummary();renderDetailCards(s,{preserveScroll:true});renderHomeSets();renderSets(document.getElementById('setSearch')?.value||'');
+      setOwnedQty(card,ownedQty(card)+1);updateCurrentSetSummary();
+      if(DETAIL_FILTER==='all')updateVisibleCardTile(card);else renderDetailCards(s,{preserveScroll:true});
     };
   });
   grid.querySelectorAll('.card-tile').forEach(tile=>tile.onclick=e=>{if(e.target.closest('[data-quick]'))return;openCardModal(tile.dataset.cardKey)});
@@ -1286,7 +1288,7 @@ function bindQuickVariant(){
   modal.querySelectorAll('[data-quick-variant]').forEach(btn=>btn.onclick=()=>{
     const card=CARDS.find(c=>c.key===QUICK_VARIANT_CARD_KEY);if(!card)return;
     const type=btn.dataset.quickVariant;setVariantQty(card,type,(Number(ownedVariants(card)[type])||0)+1);
-    updateCurrentSetSummary();if(CURRENT_SET)renderDetailCards(CURRENT_SET,{preserveScroll:true});renderHomeSets();renderSets(document.getElementById('setSearch')?.value||'');shut();
+    updateCurrentSetSummary();if(CURRENT_SET){if(DETAIL_FILTER==='all')updateVisibleCardTile(card);else renderDetailCards(CURRENT_SET,{preserveScroll:true})}shut();
   });
 }
 function bindQuickMode(){
@@ -1441,7 +1443,12 @@ function updateOverviewStats(){
   const m=overviewMetrics();
   const map={statUnique:m.unique,statCopies:m.copies,statCompleted:m.completed,statDuplicates:m.duplicates,statTrade:m.trade,statFavorites:m.favorites,statWishlist:m.wishlist};
   Object.entries(map).forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.textContent=v});
-  renderHomeCollection();
+  if(document.querySelector('[data-screen="overview"]')?.classList.contains('active'))renderHomeCollection();
+}
+function updateVisibleCardTile(card){
+  const grid=document.querySelector('[data-screen="setdetail"] .cards-grid');if(!grid)return;
+  const tile=grid.querySelector('[data-card-key="'+CSS.escape(card.key)+'"]');if(!tile)return;
+  const badge=tile.querySelector('[data-quick]');if(badge){const q=ownedQty(card);badge.textContent=q?q:'+';badge.classList.toggle('zero',!q)}
 }
 function smartCardRow(card,mode){
   const q=ownedQty(card);
@@ -1767,9 +1774,17 @@ function show(name,writeHash=true){
   if(writeHash&&location.hash!=='#'+name)history.pushState(null,'','#'+name);
   scrollTo(0,0);
   if(name==='portfolio')renderPortfolio().catch(console.error);
+  if(name==='overview'){updateOverviewStats();renderHomeSets()}
+  if(name==='sets')renderSets(document.getElementById('setSearch')?.value||'');
+  if(name==='search')renderGlobalSearch(document.getElementById('globalCardSearch')?.value||'');
 }
 function bindStaticControls(){
-  document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();show(el.dataset.go)}));
+  document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{
+    e.preventDefault();
+    const target=el.dataset.go;
+    if(target==='scanner'&&window.PokemonCardScanner&&typeof window.PokemonCardScanner.open==='function'){window.PokemonCardScanner.open();return}
+    show(target);
+  }));
   document.getElementById('setSearch')?.addEventListener('input',e=>renderSets(e.target.value));
   document.getElementById('globalCardSearch')?.addEventListener('input',e=>renderGlobalSearch(e.target.value));
   document.querySelectorAll('[data-search-filter]').forEach(btn=>btn.addEventListener('click',()=>{
@@ -1782,6 +1797,16 @@ function bindStaticControls(){
   document.querySelectorAll('.ranges [data-days]').forEach(btn=>btn.addEventListener('click',()=>{PORTFOLIO_RANGE=Number(btn.dataset.days)||30;renderPortfolio().catch(console.error)}));
   document.querySelectorAll('[data-market]').forEach(btn=>btn.addEventListener('click',()=>{PORTFOLIO_MARKET=btn.dataset.market==='tcgplayer'?'tcgplayer':'cardmarket';document.querySelectorAll('[data-market]').forEach(b=>b.classList.toggle('active',b===btn));const val=document.getElementById('portfolioMarketValue');const chart=document.getElementById('portfolioChart');if(val)val.textContent='…';if(chart)chart.innerHTML='<div class="chart-loading">'+(PORTFOLIO_MARKET==='tcgplayer'?'TCGplayer-prijzen ophalen…':'Cardmarket-historiek laden…')+'</div>';renderPortfolio().catch(console.error)}));
 }
+function installDarkV3ScannerBridge(){
+  window.DATA={cards:CARDS};
+  window.imageCandidatesFor=card=>cardImageCandidates(card);
+  window.addScannedCard=(card,variant,quantity)=>{
+    const type=variant==='Holo'?'holo':variant==='Reverse Holo'?'reverse':'normal';
+    setVariantQty(card,type,(Number(ownedVariants(card)[type])||0)+Math.max(1,Number(quantity)||1));
+    updateCurrentSetSummary();queueCollectionPriceRefresh(card);
+  };
+  window.navigateToTab=tab=>show(tab==='collection'?'portfolio':tab);
+}
 async function loadRealDatabase(){
   const [data,images,prices]=await Promise.all([
     fetch('pokemon_cards_data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()),
@@ -1790,6 +1815,7 @@ async function loadRealDatabase(){
   ]);
   CARDS=Array.isArray(data.cards)?data.cards:[];
   SETS=normalizeSets(Array.isArray(data.sets)?data.sets:[]);
+  installDarkV3ScannerBridge();
   // Eenmalige reset na de testfase: start de echte collectie volledig leeg.
   if(!localStorage.getItem(OWNED_RESET_KEY)){
     // Volledige eenmalige fabrieksreset van alle persoonlijke/testdata.
@@ -1843,4 +1869,6 @@ window.addEventListener('hashchange',()=>{
 });
 loadRealDatabase().catch(err=>{console.error(err);const count=document.querySelector('.set-count');if(count)count.textContent='Setdata kon niet geladen worden';});
 </script>
+<script src="scanner-match.js?v=2.1.1"></script>
+<script src="scanner.js?v=2.1.1"></script>
 </body></html>
