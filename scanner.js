@@ -116,7 +116,7 @@
             <div class="scanner-camera-actions">
               <button type="button" id="scannerManualCapture" class="scanner-action-button primary">Nu foto nemen</button>
               <button type="button" id="scannerChoosePhoto" class="scanner-action-button">Kies foto</button>
-              <input id="scannerFileInput" type="file" accept="image/*" hidden>
+              <input id="scannerFileInput" type="file" accept="image/*" capture="environment" hidden>
             </div>
             <p class="scanner-footnote">De scanner wacht tot de kaart scherp en rustig ligt. Kleine bewegingen van je hand worden bewust genegeerd.</p>
           </div>
@@ -255,6 +255,14 @@
   }
 
   function addLaunchers() {
+    const darkV3Launcher = document.querySelector('.scanner-nav');
+    if (darkV3Launcher) {
+      darkV3Launcher.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        openScanner();
+      });
+    }
     const statusActions = document.querySelector('.statusline .button-row');
     if (statusActions && !document.getElementById('openScannerDesktop')) {
       const button = document.createElement('button');
@@ -267,7 +275,7 @@
     }
 
     const bottomNav = document.querySelector('.bottom-nav');
-    if (bottomNav && !document.getElementById('openScannerMobile')) {
+    if (bottomNav && !darkV3Launcher && !document.getElementById('openScannerMobile')) {
       const button = document.createElement('button');
       button.type = 'button';
       button.id = 'openScannerMobile';
@@ -1252,6 +1260,14 @@
     if (!result) return;
     const card = result.card;
     try {
+      if (typeof window.addScannedCard === 'function') {
+        window.addScannedCard(card, state.variant, state.quantity);
+        addCardToBatch(card, state.quantity);
+        const variantLabel = state.variant === 'Normal' ? 'normaal' : state.variant === 'Reverse Holo' ? 'reverse' : 'holo';
+        showToast(`${card.name} is toegevoegd (${variantLabel}, +${state.quantity}).`);
+        window.setTimeout(resetToCamera, 420);
+        return;
+      }
       let alreadyOwned = false;
       try { alreadyOwned = typeof isOwned === 'function' ? isOwned(card) : false; } catch (_) {}
       let existingQuantity = alreadyOwned ? 1 : 0;
