@@ -475,7 +475,7 @@
 </div>
 <div class="save-state" id="saveState">✓ Opgeslagen</div>
 <script>
-const APP_BUILD='20260930.4';
+const APP_BUILD='20260930.5';
 let SETS=[];
 let CARDS=[];
 let IMAGE_MAP={};
@@ -1197,7 +1197,8 @@ async function openCardModal(key,days=30){
   CURRENT_CARD_KEY=card.key;CURRENT_CARD_DAYS=days;
   const q=ownedQty(card),v=ownedVariants(card),img=cardImgHtml(card).replace('<img ','<img class="modal-image" ');
   const cm=priceFor(card)||{},cmPrice=Number(cm.trendPrice||cm.price||0);
-  const cardmarketUrl=cm.url?String(cm.url):'';
+  const cardmarketUrl=cm.url?String(cm.url):('https://www.cardmarket.com/en/Pokemon/Products/Search?searchString='+encodeURIComponent(card.name+' '+folderSetName(card.set)+' '+card.num));
+  const tcgplayerUrl='https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q='+encodeURIComponent(card.name+' '+folderSetName(card.set));
   document.getElementById('cardDetailTopTitle').textContent=card.name||'Kaartdetail';
   body.innerHTML=
     '<div class="card-detail-hero-layout"><div class="card-detail-card-wrap">'+img+'<div class="card-detail-swipehint">Veeg vanaf de linkerrand naar rechts om terug te gaan</div></div><div class="card-detail-meta">'+
@@ -1213,9 +1214,9 @@ async function openCardModal(key,days=30){
       '</div></div>'+
       '<div class="card-detail-section"><div class="card-history"><div class="card-history-top"><h3>Prijsgeschiedenis</h3><div class="card-ranges">'+[[7,'7D'],[30,'30D'],[90,'3M'],[365,'1J'],[99999,'Alles']].map(r=>'<button data-card-days="'+r[0]+'" class="'+(days===r[0]?'active':'')+'">'+r[1]+'</button>').join('')+'</div></div><div class="card-chart" id="cardPriceChart"><div class="card-detail-loading"></div></div><div class="card-history-stats" id="cardHistStats"></div></div></div>'+
       '<div class="card-detail-section"><div class="collection-box"><h3>Mijn collectie</h3><p class="section-note">Pas alleen de uitvoering aan die je werkelijk bezit.</p><div class="variant-manage">'+
-        ['normal','holo','reverse'].map(type=>'<div class="variant-manage-row"><span class="vlabel">'+({normal:'Normaal',holo:'Holo',reverse:'Reverse Holo'}[type])+'</span><button data-vminus="'+type+'">−</button><span class="vcount" data-vcount="'+type+'">'+(Number(v[type])||0)+'</span><button data-vplus="'+type+'">+</button></div>').join('')+
+        ['normal','holo','reverse'].map(type=>'<div class="variant-manage-row" data-manage-type="'+type+'"><span class="vlabel">'+({normal:'Normaal',holo:'Holo',reverse:'Reverse Holo'}[type])+'</span><button data-vminus="'+type+'">−</button><span class="vcount" data-vcount="'+type+'">'+(Number(v[type])||0)+'</span><button data-vplus="'+type+'">+</button></div>').join('')+
         '</div><div class="variant-hint" data-card-total>'+q+' exemplaren totaal</div></div></div>'+
-      (cardmarketUrl?'<div class="card-detail-section"><h3>Meer informatie</h3><div class="card-detail-links"><a class="card-detail-link primary" href="'+esc(cardmarketUrl)+'" target="_blank" rel="noopener">Open op Cardmarket ↗</a></div></div>':'')+
+      '<div class="card-detail-section"><h3>Meer informatie</h3><div class="card-detail-links"><a class="card-detail-link primary" href="'+esc(cardmarketUrl)+'" target="_blank" rel="noopener">Cardmarket ↗</a><a class="card-detail-link" href="'+esc(tcgplayerUrl)+'" target="_blank" rel="noopener">TCGplayer zoeken ↗</a></div></div>'+
     '</div></div>';
   show('carddetail');
   body.querySelectorAll('[data-card-days]').forEach(b=>b.onclick=()=>refreshCardHistory(card,Number(b.dataset.cardDays)));
@@ -1243,6 +1244,11 @@ async function openCardModal(key,days=30){
     const cmNormal=cmPrice?{eur:cmPrice,source:'Cardmarket'}:(tcg&&tcg.cardmarket&&tcg.cardmarket.normal);
     const cmFoil=Number(cm.foilTrendPrice)>0?{eur:Number(cm.foilTrendPrice),source:'Cardmarket foil trend'}:(tcg&&tcg.cardmarket&&tcg.cardmarket.foil);
     const tv=tcg&&tcg.variants||{},av=tcg&&tcg.availability||{};
+    const ownedNow=ownedVariants(card);
+    for(const type of ['normal','holo','reverse']){
+      const row=body.querySelector('[data-manage-type="'+type+'"]');
+      if(row)row.style.display=(av[type]===false&&(Number(ownedNow[type])||0)===0)?'none':'grid';
+    }
     const normal=cmNormal||(tv.normal&&Number(tv.normal.eur)>0?{eur:Number(tv.normal.eur),source:'TCGplayer via TCGdex'}:null);
     if(av.normal===false&&!normal)setBox('normal','Niet beschikbaar','Deze kaart heeft geen normale uitvoering',{unavailable:true});
     else setBox('normal',normal?money(normal.eur,'EUR'):'—',normal?normal.source:'Geen prijs gevonden');
