@@ -355,7 +355,7 @@
   <div class="chips"><button class="chip active">Alles</button><button class="chip">Mega Evolution</button><button class="chip">Scarlet & Violet</button><button class="chip">Sword & Shield</button></div>
   <div class="set-count">174 uitbreidingen</div><div class="set-list" id="setList"></div>
 </section>
-<section class="screen" data-screen="setdetail"><div class="detail-hero"><div class="detail-logo-box"><img id="detailLogo"></div><div class="detail-series"><span id="detailSeries"></span><span class="code" id="detailCode"></span></div><div class="detail-stats"><div class="detail-stat"><span>Set</span><b id="detailCount">0/120</b></div><div class="detail-stat"><span>Voortgang</span><b id="detailPct">0%</b></div><div class="detail-stat"><span>Verzameld</span><b>€ 0,00</b></div></div><div class="segmented"><button class="active">Alles</button><button>Ontbrekend</button><button>Verzameld</button></div><div class="quickbar"><span>Snelle + voegt standaard 1× Normaal toe</span><button class="quick-toggle active" id="quickMode" type="button">Snel toevoegen AAN</button></div><div class="scan-link">✓ <span id="detailScans">120</span> scans gekoppeld</div><div class="cards-grid"><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/7.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/18.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/21.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/33.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/45.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/57.png"><button class="plus">+</button></div></div></div></section>
+<section class="screen" data-screen="setdetail"><div class="detail-hero"><div class="detail-logo-box"><img id="detailLogo"></div><div class="detail-series"><span id="detailSeries"></span><span class="code" id="detailCode"></span></div><div class="detail-stats"><div class="detail-stat"><span>Set</span><b id="detailCount">0/120</b></div><div class="detail-stat"><span>Voortgang</span><b id="detailPct">0%</b></div><div class="detail-stat"><span>Verzameld</span><b>€ 0,00</b></div></div><div class="segmented"><button class="active">Alles</button><button>Ontbrekend</button><button>Verzameld</button></div><div class="quickbar"><span>Snelle + voegt standaard 1× Normaal toe</span><button class="quick-toggle active" id="quickMode" type="button">Snel toevoegen AAN</button></div><div class="scan-link">✓ <span id="detailUniqueSummary">0 uniek</span> · <span id="detailCopiesSummary">0 exemplaren</span></div><div class="cards-grid"><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/7.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/18.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/21.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/33.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/45.png"><button class="plus">+</button></div><div class="card-tile"><img src="https://images.pokemontcg.io/sv6/57.png"><button class="plus">+</button></div></div></div></section>
 
 <section class="screen card-detail-screen" data-screen="carddetail">
   <div class="card-detail-topbar">
@@ -475,7 +475,7 @@
 </div>
 <div class="save-state" id="saveState">✓ Opgeslagen</div>
 <script>
-const APP_BUILD='20260930.2';
+const APP_BUILD='20260930.3';
 let SETS=[];
 let CARDS=[];
 let IMAGE_MAP={};
@@ -531,14 +531,20 @@ function writeDeletedOwned(v){try{localStorage.setItem(SYNC_DELETED_KEY,JSON.str
 function markOwnedDeleted(key,at=Date.now()){const d=readDeletedOwned();d[key]=at;writeDeletedOwned(d)}
 function clearOwnedDeleted(key){const d=readDeletedOwned();if(d[key]){delete d[key];writeDeletedOwned(d)}}
 function setVariantQty(card,type,n){
+  const before=ownedQty(card);
   n=Math.max(0,Number(n)||0);const current=OWNED[card.key]&&typeof OWNED[card.key]==='object'?{...OWNED[card.key]}:{qty:0};
   // Start altijd van de genormaliseerde aantallen, zodat oudere 'totaal'-kaarten niet verloren gaan.
   current.variants={...ownedVariants(card)};current.variants[type]=n;
   current.qty=['normal','holo','reverse'].reduce((sum,k)=>sum+(Number(current.variants[k])||0),0);current._syncAt=Date.now();
   if(current.qty>0){OWNED[card.key]=current;clearOwnedDeleted(card.key)}else{delete OWNED[card.key];markOwnedDeleted(card.key,current._syncAt)}
-  localStorage.setItem(OWNED_KEY,JSON.stringify(OWNED));rebuildHaveCounts();updateOverviewStats();flashSaved();scheduleCloudSync();queueCollectionPriceRefresh(card);
+  localStorage.setItem(OWNED_KEY,JSON.stringify(OWNED));adjustHaveCount(card,before,ownedQty(card));updateOverviewStats();flashSaved();scheduleCloudSync();queueCollectionPriceRefresh(card);
 }
 function rebuildHaveCounts(){HAVE_COUNTS=new Map();for(const c of CARDS){if(ownedQty(c)>0){const k=c.series+'|||'+folderSetName(c.set);HAVE_COUNTS.set(k,(HAVE_COUNTS.get(k)||0)+1)}}}
+function adjustHaveCount(card,beforeQty,afterQty){
+  const was=Number(beforeQty)>0,is=Number(afterQty)>0;if(was===is)return;
+  const k=card.series+'|||'+folderSetName(card.set),next=Math.max(0,(HAVE_COUNTS.get(k)||0)+(is?1:-1));
+  if(next)HAVE_COUNTS.set(k,next);else HAVE_COUNTS.delete(k);
+}
 function flashSaved(){
   const el=document.getElementById('saveState');if(!el)return;
   el.textContent=getSyncConfig()&&navigator.onLine?'✓ Lokaal opgeslagen · cloud volgt':'✓ Offline/lokaal opgeslagen';
@@ -563,7 +569,7 @@ function setOwnedQty(card,n){
     current._syncAt=at;OWNED[card.key]=current;clearOwnedDeleted(card.key);
   }else{delete OWNED[card.key];markOwnedDeleted(card.key,at)}
   localStorage.setItem(OWNED_KEY,JSON.stringify(OWNED));
-  rebuildHaveCounts();updateOverviewStats();flashSaved();scheduleCloudSync();queueCollectionPriceRefresh(card);
+  adjustHaveCount(card,before,ownedQty(card));updateOverviewStats();flashSaved();scheduleCloudSync();queueCollectionPriceRefresh(card);
 }
 function setHave(series,name){return HAVE_COUNTS.get(series+'|||'+name)||0}
 function priceFor(card){return PRICE_MAP.get(card.key)||null}
@@ -833,10 +839,12 @@ function updateCurrentSetSummary(){
   const total=all.length||CURRENT_SET.total||0;
   const count=document.getElementById('detailCount');
   const pct=document.getElementById('detailPct');
-  const scans=document.getElementById('detailScans');
+  const uniqueSummary=document.getElementById('detailUniqueSummary'),copiesSummary=document.getElementById('detailCopiesSummary');
+  const copies=all.reduce((sum,c)=>sum+ownedQty(c),0);
   if(count)count.textContent=have+'/'+total;
   if(pct)pct.textContent=(total?Math.round(have/total*100):0)+'%';
-  if(scans)scans.textContent=total;
+  if(uniqueSummary)uniqueSummary.textContent=have+' uniek';
+  if(copiesSummary)copiesSummary.textContent=copies+' '+(copies===1?'exemplaar':'exemplaren');
   const valueNode=document.querySelector('[data-screen="setdetail"] .detail-stat:nth-child(3) b');
   if(valueNode){
     const value=all.reduce((sum,c)=>ownedQty(c)>0?sum+ownedCardMarketValue(c):sum,0);
@@ -1153,6 +1161,7 @@ function updateCardCollectionUi(card){
   const v=ownedVariants(card),q=ownedQty(card);
   body.querySelectorAll('[data-vcount]').forEach(el=>{el.textContent=Number(v[el.dataset.vcount])||0});
   const total=body.querySelector('[data-card-total]');if(total)total.textContent=q+' exemplaren totaal';
+  const pill=body.querySelector('#detailOwnedPill');if(pill){pill.style.display=q?'inline-flex':'none';pill.textContent='✓ In collectie · '+q+'×'}
 }
 async function refreshCardHistory(card,days){
   CURRENT_CARD_DAYS=days;
@@ -1193,7 +1202,7 @@ async function openCardModal(key,days=30){
   body.innerHTML=
     '<div class="card-detail-hero-layout"><div class="card-detail-card-wrap">'+img+'<div class="card-detail-swipehint">Veeg vanaf de linkerrand naar rechts om terug te gaan</div></div><div class="card-detail-meta">'+
       '<div class="modal-name">'+esc(card.name)+'</div><div class="modal-sub">'+esc(folderSetName(card.set))+' · '+esc(card.num)+(cm.rarity?' · '+esc(cm.rarity):'')+'</div>'+
-      '<div class="detail-actions">'+(q?'<span class="detail-owned-pill">✓ In collectie · '+q+'×</span>':'')+
+      '<div class="detail-actions"><span class="detail-owned-pill" id="detailOwnedPill" style="'+(q?'':'display:none')+'">✓ In collectie · '+q+'×</span>'+
       '<button class="detail-action '+(listFlag(card,'favorite')?'active':'')+'" type="button" data-detail-flag="favorite">♡ Favoriet</button>'+
       '<button class="detail-action '+(listFlag(card,'wishlist')?'active':'')+'" type="button" data-detail-flag="wishlist">⌕ Zoeklijst</button></div>'+
       '<div class="card-detail-mainprice"><span id="cardDetailMainSource">'+(cmPrice?'Cardmarket trendprijs':'Prijs wordt gezocht…')+'</span><b id="cardDetailMainPrice">'+(cmPrice?esc(money(cmPrice,cm.currency||'EUR')):'…')+'</b></div>'+
@@ -1318,20 +1327,14 @@ function refreshSetCounts({preserveScroll=true}={}){
 function completedSets(){
   return SETS.filter(set=>{const rows=cardsForSet(set);return rows.length>0&&rows.every(c=>ownedQty(c)>0)});
 }
-function overviewMetrics(){
-  const owned=ownedCards();
-  const unique=owned.length;
-  const copies=owned.reduce((n,c)=>n+ownedQty(c),0);
-  const duplicates=owned.filter(c=>ownedQty(c)>1).length;
-  const trade=owned.reduce((n,c)=>n+Math.max(0,ownedQty(c)-1),0);
-  const meta=readListMeta();
-  let favorites=0,wishlist=0;
-  for(const c of CARDS){
-    const m=meta[c.key]||{};
-    if(m.favorite)favorites++;
-    if(m.wishlist)wishlist++;
-  }
-  return {unique,copies,completed:completedSets().length,duplicates,trade,favorites,wishlist};
+let COMPLETED_SET_COUNT=0;
+function overviewMetrics({full=false}={}){
+  const owned=ownedCards(),unique=owned.length,copies=owned.reduce((n,c)=>n+ownedQty(c),0);
+  const duplicates=owned.filter(c=>ownedQty(c)>1).length,trade=owned.reduce((n,c)=>n+Math.max(0,ownedQty(c)-1),0);
+  const meta=readListMeta();let favorites=0,wishlist=0;
+  for(const m of Object.values(meta)){if(m&&m.favorite)favorites++;if(m&&m.wishlist)wishlist++}
+  if(full)COMPLETED_SET_COUNT=completedSets().length;
+  return {unique,copies,completed:COMPLETED_SET_COUNT,duplicates,trade,favorites,wishlist};
 }
 function cachedTcgForCard(card){
   for(const id of tcgdexCardIds(card)){const p=TCG_PRICE_CACHE[id];if(p&&p.schema===2)return p}
@@ -1440,7 +1443,8 @@ function renderHomeCollection(){
   });
 }
 function updateOverviewStats(){
-  const m=overviewMetrics();
+  const full=!!document.querySelector('[data-screen="overview"]')?.classList.contains('active');
+  const m=overviewMetrics({full});
   const map={statUnique:m.unique,statCopies:m.copies,statCompleted:m.completed,statDuplicates:m.duplicates,statTrade:m.trade,statFavorites:m.favorites,statWishlist:m.wishlist};
   Object.entries(map).forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.textContent=v});
   if(document.querySelector('[data-screen="overview"]')?.classList.contains('active'))renderHomeCollection();
