@@ -1243,6 +1243,20 @@ def find_product(
             if prod:
                 return prod, "mapped-expansion+number+name", len(cands)
 
+        # Extra veilige koppeling voor Cardmarket-namen met aanvalstekst:
+        # app "Ampharos", Cardmarket "Ampharos Synchro Pulse..." maar mét kaartnummer.
+        # Nummer + expansion + volledige naam-prefix moet samen uniek zijn.
+        exp_products = indexes.get("exp_all_by_exp", {}).get(exp, [])
+        if num:
+            for nm in names:
+                cands = [
+                    p for p in exp_products
+                    if p.get("number") == num and product_name_starts_with_card(p.get("normName", ""), nm)
+                ]
+                prod = choose_unique(cands)
+                if prod:
+                    return prod, "mapped-expansion+number+prefix-name", len(cands)
+
         # Veilige fallback: alleen als naam uniek is in de app-set én in Cardmarket-expansion.
         # Zo vermijden we foute prijzen bij kaarten als Charizard ex met meerdere arts/nummers.
         for nm in names:
@@ -1260,7 +1274,6 @@ def find_product(
         # Cardmarket "Ampharos Synchro Pulse Flashing Bolt".
         # We doen dit alleen als de kaartnaam uniek is in de app-set én er exact
         # één passend product in de Cardmarket-expansion bestaat.
-        exp_products = indexes.get("exp_all_by_exp", {}).get(exp, [])
         for nm in names:
             if app_set_name_counts.get(skey, Counter()).get(nm, 0) != 1:
                 continue
