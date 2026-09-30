@@ -10,7 +10,7 @@
   const CARD_ASPECT = 63 / 88;
   const ANALYSIS_INTERVAL_MS = 140;
   const AUTO_CAPTURE_SCORE = 1;
-  const SCANNER_VERSION = '2.1.0';
+  const SCANNER_VERSION = '2.1.1';
   const TESSERACT_URL = 'https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';
   const IMAGE_FETCH_TIMEOUT_MS = 2400;
   const visualFingerprintCache = new Map();
@@ -675,10 +675,13 @@
       let evidence = await recognizeCard(canvas, operation);
       if (!state.open || operation !== state.operation) return;
       state.evidence = evidence;
-      let ranked = Match.rankCards(appCards(), evidence, { limit: 120 });
+      let ranked = Match.rankCards(appCards(), evidence, { limit: 160 });
 
-      if (!ranked[0] || ranked[0].nameScore < .55) {
-        setProcessStatus('Naam wordt extra gecontroleerd…', 'Alleen bij een onduidelijke naam volgt een korte tweede lezing.', 48);
+      const initialConfidence = Match.confidenceFor(ranked);
+      const weakOcr = Number(evidence.topConfidence || 0) < 62;
+      const ambiguousName = !ranked[0] || ranked[0].nameScore < .72 || !initialConfidence.autoSelect;
+      if (weakOcr || ambiguousName) {
+        setProcessStatus('Naam wordt extra gecontroleerd…', 'De bovenkant van de kaart wordt apart en groter gelezen.', 48);
         const fallbackName = await recognizeCardName(canvas, operation);
         if (!state.open || operation !== state.operation) return;
         if (fallbackName.text) {
@@ -689,7 +692,7 @@
             topConfidence: Math.max(Number(evidence.topConfidence) || 0, fallbackName.confidence)
           };
           state.evidence = evidence;
-          ranked = Match.rankCards(appCards(), evidence, { limit: 120 });
+          ranked = Match.rankCards(appCards(), evidence, { limit: 160 });
         }
       }
 
@@ -811,8 +814,8 @@
   }
 
   function makeFastOcrComposite(source) {
-    const nameCrop = makeOcrCrop(source, { x: .018, y: .012, width: .964, height: .13 }, 960);
-    const footerCrop = makeOcrCrop(source, { x: .018, y: .875, width: .964, height: .105 }, 960);
+    const nameCrop = makeOcrCrop(source, { x: .015, y: .005, width: .97, height: .19 }, 1040);
+    const footerCrop = makeOcrCrop(source, { x: .015, y: .79, width: .97, height: .20 }, 1040);
     const gap = 28;
     const canvas = document.createElement('canvas');
     canvas.width = Math.max(nameCrop.width, footerCrop.width);
@@ -871,7 +874,7 @@
   async function recognizeCardName(canvas, operation) {
     const worker = await getOcrWorker(operation);
     if (operation !== state.operation) throw new Error('Scan geannuleerd.');
-    const nameCrop = makeOcrCrop(canvas, { x: .025, y: .012, width: .95, height: .13 }, 1040);
+    const nameCrop = makeOcrCrop(canvas, { x: .02, y: .005, width: .96, height: .20 }, 1180);
     await worker.setParameters({
       tessedit_pageseg_mode: '7',
       preserve_interword_spaces: '1',
@@ -1045,14 +1048,19 @@
 
   function selectVisualCandidates(ranked) {
     const rows = Array.isArray(ranked) ? ranked : [];
-    const top = rows[0];
-    if (!top) return [];
-    if (top.nameScore >= .55) {
-      const nameFloor = Math.max(.44, top.nameScore - .2);
-      const named = rows.filter(row => row.nameScore >= nameFloor);
-      if (named.length) return named.slice(0, 14);
+    if (!rows.length) return [];
+    const picked = [];
+    const perName = new Map();
+    for (const row of rows) {
+      const key = Match.normalizeText(row.card && row.card.name);
+      const count = perName.get(key) || 0;
+      if (count >= 2) continue;
+      if (row.score < 18) continue;
+      perName.set(key, count + 1);
+      picked.push(row);
+      if (picked.length >= 20) break;
     }
-    return rows.filter(row => row.score >= 22).slice(0, 8);
+    return picked;
   }
 
   async function compareCandidateImages(canvas, candidates, operation) {
@@ -1079,6 +1087,8 @@
     const evidence = state.evidence || {};
     const combined = `${evidence.topText || ''} ${evidence.bottomText || ''}`.replace(/\s+/g, ' ').trim();
     if (!combined) return 'Tekst was niet duidelijk genoeg. Zoek hieronder op naam, set of kaartnummer.';
+    const words = combined.split(/\s+/).filter(Boolean), readable = words.filter(w => /[a-zA-Z]{3,}/.test(w) && /[aeiouyAEIOUY]/.test(w)).length;
+    if (words.length >= 5 && readable / words.length < .28) return 'Naam of kaartnummer kon niet betrouwbaar worden gelezen. Controleer de voorstellen of zoek handmatig.';
     const shortened = combined.length > 105 ? `${combined.slice(0, 102)}…` : combined;
     return `Gelezen: “${shortened}”`;
   }
@@ -1110,7 +1120,14 @@
       const card = row.card;
       const selected = card.key === state.selectedKey;
       const imageUrl = imageUrlForScanner(card);
-      const percent = Math.max(1, Math.min(99, Math.round(row.score)));
+      const evidenceParts = [
+        Math.min(1, Number(row.nameScore)||0) * .42,
+        Math.min(1, Number(row.effectiveNumberScore)||0) * .24,
+        Math.min(1, Number(row.setScore)||0) * .08,
+        Math.min(1, Number(row.visualEvidence)||0) * .26
+      ];
+      const signal = evidenceParts.reduce((a,b)=>a+b,0);
+      const percent = Math.max(1, Math.min(99, Math.round(signal * 100)));
       const image = imageUrl
         ? `<img src="${escapeHtml(imageUrl)}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">`
         : '<span class="scanner-candidate-image-placeholder">Geen<br>afbeelding</span>';
