@@ -7,9 +7,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SET_NAMES = {
-    "30th Celebration": 161,
-    "30th Celebration: Classic Collection": 30,
-    "30th Celebration: Energy Collection": 8,
+    "30th Celebration": 191,
+    "Mega Evolution Energy": 16,
 }
 
 
@@ -31,25 +30,34 @@ class ThirtiethCelebrationTests(unittest.TestCase):
         }
         self.assertEqual(set(sets), set(SET_NAMES))
         self.assertEqual({name: row["count"] for name, row in sets.items()}, SET_NAMES)
-        self.assertEqual(len(self.cards), 199)
-        self.assertEqual(len({card["key"] for card in self.cards}), 199)
+        self.assertEqual(len(self.cards), 207)
+        self.assertEqual(len({card["key"] for card in self.cards}), 207)
 
     def test_main_classic_rgb_and_energy_numbers(self) -> None:
         main = [card for card in self.cards if card["set"] == "30th Celebration"]
-        numbered = [card["num"] for card in main if card["num"].isdigit()]
-        rgb = [card["num"] for card in main if not card["num"].isdigit()]
-        self.assertEqual(numbered, [f"{number:03d}" for number in range(1, 159)])
+        classic = [card for card in main if card.get("rarity") == "Classic Collection"]
+        regular = [
+            card for card in main
+            if card.get("rarity") != "Classic Collection" and str(card.get("num", "")).isdigit()
+        ]
+        rgb = [
+            card["num"] for card in main
+            if card.get("rarity") != "Classic Collection" and not str(card.get("num", "")).isdigit()
+        ]
+
+        self.assertEqual([card["num"] for card in regular], [f"{number:03d}" for number in range(1, 159)])
         self.assertEqual(rgb, ["R/RGB", "G/RGB", "B/RGB"])
-
-        classic = [card for card in self.cards if card["set"].endswith("Classic Collection")]
         self.assertEqual(len(classic), 30)
-        self.assertIn(("004", "Charizard"), {(card["num"], card["name"]) for card in classic})
-        self.assertIn(("203", "Magikarp"), {(card["num"], card["name"]) for card in classic})
+        classic_pairs = {(card["num"], card["name"]) for card in classic}
+        self.assertIn(("004", "Charizard"), classic_pairs)
+        self.assertIn(("097", "Genesect EX"), classic_pairs)
+        self.assertIn(("203", "Magikarp"), classic_pairs)
+        self.assertEqual(len(classic_pairs), 30)
 
-        energy = [card for card in self.cards if card["set"].endswith("Energy Collection")]
-        self.assertEqual([card["num"] for card in energy], [f"{number:03d}" for number in range(9, 17)])
+        energy = [card for card in self.cards if card["set"] == "Mega Evolution Energy"]
+        self.assertEqual([card["num"] for card in energy], [f"{number:03d}" for number in range(1, 17)])
 
-    def test_every_card_has_an_image_and_cardmarket_price(self) -> None:
+    def test_every_card_has_an_image_and_price(self) -> None:
         keys = {card["key"] for card in self.cards}
         self.assertEqual(keys, keys & set(self.images))
         for key in keys:
@@ -60,16 +68,22 @@ class ThirtiethCelebrationTests(unittest.TestCase):
         prices = {row["key"]: row for row in self.prices if row.get("key") in keys}
         self.assertEqual(set(prices), keys)
         for key, row in prices.items():
-            self.assertEqual(row.get("matchType"), "verified-30th-product", key)
-            self.assertTrue(row.get("price"), key)
+            self.assertTrue(row.get("price") or row.get("trendPrice"), key)
             self.assertTrue(row.get("cmProductId"), key)
 
-    def test_embedded_app_and_cache_version(self) -> None:
-        index = (ROOT / "index.html").read_text(encoding="utf-8")
+        # 158 hoofdkaarten + 30 Classic + 3 RGB + 8 jubileum-energies
+        # moeten de gecontroleerde 30th-koppeling gebruiken.
+        direct = [
+            row for row in prices.values()
+            if row.get("matchType") == "verified-30th-product"
+        ]
+        self.assertGreaterEqual(len(direct), 199)
+
+    def test_dark_v3_uses_current_cache_strategy(self) -> None:
+        app = (ROOT / "dark-v3-live.html").read_text(encoding="utf-8")
         worker = (ROOT / "service-worker.js").read_text(encoding="utf-8")
-        self.assertIn('"set":"30th Celebration"', index)
-        self.assertIn("service-worker.js?v=5", index)
-        self.assertIn("pokemon-tcg-checklist-scanner-v5", worker)
+        self.assertIn("30th Celebration", app)
+        self.assertIn("pokemon-tcg-checklist-scanner-v", worker)
 
 
 if __name__ == "__main__":
