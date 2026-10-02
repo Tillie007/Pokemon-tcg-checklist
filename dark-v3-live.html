@@ -475,7 +475,7 @@
 </div>
 <div class="save-state" id="saveState">✓ Opgeslagen</div>
 <script>
-const APP_BUILD='20261002.1';
+const APP_BUILD='20261002.2';
 let SETS=[];
 let CARDS=[];
 let IMAGE_MAP={};
@@ -633,13 +633,13 @@ function tcgdexCardCandidates(card){
 }
 function cardImageCandidates(card){
   const e=imageEntry(card)||{};
-  const urls=[
-    ...tcgdexCardCandidates(card),
-    e.bestUrl,
-    ...(Array.isArray(e.candidates)?e.candidates:[]),
-    card.imageUrl
-  ].filter(Boolean);
-  return [...new Set(urls)];
+  const mapped=[e.bestUrl,...(Array.isArray(e.candidates)?e.candidates:[])].filter(Boolean);
+  // Classic Collection gebruikt dezelfde historische kaartnummers als oude sets.
+  // Daar mag de generieke 30th-TCGdex URL nooit vóór de gecontroleerde reprint-afbeelding komen.
+  const urls=is30thClassicCard(card)
+    ? [...mapped,card.imageUrl]
+    : [...tcgdexCardCandidates(card),...mapped,card.imageUrl];
+  return [...new Set(urls.filter(Boolean))];
 }
 function cardImage(card){return cardImageCandidates(card)[0]||''}
 function tryNextCardImage(img){
@@ -999,6 +999,7 @@ function renderHomeSets(){
 function loadTcgCache(){try{TCG_PRICE_CACHE=JSON.parse(localStorage.getItem('pokemon_tcg_tcgplayer_cache_v1')||'{}')||{}}catch(e){TCG_PRICE_CACHE={}}}
 function saveTcgCache(){try{localStorage.setItem('pokemon_tcg_tcgplayer_cache_v1',JSON.stringify(TCG_PRICE_CACHE))}catch(e){}}
 function tcgdexCardIds(card){
+  if(is30thClassicCard(card))return [];
   const out=[],push=id=>{if(id&&!out.includes(id))out.push(id)};
   const e=imageEntry(card)||{},urls=[e.bestUrl].concat(Array.isArray(e.candidates)?e.candidates:[]).filter(Boolean);
   for(const raw of urls){
@@ -1080,6 +1081,9 @@ async function getUsdEurRate(){
   return null;
 }
 async function fetchTcgMarket(card){
+  // De Classic Collection heeft eigen Cardmarket-producten. Een generieke TCGdex-
+  // lookup op het historische nummer zou hier een andere kaart kunnen teruggeven.
+  if(is30thClassicCard(card))return null;
   const ids=tcgdexCardIds(card);
   const fetchOne=async id=>{
     const cached=TCG_PRICE_CACHE[id];
