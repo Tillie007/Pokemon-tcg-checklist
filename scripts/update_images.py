@@ -50,7 +50,8 @@ LIMITLESS_ALLOWED_SERIES = {"Sword & Shield", "Scarlet & Violet", "Mega Evolutio
 
 THIRTIETH_MAIN_SET = "30th Celebration"
 THIRTIETH_CLASSIC_SET = "30th Celebration: Classic Collection"
-THIRTIETH_ENERGY_SET = "30th Celebration: Energy Collection"
+THIRTIETH_ENERGY_SET = "Mega Evolution Energy"
+THIRTIETH_ENERGY_LEGACY_KEY = "30th Celebration: Energy Collection"
 
 THIRTIETH_RGB_IMAGES = {
     "R/RGB": "tcgp-r-rgb-mew.jpg",
@@ -78,7 +79,7 @@ THIRTIETH_CLASSIC_IMAGES = {
     ("100", "Darkrai & Cresselia LEGEND"): "tcgp-classic-100-darkrai-cresselia-legend.jpg",
     ("101", "N"): "tcgp-classic-101-n.jpg",
     ("085", "Rayquaza EX"): "tcgp-classic-85-rayquaza-ex.jpg",
-    ("011", "Genesect EX"): "tcgp-classic-11-genesect-ex.jpg",
+    ("097", "Genesect EX"): "tcgp-classic-11-genesect-ex.jpg",
     ("106", "M Gardevoir EX"): "tcgp-classic-106-m-gardevoir-ex.jpg",
     ("041", "Greninja BREAK"): "tcgp-classic-41-greninja-break.jpg",
     ("089", "Solgaleo GX"): "tcgp-classic-89-solgaleo-gx.jpg",
@@ -155,6 +156,28 @@ def tcg_set_id(card: dict[str, Any]) -> str:
     return matches[0] if matches else ""
 
 
+def is_30th_classic(card: dict[str, Any]) -> bool:
+    key = card_key(card)
+    return (
+        str(card.get("rarity", "")) == "Classic Collection"
+        or str(card.get("subset", "")) == "Classic Collection"
+        or f"|{THIRTIETH_CLASSIC_SET}|" in key
+    )
+
+
+def is_30th_anniversary_energy(card: dict[str, Any]) -> bool:
+    key = card_key(card)
+    num = str(card.get("num", "")).strip()
+    return (
+        str(card.get("set", "")) == THIRTIETH_ENERGY_SET
+        and (
+            f"|{THIRTIETH_ENERGY_LEGACY_KEY}|" in key
+            or str(card.get("rarity", "")) == "Futuristic Rare"
+            or num in THIRTIETH_ENERGY_IMAGES
+        )
+    )
+
+
 def special_image_candidates(card: dict[str, Any]) -> tuple[list[str], dict[str, int]]:
     """Gerichte bronnen voor de 30th Celebration-deelverzamelingen."""
     set_name = str(card.get("set", ""))
@@ -163,7 +186,15 @@ def special_image_candidates(card: dict[str, Any]) -> tuple[list[str], dict[str,
     urls: list[str] = []
     counts = {"tcgdex": 0, "chasesociety": 0, "cardtrader": 0}
 
-    if set_name == THIRTIETH_MAIN_SET and num.isdigit() and 1 <= int(num) <= 158:
+    # Classic eerst controleren: deze kaarten zijn in de app visueel samengevoegd
+    # met 30th Celebration, maar gebruiken niet de gewone 30th-afbeelding voor
+    # hetzelfde nummer.
+    if is_30th_classic(card):
+        filename = THIRTIETH_CLASSIC_IMAGES.get((num, name))
+        if filename:
+            urls.append(f"https://chasesociety.com/images/pokemon/cel30/{filename}")
+            counts["chasesociety"] = 1
+    elif set_name == THIRTIETH_MAIN_SET and num.isdigit() and 1 <= int(num) <= 158:
         number = f"{int(num):03d}"
         urls.extend([
             f"https://assets.tcgdex.net/en/me/30th/{number}/high.webp",
@@ -173,12 +204,7 @@ def special_image_candidates(card: dict[str, Any]) -> tuple[list[str], dict[str,
     elif set_name == THIRTIETH_MAIN_SET and num in THIRTIETH_RGB_IMAGES:
         urls.append(f"https://chasesociety.com/images/pokemon/cel30/{THIRTIETH_RGB_IMAGES[num]}")
         counts["chasesociety"] = 1
-    elif set_name == THIRTIETH_CLASSIC_SET:
-        filename = THIRTIETH_CLASSIC_IMAGES.get((num, name))
-        if filename:
-            urls.append(f"https://chasesociety.com/images/pokemon/cel30/{filename}")
-            counts["chasesociety"] = 1
-    elif set_name == THIRTIETH_ENERGY_SET:
+    elif is_30th_anniversary_energy(card):
         image = THIRTIETH_ENERGY_IMAGES.get(num)
         if image:
             image_id, slug = image
@@ -186,7 +212,6 @@ def special_image_candidates(card: dict[str, Any]) -> tuple[list[str], dict[str,
             counts["cardtrader"] = 1
 
     return urls, counts
-
 
 def image_candidates(card: dict[str, Any]) -> tuple[list[str], dict[str, int]]:
     abbr = safe_code(card.get("abbr"))
@@ -209,7 +234,7 @@ def image_candidates(card: dict[str, Any]) -> tuple[list[str], dict[str, int]]:
 
     # 2) Limitless alleen voor moderne reeksen. Niet voor Neo/POP/Base/EX/... omdat dat te vaak kaartachterkanten gaf.
     set_name = str(card.get("set", ""))
-    is_30th_special = set_name in {THIRTIETH_CLASSIC_SET, THIRTIETH_ENERGY_SET}
+    is_30th_special = is_30th_classic(card) or is_30th_anniversary_energy(card)
     is_30th_rgb = set_name == THIRTIETH_MAIN_SET and str(card.get("num", "")) in THIRTIETH_RGB_IMAGES
     if abbr and str(card.get("series", "")) in LIMITLESS_ALLOWED_SERIES and not is_30th_special and not is_30th_rgb:
         before = len(urls)
