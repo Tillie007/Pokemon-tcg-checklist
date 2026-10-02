@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-02T16:13:43.900373+00:00",
+  "updatedAt": "2026-10-02T16:20:53.088139+00:00",
   "productRows": 74620,
   "priceRows": 79688,
   "usableProducts": 74620,
@@ -104,9 +104,9 @@
   "priceCacheSizeChars": 15624647,
   "priceCacheFirst500Chars": "{\"version\":1,\"createdAt\":\"2026-10-02T02:41:06+0200\",\"priceGuides\":[{\"idProduct\":271439,\"idCategory\":52,\"avg\":149,\"low\":130,\"trend\":279.1,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":3.93,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"idProduct\":271440,\"idCategory\":53,\"avg\":2103,\"low\":18000,\"trend\":2239.24,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":178.28,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"idPr",
   "matchTypes": {
+    "verified-30th-product": 199,
     "unmatched": 8279,
-    "verified-30th-product": 198,
-    "mapped-expansion+unique-prefix-name": 9715,
+    "mapped-expansion+unique-prefix-name": 9714,
     "mapped-expansion+unique-name": 1678,
     "ambiguous-prefix-name-in-expansion": 603,
     "ambiguous-name-in-expansion": 178

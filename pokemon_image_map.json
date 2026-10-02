@@ -1,148 +1,12 @@
 {
   "source": "Automatische kandidaten: speciale 30th-bronnen, Pokémon TCG image CDN en veilige moderne fallbacks",
-  "updatedAt": "2026-09-28T11:52:39.170826+00:00",
+  "updatedAt": "2026-10-02T16:20:24.184958+00:00",
   "totalCards": 20651,
   "cardsWithImageCandidates": 20651,
   "cardsWithoutImageCandidates": 0,
-  "totalCandidateUrls": 97817,
+  "totalCandidateUrls": 97661,
   "format": "image-map-candidates-v3-special-sets",
   "images": {
-    "Mega Evolution|Mega Evolution Energy|MEE|008|Basic Metal Energy": {
-      "name": "Basic Metal Energy",
-      "series": "Mega Evolution",
-      "set": "Mega Evolution Energy",
-      "abbr": "MEE",
-      "num": "008",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_8_EN_LG.png",
-      "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_8_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_8_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_08_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_08_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_008_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_008_R_EN_LG.png"
-      ],
-      "limitlessPage": "https://limitlesstcg.com/cards/MEE/8"
-    },
-    "Mega Evolution|Mega Evolution Energy|MEE|007|Basic Darkness Energy": {
-      "name": "Basic Darkness Energy",
-      "series": "Mega Evolution",
-      "set": "Mega Evolution Energy",
-      "abbr": "MEE",
-      "num": "007",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_7_EN_LG.png",
-      "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_7_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_7_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_07_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_07_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_007_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_007_R_EN_LG.png"
-      ],
-      "limitlessPage": "https://limitlesstcg.com/cards/MEE/7"
-    },
-    "Mega Evolution|Mega Evolution Energy|MEE|006|Basic Fighting Energy": {
-      "name": "Basic Fighting Energy",
-      "series": "Mega Evolution",
-      "set": "Mega Evolution Energy",
-      "abbr": "MEE",
-      "num": "006",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_6_EN_LG.png",
-      "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_6_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_6_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_06_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_06_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_006_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_006_R_EN_LG.png"
-      ],
-      "limitlessPage": "https://limitlesstcg.com/cards/MEE/6"
-    },
-    "Mega Evolution|Mega Evolution Energy|MEE|005|Basic Psychic Energy": {
-      "name": "Basic Psychic Energy",
-      "series": "Mega Evolution",
-      "set": "Mega Evolution Energy",
-      "abbr": "MEE",
-      "num": "005",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_5_EN_LG.png",
-      "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_5_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_5_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_05_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_05_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_005_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_005_R_EN_LG.png"
-      ],
-      "limitlessPage": "https://limitlesstcg.com/cards/MEE/5"
-    },
-    "Mega Evolution|Mega Evolution Energy|MEE|004|Basic Lightning Energy": {
-      "name": "Basic Lightning Energy",
-      "series": "Mega Evolution",
-      "set": "Mega Evolution Energy",
-      "abbr": "MEE",
-      "num": "004",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_4_EN_LG.png",
-      "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_4_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_4_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_04_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_04_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_004_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_004_R_EN_LG.png"
-      ],
-      "limitlessPage": "https://limitlesstcg.com/cards/MEE/4"
-    },
-    "Mega Evolution|Mega Evolution Energy|MEE|003|Basic Water Energy": {
-      "name": "Basic Water Energy",
-      "series": "Mega Evolution",
-      "set": "Mega Evolution Energy",
-      "abbr": "MEE",
-      "num": "003",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_3_EN_LG.png",
-      "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_3_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_3_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_03_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_03_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_003_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_003_R_EN_LG.png"
-      ],
-      "limitlessPage": "https://limitlesstcg.com/cards/MEE/3"
-    },
-    "Mega Evolution|Mega Evolution Energy|MEE|002|Basic Fire Energy": {
-      "name": "Basic Fire Energy",
-      "series": "Mega Evolution",
-      "set": "Mega Evolution Energy",
-      "abbr": "MEE",
-      "num": "002",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_2_EN_LG.png",
-      "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_2_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_2_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_02_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_02_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_002_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_002_R_EN_LG.png"
-      ],
-      "limitlessPage": "https://limitlesstcg.com/cards/MEE/2"
-    },
-    "Mega Evolution|Mega Evolution Energy|MEE|001|Basic Grass Energy": {
-      "name": "Basic Grass Energy",
-      "series": "Mega Evolution",
-      "set": "Mega Evolution Energy",
-      "abbr": "MEE",
-      "num": "001",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_1_EN_LG.png",
-      "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_1_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_1_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_01_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_01_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_001_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_001_R_EN_LG.png"
-      ],
-      "limitlessPage": "https://limitlesstcg.com/cards/MEE/1"
-    },
     "Mega Evolution|30th Celebration|30C|001|Exeggcute": {
       "name": "Exeggcute",
       "series": "Mega Evolution",
@@ -2771,14 +2635,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "058",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/058/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-58-pikachu.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/058/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/058/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_58_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_58_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_058_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_058_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-58-pikachu.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/58"
     },
@@ -2788,16 +2647,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "004",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/004/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/classic-004-charizard.png",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/004/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/004/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_4_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_4_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_04_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_04_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_004_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_004_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/classic-004-charizard.png"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/4"
     },
@@ -2807,14 +2659,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "018",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/018/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-18-misty.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/018/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/018/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_18_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_18_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_018_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_018_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-18-misty.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/18"
     },
@@ -2824,14 +2671,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "069",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/069/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-69-erika-s-jigglypuff.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/069/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/069/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_69_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_69_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_069_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_069_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-69-erika-s-jigglypuff.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/69"
     },
@@ -2841,14 +2683,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "025",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/025/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-25-sneasel.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/025/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/025/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_25_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_25_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_025_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_025_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-25-sneasel.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/25"
     },
@@ -2858,12 +2695,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "106",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/106/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-106-shining-celebi.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/106/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/106/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_106_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_106_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-106-shining-celebi.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/106"
     },
@@ -2873,12 +2707,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "149",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/149/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/classic-149-lugia.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/149/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/149/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_149_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_149_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/classic-149-lugia.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/149"
     },
@@ -2888,16 +2719,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "005",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/005/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-5-delcatty.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/005/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/005/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_5_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_5_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_05_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_05_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_005_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_005_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-5-delcatty.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/5"
     },
@@ -2907,14 +2731,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "019",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/019/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-19-dark-tyranitar.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/019/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/019/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_19_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_19_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_019_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_019_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-19-dark-tyranitar.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/19"
     },
@@ -2924,12 +2743,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "108",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/108/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-108-scizor-ex.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/108/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/108/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_108_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_108_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-108-scizor-ex.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/108"
     },
@@ -2939,14 +2755,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "011",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/011/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-11-metagross.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/011/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/011/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_11_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_11_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_011_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_011_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-11-metagross.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/11"
     },
@@ -2956,12 +2767,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "106",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/106/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-106-palkia.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/106/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/106/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_106_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_106_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-106-palkia.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/106"
     },
@@ -2971,14 +2779,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "043",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/043/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-43-uxie.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/043/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/043/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_43_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_43_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_043_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_043_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-43-uxie.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/43"
     },
@@ -2988,14 +2791,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "047",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/047/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-47-crobat-g.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/047/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/047/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_47_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_47_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_047_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_047_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-47-crobat-g.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/47"
     },
@@ -3005,14 +2803,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "094",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/094/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-94-gengar.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/094/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/094/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_94_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_94_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_094_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_094_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-94-gengar.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/94"
     },
@@ -3022,14 +2815,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "099",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/099/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-99-darkrai-cresselia-legend.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/099/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/099/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_99_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_99_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_099_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_099_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-99-darkrai-cresselia-legend.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/99"
     },
@@ -3039,12 +2827,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "100",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/100/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-100-darkrai-cresselia-legend.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/100/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/100/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_100_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_100_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-100-darkrai-cresselia-legend.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/100"
     },
@@ -3054,12 +2839,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "101",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/101/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-101-n.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/101/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/101/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_101_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_101_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-101-n.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/101"
     },
@@ -3069,33 +2851,23 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "085",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/085/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-85-rayquaza-ex.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/085/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/085/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_85_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_85_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_085_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_085_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-85-rayquaza-ex.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/85"
     },
-    "Mega Evolution|30th Celebration: Classic Collection|30C|011|Genesect EX": {
+    "Mega Evolution|30th Celebration: Classic Collection|30C|097|Genesect EX": {
       "name": "Genesect EX",
       "series": "Mega Evolution",
       "set": "30th Celebration",
       "abbr": "30C",
-      "num": "011",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/011/high.webp",
+      "num": "097",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-11-genesect-ex.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/011/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/011/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_11_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_11_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_011_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_011_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-11-genesect-ex.jpg"
       ],
-      "limitlessPage": "https://limitlesstcg.com/cards/30C/11"
+      "limitlessPage": "https://limitlesstcg.com/cards/30C/97"
     },
     "Mega Evolution|30th Celebration: Classic Collection|30C|106|M Gardevoir EX": {
       "name": "M Gardevoir EX",
@@ -3103,12 +2875,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "106",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/106/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-106-m-gardevoir-ex.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/106/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/106/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_106_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_106_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-106-m-gardevoir-ex.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/106"
     },
@@ -3118,14 +2887,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "041",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/041/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-41-greninja-break.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/041/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/041/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_41_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_41_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_041_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_041_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-41-greninja-break.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/41"
     },
@@ -3135,14 +2899,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "089",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/089/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-89-solgaleo-gx.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/089/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/089/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_89_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_89_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_089_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_089_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-89-solgaleo-gx.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/89"
     },
@@ -3152,14 +2911,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "057",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/057/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-57-buzzwole-gx.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/057/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/057/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_57_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_57_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_057_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_057_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-57-buzzwole-gx.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/57"
     },
@@ -3169,14 +2923,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "033",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/033/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/classic-033-pikachu-zekrom-gx.png",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/033/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/033/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_33_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_33_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_033_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_033_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/classic-033-pikachu-zekrom-gx.png"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/33"
     },
@@ -3186,12 +2935,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "138",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/138/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-138-zacian-v.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/138/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/138/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_138_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_138_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-138-zacian-v.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/138"
     },
@@ -3201,14 +2947,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "050",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/050/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-50-raikou.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/050/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/050/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_50_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_50_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_050_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_050_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-50-raikou.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/50"
     },
@@ -3218,12 +2959,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "114",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/114/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-114-mew-vmax.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/114/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/114/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_114_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_114_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-114-mew-vmax.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/114"
     },
@@ -3233,12 +2971,9 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "123",
-      "bestUrl": "https://assets.tcgdex.net/en/me/30th/123/high.webp",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-123-arceus-vstar.jpg",
       "candidates": [
-        "https://assets.tcgdex.net/en/me/30th/123/high.webp",
-        "https://assets.tcgdex.net/en/me/30th/123/high.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_123_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_123_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-123-arceus-vstar.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/123"
     },
@@ -3248,12 +2983,147 @@
       "set": "30th Celebration",
       "abbr": "30C",
       "num": "203",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_203_EN_LG.png",
+      "bestUrl": "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-203-magikarp.jpg",
       "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_203_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/30C/30C_203_R_EN_LG.png"
+        "https://chasesociety.com/images/pokemon/cel30/tcgp-classic-203-magikarp.jpg"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/30C/203"
+    },
+    "Mega Evolution|Mega Evolution Energy|MEE|001|Basic Grass Energy": {
+      "name": "Basic Grass Energy",
+      "series": "Mega Evolution",
+      "set": "Mega Evolution Energy",
+      "abbr": "MEE",
+      "num": "001",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_1_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_1_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_1_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_01_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_01_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_001_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_001_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/MEE/1"
+    },
+    "Mega Evolution|Mega Evolution Energy|MEE|002|Basic Fire Energy": {
+      "name": "Basic Fire Energy",
+      "series": "Mega Evolution",
+      "set": "Mega Evolution Energy",
+      "abbr": "MEE",
+      "num": "002",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_2_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_2_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_2_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_02_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_02_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_002_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_002_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/MEE/2"
+    },
+    "Mega Evolution|Mega Evolution Energy|MEE|003|Basic Water Energy": {
+      "name": "Basic Water Energy",
+      "series": "Mega Evolution",
+      "set": "Mega Evolution Energy",
+      "abbr": "MEE",
+      "num": "003",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_3_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_3_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_3_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_03_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_03_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_003_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_003_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/MEE/3"
+    },
+    "Mega Evolution|Mega Evolution Energy|MEE|004|Basic Lightning Energy": {
+      "name": "Basic Lightning Energy",
+      "series": "Mega Evolution",
+      "set": "Mega Evolution Energy",
+      "abbr": "MEE",
+      "num": "004",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_4_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_4_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_4_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_04_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_04_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_004_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_004_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/MEE/4"
+    },
+    "Mega Evolution|Mega Evolution Energy|MEE|005|Basic Psychic Energy": {
+      "name": "Basic Psychic Energy",
+      "series": "Mega Evolution",
+      "set": "Mega Evolution Energy",
+      "abbr": "MEE",
+      "num": "005",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_5_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_5_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_5_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_05_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_05_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_005_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_005_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/MEE/5"
+    },
+    "Mega Evolution|Mega Evolution Energy|MEE|006|Basic Fighting Energy": {
+      "name": "Basic Fighting Energy",
+      "series": "Mega Evolution",
+      "set": "Mega Evolution Energy",
+      "abbr": "MEE",
+      "num": "006",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_6_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_6_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_6_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_06_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_06_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_006_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_006_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/MEE/6"
+    },
+    "Mega Evolution|Mega Evolution Energy|MEE|007|Basic Darkness Energy": {
+      "name": "Basic Darkness Energy",
+      "series": "Mega Evolution",
+      "set": "Mega Evolution Energy",
+      "abbr": "MEE",
+      "num": "007",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_7_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_7_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_7_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_07_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_07_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_007_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_007_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/MEE/7"
+    },
+    "Mega Evolution|Mega Evolution Energy|MEE|008|Basic Metal Energy": {
+      "name": "Basic Metal Energy",
+      "series": "Mega Evolution",
+      "set": "Mega Evolution Energy",
+      "abbr": "MEE",
+      "num": "008",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_8_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_8_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_8_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_08_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_08_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_008_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_008_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/MEE/8"
     },
     "Mega Evolution|30th Celebration: Energy Collection|MEE|009|Basic Grass Energy": {
       "name": "Basic Grass Energy",
@@ -3261,14 +3131,9 @@
       "set": "Mega Evolution Energy",
       "abbr": "MEE",
       "num": "009",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_9_EN_LG.png",
+      "bestUrl": "https://www.cardtrader.com/uploads/blueprints/image/409558/409558-basic-grass-energy-mee-009-30th-celebration.webp",
       "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_9_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_9_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_09_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_09_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_009_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_009_R_EN_LG.png"
+        "https://www.cardtrader.com/uploads/blueprints/image/409558/409558-basic-grass-energy-mee-009-30th-celebration.webp"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/MEE/9"
     },
@@ -3278,12 +3143,9 @@
       "set": "Mega Evolution Energy",
       "abbr": "MEE",
       "num": "010",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_10_EN_LG.png",
+      "bestUrl": "https://www.cardtrader.com/uploads/blueprints/image/409559/409559-basic-fire-energy-mee-010-30th-celebration.webp",
       "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_10_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_10_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_010_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_010_R_EN_LG.png"
+        "https://www.cardtrader.com/uploads/blueprints/image/409559/409559-basic-fire-energy-mee-010-30th-celebration.webp"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/MEE/10"
     },
@@ -3293,12 +3155,9 @@
       "set": "Mega Evolution Energy",
       "abbr": "MEE",
       "num": "011",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_11_EN_LG.png",
+      "bestUrl": "https://www.cardtrader.com/uploads/blueprints/image/409560/409560-basic-water-energy-mee-011-30th-celebration.webp",
       "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_11_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_11_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_011_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_011_R_EN_LG.png"
+        "https://www.cardtrader.com/uploads/blueprints/image/409560/409560-basic-water-energy-mee-011-30th-celebration.webp"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/MEE/11"
     },
@@ -3308,12 +3167,9 @@
       "set": "Mega Evolution Energy",
       "abbr": "MEE",
       "num": "012",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_12_EN_LG.png",
+      "bestUrl": "https://www.cardtrader.com/uploads/blueprints/image/409561/409561-basic-lightning-energy-mee-012-30th-celebration.webp",
       "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_12_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_12_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_012_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_012_R_EN_LG.png"
+        "https://www.cardtrader.com/uploads/blueprints/image/409561/409561-basic-lightning-energy-mee-012-30th-celebration.webp"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/MEE/12"
     },
@@ -3323,12 +3179,9 @@
       "set": "Mega Evolution Energy",
       "abbr": "MEE",
       "num": "013",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_13_EN_LG.png",
+      "bestUrl": "https://www.cardtrader.com/uploads/blueprints/image/409562/409562-basic-psychic-energy-mee-013-30th-celebration.webp",
       "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_13_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_13_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_013_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_013_R_EN_LG.png"
+        "https://www.cardtrader.com/uploads/blueprints/image/409562/409562-basic-psychic-energy-mee-013-30th-celebration.webp"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/MEE/13"
     },
@@ -3338,12 +3191,9 @@
       "set": "Mega Evolution Energy",
       "abbr": "MEE",
       "num": "014",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_14_EN_LG.png",
+      "bestUrl": "https://www.cardtrader.com/uploads/blueprints/image/409563/409563-basic-fighting-energy-mee-014-30th-celebration.webp",
       "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_14_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_14_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_014_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_014_R_EN_LG.png"
+        "https://www.cardtrader.com/uploads/blueprints/image/409563/409563-basic-fighting-energy-mee-014-30th-celebration.webp"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/MEE/14"
     },
@@ -3353,12 +3203,9 @@
       "set": "Mega Evolution Energy",
       "abbr": "MEE",
       "num": "015",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_15_EN_LG.png",
+      "bestUrl": "https://www.cardtrader.com/uploads/blueprints/image/409564/409564-basic-darkness-energy-mee-015-30th-celebration.webp",
       "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_15_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_15_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_015_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_015_R_EN_LG.png"
+        "https://www.cardtrader.com/uploads/blueprints/image/409564/409564-basic-darkness-energy-mee-015-30th-celebration.webp"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/MEE/15"
     },
@@ -3368,12 +3215,9 @@
       "set": "Mega Evolution Energy",
       "abbr": "MEE",
       "num": "016",
-      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_16_EN_LG.png",
+      "bestUrl": "https://www.cardtrader.com/uploads/blueprints/image/409565/409565-basic-metal-energy-mee-016-30th-celebration.webp",
       "candidates": [
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_16_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_16_R_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_016_EN_LG.png",
-        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/MEE/MEE_016_R_EN_LG.png"
+        "https://www.cardtrader.com/uploads/blueprints/image/409565/409565-basic-metal-energy-mee-016-30th-celebration.webp"
       ],
       "limitlessPage": "https://limitlesstcg.com/cards/MEE/16"
     },
@@ -323897,7 +323741,7 @@
     }
   },
   "cleanup": {
-    "updatedAt": "2026-09-28T11:52:39.583758+00:00",
+    "updatedAt": "2026-10-02T16:20:24.574702+00:00",
     "rule": "Chaos Rising en Pitch Black gebruiken uitsluitend veilige Limitless _R_EN_LG-afbeeldingen",
     "improvedCards": 242,
     "removedUnsafeUrlsApprox": 900,

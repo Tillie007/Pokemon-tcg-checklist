@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-09-28T11:52:39.170826+00:00",
+  "updatedAt": "2026-10-02T16:20:24.184958+00:00",
   "totalCards": 20651,
   "cardsWithImageCandidates": 20651,
   "cardsWithoutImageCandidates": 0,
   "bySourceCandidateUrls": {
-    "tcgdex": 374,
-    "chasesociety": 3,
-    "cardtrader": 0,
+    "tcgdex": 316,
+    "chasesociety": 33,
+    "cardtrader": 8,
     "pokemontcg": 70532,
-    "limitless": 26908
+    "limitless": 26772
   },
   "note": "30th Celebration gebruikt TCGdex voor 001-158 en gecontroleerde bronnen voor RGB, Classic Collection en Energy Collection."
 }
