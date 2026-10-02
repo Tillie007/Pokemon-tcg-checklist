@@ -66,18 +66,24 @@ class ThirtiethCelebrationTests(unittest.TestCase):
             self.assertTrue(entry.get("candidates"), key)
 
         prices = {row["key"]: row for row in self.prices if row.get("key") in keys}
-        self.assertEqual(set(prices), keys)
-        for key, row in prices.items():
+
+        # De echte 30th-checklist bestaat uit 191 kaarten plus de acht speciale
+        # MEE-jubileumenergies 009-016. De gewone basisenergies 001-008 zijn
+        # handig in dezelfde Energy-set, maar horen niet bij de gecontroleerde
+        # 30th Cardmarket-productmapping.
+        required_cards = [
+            card for card in self.cards
+            if card["set"] == "30th Celebration"
+            or (card["set"] == "Mega Evolution Energy" and int(card["num"]) >= 9)
+        ]
+        required_keys = {card["key"] for card in required_cards}
+        self.assertEqual(len(required_keys), 199)
+        self.assertTrue(required_keys <= set(prices), sorted(required_keys - set(prices))[:10])
+        for key in required_keys:
+            row = prices[key]
             self.assertTrue(row.get("price") or row.get("trendPrice"), key)
             self.assertTrue(row.get("cmProductId"), key)
-
-        # 158 hoofdkaarten + 30 Classic + 3 RGB + 8 jubileum-energies
-        # moeten de gecontroleerde 30th-koppeling gebruiken.
-        direct = [
-            row for row in prices.values()
-            if row.get("matchType") == "verified-30th-product"
-        ]
-        self.assertGreaterEqual(len(direct), 199)
+            self.assertEqual(row.get("matchType"), "verified-30th-product", key)
 
     def test_dark_v3_uses_current_cache_strategy(self) -> None:
         app = (ROOT / "dark-v3-live.html").read_text(encoding="utf-8")
