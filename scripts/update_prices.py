@@ -63,7 +63,8 @@ THIRTIETH_EXPANSION_ID = "6601"
 THIRTIETH_ENERGY_EXPANSION_ID = "6324"
 THIRTIETH_MAIN_SET = "30th Celebration"
 THIRTIETH_CLASSIC_SET = "30th Celebration: Classic Collection"
-THIRTIETH_ENERGY_SET = "30th Celebration: Energy Collection"
+THIRTIETH_ENERGY_SET = "Mega Evolution Energy"
+THIRTIETH_ENERGY_LEGACY_KEY = "30th Celebration: Energy Collection"
 
 THIRTIETH_CLASSIC_KEYS = [
     ("058", "Pikachu"), ("004", "Charizard"), ("018", "Misty"),
@@ -72,7 +73,7 @@ THIRTIETH_CLASSIC_KEYS = [
     ("108", "Scizor ex"), ("011", "Metagross δ"), ("106", "Palkia LV.X"),
     ("043", "Uxie"), ("047", "Crobat G"), ("094", "Gengar"),
     ("099", "Darkrai & Cresselia LEGEND"), ("100", "Darkrai & Cresselia LEGEND"),
-    ("101", "N"), ("085", "Rayquaza EX"), ("011", "Genesect EX"),
+    ("101", "N"), ("085", "Rayquaza EX"), ("097", "Genesect EX"),
     ("106", "M Gardevoir EX"), ("041", "Greninja BREAK"), ("089", "Solgaleo GX"),
     ("057", "Buzzwole GX"), ("033", "Pikachu & Zekrom GX"), ("138", "Zacian V"),
     ("050", "Raikou"), ("114", "Mew VMAX"), ("123", "Arceus VSTAR"),
@@ -1144,20 +1145,44 @@ def build_30th_direct_product_map(
     def attach(card: Dict[str, Any], product_id: str, expected_expansion: str) -> None:
         product = by_id.get(product_id)
         key = str(card.get("key", ""))
-        if product is not None and key and str(product.get("idExpansion", "")) == expected_expansion:
+        if product is None or not key or str(product.get("idExpansion", "")) != expected_expansion:
+            return
+        card_name = norm_text(card.get("name", ""))
+        product_name = norm_text(product.get("normName", ""))
+        compact_card = norm_compact(card_name)
+        compact_product = norm_compact(product_name)
+        name_ok = (
+            product_name == card_name
+            or product_name_starts_with_card(product_name, card_name)
+            or (compact_card and (compact_product == compact_card or compact_product.startswith(compact_card)))
+        )
+        if name_ok:
             result[key] = product
 
     for card in cards:
         set_name = str(card.get("set", ""))
         num = str(card.get("num", ""))
         name = str(card.get("name", ""))
-        if set_name == THIRTIETH_CLASSIC_SET:
+        key = str(card.get("key", ""))
+        is_classic = (
+            str(card.get("rarity", "")) == "Classic Collection"
+            or f"|{THIRTIETH_CLASSIC_SET}|" in key
+        )
+        is_anniversary_energy = (
+            set_name == THIRTIETH_ENERGY_SET
+            and (
+                f"|{THIRTIETH_ENERGY_LEGACY_KEY}|" in key
+                or str(card.get("rarity", "")) == "Futuristic Rare"
+                or num in THIRTIETH_ENERGY_PRODUCT_IDS
+            )
+        )
+        if is_classic:
             product_id = THIRTIETH_CLASSIC_PRODUCT_IDS.get((num, name))
             if product_id:
                 attach(card, product_id, THIRTIETH_EXPANSION_ID)
         elif set_name == THIRTIETH_MAIN_SET and num in THIRTIETH_RGB_PRODUCT_IDS:
             attach(card, THIRTIETH_RGB_PRODUCT_IDS[num], THIRTIETH_EXPANSION_ID)
-        elif set_name == THIRTIETH_ENERGY_SET and num in THIRTIETH_ENERGY_PRODUCT_IDS:
+        elif is_anniversary_energy and num in THIRTIETH_ENERGY_PRODUCT_IDS:
             attach(card, THIRTIETH_ENERGY_PRODUCT_IDS[num], THIRTIETH_ENERGY_EXPANSION_ID)
 
     excluded_ids = set(THIRTIETH_CLASSIC_PRODUCT_IDS.values()) | set(THIRTIETH_RGB_PRODUCT_IDS.values())
@@ -1171,6 +1196,8 @@ def build_30th_direct_product_map(
         if card.get("series") == "Mega Evolution"
         and card.get("set") == THIRTIETH_MAIN_SET
         and str(card.get("num", "")).isdigit()
+        and str(card.get("rarity", "")) != "Classic Collection"
+        and f"|{THIRTIETH_CLASSIC_SET}|" not in str(card.get("key", ""))
     ]
 
     cards_by_name: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
