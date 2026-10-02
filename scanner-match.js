@@ -167,9 +167,12 @@
     }
 
     if (nameTokens.some(token => token.length >= 5 && textTokens.includes(token))) best = Math.max(best, 0.78);
-    // OCR-ruis mag niet via louter Levenshtein-afstand als een "herkende naam"
-    // tellen. Zonder één echt naamtoken blijft fuzzy herkenning bewust beperkt.
-    if (exactMatches === 0) best = Math.min(best, 0.66);
+    // Eén kleine OCR-typfout in een korte Pokémonnaam (bv. Ninetale/Ninetales)
+    // mag nog herkenbaar blijven. Willekeurige OCR-ruis krijgt nooit zo'n hoge score.
+    if (exactMatches === 0) {
+      const nearSingleName = nameTokens.length === 1 && best >= 0.82;
+      best = Math.min(best, nearSingleName ? 0.86 : 0.66);
+    }
     return clamp(best, 0, 1);
   }
 
