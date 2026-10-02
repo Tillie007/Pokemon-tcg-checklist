@@ -41,36 +41,36 @@ RGB_CARDS = [
 
 # De kaarten behouden op de herdruk hun oorspronkelijke verzamelnummer.
 CLASSIC_CARDS = [
-    ("058", "Pikachu"),
-    ("004", "Charizard"),
-    ("018", "Misty"),
-    ("069", "Erika's Jigglypuff"),
-    ("025", "Sneasel"),
-    ("106", "Shining Celebi"),
-    ("149", "Lugia"),
-    ("005", "Delcatty"),
-    ("019", "Dark Tyranitar"),
-    ("108", "Scizor ex"),
-    ("011", "Metagross δ"),
-    ("106", "Palkia LV.X"),
-    ("043", "Uxie"),
-    ("047", "Crobat G"),
-    ("094", "Gengar"),
-    ("099", "Darkrai & Cresselia LEGEND"),
-    ("100", "Darkrai & Cresselia LEGEND"),
-    ("101", "N"),
-    ("085", "Rayquaza EX"),
-    ("011", "Genesect EX"),
-    ("106", "M Gardevoir EX"),
-    ("041", "Greninja BREAK"),
-    ("089", "Solgaleo GX"),
-    ("057", "Buzzwole GX"),
-    ("033", "Pikachu & Zekrom GX"),
-    ("138", "Zacian V"),
-    ("050", "Raikou"),
-    ("114", "Mew VMAX"),
-    ("123", "Arceus VSTAR"),
-    ("203", "Magikarp"),
+    ("058", "Pikachu", "BS"),
+    ("004", "Charizard", "BS"),
+    ("018", "Misty", "GH"),
+    ("069", "Erika's Jigglypuff", "GC"),
+    ("025", "Sneasel", "NG"),
+    ("106", "Shining Celebi", "NDE"),
+    ("149", "Lugia", "AQ"),
+    ("005", "Delcatty", "RS"),
+    ("019", "Dark Tyranitar", "TRR"),
+    ("108", "Scizor ex", "UF"),
+    ("011", "Metagross δ", "DS"),
+    ("106", "Palkia LV.X", "GE"),
+    ("043", "Uxie", "LA"),
+    ("047", "Crobat G", "PL"),
+    ("094", "Gengar", "TM"),
+    ("099", "Darkrai & Cresselia LEGEND", "TM"),
+    ("100", "Darkrai & Cresselia LEGEND", "TM"),
+    ("101", "N", "NVI"),
+    ("085", "Rayquaza EX", "DRX"),
+    ("097", "Genesect EX", "PLB"),
+    ("106", "M Gardevoir EX", "PRC"),
+    ("041", "Greninja BREAK", "BKP"),
+    ("089", "Solgaleo GX", "SUM"),
+    ("057", "Buzzwole GX", "CIN"),
+    ("033", "Pikachu & Zekrom GX", "TEU"),
+    ("138", "Zacian V", "SSH"),
+    ("050", "Raikou", "VIV"),
+    ("114", "Mew VMAX", "FST"),
+    ("123", "Arceus VSTAR", "BRS"),
+    ("203", "Magikarp", "PAL"),
 ]
 
 BASE_ENERGY_CARDS = [
@@ -215,12 +215,13 @@ def remove_existing_cards(data: dict[str, Any]) -> int:
 def main() -> int:
     data = load_data()
     main_cards = numbered_cards()
-    main_cards.extend(
-        make_card(MAIN_SET, MAIN_ABBR, num, name, "RGB Rare")
-        for num, name in RGB_CARDS
-    )
-    classic_cards = [
-        make_card(
+    for num, name in RGB_CARDS:
+        card = make_card(MAIN_SET, MAIN_ABBR, num, name, "RGB Rare")
+        card["subset"] = "RGB"
+        main_cards.append(card)
+    classic_cards = []
+    for num, name, original_code in CLASSIC_CARDS:
+        card = make_card(
             MAIN_SET,
             MAIN_ABBR,
             num,
@@ -228,8 +229,9 @@ def main() -> int:
             "Classic Collection",
             key_set_name=CLASSIC_LEGACY_SET,
         )
-        for num, name in CLASSIC_CARDS
-    ]
+        card["subset"] = "Classic Collection"
+        card["originalSetCode"] = original_code
+        classic_cards.append(card)
     base_energy_cards = [
         make_card(ENERGY_SET, ENERGY_ABBR, num, name, "Common")
         for num, name in BASE_ENERGY_CARDS
