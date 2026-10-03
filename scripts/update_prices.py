@@ -1219,6 +1219,7 @@ def build_30th_direct_product_map(
         if card.get("series") == "Mega Evolution"
         and card.get("set") == THIRTIETH_MAIN_SET
         and str(card.get("num", "")).isdigit()
+        and str(card.get("num", "")) not in THIRTIETH_SECRET_PRODUCT_IDS
         and str(card.get("rarity", "")) != "Classic Collection"
         and f"|{THIRTIETH_CLASSIC_SET}|" not in str(card.get("key", ""))
     ]
@@ -1229,7 +1230,8 @@ def build_30th_direct_product_map(
 
     direct_name_aliases = {"nidoran female": "nidoran f"}
 
-    if len(main_cards) != 158 or len(main_products) != 158:
+    expected_generic_main = 158 - len(THIRTIETH_SECRET_PRODUCT_IDS)
+    if len(main_cards) != expected_generic_main or len(main_products) != expected_generic_main:
         return result
 
     for name, name_cards in cards_by_name.items():
