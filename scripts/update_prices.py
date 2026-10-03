@@ -87,6 +87,23 @@ THIRTIETH_RGB_PRODUCT_IDS = {
     "G/RGB": "909510",
     "B/RGB": "909511",
 }
+# Cardmarket product IDs are mostly close to collector-number order, but not
+# for every late-added chase card. Keep the whole 147-158 block explicit so
+# Mewtwo ex 151/157 and Mew ex 152/158 can never be swapped by ID sorting.
+THIRTIETH_SECRET_PRODUCT_IDS = {
+    "147": "907754",
+    "148": "907755",
+    "149": "907756",
+    "150": "907757",
+    "151": "908353",
+    "152": "908354",
+    "153": "907758",
+    "154": "908355",
+    "155": "907759",
+    "156": "907760",
+    "157": "907761",
+    "158": "907762",
+}
 THIRTIETH_ENERGY_PRODUCT_IDS = {
     "009": "909307", "010": "909308", "011": "909310", "012": "909312",
     "013": "909313", "014": "909314", "015": "909315", "016": "909316",
@@ -1180,12 +1197,18 @@ def build_30th_direct_product_map(
             product_id = THIRTIETH_CLASSIC_PRODUCT_IDS.get((num, name))
             if product_id:
                 attach(card, product_id, THIRTIETH_EXPANSION_ID)
+        elif set_name == THIRTIETH_MAIN_SET and num in THIRTIETH_SECRET_PRODUCT_IDS:
+            attach(card, THIRTIETH_SECRET_PRODUCT_IDS[num], THIRTIETH_EXPANSION_ID)
         elif set_name == THIRTIETH_MAIN_SET and num in THIRTIETH_RGB_PRODUCT_IDS:
             attach(card, THIRTIETH_RGB_PRODUCT_IDS[num], THIRTIETH_EXPANSION_ID)
         elif is_anniversary_energy and num in THIRTIETH_ENERGY_PRODUCT_IDS:
             attach(card, THIRTIETH_ENERGY_PRODUCT_IDS[num], THIRTIETH_ENERGY_EXPANSION_ID)
 
-    excluded_ids = set(THIRTIETH_CLASSIC_PRODUCT_IDS.values()) | set(THIRTIETH_RGB_PRODUCT_IDS.values())
+    excluded_ids = (
+        set(THIRTIETH_CLASSIC_PRODUCT_IDS.values())
+        | set(THIRTIETH_RGB_PRODUCT_IDS.values())
+        | set(THIRTIETH_SECRET_PRODUCT_IDS.values())
+    )
     main_products = [
         product for product in products
         if str(product.get("idExpansion", "")) == THIRTIETH_EXPANSION_ID
