@@ -85,6 +85,20 @@ class ThirtiethCelebrationTests(unittest.TestCase):
             self.assertTrue(row.get("cmProductId"), key)
             self.assertEqual(row.get("matchType"), "verified-30th-product", key)
 
+        expected_products = {
+            ("151", "Mewtwo ex"): "908353",
+            ("152", "Mew ex"): "908354",
+            ("157", "Mewtwo ex"): "907761",
+            ("158", "Mew ex"): "907762",
+        }
+        by_pair = {
+            (card["num"], card["name"]): prices[card["key"]]
+            for card in self.cards
+            if card.get("set") == "30th Celebration"
+        }
+        for pair, product_id in expected_products.items():
+            self.assertEqual(by_pair[pair].get("cmProductId"), product_id, pair)
+
     def test_dark_v3_uses_current_cache_strategy(self) -> None:
         app = (ROOT / "dark-v3-live.html").read_text(encoding="utf-8")
         worker = (ROOT / "service-worker.js").read_text(encoding="utf-8")
