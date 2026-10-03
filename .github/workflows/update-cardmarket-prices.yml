@@ -17,6 +17,7 @@ on:
       - "cardmarket_manual_set_map.csv"
       - "scripts/update_30th_celebration.py"
       - "tests/scanner_match.test.js"
+      - "tests/test_30th_celebration.py"
   schedule:
     - cron: "15 4 * * *"
   workflow_dispatch:
@@ -114,6 +115,9 @@ jobs:
 
       - name: Cardmarket-prijzen bijwerken
         run: python scripts/update_prices.py --force
+
+      - name: 30th Celebration-prijzen controleren
+        run: python -m unittest tests/test_30th_celebration.py
 
       - name: Resultaat tonen
         run: |
