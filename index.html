@@ -3525,7 +3525,7 @@ maybeAutoUpdatePrices();
 
   window.addEventListener('load', function(){
     if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-      navigator.serviceWorker.register('./service-worker.js?v=5', { updateViaCache: 'none' }).then(function(registration){
+      navigator.serviceWorker.register('./service-worker.js?v=4', { updateViaCache: 'none' }).then(function(registration){
         registration.update().catch(function(){});
       }).catch(function(err){
         console.warn('Service worker niet geregistreerd:', err);
