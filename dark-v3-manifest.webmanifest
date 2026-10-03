@@ -3,7 +3,7 @@
   "short_name": "Pokémon V3",
   "description": "Donkere versie van de Pokémon TCG collectie-app.",
   "lang": "nl-BE",
-  "start_url": "./dark-v3-live.html?app=20260930c",
+  "start_url": "./dark-v3-live.html?app=20261003a",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
