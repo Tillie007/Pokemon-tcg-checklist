@@ -1,6 +1,6 @@
 {
   "source": "Automatische kandidaten: speciale 30th-bronnen, Pokémon TCG image CDN en veilige moderne fallbacks",
-  "updatedAt": "2026-10-02T16:20:24.184958+00:00",
+  "updatedAt": "2026-10-05T12:29:29.855598+00:00",
   "totalCards": 20651,
   "cardsWithImageCandidates": 20651,
   "cardsWithoutImageCandidates": 0,
@@ -323741,7 +323741,7 @@
     }
   },
   "cleanup": {
-    "updatedAt": "2026-10-02T16:20:24.574702+00:00",
+    "updatedAt": "2026-10-05T12:29:30.242151+00:00",
     "rule": "Chaos Rising en Pitch Black gebruiken uitsluitend veilige Limitless _R_EN_LG-afbeeldingen",
     "improvedCards": 242,
     "removedUnsafeUrlsApprox": 900,
