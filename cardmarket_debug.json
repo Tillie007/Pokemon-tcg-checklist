@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-10-21T09:19:43.873309+00:00",
-  "productRows": 74822,
-  "priceRows": 80013,
-  "usableProducts": 74822,
-  "priceMapIds": 80013,
+  "updatedAt": "2026-10-22T09:22:28.395187+00:00",
+  "productRows": 74925,
+  "priceRows": 80026,
+  "usableProducts": 74925,
+  "priceMapIds": 80026,
   "matchedCards": 11587,
   "pricedCards": 11587,
   "samplePriceKeys": [
@@ -101,8 +101,8 @@
       "priceGuides": "list"
     }
   },
-  "priceCacheSizeChars": 15709101,
-  "priceCacheFirst500Chars": "{\"version\":1,\"createdAt\":\"2026-10-21T02:48:17+0200\",\"priceGuides\":[{\"idProduct\":271439,\"idCategory\":52,\"avg\":149,\"low\":150,\"trend\":279.1,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":3.93,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"idProduct\":271440,\"idCategory\":53,\"avg\":2103,\"low\":100000,\"trend\":2239.24,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":178.28,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"idP",
+  "priceCacheSizeChars": 15715905,
+  "priceCacheFirst500Chars": "{\"version\":1,\"createdAt\":\"2026-10-22T02:45:11+0200\",\"priceGuides\":[{\"idProduct\":271439,\"idCategory\":52,\"avg\":174.5,\"low\":150,\"trend\":279.1,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":3.93,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"idProduct\":271440,\"idCategory\":53,\"avg\":2103,\"low\":100000,\"trend\":2239.24,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":178.28,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"i",
   "matchTypes": {
     "verified-30th-product": 199,
     "unmatched": 8279,
