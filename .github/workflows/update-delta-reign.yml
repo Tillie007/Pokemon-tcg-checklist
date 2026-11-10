@@ -1,0 +1,97 @@
+name: Update Delta Reign
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/update_delta_reign.py'
+      - '.github/workflows/update-delta-reign.yml'
+
+concurrency:
+  group: pokemon-data-writes
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  update-delta-reign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+
+      - name: Add/update Delta Reign
+        run: python scripts/update_delta_reign.py
+
+      - name: Refresh generic image map
+        run: python scripts/update_images.py
+
+      - name: Clean unsafe image candidates
+        run: python scripts/clean_image_map.py
+
+      - name: Refresh Cardmarket prices
+        run: python scripts/update_prices.py --force
+
+      - name: Validate Delta Reign
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path('pokemon_cards_data.json').read_text(encoding='utf-8'))
+          cards = [
+              c for c in data.get('cards', [])
+              if c.get('series') == 'Mega Evolution' and c.get('set') == 'Delta Reign'
+          ]
+          assert len(cards) == 141, f'Verwacht 141 Delta Reign-kaarten, kreeg {len(cards)}'
+          nums = [c.get('num') for c in cards]
+          assert nums == [f'{n:03d}' for n in range(1, 142)], 'Kaartnummers zijn niet compleet 001-141'
+          assert len({c.get('key') for c in cards}) == 141, 'Dubbele Delta Reign keys'
+
+          images = json.loads(Path('pokemon_image_map.json').read_text(encoding='utf-8')).get('images', {})
+          image_count = sum(1 for c in cards if images.get(c['key'], {}).get('bestUrl'))
+          assert image_count >= 130, f'Te weinig afbeeldingen: {image_count}/141'
+
+          prices = json.loads(Path('prices.json').read_text(encoding='utf-8')).get('prices', [])
+          by_key = {p.get('key'): p for p in prices}
+          price_count = sum(
+              1 for c in cards
+              if c['key'] in by_key and (by_key[c['key']].get('price') or by_key[c['key']].get('trendPrice'))
+          )
+          assert price_count >= 120, f'Te weinig prijsdata: {price_count}/141'
+          print(f'Delta Reign OK: 141 kaarten, {image_count} afbeeldingen, {price_count} prijzen')
+          PY
+
+      - name: Commit Delta Reign update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pokemon_cards_data.json pokemon_image_map.json delta_reign_debug.json
+          git add pokemon_image_debug.json pokemon_image_cleanup_debug.json
+          git add prices.json price_history.json cardmarket_debug.json cardmarket_match_report.csv
+          git add cardmarket_setcodes.csv cardmarket_set_mapping_candidates.csv cardmarket_unmatched_by_set.csv cardmarket_manual_set_map.csv 2>/dev/null || true
+
+          if git diff --cached --quiet; then
+            echo "Geen wijzigingen nodig."
+          else
+            git commit -m "Publish Delta Reign card data"
+            for attempt in 1 2 3; do
+              git fetch origin main
+              if git rebase origin/main && git push origin HEAD:main; then
+                echo "Delta Reign-update gepubliceerd."
+                exit 0
+              fi
+              git rebase --abort 2>/dev/null || true
+              echo "Push poging $attempt botste met een andere update; opnieuw proberen..."
+              sleep $((attempt * 3))
+            done
+            echo "Delta Reign-update kon niet veilig gepubliceerd worden."
+            exit 1
+          fi
