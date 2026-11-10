@@ -1,12 +1,2061 @@
 {
   "source": "Automatische kandidaten: speciale 30th-bronnen, Pokémon TCG image CDN en veilige moderne fallbacks",
-  "updatedAt": "2026-11-09T14:10:22.831917+00:00",
-  "totalCards": 20651,
-  "cardsWithImageCandidates": 20651,
+  "updatedAt": "2026-11-10T14:41:41.999595+00:00",
+  "totalCards": 20792,
+  "cardsWithImageCandidates": 20792,
   "cardsWithoutImageCandidates": 0,
-  "totalCandidateUrls": 97661,
+  "totalCandidateUrls": 98159,
   "format": "image-map-candidates-v3-special-sets",
   "images": {
+    "Mega Evolution|Delta Reign|DLR|001|Heracross": {
+      "name": "Heracross",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "001",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_1_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_1_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_1_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_01_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_01_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_001_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_001_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/1"
+    },
+    "Mega Evolution|Delta Reign|DLR|002|Surskit": {
+      "name": "Surskit",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "002",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_2_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_2_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_2_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_02_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_02_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_002_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_002_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/2"
+    },
+    "Mega Evolution|Delta Reign|DLR|003|Masquerain": {
+      "name": "Masquerain",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "003",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_3_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_3_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_3_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_03_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_03_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_003_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_003_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/3"
+    },
+    "Mega Evolution|Delta Reign|DLR|004|Cacnea": {
+      "name": "Cacnea",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "004",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_4_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_4_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_4_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_04_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_04_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_004_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_004_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/4"
+    },
+    "Mega Evolution|Delta Reign|DLR|005|Cacturne": {
+      "name": "Cacturne",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "005",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_5_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_5_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_5_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_05_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_05_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_005_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_005_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/5"
+    },
+    "Mega Evolution|Delta Reign|DLR|006|Combee": {
+      "name": "Combee",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "006",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_6_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_6_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_6_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_06_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_06_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_006_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_006_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/6"
+    },
+    "Mega Evolution|Delta Reign|DLR|007|Vespiquen": {
+      "name": "Vespiquen",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "007",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_7_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_7_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_7_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_07_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_07_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_007_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_007_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/7"
+    },
+    "Mega Evolution|Delta Reign|DLR|008|Shaymin": {
+      "name": "Shaymin",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "008",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_8_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_8_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_8_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_08_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_08_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_008_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_008_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/8"
+    },
+    "Mega Evolution|Delta Reign|DLR|009|Virizion": {
+      "name": "Virizion",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "009",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_9_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_9_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_9_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_09_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_09_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_009_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_009_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/9"
+    },
+    "Mega Evolution|Delta Reign|DLR|010|Wimpod": {
+      "name": "Wimpod",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "010",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_10_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_10_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_10_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_010_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_010_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/10"
+    },
+    "Mega Evolution|Delta Reign|DLR|011|Mega Golisopod ex": {
+      "name": "Mega Golisopod ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "011",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_11_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_11_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_11_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_011_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_011_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/11"
+    },
+    "Mega Evolution|Delta Reign|DLR|012|Sprigatito": {
+      "name": "Sprigatito",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "012",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_12_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_12_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_12_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_012_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_012_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/12"
+    },
+    "Mega Evolution|Delta Reign|DLR|013|Floragato": {
+      "name": "Floragato",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "013",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_13_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_13_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_13_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_013_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_013_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/13"
+    },
+    "Mega Evolution|Delta Reign|DLR|014|Meowscarada ex": {
+      "name": "Meowscarada ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "014",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_14_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_14_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_14_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_014_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_014_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/14"
+    },
+    "Mega Evolution|Delta Reign|DLR|015|Smoliv": {
+      "name": "Smoliv",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "015",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_15_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_15_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_15_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_015_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_015_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/15"
+    },
+    "Mega Evolution|Delta Reign|DLR|016|Dolliv": {
+      "name": "Dolliv",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "016",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_16_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_16_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_16_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_016_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_016_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/16"
+    },
+    "Mega Evolution|Delta Reign|DLR|017|Arboliva": {
+      "name": "Arboliva",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "017",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_17_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_17_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_17_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_017_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_017_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/17"
+    },
+    "Mega Evolution|Delta Reign|DLR|018|Growlithe": {
+      "name": "Growlithe",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "018",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_18_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_18_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_18_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_018_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_018_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/18"
+    },
+    "Mega Evolution|Delta Reign|DLR|019|Arcanine": {
+      "name": "Arcanine",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "019",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_19_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_19_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_19_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_019_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_019_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/19"
+    },
+    "Mega Evolution|Delta Reign|DLR|020|Magmar": {
+      "name": "Magmar",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "020",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_20_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_20_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_20_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_020_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_020_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/20"
+    },
+    "Mega Evolution|Delta Reign|DLR|021|Magmortar": {
+      "name": "Magmortar",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "021",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_21_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_21_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_21_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_021_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_021_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/21"
+    },
+    "Mega Evolution|Delta Reign|DLR|022|Torkoal": {
+      "name": "Torkoal",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "022",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_22_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_22_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_22_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_022_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_022_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/22"
+    },
+    "Mega Evolution|Delta Reign|DLR|023|Heat Rotom ex": {
+      "name": "Heat Rotom ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "023",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_23_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_23_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_23_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_023_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_023_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/23"
+    },
+    "Mega Evolution|Delta Reign|DLR|024|Heatmor": {
+      "name": "Heatmor",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "024",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_24_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_24_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_24_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_024_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_024_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/24"
+    },
+    "Mega Evolution|Delta Reign|DLR|025|Mantine": {
+      "name": "Mantine",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "025",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_25_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_25_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_25_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_025_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_025_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/25"
+    },
+    "Mega Evolution|Delta Reign|DLR|026|Kyogre": {
+      "name": "Kyogre",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "026",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_26_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_26_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_26_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_026_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_026_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/26"
+    },
+    "Mega Evolution|Delta Reign|DLR|027|Frillish": {
+      "name": "Frillish",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "027",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_27_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_27_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_27_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_027_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_027_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/27"
+    },
+    "Mega Evolution|Delta Reign|DLR|028|Jellicent": {
+      "name": "Jellicent",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "028",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_28_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_28_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_28_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_028_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_028_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/28"
+    },
+    "Mega Evolution|Delta Reign|DLR|029|Wishiwashi ex": {
+      "name": "Wishiwashi ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "029",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_29_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_29_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_29_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_029_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_029_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/29"
+    },
+    "Mega Evolution|Delta Reign|DLR|030|Electabuzz": {
+      "name": "Electabuzz",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "030",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_30_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_30_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_30_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_030_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_030_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/30"
+    },
+    "Mega Evolution|Delta Reign|DLR|031|Electivire": {
+      "name": "Electivire",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "031",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_31_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_31_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_31_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_031_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_031_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/31"
+    },
+    "Mega Evolution|Delta Reign|DLR|032|Jolteon": {
+      "name": "Jolteon",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "032",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_32_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_32_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_32_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_032_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_032_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/32"
+    },
+    "Mega Evolution|Delta Reign|DLR|033|Raikou ex": {
+      "name": "Raikou ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "033",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_33_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_33_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_33_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_033_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_033_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/33"
+    },
+    "Mega Evolution|Delta Reign|DLR|034|Rotom": {
+      "name": "Rotom",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "034",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_34_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_34_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_34_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_034_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_034_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/34"
+    },
+    "Mega Evolution|Delta Reign|DLR|035|Thundurus": {
+      "name": "Thundurus",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "035",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_35_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_35_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_35_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_035_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_035_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/35"
+    },
+    "Mega Evolution|Delta Reign|DLR|036|Pincurchin": {
+      "name": "Pincurchin",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "036",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_36_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_36_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_36_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_036_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_036_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/36"
+    },
+    "Mega Evolution|Delta Reign|DLR|037|Pawmi": {
+      "name": "Pawmi",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "037",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_37_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_37_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_37_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_037_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_037_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/37"
+    },
+    "Mega Evolution|Delta Reign|DLR|038|Pawmo": {
+      "name": "Pawmo",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "038",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_38_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_38_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_38_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_038_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_038_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/38"
+    },
+    "Mega Evolution|Delta Reign|DLR|039|Pawmot": {
+      "name": "Pawmot",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "039",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_39_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_39_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_39_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_039_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_039_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/39"
+    },
+    "Mega Evolution|Delta Reign|DLR|040|Wattrel": {
+      "name": "Wattrel",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "040",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_40_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_40_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_40_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_040_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_040_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/40"
+    },
+    "Mega Evolution|Delta Reign|DLR|041|Kilowattrel": {
+      "name": "Kilowattrel",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "041",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_41_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_41_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_41_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_041_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_041_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/41"
+    },
+    "Mega Evolution|Delta Reign|DLR|042|Miraidon": {
+      "name": "Miraidon",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "042",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_42_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_42_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_42_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_042_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_042_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/42"
+    },
+    "Mega Evolution|Delta Reign|DLR|043|Drowzee": {
+      "name": "Drowzee",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "043",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_43_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_43_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_43_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_043_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_043_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/43"
+    },
+    "Mega Evolution|Delta Reign|DLR|044|Hypno": {
+      "name": "Hypno",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "044",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_44_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_44_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_44_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_044_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_044_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/44"
+    },
+    "Mega Evolution|Delta Reign|DLR|045|Giratina": {
+      "name": "Giratina",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "045",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_45_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_45_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_45_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_045_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_045_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/45"
+    },
+    "Mega Evolution|Delta Reign|DLR|046|Golett": {
+      "name": "Golett",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "046",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_46_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_46_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_46_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_046_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_046_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/46"
+    },
+    "Mega Evolution|Delta Reign|DLR|047|Mega Golurk ex": {
+      "name": "Mega Golurk ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "047",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_47_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_47_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_47_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_047_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_047_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/47"
+    },
+    "Mega Evolution|Delta Reign|DLR|048|Enamorus": {
+      "name": "Enamorus",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "048",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_48_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_48_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_48_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_048_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_048_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/48"
+    },
+    "Mega Evolution|Delta Reign|DLR|049|Sandshrew": {
+      "name": "Sandshrew",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "049",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_49_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_49_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_49_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_049_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_049_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/49"
+    },
+    "Mega Evolution|Delta Reign|DLR|050|Sandslash": {
+      "name": "Sandslash",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "050",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_50_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_50_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_50_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_050_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_050_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/50"
+    },
+    "Mega Evolution|Delta Reign|DLR|051|Onix": {
+      "name": "Onix",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "051",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_51_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_51_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_51_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_051_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_051_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/51"
+    },
+    "Mega Evolution|Delta Reign|DLR|052|Steelix": {
+      "name": "Steelix",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "052",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_52_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_52_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_52_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_052_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_052_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/52"
+    },
+    "Mega Evolution|Delta Reign|DLR|053|Groudon": {
+      "name": "Groudon",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "053",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_53_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_53_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_53_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_053_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_053_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/53"
+    },
+    "Mega Evolution|Delta Reign|DLR|054|Landorus": {
+      "name": "Landorus",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "054",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_54_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_54_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_54_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_054_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_054_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/54"
+    },
+    "Mega Evolution|Delta Reign|DLR|055|Nidoran♀": {
+      "name": "Nidoran♀",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "055",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_55_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_55_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_55_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_055_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_055_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/55"
+    },
+    "Mega Evolution|Delta Reign|DLR|056|Nidorina": {
+      "name": "Nidorina",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "056",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_56_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_56_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_56_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_056_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_056_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/56"
+    },
+    "Mega Evolution|Delta Reign|DLR|057|Nidoqueen": {
+      "name": "Nidoqueen",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "057",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_57_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_57_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_57_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_057_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_057_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/57"
+    },
+    "Mega Evolution|Delta Reign|DLR|058|Spinarak": {
+      "name": "Spinarak",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "058",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_58_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_58_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_58_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_058_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_058_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/58"
+    },
+    "Mega Evolution|Delta Reign|DLR|059|Ariados": {
+      "name": "Ariados",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "059",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_59_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_59_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_59_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_059_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_059_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/59"
+    },
+    "Mega Evolution|Delta Reign|DLR|060|Sableye": {
+      "name": "Sableye",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "060",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_60_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_60_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_60_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_060_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_060_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/60"
+    },
+    "Mega Evolution|Delta Reign|DLR|061|Carvanha": {
+      "name": "Carvanha",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "061",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_61_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_61_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_61_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_061_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_061_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/61"
+    },
+    "Mega Evolution|Delta Reign|DLR|062|Sharpedo": {
+      "name": "Sharpedo",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "062",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_62_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_62_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_62_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_062_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_062_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/62"
+    },
+    "Mega Evolution|Delta Reign|DLR|063|Darkrai": {
+      "name": "Darkrai",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "063",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_63_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_63_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_63_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_063_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_063_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/63"
+    },
+    "Mega Evolution|Delta Reign|DLR|064|Purrloin": {
+      "name": "Purrloin",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "064",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_64_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_64_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_64_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_064_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_064_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/64"
+    },
+    "Mega Evolution|Delta Reign|DLR|065|Liepard": {
+      "name": "Liepard",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "065",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_65_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_65_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_65_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_065_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_065_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/65"
+    },
+    "Mega Evolution|Delta Reign|DLR|066|Zorua": {
+      "name": "Zorua",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "066",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_66_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_66_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_66_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_066_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_066_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/66"
+    },
+    "Mega Evolution|Delta Reign|DLR|067|Zoroark ex": {
+      "name": "Zoroark ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "067",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_67_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_67_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_67_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_067_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_067_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/67"
+    },
+    "Mega Evolution|Delta Reign|DLR|068|Inkay": {
+      "name": "Inkay",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "068",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_68_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_68_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_68_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_068_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_068_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/68"
+    },
+    "Mega Evolution|Delta Reign|DLR|069|Mega Malamar ex": {
+      "name": "Mega Malamar ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "069",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_69_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_69_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_69_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_069_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_069_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/69"
+    },
+    "Mega Evolution|Delta Reign|DLR|070|Morpeko": {
+      "name": "Morpeko",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "070",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_70_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_70_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_70_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_070_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_070_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/70"
+    },
+    "Mega Evolution|Delta Reign|DLR|071|Zarude": {
+      "name": "Zarude",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "071",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_71_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_71_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_71_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_071_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_071_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/71"
+    },
+    "Mega Evolution|Delta Reign|DLR|072|Druddigon": {
+      "name": "Druddigon",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "072",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_72_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_72_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_72_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_072_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_072_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/72"
+    },
+    "Mega Evolution|Delta Reign|DLR|073|Jangmo-o": {
+      "name": "Jangmo-o",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "073",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_73_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_73_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_73_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_073_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_073_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/73"
+    },
+    "Mega Evolution|Delta Reign|DLR|074|Hakamo-o": {
+      "name": "Hakamo-o",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "074",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_74_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_74_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_74_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_074_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_074_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/74"
+    },
+    "Mega Evolution|Delta Reign|DLR|075|Kommo-o": {
+      "name": "Kommo-o",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "075",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_75_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_75_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_75_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_075_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_075_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/75"
+    },
+    "Mega Evolution|Delta Reign|DLR|076|Cyclizar": {
+      "name": "Cyclizar",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "076",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_76_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_76_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_76_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_076_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_076_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/76"
+    },
+    "Mega Evolution|Delta Reign|DLR|077|Tauros": {
+      "name": "Tauros",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "077",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_77_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_77_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_77_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_077_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_077_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/77"
+    },
+    "Mega Evolution|Delta Reign|DLR|078|Eevee": {
+      "name": "Eevee",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "078",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_78_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_78_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_78_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_078_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_078_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/78"
+    },
+    "Mega Evolution|Delta Reign|DLR|079|Delibird": {
+      "name": "Delibird",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "079",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_79_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_79_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_79_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_079_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_079_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/79"
+    },
+    "Mega Evolution|Delta Reign|DLR|080|Azurill": {
+      "name": "Azurill",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "080",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_80_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_80_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_80_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_080_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_080_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/80"
+    },
+    "Mega Evolution|Delta Reign|DLR|081|Swablu": {
+      "name": "Swablu",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "081",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_81_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_81_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_81_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_081_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_081_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/81"
+    },
+    "Mega Evolution|Delta Reign|DLR|082|Altaria": {
+      "name": "Altaria",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "082",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_82_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_82_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_82_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_082_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_082_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/82"
+    },
+    "Mega Evolution|Delta Reign|DLR|083|Kecleon": {
+      "name": "Kecleon",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "083",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_83_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_83_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_83_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_083_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_083_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/83"
+    },
+    "Mega Evolution|Delta Reign|DLR|084|Mega Rayquaza ex": {
+      "name": "Mega Rayquaza ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "084",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_84_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_84_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_84_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_084_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_084_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/84"
+    },
+    "Mega Evolution|Delta Reign|DLR|085|Tornadus": {
+      "name": "Tornadus",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "085",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_85_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_85_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_85_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_085_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_085_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/85"
+    },
+    "Mega Evolution|Delta Reign|DLR|086|Fletchling": {
+      "name": "Fletchling",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "086",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_86_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_86_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_86_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_086_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_086_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/86"
+    },
+    "Mega Evolution|Delta Reign|DLR|087|Fletchinder": {
+      "name": "Fletchinder",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "087",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_87_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_87_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_87_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_087_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_087_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/87"
+    },
+    "Mega Evolution|Delta Reign|DLR|088|Talonflame ex": {
+      "name": "Talonflame ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "088",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_88_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_88_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_88_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_088_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_088_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/88"
+    },
+    "Mega Evolution|Delta Reign|DLR|089|Aarune": {
+      "name": "Aarune",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "089",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_89_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_89_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_89_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_089_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_089_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/89"
+    },
+    "Mega Evolution|Delta Reign|DLR|090|Adventure Lantern": {
+      "name": "Adventure Lantern",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "090",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_90_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_90_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_90_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_090_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_090_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/90"
+    },
+    "Mega Evolution|Delta Reign|DLR|091|Custom Vest": {
+      "name": "Custom Vest",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "091",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_91_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_91_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_91_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_091_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_091_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/91"
+    },
+    "Mega Evolution|Delta Reign|DLR|092|Emcee's Hype": {
+      "name": "Emcee's Hype",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "092",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_92_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_92_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_92_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_092_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_092_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/92"
+    },
+    "Mega Evolution|Delta Reign|DLR|093|Grisham": {
+      "name": "Grisham",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "093",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_93_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_93_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_93_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_093_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_093_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/93"
+    },
+    "Mega Evolution|Delta Reign|DLR|094|Legendary Pyroduct": {
+      "name": "Legendary Pyroduct",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "094",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_94_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_94_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_94_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_094_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_094_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/94"
+    },
+    "Mega Evolution|Delta Reign|DLR|095|Legendary Pyroduct": {
+      "name": "Legendary Pyroduct",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "095",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_95_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_95_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_95_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_095_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_095_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/95"
+    },
+    "Mega Evolution|Delta Reign|DLR|096|Legendary Summit": {
+      "name": "Legendary Summit",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "096",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_96_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_96_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_96_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_096_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_096_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/96"
+    },
+    "Mega Evolution|Delta Reign|DLR|097|Legendary Summit": {
+      "name": "Legendary Summit",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "097",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_97_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_97_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_97_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_097_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_097_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/97"
+    },
+    "Mega Evolution|Delta Reign|DLR|098|Legendary Trench": {
+      "name": "Legendary Trench",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "098",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_98_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_98_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_98_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_098_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_098_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/98"
+    },
+    "Mega Evolution|Delta Reign|DLR|099|Legendary Trench": {
+      "name": "Legendary Trench",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "099",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_99_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_99_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_99_R_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_099_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_099_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/99"
+    },
+    "Mega Evolution|Delta Reign|DLR|100|Mega Rayquaza Cap": {
+      "name": "Mega Rayquaza Cap",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "100",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_100_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_100_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_100_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/100"
+    },
+    "Mega Evolution|Delta Reign|DLR|101|Tasty Rice Ball": {
+      "name": "Tasty Rice Ball",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "101",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_101_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_101_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_101_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/101"
+    },
+    "Mega Evolution|Delta Reign|DLR|102|Tate & Liza's Training": {
+      "name": "Tate & Liza's Training",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "102",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_102_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_102_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_102_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/102"
+    },
+    "Mega Evolution|Delta Reign|DLR|103|Zinnia's Trust": {
+      "name": "Zinnia's Trust",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "103",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_103_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_103_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_103_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/103"
+    },
+    "Mega Evolution|Delta Reign|DLR|104|Masquerain": {
+      "name": "Masquerain",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "104",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_104_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_104_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_104_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/104"
+    },
+    "Mega Evolution|Delta Reign|DLR|105|Sprigatito": {
+      "name": "Sprigatito",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "105",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_105_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_105_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_105_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/105"
+    },
+    "Mega Evolution|Delta Reign|DLR|106|Growlithe": {
+      "name": "Growlithe",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "106",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_106_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_106_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_106_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/106"
+    },
+    "Mega Evolution|Delta Reign|DLR|107|Magmortar": {
+      "name": "Magmortar",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "107",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_107_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_107_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_107_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/107"
+    },
+    "Mega Evolution|Delta Reign|DLR|108|Electivire": {
+      "name": "Electivire",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "108",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_108_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_108_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_108_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/108"
+    },
+    "Mega Evolution|Delta Reign|DLR|109|Pincurchin": {
+      "name": "Pincurchin",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "109",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_109_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_109_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_109_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/109"
+    },
+    "Mega Evolution|Delta Reign|DLR|110|Enamorus": {
+      "name": "Enamorus",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "110",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_110_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_110_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_110_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/110"
+    },
+    "Mega Evolution|Delta Reign|DLR|111|Groudon": {
+      "name": "Groudon",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "111",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_111_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_111_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_111_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/111"
+    },
+    "Mega Evolution|Delta Reign|DLR|112|Zorua": {
+      "name": "Zorua",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "112",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_112_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_112_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_112_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/112"
+    },
+    "Mega Evolution|Delta Reign|DLR|113|Inkay": {
+      "name": "Inkay",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "113",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_113_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_113_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_113_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/113"
+    },
+    "Mega Evolution|Delta Reign|DLR|114|Eevee": {
+      "name": "Eevee",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "114",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_114_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_114_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_114_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/114"
+    },
+    "Mega Evolution|Delta Reign|DLR|115|Azurill": {
+      "name": "Azurill",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "115",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_115_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_115_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_115_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/115"
+    },
+    "Mega Evolution|Delta Reign|DLR|116|Altaria": {
+      "name": "Altaria",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "116",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_116_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_116_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_116_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/116"
+    },
+    "Mega Evolution|Delta Reign|DLR|117|Kecleon": {
+      "name": "Kecleon",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "117",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_117_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_117_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_117_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/117"
+    },
+    "Mega Evolution|Delta Reign|DLR|118|Mega Golisopod ex": {
+      "name": "Mega Golisopod ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "118",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_118_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_118_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_118_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/118"
+    },
+    "Mega Evolution|Delta Reign|DLR|119|Heat Rotom ex": {
+      "name": "Heat Rotom ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "119",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_119_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_119_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_119_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/119"
+    },
+    "Mega Evolution|Delta Reign|DLR|120|Wishiwashi ex": {
+      "name": "Wishiwashi ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "120",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_120_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_120_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_120_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/120"
+    },
+    "Mega Evolution|Delta Reign|DLR|121|Raikou ex": {
+      "name": "Raikou ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "121",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_121_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_121_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_121_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/121"
+    },
+    "Mega Evolution|Delta Reign|DLR|122|Mega Golurk ex": {
+      "name": "Mega Golurk ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "122",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_122_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_122_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_122_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/122"
+    },
+    "Mega Evolution|Delta Reign|DLR|123|Mega Malamar ex": {
+      "name": "Mega Malamar ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "123",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_123_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_123_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_123_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/123"
+    },
+    "Mega Evolution|Delta Reign|DLR|124|Talonflame ex": {
+      "name": "Talonflame ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "124",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_124_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_124_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_124_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/124"
+    },
+    "Mega Evolution|Delta Reign|DLR|125|Aarune": {
+      "name": "Aarune",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "125",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_125_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_125_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_125_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/125"
+    },
+    "Mega Evolution|Delta Reign|DLR|126|Adventure Lantern": {
+      "name": "Adventure Lantern",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "126",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_126_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_126_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_126_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/126"
+    },
+    "Mega Evolution|Delta Reign|DLR|127|Custom Vest": {
+      "name": "Custom Vest",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "127",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_127_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_127_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_127_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/127"
+    },
+    "Mega Evolution|Delta Reign|DLR|128|Emcee's Hype": {
+      "name": "Emcee's Hype",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "128",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_128_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_128_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_128_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/128"
+    },
+    "Mega Evolution|Delta Reign|DLR|129|Pokémon Catcher": {
+      "name": "Pokémon Catcher",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "129",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_129_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_129_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_129_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/129"
+    },
+    "Mega Evolution|Delta Reign|DLR|130|Tate & Liza's Training": {
+      "name": "Tate & Liza's Training",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "130",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_130_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_130_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_130_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/130"
+    },
+    "Mega Evolution|Delta Reign|DLR|131|Zinnia's Trust": {
+      "name": "Zinnia's Trust",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "131",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_131_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_131_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_131_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/131"
+    },
+    "Mega Evolution|Delta Reign|DLR|132|Bubbly Water Energy": {
+      "name": "Bubbly Water Energy",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "132",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_132_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_132_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_132_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/132"
+    },
+    "Mega Evolution|Delta Reign|DLR|133|Growing Grass Energy": {
+      "name": "Growing Grass Energy",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "133",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_133_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_133_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_133_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/133"
+    },
+    "Mega Evolution|Delta Reign|DLR|134|Nitro Fire Energy": {
+      "name": "Nitro Fire Energy",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "134",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_134_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_134_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_134_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/134"
+    },
+    "Mega Evolution|Delta Reign|DLR|135|Mega Golisopod ex": {
+      "name": "Mega Golisopod ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "135",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_135_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_135_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_135_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/135"
+    },
+    "Mega Evolution|Delta Reign|DLR|136|Raikou ex": {
+      "name": "Raikou ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "136",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_136_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_136_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_136_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/136"
+    },
+    "Mega Evolution|Delta Reign|DLR|137|Mega Golurk ex": {
+      "name": "Mega Golurk ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "137",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_137_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_137_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_137_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/137"
+    },
+    "Mega Evolution|Delta Reign|DLR|138|Mega Rayquaza ex": {
+      "name": "Mega Rayquaza ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "138",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_138_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_138_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_138_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/138"
+    },
+    "Mega Evolution|Delta Reign|DLR|139|Aarune": {
+      "name": "Aarune",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "139",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_139_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_139_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_139_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/139"
+    },
+    "Mega Evolution|Delta Reign|DLR|140|Zinnia's Trust": {
+      "name": "Zinnia's Trust",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "140",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_140_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_140_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_140_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/140"
+    },
+    "Mega Evolution|Delta Reign|DLR|141|Mega Rayquaza ex": {
+      "name": "Mega Rayquaza ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "141",
+      "bestUrl": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_141_EN_LG.png",
+      "candidates": [
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_141_EN_LG.png",
+        "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/DLR/DLR_141_R_EN_LG.png"
+      ],
+      "limitlessPage": "https://limitlesstcg.com/cards/DLR/141"
+    },
     "Mega Evolution|30th Celebration|30C|001|Exeggcute": {
       "name": "Exeggcute",
       "series": "Mega Evolution",
@@ -323741,7 +325790,7 @@
     }
   },
   "cleanup": {
-    "updatedAt": "2026-11-09T14:10:23.192388+00:00",
+    "updatedAt": "2026-11-10T14:41:42.200510+00:00",
     "rule": "Chaos Rising en Pitch Black gebruiken uitsluitend veilige Limitless _R_EN_LG-afbeeldingen",
     "improvedCards": 242,
     "removedUnsafeUrlsApprox": 900,

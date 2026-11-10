@@ -1,0 +1,119 @@
+{
+  "updatedAt": "2026-11-10T14:41:41.437025+00:00",
+  "source": "https://api.tcgdex.net/v2/en/sets/me06",
+  "sourceId": "me06",
+  "set": {
+    "series": "Mega Evolution",
+    "set": "Delta Reign",
+    "abbr": "DLR",
+    "count": 141,
+    "mainCount": 103
+  },
+  "addedCards": 141,
+  "removedExistingCards": 0,
+  "cardsWithTcgDexImage": 0,
+  "firstCards": [
+    {
+      "key": "Mega Evolution|Delta Reign|DLR|001|Heracross",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "001",
+      "name": "Heracross",
+      "rarity": "Unknown",
+      "type": "Unknown"
+    },
+    {
+      "key": "Mega Evolution|Delta Reign|DLR|002|Surskit",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "002",
+      "name": "Surskit",
+      "rarity": "Unknown",
+      "type": "Unknown"
+    },
+    {
+      "key": "Mega Evolution|Delta Reign|DLR|003|Masquerain",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "003",
+      "name": "Masquerain",
+      "rarity": "Unknown",
+      "type": "Unknown"
+    },
+    {
+      "key": "Mega Evolution|Delta Reign|DLR|004|Cacnea",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "004",
+      "name": "Cacnea",
+      "rarity": "Unknown",
+      "type": "Unknown"
+    },
+    {
+      "key": "Mega Evolution|Delta Reign|DLR|005|Cacturne",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "005",
+      "name": "Cacturne",
+      "rarity": "Unknown",
+      "type": "Unknown"
+    }
+  ],
+  "lastCards": [
+    {
+      "key": "Mega Evolution|Delta Reign|DLR|137|Mega Golurk ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "137",
+      "name": "Mega Golurk ex",
+      "rarity": "Special Illustration Rare",
+      "type": "Special Illustration Rare"
+    },
+    {
+      "key": "Mega Evolution|Delta Reign|DLR|138|Mega Rayquaza ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "138",
+      "name": "Mega Rayquaza ex",
+      "rarity": "Special Illustration Rare",
+      "type": "Special Illustration Rare"
+    },
+    {
+      "key": "Mega Evolution|Delta Reign|DLR|139|Aarune",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "139",
+      "name": "Aarune",
+      "rarity": "Special Illustration Rare",
+      "type": "Special Illustration Rare"
+    },
+    {
+      "key": "Mega Evolution|Delta Reign|DLR|140|Zinnia's Trust",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "140",
+      "name": "Zinnia's Trust",
+      "rarity": "Special Illustration Rare",
+      "type": "Special Illustration Rare"
+    },
+    {
+      "key": "Mega Evolution|Delta Reign|DLR|141|Mega Rayquaza ex",
+      "series": "Mega Evolution",
+      "set": "Delta Reign",
+      "abbr": "DLR",
+      "num": "141",
+      "name": "Mega Rayquaza ex",
+      "rarity": "Mega Hyper Rare",
+      "type": "Mega Hyper Rare"
+    }
+  ]
+}
