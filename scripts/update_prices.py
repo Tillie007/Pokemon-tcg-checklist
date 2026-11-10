@@ -61,6 +61,8 @@ PRICE_GUIDE_URL = "https://downloads.s3.cardmarket.com/productCatalog/priceGuide
 # en volgorde binnen dezelfde Engelse expansie gekoppeld.
 THIRTIETH_EXPANSION_ID = "6601"
 THIRTIETH_ENERGY_EXPANSION_ID = "6324"
+DELTA_REIGN_EXPANSION_ID = "6704"
+DELTA_REIGN_SET = "Delta Reign"
 THIRTIETH_MAIN_SET = "30th Celebration"
 THIRTIETH_CLASSIC_SET = "30th Celebration: Classic Collection"
 THIRTIETH_ENERGY_SET = "Mega Evolution Energy"
@@ -1143,6 +1145,51 @@ def build_price_map(price_rows: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any
     return by_id
 
 
+def build_delta_reign_direct_product_map(
+    cards: List[Dict[str, Any]],
+    products: List[Dict[str, str]],
+) -> Dict[str, Dict[str, str]]:
+    """Koppel Delta Reign veilig binnen Cardmarket-expansion 6704."""
+    set_cards = [
+        card for card in cards
+        if card.get("series") == "Mega Evolution"
+        and card.get("set") == DELTA_REIGN_SET
+    ]
+    set_products = [
+        product for product in products
+        if str(product.get("idExpansion", "")) == DELTA_REIGN_EXPANSION_ID
+    ]
+    if len(set_cards) != 141 or len(set_products) != 141:
+        return {}
+
+    cards_by_name: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+    for card in set_cards:
+        cards_by_name[norm_text(card.get("name", ""))].append(card)
+
+    result: Dict[str, Dict[str, str]] = {}
+    for name, name_cards in cards_by_name.items():
+        candidates = [
+            product for product in set_products
+            if (
+                norm_text(product.get("normName", "")) == name
+                or product_name_starts_with_card(product.get("normName", ""), name)
+            )
+        ]
+        if len(candidates) != len(name_cards):
+            continue
+        ordered_cards = sorted(
+            name_cards,
+            key=lambda card: int(re.sub(r"\\D", "", str(card.get("num", "0"))) or "0"),
+        )
+        ordered_products = sorted(
+            candidates,
+            key=lambda product: int(str(product.get("idProduct", "0")) or "0"),
+        )
+        for card, product in zip(ordered_cards, ordered_products):
+            result[str(card["key"])] = product
+    return result
+
+
 def build_30th_direct_product_map(
     cards: List[Dict[str, Any]],
     products: List[Dict[str, str]],
@@ -1272,6 +1319,8 @@ def find_product(
 ) -> Tuple[Optional[Dict[str, str]], str, int]:
     direct = (direct_product_map or {}).get(str(card.get("key", "")))
     if direct is not None:
+        if card.get("set") == DELTA_REIGN_SET:
+            return direct, "verified-delta-reign-product", 1
         return direct, "verified-30th-product", 1
 
     num = norm_num(card.get("num"))
@@ -1487,6 +1536,9 @@ def build(force: bool = False) -> None:
     log(f"Automatisch/handmatig herkende Cardmarket expansions: {len(set_map)}/{len(sets)}")
     direct_product_map = build_30th_direct_product_map(cards, products)
     log(f"Gecontroleerde 30th-productkoppelingen: {len(direct_product_map)}/199")
+    delta_direct_map = build_delta_reign_direct_product_map(cards, products)
+    direct_product_map.update(delta_direct_map)
+    log(f"Gecontroleerde Delta Reign-productkoppelingen: {len(delta_direct_map)}/141")
 
     now_dt = dt.datetime.now(dt.timezone.utc)
     now = now_dt.isoformat()
