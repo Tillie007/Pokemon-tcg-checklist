@@ -1,104 +1,104 @@
 ﻿status;matchType;candidateCount;appKey;serie;set;abbr;kaartnr;kaartnaam;cmProductId;cmExpansionId;cmSetCode;cmSetName;cmNumber;cmName;cmRawName;price;foilTrendPrice;url
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|001|Heracross;Mega Evolution;Delta Reign;DLR;001;Heracross;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|002|Surskit;Mega Evolution;Delta Reign;DLR;002;Surskit;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|001|Heracross;Mega Evolution;Delta Reign;DLR;001;Heracross;918810;6704;;;;Heracross [Spike Draw | High Horsepower];Heracross [Spike Draw | High Horsepower];0.02;0.10;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918810
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|002|Surskit;Mega Evolution;Delta Reign;DLR;002;Surskit;918811;6704;;;;Surskit [Multiply | Bug Bite];Surskit [Multiply | Bug Bite];0.05;0.05;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918811
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|003|Masquerain;Mega Evolution;Delta Reign;DLR;003;Masquerain;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|004|Cacnea;Mega Evolution;Delta Reign;DLR;004;Cacnea;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|005|Cacturne;Mega Evolution;Delta Reign;DLR;005;Cacturne;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|006|Combee;Mega Evolution;Delta Reign;DLR;006;Combee;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|007|Vespiquen;Mega Evolution;Delta Reign;DLR;007;Vespiquen;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|008|Shaymin;Mega Evolution;Delta Reign;DLR;008;Shaymin;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|009|Virizion;Mega Evolution;Delta Reign;DLR;009;Virizion;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|010|Wimpod;Mega Evolution;Delta Reign;DLR;010;Wimpod;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|004|Cacnea;Mega Evolution;Delta Reign;DLR;004;Cacnea;918813;6704;;;;Cacnea [Knock Away];Cacnea [Knock Away];0.04;0.13;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918813
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|005|Cacturne;Mega Evolution;Delta Reign;DLR;005;Cacturne;918814;6704;;;;Cacturne [Linear Attack | Punishing Needles];Cacturne [Linear Attack | Punishing Needles];0.08;0.15;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918814
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|006|Combee;Mega Evolution;Delta Reign;DLR;006;Combee;918815;6704;;;;Combee [Fade Out | Bug Out];Combee [Fade Out | Bug Out];0.04;0.12;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918815
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|007|Vespiquen;Mega Evolution;Delta Reign;DLR;007;Vespiquen;918816;6704;;;;Vespiquen [Pierce | Clean Hit];Vespiquen [Pierce | Clean Hit];0.04;0.10;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918816
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|008|Shaymin;Mega Evolution;Delta Reign;DLR;008;Shaymin;918817;6704;;;;Shaymin [Overrun];Shaymin [Overrun];0.02;0.10;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918817
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|009|Virizion;Mega Evolution;Delta Reign;DLR;009;Virizion;918818;6704;;;;Virizion [Double Draw | Solar Beam];Virizion [Double Draw | Solar Beam];0.02;0.13;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918818
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|010|Wimpod;Mega Evolution;Delta Reign;DLR;010;Wimpod;918819;6704;;;;Wimpod [Punk Out | Ram];Wimpod [Punk Out | Ram];0.07;0.14;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918819
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|011|Mega Golisopod ex;Mega Evolution;Delta Reign;DLR;011;Mega Golisopod ex;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|012|Sprigatito;Mega Evolution;Delta Reign;DLR;012;Sprigatito;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|013|Floragato;Mega Evolution;Delta Reign;DLR;013;Floragato;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|014|Meowscarada ex;Mega Evolution;Delta Reign;DLR;014;Meowscarada ex;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|015|Smoliv;Mega Evolution;Delta Reign;DLR;015;Smoliv;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|016|Dolliv;Mega Evolution;Delta Reign;DLR;016;Dolliv;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|017|Arboliva;Mega Evolution;Delta Reign;DLR;017;Arboliva;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|013|Floragato;Mega Evolution;Delta Reign;DLR;013;Floragato;918823;6704;;;;Floragato [Slash];Floragato [Slash];0.04;0.09;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918823
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|014|Meowscarada ex;Mega Evolution;Delta Reign;DLR;014;Meowscarada ex;918824;6704;;;;Meowscarada ex [Magical Bullet];Meowscarada ex [Magical Bullet];0.50;0.00;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918824
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|015|Smoliv;Mega Evolution;Delta Reign;DLR;015;Smoliv;918825;6704;;;;Smoliv [Spray Fluid];Smoliv [Spray Fluid];0.06;0.12;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918825
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|016|Dolliv;Mega Evolution;Delta Reign;DLR;016;Dolliv;918826;6704;;;;Dolliv [Leaf Step];Dolliv [Leaf Step];0.05;0.15;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918826
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|017|Arboliva;Mega Evolution;Delta Reign;DLR;017;Arboliva;918827;6704;;;;Arboliva [Oil Slip | Mega Drain];Arboliva [Oil Slip | Mega Drain];0.03;0.07;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918827
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|018|Growlithe;Mega Evolution;Delta Reign;DLR;018;Growlithe;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|019|Arcanine;Mega Evolution;Delta Reign;DLR;019;Arcanine;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|020|Magmar;Mega Evolution;Delta Reign;DLR;020;Magmar;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|019|Arcanine;Mega Evolution;Delta Reign;DLR;019;Arcanine;918833;6704;;;;Arcanine [Vigorous Fangs | Heat Tackle];Arcanine [Vigorous Fangs | Heat Tackle];0.06;0.18;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918833
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|020|Magmar;Mega Evolution;Delta Reign;DLR;020;Magmar;918834;6704;;;;Magmar [Gather Strength | Combustion];Magmar [Gather Strength | Combustion];0.03;0.13;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918834
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|021|Magmortar;Mega Evolution;Delta Reign;DLR;021;Magmortar;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|022|Torkoal;Mega Evolution;Delta Reign;DLR;022;Torkoal;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|022|Torkoal;Mega Evolution;Delta Reign;DLR;022;Torkoal;918837;6704;;;;Torkoal [Searing Flame | Combustion Blast];Torkoal [Searing Flame | Combustion Blast];0.02;0.11;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918837
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|023|Heat Rotom ex;Mega Evolution;Delta Reign;DLR;023;Heat Rotom ex;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|024|Heatmor;Mega Evolution;Delta Reign;DLR;024;Heatmor;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|025|Mantine;Mega Evolution;Delta Reign;DLR;025;Mantine;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|026|Kyogre;Mega Evolution;Delta Reign;DLR;026;Kyogre;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|027|Frillish;Mega Evolution;Delta Reign;DLR;027;Frillish;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|028|Jellicent;Mega Evolution;Delta Reign;DLR;028;Jellicent;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|024|Heatmor;Mega Evolution;Delta Reign;DLR;024;Heatmor;918839;6704;;;;Heatmor [Destructive Flame];Heatmor [Destructive Flame];0.02;0.09;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918839
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|025|Mantine;Mega Evolution;Delta Reign;DLR;025;Mantine;918840;6704;;;;Mantine [Raising Waves | Bubble Drain];Mantine [Raising Waves | Bubble Drain];0.02;0.06;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918840
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|026|Kyogre;Mega Evolution;Delta Reign;DLR;026;Kyogre;918841;6704;;;;Kyogre [Waterfall | Thrashing Whirl];Kyogre [Waterfall | Thrashing Whirl];0.07;0.13;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918841
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|027|Frillish;Mega Evolution;Delta Reign;DLR;027;Frillish;918842;6704;;;;Frillish [Hook];Frillish [Hook];0.08;0.10;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918842
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|028|Jellicent;Mega Evolution;Delta Reign;DLR;028;Jellicent;918843;6704;;;;Jellicent [Deep Sea Draw | Gentle Slap];Jellicent [Deep Sea Draw | Gentle Slap];0.07;0.13;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918843
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|029|Wishiwashi ex;Mega Evolution;Delta Reign;DLR;029;Wishiwashi ex;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|030|Electabuzz;Mega Evolution;Delta Reign;DLR;030;Electabuzz;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|030|Electabuzz;Mega Evolution;Delta Reign;DLR;030;Electabuzz;918846;6704;;;;Electabuzz [Call for Family | Headbutt];Electabuzz [Call for Family | Headbutt];0.04;0.08;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918846
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|031|Electivire;Mega Evolution;Delta Reign;DLR;031;Electivire;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|032|Jolteon;Mega Evolution;Delta Reign;DLR;032;Jolteon;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|032|Jolteon;Mega Evolution;Delta Reign;DLR;032;Jolteon;918848;6704;;;;Jolteon [Tackle | Thunderbolt];Jolteon [Tackle | Thunderbolt];0.07;0.02;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918848
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|033|Raikou ex;Mega Evolution;Delta Reign;DLR;033;Raikou ex;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|034|Rotom;Mega Evolution;Delta Reign;DLR;034;Rotom;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|035|Thundurus;Mega Evolution;Delta Reign;DLR;035;Thundurus;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|034|Rotom;Mega Evolution;Delta Reign;DLR;034;Rotom;918850;6704;;;;Rotom [Thunder Shock];Rotom [Thunder Shock];0.02;0.08;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918850
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|035|Thundurus;Mega Evolution;Delta Reign;DLR;035;Thundurus;918852;6704;;;;Thundurus [Incarnate Union | Thunderous Edge];Thundurus [Incarnate Union | Thunderous Edge];0.06;0.11;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918852
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|036|Pincurchin;Mega Evolution;Delta Reign;DLR;036;Pincurchin;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|037|Pawmi;Mega Evolution;Delta Reign;DLR;037;Pawmi;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|038|Pawmo;Mega Evolution;Delta Reign;DLR;038;Pawmo;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|039|Pawmot;Mega Evolution;Delta Reign;DLR;039;Pawmot;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|040|Wattrel;Mega Evolution;Delta Reign;DLR;040;Wattrel;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|041|Kilowattrel;Mega Evolution;Delta Reign;DLR;041;Kilowattrel;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|042|Miraidon;Mega Evolution;Delta Reign;DLR;042;Miraidon;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|043|Drowzee;Mega Evolution;Delta Reign;DLR;043;Drowzee;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|044|Hypno;Mega Evolution;Delta Reign;DLR;044;Hypno;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|045|Giratina;Mega Evolution;Delta Reign;DLR;045;Giratina;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|046|Golett;Mega Evolution;Delta Reign;DLR;046;Golett;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|037|Pawmi;Mega Evolution;Delta Reign;DLR;037;Pawmi;918854;6704;;;;Pawmi [Quick Attack];Pawmi [Quick Attack];0.03;0.11;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918854
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|038|Pawmo;Mega Evolution;Delta Reign;DLR;038;Pawmo;918855;6704;;;;Pawmo [Electro Ball];Pawmo [Electro Ball];0.02;0.06;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918855
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|039|Pawmot;Mega Evolution;Delta Reign;DLR;039;Pawmot;918856;6704;;;;Pawmot [Generator Touch | Electric Punch];Pawmot [Generator Touch | Electric Punch];0.03;0.08;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918856
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|040|Wattrel;Mega Evolution;Delta Reign;DLR;040;Wattrel;918857;6704;;;;Wattrel [Agility];Wattrel [Agility];0.02;0.09;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918857
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|041|Kilowattrel;Mega Evolution;Delta Reign;DLR;041;Kilowattrel;918858;6704;;;;Kilowattrel [Raid | Speed Dive];Kilowattrel [Raid | Speed Dive];0.04;0.09;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918858
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|042|Miraidon;Mega Evolution;Delta Reign;DLR;042;Miraidon;918859;6704;;;;Miraidon [Claw Slash | Flashing Bolt];Miraidon [Claw Slash | Flashing Bolt];0.03;0.11;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918859
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|043|Drowzee;Mega Evolution;Delta Reign;DLR;043;Drowzee;918863;6704;;;;Drowzee [Pound];Drowzee [Pound];0.02;0.18;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918863
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|044|Hypno;Mega Evolution;Delta Reign;DLR;044;Hypno;918864;6704;;;;Hypno [Mind Ruler | Hypnoblast];Hypno [Mind Ruler | Hypnoblast];0.03;0.18;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918864
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|045|Giratina;Mega Evolution;Delta Reign;DLR;045;Giratina;918865;6704;;;;Giratina [Chaos Crawler];Giratina [Chaos Crawler];0.11;0.13;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918865
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|046|Golett;Mega Evolution;Delta Reign;DLR;046;Golett;918867;6704;;;;Golett [Light Punch];Golett [Light Punch];0.07;0.13;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918867
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|047|Mega Golurk ex;Mega Evolution;Delta Reign;DLR;047;Mega Golurk ex;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|048|Enamorus;Mega Evolution;Delta Reign;DLR;048;Enamorus;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|049|Sandshrew;Mega Evolution;Delta Reign;DLR;049;Sandshrew;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|050|Sandslash;Mega Evolution;Delta Reign;DLR;050;Sandslash;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|051|Onix;Mega Evolution;Delta Reign;DLR;051;Onix;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|052|Steelix;Mega Evolution;Delta Reign;DLR;052;Steelix;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|049|Sandshrew;Mega Evolution;Delta Reign;DLR;049;Sandshrew;918871;6704;;;;Sandshrew [Ascension];Sandshrew [Ascension];0.03;0.10;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918871
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|050|Sandslash;Mega Evolution;Delta Reign;DLR;050;Sandslash;918872;6704;;;;Sandslash [Counterattack Quills | Digging Claw];Sandslash [Counterattack Quills | Digging Claw];0.02;0.07;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918872
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|051|Onix;Mega Evolution;Delta Reign;DLR;051;Onix;918873;6704;;;;Onix [Guard Press];Onix [Guard Press];0.03;0.10;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918873
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|052|Steelix;Mega Evolution;Delta Reign;DLR;052;Steelix;918875;6704;;;;Steelix [High Density Armor | Tough Swing];Steelix [High Density Armor | Tough Swing];0.06;0.10;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918875
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|053|Groudon;Mega Evolution;Delta Reign;DLR;053;Groudon;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|054|Landorus;Mega Evolution;Delta Reign;DLR;054;Landorus;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|054|Landorus;Mega Evolution;Delta Reign;DLR;054;Landorus;918877;6704;;;;Landorus [Incarnate Union | Gaia Crush];Landorus [Incarnate Union | Gaia Crush];0.05;0.09;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918877
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|055|Nidoran♀;Mega Evolution;Delta Reign;DLR;055;Nidoran♀;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|056|Nidorina;Mega Evolution;Delta Reign;DLR;056;Nidorina;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|057|Nidoqueen;Mega Evolution;Delta Reign;DLR;057;Nidoqueen;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|058|Spinarak;Mega Evolution;Delta Reign;DLR;058;Spinarak;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|059|Ariados;Mega Evolution;Delta Reign;DLR;059;Ariados;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|060|Sableye;Mega Evolution;Delta Reign;DLR;060;Sableye;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|061|Carvanha;Mega Evolution;Delta Reign;DLR;061;Carvanha;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|062|Sharpedo;Mega Evolution;Delta Reign;DLR;062;Sharpedo;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|063|Darkrai;Mega Evolution;Delta Reign;DLR;063;Darkrai;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|064|Purrloin;Mega Evolution;Delta Reign;DLR;064;Purrloin;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|065|Liepard;Mega Evolution;Delta Reign;DLR;065;Liepard;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|056|Nidorina;Mega Evolution;Delta Reign;DLR;056;Nidorina;918879;6704;;;;Nidorina [Tackle];Nidorina [Tackle];0.03;0.11;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918879
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|057|Nidoqueen;Mega Evolution;Delta Reign;DLR;057;Nidoqueen;918880;6704;;;;Nidoqueen [Mother's Call | Giga Impact];Nidoqueen [Mother's Call | Giga Impact];0.04;0.14;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918880
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|058|Spinarak;Mega Evolution;Delta Reign;DLR;058;Spinarak;918881;6704;;;;Spinarak [Poison Sting | Bug Out];Spinarak [Poison Sting | Bug Out];0.03;0.09;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918881
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|059|Ariados;Mega Evolution;Delta Reign;DLR;059;Ariados;918882;6704;;;;Ariados [Tormenting Poison | Covert Needle];Ariados [Tormenting Poison | Covert Needle];0.04;0.08;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918882
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|060|Sableye;Mega Evolution;Delta Reign;DLR;060;Sableye;918883;6704;;;;Sableye [Lure Out | Ominous Eyes];Sableye [Lure Out | Ominous Eyes];0.07;0.15;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918883
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|061|Carvanha;Mega Evolution;Delta Reign;DLR;061;Carvanha;918884;6704;;;;Carvanha [Ambush];Carvanha [Ambush];0.05;0.13;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918884
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|062|Sharpedo;Mega Evolution;Delta Reign;DLR;062;Sharpedo;918885;6704;;;;Sharpedo [Crunch];Sharpedo [Crunch];0.02;0.13;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918885
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|063|Darkrai;Mega Evolution;Delta Reign;DLR;063;Darkrai;918886;6704;;;;Darkrai [Shadow Cloak | Dark Cutter];Darkrai [Shadow Cloak | Dark Cutter];0.03;0.11;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918886
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|064|Purrloin;Mega Evolution;Delta Reign;DLR;064;Purrloin;918888;6704;;;;Purrloin [Dig Claws];Purrloin [Dig Claws];0.03;0.08;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918888
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|065|Liepard;Mega Evolution;Delta Reign;DLR;065;Liepard;918889;6704;;;;Liepard [Follow-Up Claw | Slash];Liepard [Follow-Up Claw | Slash];0.02;0.13;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918889
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|066|Zorua;Mega Evolution;Delta Reign;DLR;066;Zorua;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|067|Zoroark ex;Mega Evolution;Delta Reign;DLR;067;Zoroark ex;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|067|Zoroark ex;Mega Evolution;Delta Reign;DLR;067;Zoroark ex;918892;6704;;;;Zoroark ex [Riotous Beating | Slashing Strike];Zoroark ex [Riotous Beating | Slashing Strike];0.73;0.00;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918892
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|068|Inkay;Mega Evolution;Delta Reign;DLR;068;Inkay;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|069|Mega Malamar ex;Mega Evolution;Delta Reign;DLR;069;Mega Malamar ex;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|070|Morpeko;Mega Evolution;Delta Reign;DLR;070;Morpeko;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|071|Zarude;Mega Evolution;Delta Reign;DLR;071;Zarude;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|072|Druddigon;Mega Evolution;Delta Reign;DLR;072;Druddigon;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|073|Jangmo-o;Mega Evolution;Delta Reign;DLR;073;Jangmo-o;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|074|Hakamo-o;Mega Evolution;Delta Reign;DLR;074;Hakamo-o;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|075|Kommo-o;Mega Evolution;Delta Reign;DLR;075;Kommo-o;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|076|Cyclizar;Mega Evolution;Delta Reign;DLR;076;Cyclizar;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|077|Tauros;Mega Evolution;Delta Reign;DLR;077;Tauros;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|070|Morpeko;Mega Evolution;Delta Reign;DLR;070;Morpeko;918896;6704;;;;Morpeko [Call for Family | Slap];Morpeko [Call for Family | Slap];0.03;0.17;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918896
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|071|Zarude;Mega Evolution;Delta Reign;DLR;071;Zarude;918898;6704;;;;Zarude [Corkscrew Punch | Mortal Whip];Zarude [Corkscrew Punch | Mortal Whip];0.02;0.12;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918898
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|072|Druddigon;Mega Evolution;Delta Reign;DLR;072;Druddigon;918900;6704;;;;Druddigon [Drag Off | Claw Slash];Druddigon [Drag Off | Claw Slash];0.03;0.07;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918900
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|073|Jangmo-o;Mega Evolution;Delta Reign;DLR;073;Jangmo-o;918901;6704;;;;Jangmo-o [Hard Head];Jangmo-o [Hard Head];0.03;0.14;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918901
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|074|Hakamo-o;Mega Evolution;Delta Reign;DLR;074;Hakamo-o;918902;6704;;;;Hakamo-o [Double Smash];Hakamo-o [Double Smash];0.05;0.12;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918902
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|075|Kommo-o;Mega Evolution;Delta Reign;DLR;075;Kommo-o;918903;6704;;;;Kommo-o [Scale Beat | Hammer In];Kommo-o [Scale Beat | Hammer In];0.02;0.10;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918903
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|076|Cyclizar;Mega Evolution;Delta Reign;DLR;076;Cyclizar;918904;6704;;;;Cyclizar [Bite | Break Through];Cyclizar [Bite | Break Through];0.04;0.07;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918904
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|077|Tauros;Mega Evolution;Delta Reign;DLR;077;Tauros;918905;6704;;;;Tauros [Raging Horns];Tauros [Raging Horns];0.04;0.12;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918905
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|078|Eevee;Mega Evolution;Delta Reign;DLR;078;Eevee;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|079|Delibird;Mega Evolution;Delta Reign;DLR;079;Delibird;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|079|Delibird;Mega Evolution;Delta Reign;DLR;079;Delibird;918907;6704;;;;Delibird [Energy Present | Beat];Delibird [Energy Present | Beat];0.04;0.08;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918907
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|080|Azurill;Mega Evolution;Delta Reign;DLR;080;Azurill;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|081|Swablu;Mega Evolution;Delta Reign;DLR;081;Swablu;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|081|Swablu;Mega Evolution;Delta Reign;DLR;081;Swablu;918909;6704;;;;Swablu [Run Around | Peck];Swablu [Run Around | Peck];0.04;0.09;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918909
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|082|Altaria;Mega Evolution;Delta Reign;DLR;082;Altaria;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|083|Kecleon;Mega Evolution;Delta Reign;DLR;083;Kecleon;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|084|Mega Rayquaza ex;Mega Evolution;Delta Reign;DLR;084;Mega Rayquaza ex;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|085|Tornadus;Mega Evolution;Delta Reign;DLR;085;Tornadus;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|086|Fletchling;Mega Evolution;Delta Reign;DLR;086;Fletchling;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|087|Fletchinder;Mega Evolution;Delta Reign;DLR;087;Fletchinder;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|085|Tornadus;Mega Evolution;Delta Reign;DLR;085;Tornadus;918913;6704;;;;Tornadus [Incarnate Union | Corkscrew Dive];Tornadus [Incarnate Union | Corkscrew Dive];0.04;0.11;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918913
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|086|Fletchling;Mega Evolution;Delta Reign;DLR;086;Fletchling;918914;6704;;;;Fletchling [Surprise Attack];Fletchling [Surprise Attack];0.03;0.03;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918914
+gekoppeld;mapped-expansion+unique-prefix-name;1;Mega Evolution|Delta Reign|DLR|087|Fletchinder;Mega Evolution;Delta Reign;DLR;087;Fletchinder;918915;6704;;;;Fletchinder [Clutch];Fletchinder [Clutch];0.03;0.10;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918915
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|088|Talonflame ex;Mega Evolution;Delta Reign;DLR;088;Talonflame ex;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|089|Aarune;Mega Evolution;Delta Reign;DLR;089;Aarune;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|090|Adventure Lantern;Mega Evolution;Delta Reign;DLR;090;Adventure Lantern;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|091|Custom Vest;Mega Evolution;Delta Reign;DLR;091;Custom Vest;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|092|Emcee's Hype;Mega Evolution;Delta Reign;DLR;092;Emcee's Hype;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|093|Grisham;Mega Evolution;Delta Reign;DLR;093;Grisham;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-name;1;Mega Evolution|Delta Reign|DLR|093|Grisham;Mega Evolution;Delta Reign;DLR;093;Grisham;918921;6704;;;;Grisham;Grisham;0.06;0.13;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918921
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|094|Legendary Pyroduct;Mega Evolution;Delta Reign;DLR;094;Legendary Pyroduct;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|095|Legendary Pyroduct;Mega Evolution;Delta Reign;DLR;095;Legendary Pyroduct;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|096|Legendary Summit;Mega Evolution;Delta Reign;DLR;096;Legendary Summit;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|097|Legendary Summit;Mega Evolution;Delta Reign;DLR;097;Legendary Summit;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|098|Legendary Trench;Mega Evolution;Delta Reign;DLR;098;Legendary Trench;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|099|Legendary Trench;Mega Evolution;Delta Reign;DLR;099;Legendary Trench;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|100|Mega Rayquaza Cap;Mega Evolution;Delta Reign;DLR;100;Mega Rayquaza Cap;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-name;1;Mega Evolution|Delta Reign|DLR|100|Mega Rayquaza Cap;Mega Evolution;Delta Reign;DLR;100;Mega Rayquaza Cap;918931;6704;;;;Mega Rayquaza Cap;Mega Rayquaza Cap;0.02;0.29;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918931
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|101|Tasty Rice Ball;Mega Evolution;Delta Reign;DLR;101;Tasty Rice Ball;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|102|Tate & Liza's Training;Mega Evolution;Delta Reign;DLR;102;Tate & Liza's Training;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|103|Zinnia's Trust;Mega Evolution;Delta Reign;DLR;103;Zinnia's Trust;;;;;;;;;;
@@ -127,7 +127,7 @@ niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|125|Aarune;Mega Evolut
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|126|Adventure Lantern;Mega Evolution;Delta Reign;DLR;126;Adventure Lantern;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|127|Custom Vest;Mega Evolution;Delta Reign;DLR;127;Custom Vest;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|128|Emcee's Hype;Mega Evolution;Delta Reign;DLR;128;Emcee's Hype;;;;;;;;;;
-niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|129|Pokémon Catcher;Mega Evolution;Delta Reign;DLR;129;Pokémon Catcher;;;;;;;;;;
+gekoppeld;mapped-expansion+unique-name;1;Mega Evolution|Delta Reign|DLR|129|Pokémon Catcher;Mega Evolution;Delta Reign;DLR;129;Pokémon Catcher;918968;6704;;;;Pokémon Catcher;Pokémon Catcher;1.85;0.00;https://www.cardmarket.com/en/Pokemon/Products?idProduct=918968
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|130|Tate & Liza's Training;Mega Evolution;Delta Reign;DLR;130;Tate & Liza's Training;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|131|Zinnia's Trust;Mega Evolution;Delta Reign;DLR;131;Zinnia's Trust;;;;;;;;;;
 niet gekoppeld;unmatched;0;Mega Evolution|Delta Reign|DLR|132|Bubbly Water Energy;Mega Evolution;Delta Reign;DLR;132;Bubbly Water Energy;;;;;;;;;;
