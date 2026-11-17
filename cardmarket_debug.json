@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-11-16T12:40:07.031305+00:00",
-  "productRows": 75740,
-  "priceRows": 80854,
-  "usableProducts": 75740,
-  "priceMapIds": 80854,
-  "matchedCards": 11715,
-  "pricedCards": 11715,
+  "updatedAt": "2026-11-17T13:14:24.775172+00:00",
+  "productRows": 75742,
+  "priceRows": 80885,
+  "usableProducts": 75742,
+  "priceMapIds": 80885,
+  "matchedCards": 11714,
+  "pricedCards": 11714,
   "samplePriceKeys": [
     [
       "idProduct",
@@ -101,15 +101,15 @@
       "priceGuides": "list"
     }
   },
-  "priceCacheSizeChars": 15868176,
-  "priceCacheFirst500Chars": "{\"version\":1,\"createdAt\":\"2026-11-16T02:48:57+0100\",\"priceGuides\":[{\"idProduct\":271439,\"idCategory\":52,\"avg\":153.5,\"low\":150,\"trend\":207.15,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":3.93,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"idProduct\":271440,\"idCategory\":53,\"avg\":2103,\"low\":100000,\"trend\":2239.24,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":178.28,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"",
+  "priceCacheSizeChars": 15876793,
+  "priceCacheFirst500Chars": "{\"version\":1,\"createdAt\":\"2026-11-17T02:51:10+0100\",\"priceGuides\":[{\"idProduct\":271439,\"idCategory\":52,\"avg\":153.5,\"low\":150,\"trend\":207.15,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":3.93,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"idProduct\":271440,\"idCategory\":53,\"avg\":2103,\"low\":100000,\"trend\":2239.24,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":178.28,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"",
   "matchTypes": {
     "verified-delta-reign-product": 130,
     "unmatched": 8290,
     "verified-30th-product": 199,
-    "mapped-expansion+unique-prefix-name": 9708,
+    "mapped-expansion+unique-prefix-name": 9707,
     "mapped-expansion+unique-name": 1678,
-    "ambiguous-prefix-name-in-expansion": 609,
+    "ambiguous-prefix-name-in-expansion": 610,
     "ambiguous-name-in-expansion": 178
   },
   "setMappingCandidates": "cardmarket_set_mapping_candidates.csv",
