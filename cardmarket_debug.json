@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-11-24T14:47:09.194183+00:00",
-  "productRows": 75913,
-  "priceRows": 81080,
-  "usableProducts": 75913,
-  "priceMapIds": 81080,
+  "updatedAt": "2026-11-25T14:14:03.912410+00:00",
+  "productRows": 75927,
+  "priceRows": 81084,
+  "usableProducts": 75927,
+  "priceMapIds": 81084,
   "matchedCards": 11714,
-  "pricedCards": 11714,
+  "pricedCards": 11713,
   "samplePriceKeys": [
     [
       "idProduct",
@@ -101,14 +101,14 @@
       "priceGuides": "list"
     }
   },
-  "priceCacheSizeChars": 15924456,
-  "priceCacheFirst500Chars": "{\"version\":1,\"createdAt\":\"2026-11-24T02:45:23+0100\",\"priceGuides\":[{\"idProduct\":271439,\"idCategory\":52,\"avg\":153.5,\"low\":130,\"trend\":199.31,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":3.93,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"idProduct\":271440,\"idCategory\":53,\"avg\":2103,\"low\":100000,\"trend\":2239.24,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":178.28,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"",
+  "priceCacheSizeChars": 15926941,
+  "priceCacheFirst500Chars": "{\"version\":1,\"createdAt\":\"2026-11-25T02:42:31+0100\",\"priceGuides\":[{\"idProduct\":271439,\"idCategory\":52,\"avg\":153.5,\"low\":130,\"trend\":199.31,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":3.93,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"idProduct\":271440,\"idCategory\":53,\"avg\":2103,\"low\":100000,\"trend\":2239.24,\"avg1\":null,\"avg7\":null,\"avg30\":null,\"avg-holo\":null,\"low-holo\":null,\"trend-holo\":178.28,\"avg1-holo\":null,\"avg7-holo\":null,\"avg30-holo\":null},{\"",
   "matchTypes": {
     "verified-delta-reign-product": 130,
     "unmatched": 8290,
     "verified-30th-product": 199,
-    "mapped-expansion+unique-prefix-name": 9707,
-    "mapped-expansion+unique-name": 1678,
+    "mapped-expansion+unique-prefix-name": 9706,
+    "mapped-expansion+unique-name": 1679,
     "ambiguous-prefix-name-in-expansion": 610,
     "ambiguous-name-in-expansion": 178
   },
